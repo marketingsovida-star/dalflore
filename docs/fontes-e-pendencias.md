@@ -23,18 +23,19 @@ As referências fundamentam os conceitos educativos. Não representam ensaios cl
 2. **Quantidade de cápsulas**: os mockups de Concentra+, Cycle e Hair & Skin exibem 30 cápsulas, enquanto os respectivos PDFs declaram 60 cápsulas e uso de 2 cápsulas/dia. O site apresenta os dados dos PDFs e preserva os mockups enviados. É necessário obter mockups atualizados ou confirmar a embalagem antes do lançamento no domínio oficial.
 3. **Porções por embalagem**: alguns PDFs de 60 cápsulas e porção de 2 cápsulas também dizem "porção por embalagem: 60". O site não reproduz esse campo inconsistente e não chama kits de "meses de tratamento".
 4. **Telefone**: o rodapé antigo contém um número diferente. Foi adotado (51) 99726-4646, que coincide com os PDFs e o botão flutuante do site atual.
+5. **Preços desatualizados no site original**: a inspeção dos 15 links de pagamento mostrou valores diferentes dos cards da loja antiga. Foram adotados os totais das próprias ofertas Payt, verificados pela configuração pública entregue no HTML do checkout, sem inserir dados pessoais ou fazer um pedido. Exemplo: GUTcare com 6 frascos está R$ 623,52 na Payt; o site antigo anuncia R$ 426,24. Os valores declarados pelo novo catálogo correspondem aos checkouts, e não aos cards antigos.
 
 ## Ofertas e compra
 
-Valores públicos consultados no site atual (kits 3/6 calculados exatamente como na implementação publicada: valor unitário com desconto arredondado a centavos, multiplicado pelo número de frascos):
+Valores públicos verificados diretamente nas 15 ofertas Payt em 29/10/2026. Os preços dos kits são explícitos, sem inferir descontos. Registro: [ofertas-verificadas.json](ofertas-verificadas.json).
 
 | Fórmula | 1 frasco | 3 frascos | 6 frascos |
 |---|---:|---:|---:|
-| GUTcare | R$ 88,80 | R$ 247,74 | R$ 426,24 |
-| Concentra+ | R$ 129,90 | R$ 362,43 | R$ 623,52 |
-| Immune (Immuni no site antigo) | R$ 179,50 | R$ 500,82 | R$ 861,60 |
-| Slim Balance | R$ 129,90 | R$ 362,43 | R$ 623,52 |
-| Cycle | R$ 279,00 | R$ 717,00 | R$ 1.182,00 |
+| GUTcare | R$ 129,90 | R$ 362,43 | R$ 623,52 |
+| Concentra+ | R$ 129,90 | R$ 362,43 | R$ 622,86 |
+| Immune (Immuni no site antigo) | R$ 129,90 | R$ 362,43 | R$ 623,52 |
+| Slim Balance | R$ 129,00 | R$ 362,43 | R$ 724,86 |
+| Cycle | R$ 129,90 | R$ 362,43 | R$ 623,52 |
 
 Os preços são um retrato da oferta consultada; confirmar periodicamente com a loja. O valor final e as condições são definidos pelo checkout. Não foi inventado cálculo de juros. Frete grátis a partir de R$ 150 é a regra exibida no site original.
 

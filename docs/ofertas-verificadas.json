@@ -1,0 +1,107 @@
+[
+  {
+    "id": "a2350f840983256496adb9028ca00bcc",
+    "name": "kit de 1 mês de DalFlore GUTcare",
+    "enabled": 1,
+    "price": 129.9,
+    "pixDiscount": 0
+  },
+  {
+    "id": "4a8dc8eb112e7d1f36adebcc498a0793",
+    "name": "kit de 3 meses de DalFlore GUTcare",
+    "enabled": 1,
+    "price": 362.43,
+    "pixDiscount": 0
+  },
+  {
+    "id": "d4a91ef7ff99e515e4cd642736a65713",
+    "name": "kit de 6 meses de DalFlore GUTcare",
+    "enabled": 1,
+    "price": 623.52,
+    "pixDiscount": 0
+  },
+  {
+    "id": "9452e285cf3236776fece62308081304",
+    "name": "kit de 1 mês de DalFlore Concentra+",
+    "enabled": 1,
+    "price": 129.9,
+    "pixDiscount": 0
+  },
+  {
+    "id": "e06cbd0d4e0af26cbb2b6257cfeae101",
+    "name": "kit de 3 mês de DalFlore Concentra+",
+    "enabled": 1,
+    "price": 362.43,
+    "pixDiscount": 0
+  },
+  {
+    "id": "8add2759381400a8d5b503bba0196d77",
+    "name": "kit de 6 mês de DalFlore Concentra+",
+    "enabled": 1,
+    "price": 622.86,
+    "pixDiscount": 0
+  },
+  {
+    "id": "84129a79ce46f883426653c20999fc1b",
+    "name": "kit de 1 mês de DalFlore Immune",
+    "enabled": 1,
+    "price": 129.9,
+    "pixDiscount": 0
+  },
+  {
+    "id": "4701fc9a1a42dce96d492227039621f6",
+    "name": "kit de 3 mês de DalFlore Immune",
+    "enabled": 1,
+    "price": 362.43,
+    "pixDiscount": 0
+  },
+  {
+    "id": "1bfa89993558c5e961a9884ab779af5b",
+    "name": "kit de 6 mês de DalFlore Immune",
+    "enabled": 1,
+    "price": 623.52,
+    "pixDiscount": 0
+  },
+  {
+    "id": "1642f2568484cb628f82f65ae7c18e12",
+    "name": "kit de 1 mês de  DalFlore Slim Balance",
+    "enabled": 1,
+    "price": 129,
+    "pixDiscount": 0
+  },
+  {
+    "id": "760f92518081d316df97047c90f917d9",
+    "name": "kit de 3 mês de  DalFlore Slim Balance",
+    "enabled": 1,
+    "price": 362.43,
+    "pixDiscount": 0
+  },
+  {
+    "id": "4704ba857f9909fff551c9c27263f21a",
+    "name": "kit de 6 meses de  DalFlore Slim Balance",
+    "enabled": 1,
+    "price": 724.86,
+    "pixDiscount": 0
+  },
+  {
+    "id": "f5d0825fd6b92baa6d8267e594ee88ed",
+    "name": "kit de 1 mês de DalFlore Cycle",
+    "enabled": 1,
+    "price": 129.9,
+    "pixDiscount": 0
+  },
+  {
+    "id": "878f5f9e636d573852ea900d162e0430",
+    "name": "kit de 3 meses de DalFlore Cycle",
+    "enabled": 1,
+    "price": 362.43,
+    "pixDiscount": 0
+  },
+  {
+    "id": "4f7a60b63a6a24efa7321bf7dbb22a65",
+    "name": "kit de 6 meses de DalFlore Cycle",
+    "enabled": 1,
+    "price": 623.52,
+    "pixDiscount": 0
+  }
+]

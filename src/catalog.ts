@@ -37,7 +37,9 @@ export const products: Product[] = [
     image: "gutcare",
     capsules: 30,
     dose: 1,
-    basePrice: 88.8,
+    basePrice: 129.9,
+    price3: 362.43,
+    price6: 623.52,
     checkout: payt(
       "a2350f840983256496adb9028ca00bcc",
       "4a8dc8eb112e7d1f36adebcc498a0793",
@@ -70,6 +72,8 @@ export const products: Product[] = [
     capsules: 60,
     dose: 2,
     basePrice: 129.9,
+    price3: 362.43,
+    price6: 622.86,
     checkout: payt(
       "9452e285cf3236776fece62308081304",
       "e06cbd0d4e0af26cbb2b6257cfeae101",
@@ -105,7 +109,9 @@ export const products: Product[] = [
     image: "immune",
     capsules: 30,
     dose: 1,
-    basePrice: 179.5,
+    basePrice: 129.9,
+    price3: 362.43,
+    price6: 623.52,
     checkout: payt(
       "84129a79ce46f883426653c20999fc1b",
       "4701fc9a1a42dce96d492227039621f6",
@@ -139,7 +145,9 @@ export const products: Product[] = [
     image: "slim-balance",
     capsules: 30,
     dose: 1,
-    basePrice: 129.9,
+    basePrice: 129,
+    price3: 362.43,
+    price6: 724.86,
     checkout: payt(
       "1642f2568484cb628f82f65ae7c18e12",
       "760f92518081d316df97047c90f917d9",
@@ -170,9 +178,9 @@ export const products: Product[] = [
     image: "cycle",
     capsules: 60,
     dose: 2,
-    basePrice: 279,
-    price3: 717,
-    price6: 1182,
+    basePrice: 129.9,
+    price3: 362.43,
+    price6: 623.52,
     checkout: payt(
       "f5d0825fd6b92baa6d8267e594ee88ed",
       "878f5f9e636d573852ea900d162e0430",
@@ -232,14 +240,9 @@ export const products: Product[] = [
     ],
   },
 ];
+// Explicit totals verified against each Payt offer. Do not infer kit discounts.
 export const price = (p: Product, q: Quantity) =>
-  p.basePrice === null
-    ? null
-    : q === 1
-      ? p.basePrice
-      : q === 3
-        ? (p.price3 ?? (Math.round(p.basePrice * 0.93 * 100) / 100) * 3)
-        : (p.price6 ?? (Math.round(p.basePrice * 0.8 * 100) / 100) * 6);
+  q === 1 ? p.basePrice : q === 3 ? (p.price3 ?? null) : (p.price6 ?? null);
 export const checkoutUrl = (p: Product, q: Quantity) =>
   p.checkout?.[q]
     ? `https://checkout.payt.com.br/${p.checkout[q]}?split=12`
