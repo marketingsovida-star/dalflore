@@ -2,6 +2,8 @@
 
 Novo site independente da DalFlore, em React, TypeScript e Vite. Referências: loja Metabolia (tipografia, estrutura editorial e catálogo) e Duet Health (retrato em arco e abas de marca/especialista).
 
+Tipografia da DalFlore: Open Sans local para títulos e frases descritivas; Arial para textos de leitura. Os contornos individuais dos seis frascos ficam em `src/assets/masks`, preservando as imagens e os rótulos originais. A área de fotos dos cards acomoda o frasco inteiro, inclusive em telas pequenas.
+
 ## Desenvolvimento
 
 ```sh
