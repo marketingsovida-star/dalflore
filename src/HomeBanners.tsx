@@ -83,7 +83,7 @@ export function HomeBanners({ open, onVisibilityChange }: {
           {banners.map((banner, index) => <div key={banner.title} className={`df-banner-message${active === index ? " is-active" : ""}`} aria-hidden={active !== index} inert={active !== index}>
             {index === 0 ? <h1>{banner.title}</h1> : <h2>{banner.title}</h2>}
             <p>{banner.description}</p>
-            <div className="df-banner-actions">{banner.actions.map((action, i) => <button type="button" className={i === 0 ? "df-banner-cta" : "df-banner-link"} key={action.id} onClick={() => open(products.find(product => product.id === action.id)!)}>{action.label}</button>)}</div>
+            <div className={`df-banner-actions${banner.actions.length > 1 ? " df-banner-actions-pair" : ""}`}>{banner.actions.map(action => <button type="button" className="df-banner-cta" key={action.id} onClick={() => open(products.find(product => product.id === action.id)!)}>{action.label}</button>)}</div>
           </div>)}
         </div>
         <div className="df-banner-controls df-banner-controls-desktop">{controls}</div>
