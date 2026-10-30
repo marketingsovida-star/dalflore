@@ -13,7 +13,7 @@ import {
   BookOpen,
   Brain,
   Check,
-  ChevronDown,
+  Plus,
   ChevronLeft,
   ChevronRight,
   CircleHelp,
@@ -43,6 +43,8 @@ import {
   type Product,
   type Quantity,
 } from "./catalog";
+
+import { useSmoothMotion } from "./useSmoothMotion";
 
 type CartItem = { id: string; quantity: Quantity; count: number };
 type ModalState =
@@ -94,6 +96,17 @@ function Overlay({
   children: ReactNode;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const closing = useRef(false);
+  const closeTimer = useRef<number | undefined>(undefined);
+  const requestClose = () => {
+    if (closing.current) return;
+    closing.current = true;
+    ref.current?.classList.add("is-closing");
+    closeTimer.current = window.setTimeout(
+      close,
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 260,
+    );
+  };
   useEffect(() => {
     const el = ref.current!;
     const previous = document.activeElement as HTMLElement | null;
@@ -101,6 +114,7 @@ function Overlay({
     const overflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
+      window.clearTimeout(closeTimer.current);
       el.close();
       document.body.style.overflow = overflow;
       previous?.focus({ preventScroll: true });
@@ -113,10 +127,10 @@ function Overlay({
       aria-label={title}
       onCancel={(e) => {
         e.preventDefault();
-        close();
+        requestClose();
       }}
       onClick={(e) => {
-        if (e.target === e.currentTarget) close();
+        if (e.target === e.currentTarget) requestClose();
       }}
     >
       <div className="modal-surface">
@@ -125,7 +139,7 @@ function Overlay({
           <button
             className="icon-button"
             aria-label="Fechar janela"
-            onClick={close}
+            onClick={requestClose}
           >
             <X size={22} />
           </button>
@@ -512,8 +526,6 @@ const education = [
 ];
 function Science() {
   const [active, setActive] = useState(0);
-  const content = education[active];
-  const Icon = content.icon;
   return (
     <section id="ciencia" className="science section wrap">
       <div className="section-heading">
@@ -570,7 +582,7 @@ function Science() {
                 key={item.label}
                 role="tab"
                 aria-selected={i === active}
-                aria-controls="science-panel"
+                aria-controls={`science-panel-${i}`}
                 tabIndex={i === active ? 0 : -1}
                 onClick={() => setActive(i)}
                 onKeyDown={(e) => {
@@ -586,39 +598,49 @@ function Science() {
               </button>
             ))}
           </div>
-          <div
-            id="science-panel"
-            role="tabpanel"
-            aria-labelledby={`science-tab-${active}`}
-            className="education-panel"
-          >
-            <span className="round-icon">
-              <Icon size={26} />
-            </span>
-            <div className="science-topic-meta">
-              <span>0{active + 1} / ENTENDA A DIFERENÇA</span>
-              <span>{content.label}</span>
-            </div>
-            <h3>{content.title}</h3>
-            <p className="science-simple">{content.simple}</p>
-            <p>{content.text}</p>
-            <div className="science-detail">
-              <span className="eyebrow">NA PRÁTICA</span>
-              <p>{content.detail}</p>
-              <span className="ingredient-note">
-                <Leaf size={15} />
-                {content.example}
-              </span>
-            </div>
-            <a
-              className="text-link"
-              href={content.source}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {content.sourceLabel}
-              <ArrowUpRight size={15} />
-            </a>
+          <div className="education-stack">
+            {education.map((content, index) => {
+              const Icon = content.icon;
+              return (
+                <div
+                  key={index}
+                  id={`science-panel-${index}`}
+                  role="tabpanel"
+                  aria-labelledby={`science-tab-${index}`}
+                  aria-hidden={active !== index}
+                  inert={active !== index}
+                  className={`education-panel ${active === index ? "active" : ""}`}
+                >
+                  <span className="round-icon">
+                    <Icon size={26} />
+                  </span>
+                  <div className="science-topic-meta">
+                    <span>0{index + 1} / ENTENDA A DIFERENÇA</span>
+                    <span>{content.label}</span>
+                  </div>
+                  <h3>{content.title}</h3>
+                  <p className="science-simple">{content.simple}</p>
+                  <p>{content.text}</p>
+                  <div className="science-detail">
+                    <span className="eyebrow">NA PRÁTICA</span>
+                    <p>{content.detail}</p>
+                    <span className="ingredient-note">
+                      <Leaf size={15} />
+                      {content.example}
+                    </span>
+                  </div>
+                  <a
+                    className="text-link"
+                    href={content.source}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {content.sourceLabel}
+                    <ArrowUpRight size={15} />
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -688,7 +710,7 @@ function Axis() {
               <button
                 id={`axis-tab-${i}`}
                 role="tab"
-                aria-controls="axis-panel"
+                aria-controls={`axis-panel-${i}`}
                 tabIndex={active === i ? 0 : -1}
                 aria-selected={active === i}
                 key={a.label}
@@ -706,16 +728,23 @@ function Axis() {
               </button>
             ))}
           </div>
-          <div
-            className="axis-text"
-            id="axis-panel"
-            role="tabpanel"
-            aria-labelledby={`axis-tab-${active}`}
-          >
-            <span className="pathway-index">CONEXÃO 0{active + 1}</span>
-            <h3>{axes[active].title}</h3>
-            <p>{axes[active].body}</p>
-            <small>{axes[active].foot}</small>
+          <div className="axis-stack">
+            {axes.map((path, index) => (
+              <div
+                className={`axis-text ${active === index ? "active" : ""}`}
+                key={index}
+                id={`axis-panel-${index}`}
+                role="tabpanel"
+                aria-labelledby={`axis-tab-${index}`}
+                aria-hidden={active !== index}
+                inert={active !== index}
+              >
+                <span className="pathway-index">CONEXÃO 0{index + 1}</span>
+                <h3>{path.title}</h3>
+                <p>{path.body}</p>
+                <small>{path.foot}</small>
+              </div>
+            ))}
           </div>
           <a
             className="text-link"
@@ -955,41 +984,54 @@ const faqs = [
   ],
 ];
 function FAQ() {
+  const [openFaq, setOpenFaq] = useState(0);
   return (
-    <section className="section wrap faq-section" id="duvidas">
-      <div>
-        <p className="eyebrow">INFORMAÇÃO TAMBÉM É CUIDADO</p>
-        <h2>
-          Vamos esclarecer
-          <br />
-          <em>suas dúvidas.</em>
-        </h2>
-        <p>
-          Mais clareza para fazer
-          <br />
-          escolhas conscientes.
-        </p>
+    <section className="faq-section" id="duvidas">
+      <div className="faq-inner">
+        <h2>Perguntas frequentes</h2>
+        <div className="faq-items">
+          {faqs.map(([q, a], index) => {
+            const isOpen = openFaq === index;
+            return (
+              <div className="faq-item" data-open={isOpen} key={q}>
+                <button
+                  type="button"
+                  id={`faq-q-${index}`}
+                  className="faq-question"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-a-${index}`}
+                  onClick={() => setOpenFaq(isOpen ? -1 : index)}
+                >
+                  <span>{q}</span>
+                  <span className="faq-toggle" aria-hidden="true">
+                    {isOpen ? <X size={16} /> : <Plus size={16} />}
+                  </span>
+                </button>
+                <div
+                  id={`faq-a-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-q-${index}`}
+                  aria-hidden={!isOpen}
+                  inert={!isOpen}
+                  className="faq-answer"
+                >
+                  <div className="faq-answer-clip">
+                    <p>{a}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
         <a
-          className="text-link"
+          className="faq-contact"
           href={whatsapp("Olá! Estou no site da DalFlore e tenho uma dúvida.")}
           target="_blank"
           rel="noreferrer"
         >
-          Fale com o atendimento <ArrowUpRight size={15} />
+          <Headphones size={17} />
+          Ainda tem dúvidas? Fale com a nossa equipe
         </a>
-      </div>
-      <div className="faq-list">
-        {faqs.map(([q, a]) => (
-          <details key={q}>
-            <summary>
-              {q}
-              <span>
-                <ChevronDown size={18} />
-              </span>
-            </summary>
-            <p>{a}</p>
-          </details>
-        ))}
       </div>
     </section>
   );
@@ -1078,6 +1120,7 @@ function ProductDetail({
         ))}
       </div>
       <div
+        key={tab}
         className="detail-panel"
         id="detail-panel"
         role="tabpanel"
@@ -1370,6 +1413,7 @@ function Cart({
   );
 }
 export default function App() {
+  useSmoothMotion();
   const [modal, setModal] = useState<ModalState>(getProductHash);
   const [mobile, setMobile] = useState(false);
   const [category, setCategory] = useState("todos");

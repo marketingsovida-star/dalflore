@@ -1,0 +1,692 @@
+/* Brand finish: white, black and green. Motion timings follow the Duet reference. */
+:root {
+  --bg: #fff;
+  --ink: #17231a;
+  --green: #25733a;
+  --deep: #164e27;
+  --accent: #378447;
+  --muted: #425c49;
+  --line: #bad2c0;
+  --gradient: linear-gradient(110deg, #15552a, #358b45);
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+html {
+  scroll-behavior: auto;
+}
+body {
+  color: var(--ink);
+}
+h1,
+h2,
+h3 {
+  color: #17231a;
+}
+.hero h1,
+.shop-heading h2,
+.section-heading h2,
+.axis-copy h2,
+.expert-panels h3,
+.faq-inner h2,
+.closing h2 {
+  color: #14261a;
+}
+em,
+.hero h1 em,
+.section-heading h2 em,
+.axis-copy h2 em,
+.expert-panels h3 em,
+.closing h2 em {
+  color: #2b7e3d;
+}
+.hero-lead,
+.product-summary,
+.education-panel > p:not(.science-simple),
+.science-detail p,
+.axis-copy > p:not(.eyebrow),
+.axis-text p,
+.expert-panels p,
+.care-strip > p {
+  color: #344b3b;
+}
+.hero {
+  background:
+    radial-gradient(ellipse at 82% 40%, #dceddf94, transparent 43%), #fff;
+}
+.hero-art::before {
+  border: 1.5px solid #8bbf9661;
+  background: linear-gradient(145deg, #eff9f1, #dbeee18f);
+}
+.hero-art > .botanical-detail {
+  color: #2a7d3d73;
+}
+.botanical-detail path {
+  stroke-width: 1.8;
+}
+.orbital-one {
+  border: 2px solid #589f6a73;
+}
+.orbital-two {
+  border: 1.5px dashed #37844766;
+}
+.orbit-dot {
+  background: #2c873f;
+  box-shadow: 0 0 0 6px #3784471f;
+}
+.note-top {
+  color: #256f37;
+  border: 1.5px solid #9dc6a6;
+  background: #fff;
+  box-shadow: 0 8px 22px #1f5c2a0d;
+}
+.art-caption {
+  border-color: #91bb99;
+}
+.section-label {
+  color: #216d33;
+  border: 1.5px solid #91b99c;
+  background: #fff;
+  font-weight: 700;
+}
+.shop-heading {
+  border-top: 2px solid #c2d9c8;
+}
+.product-card {
+  border: 1.5px solid #bed5c5;
+  background: #fff;
+  box-shadow: 0 5px 20px #1d57290a;
+}
+.product-card:hover {
+  border-color: #448b55;
+  box-shadow: 0 15px 32px #1d57291a;
+}
+.product-body > .category {
+  color: #2e783e;
+}
+.product-body h3 button {
+  color: #14261a;
+}
+.product-price > div {
+  color: #14261a;
+}
+.product-price > span,
+.product-price small {
+  color: #435f4b;
+}
+.product-media {
+  background: radial-gradient(ellipse at 50% 70%, #e0f0e4, transparent 68%);
+}
+.image-hint {
+  color: #286e38;
+  border-color: #a8c8b1;
+}
+.quantities {
+  border: 1.5px solid #c0d7c6;
+  background: #f3f8f4;
+}
+.quantities button {
+  color: #355e41;
+}
+.quantities button[aria-pressed="true"] {
+  background: #26753a;
+  color: #fff;
+}
+.composition-link {
+  color: #276b36;
+  text-decoration-color: #4e935e;
+}
+.science.section.wrap {
+  border: 2px solid #96bda0;
+  background: #fff;
+  box-shadow: 0 12px 38px #1754270a;
+  position: relative;
+}
+.science.section.wrap::before {
+  content: "";
+  width: 90px;
+  height: 5px;
+  border-radius: 8px;
+  background: #2e853f;
+  position: absolute;
+  left: 50px;
+  top: 0;
+}
+.science-copy {
+  border: 1.5px solid #a5c7ae;
+  background: #fff;
+  box-shadow: 0 9px 28px #1b59280a;
+}
+.microbiota-art {
+  border: 2px solid #abcbb2;
+  background: radial-gradient(circle, #fff, #e6f3e9);
+}
+.figure-caption,
+.micro-center,
+.micro-center span,
+.micro-center b {
+  color: #2e783d;
+}
+.micro-ring {
+  border-width: 1.5px;
+  border-color: #6d9f7780;
+}
+.ring-c {
+  border: 2px solid #78a784;
+  background: #fff;
+  box-shadow: 0 7px 24px #23673412;
+}
+.microbe,
+.microbe:nth-of-type(3n),
+.microbe:nth-of-type(4n) {
+  border: 1.5px solid #468951;
+  background: linear-gradient(135deg, #eff9ee, #92c49b);
+}
+.micro-label {
+  color: #285f36;
+  border: 1.5px solid #abc9b3;
+  background: #fff;
+}
+.microbiota-art > .botanical-detail {
+  color: #347d4352;
+}
+.education-tabs {
+  border: 1.5px solid #b1cfba;
+  background: #eef6f0;
+}
+.education-tabs button {
+  color: #3c6a48;
+  font-weight: 600;
+}
+.education-tabs button[aria-selected="true"] {
+  color: #fff;
+  background: #297b3b;
+  box-shadow: 0 4px 10px #246e3426;
+}
+.education-panel h3,
+.axis-text h3 {
+  color: #172b1d;
+}
+.education-panel .science-simple {
+  color: #29783b;
+  font-weight: 600;
+}
+.science-detail {
+  border-color: #b8d2bf;
+}
+.ingredient-note {
+  background: #edf6ef;
+  color: #286a36;
+  border: 1px solid #c0d8c5;
+}
+.axis-section {
+  background: #f2f8f3;
+  border-block: 1.5px solid #c3d9c9;
+}
+.axis-copy .section-label {
+  color: #276c38;
+  background: #fff;
+  border-color: #94bfa0;
+}
+.axis-tabs button {
+  border: 1.5px solid #8cb798;
+  color: #356841;
+  background: #fff;
+}
+.axis-tabs button[aria-selected="true"] {
+  color: #fff;
+  background: #27743a;
+  border-color: #27743a;
+}
+.axis-text {
+  background: #fff;
+  border: 1.5px solid #a5c7af;
+  box-shadow: 0 4px 16px #205f2d0a;
+}
+.axis-text small {
+  color: #476d4f;
+  border-color: #bdd6c4;
+}
+.axis-diagram {
+  border: 2px solid #82b590;
+  background: radial-gradient(ellipse, #fff, #e0f0e4);
+  box-shadow: inset 0 0 0 8px #f7fcf8;
+}
+.brain-node,
+.gut-node,
+.brain-node span,
+.gut-node span,
+.diagram-kicker,
+.connection {
+  color: #2e783e;
+}
+.brain-node > svg,
+.gut-node > svg {
+  stroke-width: 1.7;
+}
+.diagram-orbit {
+  border: 1.5px solid #74a77f73;
+}
+.connection::before,
+.connection::after {
+  border-left: 1.5px dashed #3a874c;
+}
+.connection-label {
+  border: 1.5px solid #68a375;
+  color: #236333;
+  background: #fff;
+}
+.signal {
+  background: #2c8b41;
+  box-shadow: 0 0 10px #41a05580;
+}
+.expert-section {
+  background: #fff;
+}
+.expert-card {
+  border: 1.5px solid #b1cbb9;
+  background: #fff;
+  box-shadow: 0 16px 40px #1c5a2a0c;
+}
+.expert-tabs button {
+  border: 2px solid #8ab796;
+  color: #2a6339;
+  background: #fff;
+}
+.expert-tabs button[aria-selected="true"] {
+  background: #26713a;
+  border-color: #26713a;
+  color: #fff;
+}
+.expert-tabs button[aria-selected="true"]::after {
+  background: #26713a;
+}
+.expert-panels h3 em,
+.expert-signoff em {
+  color: #287a3c;
+}
+.expert-panels strong,
+.expert-figure figcaption strong {
+  color: #184e28;
+}
+.expert-figure figcaption span,
+.expert-copy > .eyebrow {
+  color: #46684d;
+}
+.expert-signoff {
+  color: #263f2d;
+  border-color: #bbd1c2;
+}
+.expert-copy > .button {
+  background: var(--gradient);
+}
+.closing {
+  background: #edf6ef;
+  border-color: #b5d0bf;
+}
+/* Duet FAQ: centered heading, stacked rounded blocks, plus/X and a sliding answer. */
+.faq-section {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 80px 20px;
+  border-block: 1.5px solid #c5d8ca;
+  background: #f7faf7;
+}
+.faq-inner {
+  max-width: 896px;
+  margin: 0 auto;
+  padding-inline: 12px;
+}
+.faq-inner > h2 {
+  text-align: center;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 35px;
+  line-height: 1.3;
+  font-weight: 600;
+  margin: 0 0 32px;
+}
+.faq-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.faq-item {
+  overflow: hidden;
+  border: 1.5px solid #b8d1bf;
+  border-radius: 8px;
+  background: #e8f2eb;
+  transition:
+    background-color 0.5s var(--motion-ease),
+    border-color 0.5s var(--motion-ease);
+}
+.faq-item[data-open="true"] {
+  background: #f3f8f4;
+  border-color: #8fbb9a;
+}
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 24px;
+  min-height: 58px;
+  width: 100%;
+  text-align: left;
+  font:
+    500 18px/1.35 Arial,
+    sans-serif;
+  color: #173e23;
+}
+.faq-question:hover {
+  color: #246f37;
+}
+.faq-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: 1.5px solid #739d7c;
+  border-radius: 50%;
+  color: #265a32;
+  transition:
+    transform 0.5s var(--motion-ease),
+    color 0.5s var(--motion-ease),
+    background-color 0.5s var(--motion-ease);
+}
+.faq-item[data-open="true"] .faq-toggle {
+  transform: rotate(90deg);
+  background: #2c793d;
+  border-color: #2c793d;
+  color: #fff;
+}
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.5s var(--motion-ease),
+    opacity 0.5s var(--motion-ease);
+}
+.faq-item[data-open="true"] .faq-answer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.faq-answer-clip {
+  min-height: 0;
+  overflow: hidden;
+}
+.faq-answer p {
+  padding: 0 64px 20px 24px;
+  font:
+    16px/1.6 Arial,
+    sans-serif;
+  color: #325d3c;
+}
+.faq-contact {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 24px auto 0;
+  padding: 10px 20px;
+  min-height: 42px;
+  border: 1.5px solid #a8c6b0;
+  border-radius: 6px;
+  background: #edf5ef;
+  color: #285c36;
+  font:
+    16px/1.5 Arial,
+    sans-serif;
+  text-align: center;
+}
+.faq-contact:hover {
+  background: #dceee1;
+}
+/* Same entry curve and 0.85s duration as Duet; stagger only small groups of cards. */
+.motion-ready [data-reveal] {
+  --rx: 0px;
+  --ry: 45px;
+  opacity: 0;
+  transform: translate3d(var(--rx), var(--ry), 0) scale(0.97);
+  transition:
+    opacity 0.85s var(--motion-ease) var(--reveal-delay, 0s),
+    transform 0.85s var(--motion-ease) var(--reveal-delay, 0s),
+    box-shadow 0.5s var(--motion-ease);
+}
+.motion-ready [data-reveal="left"] {
+  --rx: 45px;
+  --ry: 0px;
+}
+.motion-ready [data-reveal="right"] {
+  --rx: -45px;
+  --ry: 0px;
+}
+.motion-ready [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+:where(a, button) {
+  transition:
+    color 0.35s var(--motion-ease),
+    background-color 0.5s var(--motion-ease),
+    border-color 0.5s var(--motion-ease),
+    box-shadow 0.5s var(--motion-ease),
+    transform 0.35s var(--motion-ease);
+}
+:where(a, button):active {
+  transform: scale(0.97);
+}
+.product-media > img {
+  transition: transform 0.65s var(--motion-ease);
+}
+.product-card {
+  transition:
+    border-color 0.5s var(--motion-ease),
+    box-shadow 0.5s var(--motion-ease);
+}
+.expert-panels > div {
+  transition:
+    opacity 0.65s var(--motion-ease),
+    visibility 0.65s var(--motion-ease);
+}
+.detail-panel {
+  animation: panel-enter 0.65s var(--motion-ease) both;
+}
+.education-tabs button,
+.axis-tabs button,
+.expert-tabs button,
+.quantities button {
+  transition:
+    color 0.5s var(--motion-ease),
+    background-color 0.5s var(--motion-ease),
+    border-color 0.5s var(--motion-ease),
+    box-shadow 0.5s var(--motion-ease),
+    transform 0.35s var(--motion-ease);
+}
+.overlay[open] {
+  animation: overlay-enter 0.5s var(--motion-ease) both;
+}
+.overlay[open]::backdrop {
+  animation: backdrop-enter 0.5s ease both;
+}
+.overlay[open].is-closing {
+  animation: overlay-exit 0.26s var(--motion-ease) both;
+}
+.overlay[open].is-closing::backdrop {
+  animation: backdrop-exit 0.26s ease both;
+}
+@keyframes overlay-exit {
+  to {
+    opacity: 0;
+    translate: 0 12px;
+  }
+}
+@keyframes backdrop-exit {
+  to {
+    background-color: #10251900;
+    backdrop-filter: blur(0);
+  }
+}
+.button::after {
+  display: block;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    #ffffff21 50%,
+    transparent 70%
+  );
+  transform: none;
+  transition: none;
+}
+.hero-cta::after,
+.buy::after {
+  animation: button-sweep 4.5s var(--motion-ease) infinite;
+}
+.button:hover::after {
+  transform: none;
+}
+@keyframes panel-enter {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+.education-stack,
+.axis-stack {
+  display: grid;
+}
+.axis-stack {
+  margin-top: 18px;
+}
+.education-stack > .education-panel,
+.axis-stack > .axis-text {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.65s var(--motion-ease),
+    visibility 0.65s var(--motion-ease);
+}
+.axis-stack > .axis-text {
+  margin-top: 0;
+}
+.education-stack > .education-panel.active,
+.axis-stack > .axis-text.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+@keyframes overlay-enter {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes backdrop-enter {
+  from {
+    background-color: #10251900;
+    backdrop-filter: blur(0);
+  }
+  to {
+    background-color: #10251982;
+    backdrop-filter: blur(6px);
+  }
+}
+@keyframes button-sweep {
+  0%,
+  35% {
+    translate: -140% 0;
+  }
+  70%,
+  100% {
+    translate: 140% 0;
+  }
+}
+@media (max-width: 767px) {
+  .motion-ready [data-reveal] {
+    --ry: 20px;
+    transform: translate3d(var(--rx), var(--ry), 0) scale(0.99);
+  }
+  .motion-ready [data-reveal="left"] {
+    --rx: 20px;
+    --ry: 0px;
+  }
+  .motion-ready [data-reveal="right"] {
+    --rx: -20px;
+    --ry: 0px;
+  }
+  .motion-ready [data-reveal][data-revealed] {
+    transform: none;
+  }
+}
+@media (max-width: 640px) {
+  .science.section.wrap::before {
+    left: 20px;
+    width: 65px;
+  }
+  .faq-section {
+    padding: 60px 19px;
+  }
+  .faq-inner {
+    padding: 0;
+  }
+  .faq-inner > h2 {
+    font-size: 30px;
+    margin-bottom: 28px;
+  }
+  .faq-question {
+    gap: 16px;
+    padding: 16px 18px;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+  .faq-answer p {
+    padding: 0 49px 19px 18px;
+    font-size: 16px;
+  }
+  .faq-contact {
+    width: 100%;
+    font-size: 14px;
+    padding-inline: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .faq-item,
+  .faq-answer,
+  .faq-toggle,
+  .expert-panels > div,
+  .education-stack > .education-panel,
+  .axis-stack > .axis-text,
+  :where(a, button) {
+    transition-duration: 0s;
+  }
+  .education-panel,
+  .axis-text,
+  .detail-panel,
+  .overlay[open],
+  .overlay[open]::backdrop,
+  .overlay[open].is-closing,
+  .overlay[open].is-closing::backdrop,
+  .button::after {
+    animation: none;
+  }
+}

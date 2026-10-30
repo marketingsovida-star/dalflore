@@ -30,4 +30,6 @@ Veja [fontes e pendências](docs/fontes-e-pendencias.md) antes de trocar o domí
 
 ## Direção visual da Aline
 
-Paleta de sálvia, marfim e rosado, contornos botânicos discretos e conteúdos científicos em camadas: explicação breve, detalhes e fonte. Retrato fornecido pela cliente em `public/aline-retrato.webp`. As faixas e o guia foram removidos. `src/refinement.css` concentra essa direção visual.
+Interface exclusivamente em branco, preto e verde, com contraste forte e contornos definidos. Conteúdos científicos em camadas: explicação breve, detalhes e fonte. Retrato fornecido pela cliente em `public/aline-retrato.webp`. As faixas e o guia foram removidos.
+
+O FAQ segue a estrutura da Duet: título central, blocos empilhados, ícone de mais/fechar, uma resposta aberta e expansão em 500 ms. `src/useSmoothMotion.ts` usa o ritmo de entrada da referência (850 ms), entradas escalonadas e rolagem de 650–1.400 ms. As abas de ciência, eixo e fundadora fazem transições de 650 ms sem mudar a altura. Há feedback de toque, transições de hover e entrada/saída de janelas, respeitando a preferência por movimento reduzido. `src/motion.css` concentra o acabamento de marca e movimento.

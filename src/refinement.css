@@ -1,15 +1,15 @@
-/* DalFlore: a warm, legible balance between clinical clarity and human care. */
+/* DalFlore structure: clinical clarity, human care and brand-green details. */
 :root {
-  --bg: #fcfaf7;
-  --ink: #30463d;
-  --green: #486951;
-  --deep: #2c503e;
-  --sage: #e9eee3;
-  --line: #e1e3d8;
-  --muted: #687368;
-  --accent: #829773;
-  --rose: #ae7d73;
-  --gradient: linear-gradient(110deg, #3f634a, #64805a);
+  --bg: #ffffff;
+  --ink: #153d24;
+  --green: #286a3b;
+  --deep: #153d24;
+  --sage: #f0f7f1;
+  --line: #c9dfcf;
+  --muted: #286a3b;
+  --accent: #52875c;
+  --rose: #52875c;
+  --gradient: linear-gradient(110deg, #153d24, #286a3b);
   color: var(--ink);
   background: var(--bg);
 }
@@ -17,8 +17,8 @@ body {
   background: var(--bg);
 }
 ::selection {
-  color: #294b38;
-  background: #dfe7d3;
+  color: #17251c;
+  background: #c9dfcf;
 }
 .section {
   padding-block: 100px;
@@ -29,9 +29,9 @@ body {
   justify-content: center;
   gap: 9px;
   padding: 10px 15px;
-  border: 1px solid #dce4d5;
+  border: 1.5px solid #c9dfcf;
   border-radius: 40px;
-  background: #fffefa;
+  background: #ffffff;
   font-size: 11px;
   letter-spacing: 0.1em;
   font-weight: 600;
@@ -41,27 +41,27 @@ body {
   letter-spacing: -0.035em;
 }
 .section-heading h2 em {
-  color: #899876;
+  color: #285e37;
 }
 .button {
   min-height: 50px;
   border-radius: 14px;
-  box-shadow: 0 5px 13px #2d503811;
+  box-shadow: 0 5px 13px #153d2411;
 }
 .button::after {
   display: none;
 }
 .button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 7px 20px #2d503821;
+  box-shadow: 0 7px 20px #153d2421;
 }
 .text-link {
-  color: #58785a;
+  color: #17251c;
   text-decoration-thickness: 1px;
 }
 .site-header {
-  background: #fcfaf7ed;
-  border-bottom: 1px solid #dfe5d74d;
+  background: #ffffffed;
+  border-bottom: 1.5px solid #c9dfcf4d;
 }
 .header-inner {
   height: 88px;
@@ -71,14 +71,14 @@ body {
   font-size: 14px;
 }
 .icon-button {
-  background: #fffef8b3;
-  border-color: #e1e5d8;
+  background: #ffffffb3;
+  border-color: #c9dfcf;
 }
 .hero {
   min-height: calc(100svh - 88px);
   background:
-    radial-gradient(ellipse at 83% 37%, #e9eedc80, transparent 39%),
-    radial-gradient(ellipse at 68% 80%, #eadbd147, transparent 45%), var(--bg);
+    radial-gradient(ellipse at 83% 37%, #f0f7f180, transparent 39%),
+    radial-gradient(ellipse at 68% 80%, #c9dfcf47, transparent 45%), var(--bg);
 }
 .hero-inner {
   min-height: 625px;
@@ -89,16 +89,16 @@ body {
   padding-bottom: 40px;
 }
 .hero h1 {
-  color: #34543f;
+  color: #17251c;
   line-height: 1.17;
   font-size: clamp(42px, 4vw, 57px);
   font-weight: 600;
 }
 .hero h1 em {
-  color: #879871;
+  color: #285e37;
 }
 .hero-lead {
-  color: #6b7668;
+  color: #17251c;
   font-size: 18px;
   max-width: 420px;
   line-height: 1.8;
@@ -109,11 +109,11 @@ body {
   margin-top: 30px;
 }
 .hero-meta {
-  color: #78916e;
+  color: #285e37;
 }
 .hero-perks {
   max-width: 440px;
-  color: #72816b;
+  color: #285e37;
   gap: 12px 18px;
   margin-top: 23px;
   font-size: 12px;
@@ -124,8 +124,8 @@ body {
 .hero-art::before {
   inset: 70px -15px 60px 25px;
   border-radius: 46% 54% 56% 44% / 46% 42% 58% 54%;
-  background: linear-gradient(145deg, #edf1e4c7 5%, #e8e8d977 60%, #eeded033);
-  border: 1px solid #e0e6d484;
+  background: linear-gradient(145deg, #f0f7f1c7 5%, #c9dfcf77 60%, #c9dfcf33);
+  border: 1.5px solid #c9dfcf84;
   transform: rotate(8deg);
 }
 .hero-art::after {
@@ -136,45 +136,45 @@ body {
   bottom: 69px;
   right: 0;
   border-radius: 50%;
-  background: radial-gradient(ellipse, #cbd3bc40, transparent 70%);
+  background: radial-gradient(ellipse, #c9dfcf40, transparent 70%);
   z-index: -1;
 }
 .orbital-one {
-  border-color: #78945c25;
+  border-color: #286a3b25;
 }
 .orbital-two {
-  border-color: #af8b7a2e;
+  border-color: #52875c2e;
 }
 .orbit-dot {
-  background: #8ca376;
-  box-shadow: 0 0 0 5px #92a77712;
+  background: #52875c;
+  box-shadow: 0 0 0 5px #52875c12;
 }
 .note-top {
   left: 75px;
   top: 37px;
   padding: 12px 15px;
-  border: 1px solid #e3e7d9;
+  border: 1.5px solid #c9dfcf;
   border-radius: 15px;
-  background: #fffdf6d9;
-  box-shadow: 0 7px 20px #43583905;
+  background: #ffffffd9;
+  box-shadow: 0 7px 20px #153d2405;
   font-size: 12px;
 }
 .art-caption {
   bottom: 7px;
-  color: #607653;
-  border-color: #cfd9c07a;
+  color: #17251c;
+  border-color: #c9dfcf7a;
 }
 .art-caption b {
   font-weight: 600;
 }
 .art-coordinate {
-  color: #88947a;
+  color: #285e37;
   font-size: 9px;
 }
 .hero-bottom {
   font-size: 11px;
   margin-bottom: 33px;
-  color: #7d8976;
+  color: #285e37;
 }
 .botanical-detail {
   position: absolute;
@@ -185,7 +185,7 @@ body {
   height: 285px;
   right: -50px;
   bottom: 70px;
-  color: #8f9f722e;
+  color: #285e372e;
   transform: rotate(18deg);
   z-index: -1;
 }
@@ -195,7 +195,7 @@ body {
 }
 .shop-heading {
   padding-top: 28px;
-  border-top: 1px solid #dce2d5;
+  border-top: 1.5px solid #c9dfcf;
 }
 .shop-heading h2 {
   margin-top: 12px;
@@ -204,14 +204,14 @@ body {
   letter-spacing: -0.025em;
 }
 .shop-heading .eyebrow {
-  color: #9b7a6a;
+  color: #285e37;
   font-size: 11px;
 }
 .shop-heading > .text-link {
-  border: 1px solid #dbe2d2;
+  border: 1.5px solid #c9dfcf;
   border-radius: 30px;
-  background: #eef2e8;
-  color: #53704e;
+  background: #f0f7f1;
+  color: #17251c;
   padding: 13px 18px;
   font-size: 12px;
 }
@@ -220,18 +220,18 @@ body {
   margin-top: 30px;
 }
 .category-filter button {
-  background: #fffefa;
-  border-color: #e1e4d9;
+  background: #ffffff;
+  border-color: #c9dfcf;
   min-height: 41px;
-  color: #75806b;
+  color: #285e37;
 }
 .category-filter button[aria-pressed="true"] {
-  background: #e7edde;
-  border-color: #bccdaf;
-  color: #3b5d3e;
+  background: #f0f7f1;
+  border-color: #91bc9c;
+  color: #17251c;
 }
 .catalog-count {
-  color: #849078;
+  color: #285e37;
   margin: 17px 0 25px;
   font-size: 12px;
 }
@@ -240,24 +240,24 @@ body {
 }
 .product-card {
   border-radius: 24px;
-  border-color: #e4e6db;
-  background: #fffdf9;
-  box-shadow: 0 4px 20px #66755006;
+  border-color: #c9dfcf;
+  background: #ffffff;
+  box-shadow: 0 4px 20px #286a3b06;
 }
 .product-card:hover {
-  border-color: #cbd8be;
-  box-shadow: 0 12px 32px #485e3710;
+  border-color: #c9dfcf;
+  box-shadow: 0 12px 32px #153d2410;
 }
 .product-media {
-  background: radial-gradient(ellipse at 50% 69%, #e9eedf8c, transparent 68%);
+  background: radial-gradient(ellipse at 50% 69%, #f0f7f18c, transparent 68%);
 }
 .product-media:hover > img {
   transform: translateY(-3px) scale(1.02);
 }
 .image-hint {
-  background: #fffdf7e8;
-  color: #617850;
-  border: 1px solid #e2e8d8;
+  background: #ffffffe8;
+  color: #17251c;
+  border: 1.5px solid #c9dfcf;
 }
 .product-body {
   padding: 6px 20px 17px;
@@ -266,22 +266,22 @@ body {
   margin-top: 8px;
 }
 .product-summary {
-  color: #68725e;
+  color: #17251c;
 }
 .product-price > div {
-  color: #3d5742;
+  color: #17251c;
 }
 .product-price small {
-  color: #7f8b72;
+  color: #285e37;
 }
 .quantities {
-  background: #f4f4ec;
-  border-color: #e7e9de;
+  background: #f0f7f1;
+  border-color: #c9dfcf;
 }
 .quantities button[aria-pressed="true"] {
-  background: #e3eada;
-  color: #456141;
-  box-shadow: 0 2px 6px #62794c0e;
+  background: #c9dfcf;
+  color: #17251c;
+  box-shadow: 0 2px 6px #286a3b0e;
 }
 .buy {
   border-radius: 12px;
@@ -289,21 +289,21 @@ body {
   font-size: 13px;
 }
 .composition-link {
-  color: #8b7766;
-  text-decoration-color: #c6b6a3;
+  color: #285e37;
+  text-decoration-color: #91bc9c;
 }
 .faq-strip {
   border-radius: 18px;
-  background: #f7f8ef;
-  border-color: #e0e6d4;
+  background: #f0f7f1;
+  border-color: #c9dfcf;
   margin-top: 30px;
 }
 .faq-strip strong {
   font-weight: 600;
-  color: #536a4c;
+  color: #17251c;
 }
 .faq-strip > span > svg {
-  color: #8d9b71;
+  color: #285e37;
 }
 /* Scientific concepts are presented as a calm, annotated field notebook. */
 .science.section.wrap {
@@ -311,8 +311,8 @@ body {
   margin-bottom: 96px;
   padding: 58px 50px 40px;
   border-radius: 32px;
-  border: 1px solid #e7e5d9;
-  background: linear-gradient(135deg, #f8f4ed, #f6f8ef 78%);
+  border: 1.5px solid #c9dfcf;
+  background: linear-gradient(135deg, #f0f7f1, #f0f7f1 78%);
   overflow: hidden;
 }
 .science .section-heading {
@@ -350,9 +350,9 @@ body {
 .microbiota-art {
   height: auto;
   min-height: 470px;
-  border: 1px solid #e1e6d6;
+  border: 1.5px solid #c9dfcf;
   border-radius: 190px 190px 26px 26px;
-  background: radial-gradient(circle at 50% 47%, #e6ead578, #fffdf4a6 65%);
+  background: radial-gradient(circle at 50% 47%, #c9dfcf78, #ffffffa6 65%);
   margin-top: 5px;
   box-shadow: inset 0 0 40px #ffffff84;
 }
@@ -361,7 +361,7 @@ body {
   height: 235px;
   bottom: 25px;
   right: -10px;
-  color: #b89a852f;
+  color: #285e372f;
   transform: rotate(14deg);
 }
 .figure-caption {
@@ -369,14 +369,14 @@ body {
   top: 50px;
   width: 100%;
   text-align: center;
-  color: #8a9a74;
+  color: #285e37;
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 14px;
   letter-spacing: -0.02em;
 }
 .micro-ring {
   top: 54%;
-  border-color: #92a76c43;
+  border-color: #52875c43;
 }
 .ring-a {
   width: 305px;
@@ -389,48 +389,48 @@ body {
 .ring-c {
   width: 165px;
   height: 165px;
-  background: #fcfcf1d9;
-  border-color: #cbd5b4;
-  box-shadow: 0 8px 22px #6c80470a;
+  background: #ffffffd9;
+  border-color: #91bc9c;
+  box-shadow: 0 8px 22px #286a3b0a;
 }
 .micro-center {
   top: 54%;
-  color: #7b9666;
+  color: #285e37;
 }
 .micro-center svg {
   width: 48px;
 }
 .micro-center span {
-  color: #91a07c;
+  color: #285e37;
   font-size: 10px;
   line-height: 1.8;
 }
 .micro-center b {
-  color: #668157;
+  color: #17251c;
   font-size: 12px;
 }
 .microbe {
   top: calc(54% + sin(var(--i) * 30deg) * 135px);
   left: calc(50% + cos(var(--i) * 30deg) * 135px);
-  border-color: #8fa371;
-  background: linear-gradient(135deg, #ecf1dc, #c8d9aa);
+  border-color: #52875c;
+  background: linear-gradient(135deg, #f0f7f1, #91bc9c);
   box-shadow:
-    inset 2px 1px 4px #fff9,
-    0 0 0 6px #f7f9ec8a;
+    inset 2px 1px 4px #ffffff99,
+    0 0 0 6px #f0f7f18a;
 }
 .microbe:nth-of-type(3n) {
-  background: #dfc9b7;
-  border-color: #bfa68d;
+  background: #c9dfcf;
+  border-color: #91bc9c;
 }
 .microbe:nth-of-type(4n) {
-  background: #d3dcc5;
-  border-color: #94ab7b;
+  background: #c9dfcf;
+  border-color: #52875c;
 }
 .micro-label {
   font-size: 12px;
-  background: #fffef8eb;
-  color: #8c9978;
-  border: 1px solid #e8ecdd;
+  background: #ffffffeb;
+  color: #285e37;
+  border: 1.5px solid #f0f7f1;
   border-radius: 30px;
   padding: 8px 13px;
 }
@@ -449,20 +449,20 @@ body {
 .art-index {
   bottom: 23px;
   font-size: 9px;
-  color: #a3ac91;
+  color: #3f7048;
   letter-spacing: 0.12em;
 }
 .science-copy {
-  background: #fffdf9;
-  border: 1px solid #e5e8dc;
+  background: #ffffff;
+  border: 1.5px solid #c9dfcf;
   border-radius: 24px;
   padding: 15px 24px 0;
-  box-shadow: 0 12px 25px #5d704009;
+  box-shadow: 0 12px 25px #286a3b09;
 }
 .education-tabs {
-  background: #f3f5eb;
+  background: #f0f7f1;
   padding: 5px;
-  border: 1px solid #e5e9d8;
+  border: 1.5px solid #c9dfcf;
   border-radius: 13px;
   gap: 3px;
   display: grid;
@@ -473,12 +473,12 @@ body {
   font-size: 12px;
   padding: 12px 5px;
   border-radius: 9px;
-  color: #7c8a6e;
+  color: #285e37;
 }
 .education-tabs button[aria-selected="true"] {
-  background: #fffef9;
-  color: #45673f;
-  box-shadow: 0 3px 10px #75885612;
+  background: #ffffff;
+  color: #17251c;
+  box-shadow: 0 3px 10px #286a3b12;
 }
 .education-panel {
   padding: 25px 0;
@@ -491,9 +491,9 @@ body {
   top: 26px;
   width: 42px;
   height: 42px;
-  border-color: #e0e8d3;
-  background: #f3f6e9;
-  color: #82996b;
+  border-color: #c9dfcf;
+  background: #f0f7f1;
+  color: #285e37;
 }
 .science-topic-meta {
   padding-right: 50px;
@@ -504,45 +504,45 @@ body {
   gap: 5px;
 }
 .science-topic-meta > span:first-child {
-  color: #7a846c;
+  color: #285e37;
   font-size: 8px;
   letter-spacing: 0.1em;
 }
 .science-topic-meta > span:last-child {
-  color: #8f7867;
+  color: #285e37;
   font-size: 11px;
 }
 .education-panel h3 {
   margin-top: 21px;
   font-size: 26px;
   line-height: 1.3;
-  color: #435f43;
+  color: #17251c;
 }
 .education-panel .science-simple {
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #7f9465;
+  color: #285e37;
   margin-top: 12px;
 }
 .education-panel > p:not(.science-simple) {
   font-size: 16px;
   line-height: 1.8;
-  color: #6c7663;
+  color: #17251c;
   margin-top: 17px;
 }
 .science-detail {
   padding-top: 17px;
   margin-top: 20px;
-  border-top: 1px solid #e8ebdf;
+  border-top: 1.5px solid #f0f7f1;
 }
 .science-detail .eyebrow {
   font-size: 9px;
-  color: #a2937c;
+  color: #285e37;
 }
 .science-detail p {
   font-size: 14px;
-  color: #68735e;
+  color: #17251c;
   line-height: 1.75;
   margin-top: 7px;
 }
@@ -550,8 +550,8 @@ body {
   display: inline-flex;
   gap: 7px;
   align-items: center;
-  color: #83916c;
-  background: #f4f5eb;
+  color: #285e37;
+  background: #f0f7f1;
   padding: 8px 10px;
   border-radius: 9px;
   font-size: 11px;
@@ -564,31 +564,31 @@ body {
 }
 /* Keep the two-way connection visible without a heavy dark section. */
 .axis-section {
-  background: linear-gradient(155deg, #f0eee4 0%, #f2f5e9 48%, #f5f0e9 100%);
+  background: linear-gradient(155deg, #f0f7f1 0%, #f0f7f1 48%, #f0f7f1 100%);
   color: var(--ink);
   padding: 78px 0;
-  border-block: 1px solid #e6e8dc;
+  border-block: 1px solid #c9dfcf;
 }
 .axis-layout {
   gap: 80px;
   grid-template-columns: 1.1fr 0.9fr;
 }
 .axis-copy .section-label {
-  background: #fbfcf5;
-  border-color: #dce5d0;
-  color: #7b9164;
+  background: #ffffff;
+  border-color: #c9dfcf;
+  color: #285e37;
 }
 .axis-copy h2 {
-  color: #3c5c43;
+  color: #17251c;
   font-size: 36px;
   line-height: 1.25;
   margin-top: 21px;
 }
 .axis-copy h2 em {
-  color: #899872;
+  color: #285e37;
 }
 .axis-copy > p:not(.eyebrow) {
-  color: #68745e;
+  color: #17251c;
   font-size: 16px;
   max-width: 470px;
   line-height: 1.8;
@@ -598,73 +598,73 @@ body {
   margin-top: 27px;
 }
 .axis-tabs button {
-  color: #7d8d6b;
-  border-color: #d2ddc2;
-  background: #fbfcf5b3;
+  color: #285e37;
+  border-color: #c9dfcf;
+  background: #ffffffb3;
   border-radius: 12px;
   font-size: 12px;
   padding: 12px 18px;
 }
 .axis-tabs button[aria-selected="true"] {
-  color: #f8faef;
-  background: #66805b;
-  border-color: #66805b;
+  color: #ffffff;
+  background: #286a3b;
+  border-color: #286a3b;
 }
 .axis-text {
-  background: #fffef8c7;
-  border: 1px solid #e0e6d3;
+  background: #ffffffc7;
+  border: 1.5px solid #c9dfcf;
   border-radius: 20px;
   padding: 21px 23px;
   margin-top: 18px;
   min-height: 260px;
   max-width: none;
-  box-shadow: 0 4px 15px #66754a05;
+  box-shadow: 0 4px 15px #286a3b05;
 }
 .pathway-index {
   display: block;
   font-family: "Open Sans", Arial, sans-serif;
   letter-spacing: 0.12em;
   font-size: 9px;
-  color: #ae9680;
+  color: #285e37;
   margin-bottom: 11px;
 }
 .axis-text h3 {
-  color: #526e4c;
+  color: #17251c;
   font-size: 21px;
   line-height: 1.4;
 }
 .axis-text p {
-  color: #64715d;
+  color: #17251c;
   font-size: 16px;
   line-height: 1.8;
 }
 .axis-text small {
   display: block;
-  color: #74805f;
+  color: #285e37;
   padding-top: 13px;
-  border-top: 1px solid #e7ebdc;
+  border-top: 1.5px solid #c9dfcf;
   margin-top: 16px;
   font-size: 12px;
   line-height: 1.6;
 }
 .axis-copy > .text-link {
-  color: #71885c;
+  color: #285e37;
   font-size: 11px;
   margin-top: 21px;
 }
 .axis-diagram {
   border-radius: 220px 220px 30px 30px;
-  border: 1px solid #d3dfc5;
+  border: 1.5px solid #c9dfcf;
   min-height: 510px;
   height: 100%;
   max-height: 630px;
-  background: radial-gradient(ellipse at 50% 50%, #fbfcf0, #e3ead6);
-  box-shadow: inset 0 0 0 8px #f8faed99;
+  background: radial-gradient(ellipse at 50% 50%, #f0f7f1, #c9dfcf);
+  box-shadow: inset 0 0 0 8px #f0f7f199;
   transform: none;
 }
 .diagram-kicker {
   top: 55px;
-  color: #849873;
+  color: #285e37;
   font-size: 9px;
   display: flex;
   align-items: center;
@@ -674,19 +674,19 @@ body {
   height: 5px;
   width: 5px;
   border-radius: 50%;
-  background: #96ac7c;
-  box-shadow: 0 0 0 4px #a8bb8b1a;
+  background: #52875c;
+  box-shadow: 0 0 0 4px #52875c1a;
 }
 .brain-node,
 .gut-node {
-  color: #758f60;
+  color: #285e37;
 }
 .brain-node > svg {
   width: 74px;
 }
 .brain-node span,
 .gut-node span {
-  color: #8a9c76;
+  color: #285e37;
   font-size: 10px;
   letter-spacing: 0.13em;
 }
@@ -695,28 +695,28 @@ body {
   height: 78px;
 }
 .connection {
-  color: #95a783;
+  color: #285e37;
   height: 150px;
 }
 .connection::before,
 .connection::after {
-  border-color: #9daf8c9c;
+  border-color: #52875c9c;
 }
 .connection-label {
-  color: #728964;
-  background: #edf2e2;
+  color: #285e37;
+  background: #f0f7f1;
   font-size: 12px;
-  border: 1px solid #d1ddc0;
+  border: 1.5px solid #c9dfcf;
   border-radius: 30px;
   padding: 9px 15px;
   z-index: 2;
 }
 .signal {
-  background: #a1b585;
-  box-shadow: 0 0 10px #a7ba8d;
+  background: #52875c;
+  box-shadow: 0 0 10px #52875c;
 }
 .diagram-orbit {
-  border-color: #9db08735;
+  border-color: #52875c35;
 }
 .orbit-a {
   width: 290px;
@@ -732,37 +732,37 @@ body {
   text-align: center;
   line-height: 1.7;
   font-size: 10px;
-  color: #778766;
+  color: #285e37;
 }
 .care-strip {
   padding-block: 52px;
-  border-color: #e6e5d9;
+  border-color: #c9dfcf;
 }
 .care-strip h2 {
   font-size: 24px;
-  color: #647658;
+  color: #17251c;
 }
 .care-strip h2 em {
-  color: #ad8e79;
+  color: #285e37;
 }
 .care-strip > p {
-  color: #6a755f;
+  color: #17251c;
   font-size: 16px;
   line-height: 1.85;
 }
 /* The supplied portrait sets the warmer, personal tone of the founder section. */
 .expert-section {
   background:
-    radial-gradient(ellipse at 20% 58%, #eadbd247, transparent 49%), var(--bg);
+    radial-gradient(ellipse at 20% 58%, #c9dfcf47, transparent 49%), var(--bg);
 }
 .expert-card {
   grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
   padding: 27px;
   gap: 42px;
   border-radius: 28px;
-  border-color: #e4ddd1;
-  background: #fffdf9;
-  box-shadow: 0 15px 40px #9d806a0a;
+  border-color: #c9dfcf;
+  background: #ffffff;
+  box-shadow: 0 15px 40px #52875c0a;
   margin-top: 43px;
 }
 .expert-figure {
@@ -773,7 +773,7 @@ body {
   border-radius: 180px 180px 20px 20px;
   min-height: 550px;
   border: 0;
-  background: #e6ccac;
+  background: #c9dfcf;
   overflow: hidden;
 }
 .portrait-frame::before {
@@ -787,18 +787,18 @@ body {
   padding-bottom: 4px;
 }
 .expert-figure figcaption strong {
-  color: #846d59;
+  color: #285e37;
   font-size: 22px;
 }
 .expert-figure figcaption span {
-  color: #8a7562;
+  color: #285e37;
   font-size: 12px;
   line-height: 1.7;
   max-width: 280px;
   margin-inline: auto;
 }
 .expert-copy > .eyebrow {
-  color: #a89680;
+  color: #285e37;
   font-size: 9px;
 }
 .expert-tabs {
@@ -806,106 +806,84 @@ body {
 }
 .expert-tabs button {
   border-radius: 12px;
-  border-color: #dedfd0;
-  color: #8b9177;
+  border-color: #c9dfcf;
+  color: #285e37;
   font-size: 12px;
   min-height: 64px;
 }
 .expert-tabs button[aria-selected="true"] {
-  background: #71815f;
-  border-color: #71815f;
-  color: #fffdf7;
+  background: #286a3b;
+  border-color: #286a3b;
+  color: #ffffff;
 }
 .expert-tabs button[aria-selected="true"]::after {
-  background: #71815f;
+  background: #286a3b;
 }
 .expert-panels h3 {
-  color: #68805a;
+  color: #17251c;
   font-size: 25px;
   line-height: 1.4;
 }
 .expert-panels h3 em {
-  color: #af8d7c;
+  color: #285e37;
 }
 .expert-panels p {
-  color: #66725f;
+  color: #17251c;
   font-size: 16px;
   line-height: 1.85;
 }
 .expert-panels strong {
-  color: #788969;
+  color: #285e37;
 }
 .expert-signoff {
-  color: #8c9076;
-  border-color: #e8e4d8;
+  color: #285e37;
+  border-color: #c9dfcf;
   font-size: 20px;
 }
 .expert-signoff em {
-  color: #ad8a76;
+  color: #285e37;
 }
 .expert-copy > .button {
-  background: linear-gradient(110deg, #768367, #93a07b);
+  background: linear-gradient(110deg, #286a3b, #52875c);
   border-radius: 12px;
   font-size: 13px;
-}
-.faq-section .eyebrow {
-  color: #a18c75;
-  font-size: 10px;
-}
-.faq-section h2 {
-  color: #5b7653;
-  font-size: 35px;
-}
-.faq-section h2 em {
-  color: #97a180;
-}
-.faq-list details {
-  border-color: #e3e7d8;
-}
-.faq-list summary {
-  color: #718366;
-  padding-block: 21px;
-}
-.faq-list details > p {
-  color: #68755f;
-  line-height: 1.85;
 }
 .closing {
   padding-block: 65px;
   background:
-    radial-gradient(ellipse at 25% 60%, #eaded452, transparent 55%), #f0f2e7;
-  border-color: #e4e7da;
+    radial-gradient(ellipse at 25% 60%, #c9dfcf52, transparent 55%), #f0f7f1;
+  border-color: #c9dfcf;
 }
 .closing h2 {
-  color: #69805c;
+  color: #17251c;
   font-size: 35px;
 }
 .closing h2 em {
-  color: #a08e75;
+  color: #285e37;
 }
 .closing .button {
   font-size: 13px;
 }
 footer {
-  background: #fcfaf7;
+  background: #ffffff;
 }
 .footer-grid a,
 .footer-grid button {
-  color: #747f68;
+  color: #285e37;
 }
 .footer-note {
-  border-color: #e6e8db;
+  border-color: #c9dfcf;
 }
 .overlay {
-  background: #fcfaf7;
-  border-color: #e5e8da;
+  background: #ffffff;
+  border-color: #c9dfcf;
   border-radius: 22px;
 }
 .modal-header {
-  background: #fcfaf7f5;
+  background: #fffffff5;
 }
 .detail-image {
-  background: radial-gradient(ellipse, #e8eedc9c, transparent 70%);
+  background: radial-gradient(ellipse, #f0f7f19c, transparent 70%);
 }
 @media (max-width: 1100px) {
   .hero h1 {
@@ -1061,7 +1039,7 @@ footer {
     height: 72px;
   }
   .mobile-nav {
-    background: #fcfaf7;
+    background: #ffffff;
   }
   .hero {
     min-height: auto;
@@ -1429,15 +1407,6 @@ footer {
   }
   .expert-copy > .button {
     font-size: 12px;
-  }
-  .faq-section h2 {
-    font-size: 32px;
-  }
-  .faq-list summary {
-    font-size: 16px;
-  }
-  .faq-list details > p {
-    font-size: 16px;
   }
   .closing {
     padding-block: 48px;
