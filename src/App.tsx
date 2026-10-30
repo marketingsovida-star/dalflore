@@ -25,7 +25,6 @@ import {
   Menu,
   Microscope,
   Search,
-  ShieldCheck,
   ShoppingBag,
   Sprout,
   Trash2,
@@ -48,7 +47,7 @@ import {
 type CartItem = { id: string; quantity: Quantity; count: number };
 type ModalState =
   | { kind: "product"; id: string }
-  | { kind: "search" | "cart" | "guide" | "privacy" }
+  | { kind: "search" | "cart" | "privacy" }
   | null;
 const getProductHash = (): ModalState => {
   const id = window.location.hash.replace("#produto/", "");
@@ -259,6 +258,31 @@ function ProductCard({
     </article>
   );
 }
+function BotanicalDetail() {
+  return (
+    <svg
+      className="botanical-detail"
+      viewBox="0 0 240 360"
+      fill="none"
+      aria-hidden="true"
+    >
+      <g
+        stroke="currentColor"
+        strokeWidth="1.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M58 339C88 285 112 225 124 167C135 113 132 66 119 24" />
+        <path d="M125 161C89 146 69 117 77 81C112 94 130 123 125 161ZM130 121C158 104 171 76 161 46C136 66 126 93 130 121ZM112 218C77 207 55 182 57 150C91 159 112 185 112 218ZM99 254C131 242 153 215 150 181C117 191 99 220 99 254ZM78 298C48 293 25 273 24 244C55 246 75 268 78 298ZM127 81C101 69 87 48 91 21C116 31 129 54 127 81ZM115 200C149 186 170 158 164 125C133 139 115 168 115 200" />
+        <path
+          opacity=".6"
+          d="M125 161L77 81M130 121L161 46M112 218L57 150M99 254L150 181M78 298L24 244M127 81L91 21M115 200L164 125"
+        />
+      </g>
+    </svg>
+  );
+}
+
 const slides = [
   {
     title: (
@@ -363,6 +387,7 @@ function Hero({ open }: { open: (p: Product) => void }) {
           </div>
         </div>
         <div className="hero-art">
+          <BotanicalDetail />
           <div className="orbital orbital-one" />
           <div className="orbital orbital-two" />
           <span className="orbit-dot dot-one" />
@@ -448,6 +473,8 @@ function Hero({ open }: { open: (p: Product) => void }) {
 const education = [
   {
     label: "Prebióticos",
+    simple: "O alimento de parte da sua microbiota.",
+    example: "FOS, GOS e inulina",
     icon: Sprout,
     title: "Nutrir quem cuida de você.",
     text: "Prebióticos são substâncias utilizadas seletivamente por microrganismos do nosso corpo e que, em quantidades adequadas, conferem benefícios à saúde. Pense neles como alimento para parte da sua microbiota.",
@@ -458,6 +485,8 @@ const education = [
   },
   {
     label: "Probióticos",
+    simple: "A função depende da cepa, da dose e do contexto.",
+    example: "Cepas de Lactobacillus e Bifidobacterium",
     icon: Microscope,
     title: "Microrganismos. Funções específicas.",
     text: "Probióticos são microrganismos vivos que, quando administrados em quantidades adequadas, conferem benefícios à saúde. Diferentes cepas podem ter funções diferentes.",
@@ -469,6 +498,8 @@ const education = [
   },
   {
     label: "Simbióticos",
+    simple: "Microrganismos e substratos, em uma combinação com propósito.",
+    example: "Uma combinação avaliada em conjunto",
     icon: FlaskConical,
     title: "Uma combinação que tem propósito.",
     text: "Simbióticos combinam microrganismos vivos e substratos utilizados seletivamente por microrganismos do hospedeiro, com benefício à saúde. A escolha da combinação deve ter fundamento.",
@@ -486,7 +517,9 @@ function Science() {
   return (
     <section id="ciencia" className="science section wrap">
       <div className="section-heading">
-        <p className="eyebrow">A CIÊNCIA POR TRÁS DO CUIDADO</p>
+        <p className="eyebrow section-label">
+          <Microscope size={16} /> A CIÊNCIA POR TRÁS DO CUIDADO
+        </p>
         <h2>
           Um universo vivo.
           <br />
@@ -500,6 +533,8 @@ function Science() {
       </div>
       <div className="science-layout">
         <div className="microbiota-art" aria-hidden="true">
+          <span className="figure-caption">O seu jardim interior</span>
+          <BotanicalDetail />
           <div className="micro-ring ring-a" />
           <div className="micro-ring ring-b" />
           <div className="micro-ring ring-c" />
@@ -560,9 +595,21 @@ function Science() {
             <span className="round-icon">
               <Icon size={26} />
             </span>
+            <div className="science-topic-meta">
+              <span>0{active + 1} / ENTENDA A DIFERENÇA</span>
+              <span>{content.label}</span>
+            </div>
             <h3>{content.title}</h3>
+            <p className="science-simple">{content.simple}</p>
             <p>{content.text}</p>
-            <p>{content.detail}</p>
+            <div className="science-detail">
+              <span className="eyebrow">NA PRÁTICA</span>
+              <p>{content.detail}</p>
+              <span className="ingredient-note">
+                <Leaf size={15} />
+                {content.example}
+              </span>
+            </div>
             <a
               className="text-link"
               href={content.source}
@@ -617,14 +664,15 @@ function Axis() {
     <section className="axis-section" id="eixo">
       <div className="wrap axis-layout">
         <div className="axis-copy">
-          <p className="eyebrow">EIXO INTESTINO–CÉREBRO</p>
+          <p className="eyebrow section-label">
+            <Brain size={16} /> EIXO INTESTINO–CÉREBRO
+          </p>
           <h2>
             O que acontece no intestino
             <br />{" "}
             <em>
               faz parte de uma
-              <br />
-              conversa maior.
+              <br /> conversa maior.
             </em>
           </h2>
           <p>
@@ -664,6 +712,7 @@ function Axis() {
             role="tabpanel"
             aria-labelledby={`axis-tab-${active}`}
           >
+            <span className="pathway-index">CONEXÃO 0{active + 1}</span>
             <h3>{axes[active].title}</h3>
             <p>{axes[active].body}</p>
             <small>{axes[active].foot}</small>
@@ -681,7 +730,9 @@ function Axis() {
           className="axis-diagram"
           aria-label="Diagrama: cérebro e intestino se comunicam nas duas direções"
         >
-          <span className="diagram-kicker">UM CORPO. MÚLTIPLAS CONEXÕES.</span>
+          <span className="diagram-kicker">
+            <span className="live-dot" /> UM CORPO. MÚLTIPLAS CONEXÕES.
+          </span>
           <div className="brain-node">
             <Brain size={87} strokeWidth={1} />
             <span>CÉREBRO</span>
@@ -711,7 +762,9 @@ function Expert() {
     <section className="expert-section section" id="aline">
       <div className="wrap">
         <div className="section-heading">
-          <p className="eyebrow">CIÊNCIA COM UM OLHAR HUMANO</p>
+          <p className="eyebrow section-label">
+            <Heart size={16} /> CIÊNCIA COM UM OLHAR HUMANO
+          </p>
           <h2>
             Conheça quem faz
             <br />
@@ -722,10 +775,10 @@ function Expert() {
           <figure className="expert-figure">
             <div className="portrait-frame">
               <img
-                src={asset("aline-dalmazo.webp")}
+                src={asset("aline-retrato.webp")}
                 alt="Dra. Aline Dalmazo, nutricionista e doutora em Ciências da Saúde, fundadora da DalFlore"
                 width="900"
-                height="1350"
+                height="1241"
                 loading="lazy"
               />
             </div>
@@ -870,7 +923,7 @@ function Expert() {
 const faqs = [
   [
     "Como escolher minha fórmula?",
-    "Comece conhecendo a composição, a proposta e o modo de uso de cada produto. O guia ajuda a explorar o catálogo, mas a escolha deve considerar sua alimentação, seu histórico e a orientação do profissional que acompanha você.",
+    "Comece conhecendo a composição, a proposta e o modo de uso de cada produto. A escolha deve considerar sua alimentação, seu histórico e a orientação do profissional que acompanha você.",
   ],
   [
     "Todos os produtos têm probióticos?",
@@ -1169,65 +1222,6 @@ function SearchPanel({ open }: { open: (p: Product) => void }) {
     </div>
   );
 }
-function Guide({ open }: { open: (p: Product) => void }) {
-  const [interest, setInterest] = useState("");
-  return (
-    <div className="guide-panel">
-      <span className="round-icon">
-        <Leaf size={30} />
-      </span>
-      <h2>
-        Cada corpo pede
-        <br />
-        <em>um caminho diferente.</em>
-      </h2>
-      <p>Qual assunto você quer conhecer melhor?</p>
-      <div className="guide-options">
-        {categories
-          .filter((c) => c.id !== "todos")
-          .map((c) => (
-            <button
-              aria-pressed={interest === c.id}
-              onClick={() => setInterest(c.id)}
-              key={c.id}
-            >
-              {c.name}
-              <ArrowRight size={16} />
-            </button>
-          ))}
-      </div>
-      {interest && (
-        <div className="guide-results" aria-live="polite">
-          <p className="eyebrow">EXPLORE ESSAS FÓRMULAS</p>
-          {products
-            .filter((p) => p.tags.includes(interest))
-            .map((p) => (
-              <button
-                key={p.id}
-                className="search-result"
-                onClick={() => open(p)}
-              >
-                <img src={productPhoto(p)} alt="" width="70" height="90" />
-                <span>
-                  <strong>{p.name}</strong>
-                  <span>{p.summary}</span>
-                </span>
-                <ArrowUpRight size={20} />
-              </button>
-            ))}
-        </div>
-      )}
-      <div className="information-note">
-        <CircleHelp size={23} />
-        <p>
-          Este guia organiza o catálogo por assunto. Não é uma avaliação de
-          saúde nem uma prescrição. Converse com o profissional que acompanha
-          você.
-        </p>
-      </div>
-    </div>
-  );
-}
 function Cart({
   items,
   setItems,
@@ -1436,12 +1430,6 @@ export default function App() {
       <a className="skip-link" href="#conteudo">
         Ir para o conteúdo
       </a>
-      <div className="announcement">
-        <span>Ciência e natureza, na mesma fórmula.</span>
-        <span>
-          <Truck size={13} /> Frete grátis a partir de R$ 150
-        </span>
-      </div>
       <header className="site-header">
         <div className="header-inner wrap">
           <a href="#" className="brand" aria-label="DalFlore, início">
@@ -1457,9 +1445,6 @@ export default function App() {
             <a href="#ciencia">Nossa ciência</a>
             <a href="#aline">Dra. Aline</a>
             <a href="#duvidas">Dúvidas</a>
-            <button onClick={() => setModal({ kind: "guide" })}>
-              Seu guia <ArrowUpRight size={13} />
-            </button>
           </nav>
           <div className="header-actions">
             <button
@@ -1517,73 +1502,11 @@ export default function App() {
                 <ArrowUpRight size={16} />
               </a>
             ))}
-            <button
-              onClick={() => {
-                setMobile(false);
-                setModal({ kind: "guide" });
-              }}
-            >
-              Encontre seu caminho <ArrowRight size={16} />
-            </button>
           </nav>
         )}
       </header>
       <main id="conteudo">
         <Hero open={open} />
-        <section className="pitch wrap">
-          <h2>
-            Cada corpo pede um <em>caminho diferente.</em>
-          </h2>
-          <p>
-            Ciência para entender. Natureza para nutrir. Cuidado para florescer.
-          </p>
-          <div className="pitch-features">
-            {[
-              [Microscope, "Cepas identificadas"],
-              [Sprout, "Prebióticos selecionados"],
-              [FlaskConical, "Composição transparente"],
-              [Heart, "Um olhar individual"],
-            ].map(([Icon, label]) => {
-              const I = Icon as typeof Heart;
-              return (
-                <div key={String(label)}>
-                  <I size={20} />
-                  <span>{String(label)}</span>
-                </div>
-              );
-            })}
-          </div>
-          <button
-            className="button guide-cta"
-            onClick={() => setModal({ kind: "guide" })}
-          >
-            Em dúvida por onde começar? <strong>Explore o seu guia</strong>
-            <ArrowRight size={17} />
-          </button>
-        </section>
-        <div className="marquees" aria-hidden="true">
-          <div className="marquee dark">
-            <div>
-              {Array.from({ length: 4 }, (_, i) => (
-                <span key={i}>
-                  CIÊNCIA EM CADA ESCOLHA <i>✧</i> CUIDADO EM CADA FÓRMULA{" "}
-                  <i>✧</i> SAÚDE QUE FLORESCE <i>✧</i>
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="marquee light">
-            <div>
-              {Array.from({ length: 4 }, (_, i) => (
-                <span key={i}>
-                  <Sprout size={19} /> MICROBIOTA <Brain size={19} /> CONEXÃO{" "}
-                  <ShieldCheck size={19} /> EQUILÍBRIO <Leaf size={19} />{" "}
-                  NATUREZA
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
         <section id="produtos" className="products-section wrap">
           <div className="shop-heading">
             <div>
@@ -1756,9 +1679,7 @@ export default function App() {
                 ? "Seu carrinho"
                 : modal.kind === "search"
                   ? "Explore as fórmulas"
-                  : modal.kind === "guide"
-                    ? "Seu guia DalFlore"
-                    : "Privacidade e navegação"
+                  : "Privacidade e navegação"
           }
         >
           {modal.kind === "product" ? (
@@ -1770,8 +1691,6 @@ export default function App() {
             <Cart items={cart} setItems={setCart} close={close} />
           ) : modal.kind === "search" ? (
             <SearchPanel open={open} />
-          ) : modal.kind === "guide" ? (
-            <Guide open={open} />
           ) : (
             <div className="privacy-panel">
               <h2>Suas escolhas, com transparência.</h2>

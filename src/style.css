@@ -205,22 +205,6 @@ em {
 .skip-link:focus {
   top: 12px;
 }
-.announcement {
-  height: 29px;
-  background: var(--gradient);
-  color: #fffdf6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 46px;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-}
-.announcement > span {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
 .site-header {
   position: sticky;
   top: 0;
@@ -558,109 +542,6 @@ em {
 .hero-bottom .icon-button {
   width: 30px;
   height: 30px;
-}
-.pitch {
-  text-align: center;
-  padding: 84px 0 60px;
-  max-width: 850px;
-}
-.pitch h2 {
-  font-size: 30px;
-  letter-spacing: -0.025em;
-}
-.pitch > p {
-  font-size: 16px;
-  color: var(--muted);
-  margin-top: 12px;
-}
-.pitch-features {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  max-width: 720px;
-  margin: 30px auto 12px;
-}
-.pitch-features > div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-align: left;
-  padding: 13px 15px;
-  font-size: 16px;
-  border: 1px solid #dce3d35c;
-  border-radius: 8px;
-  background: linear-gradient(130deg, #f2f3e8, #e8eddb7a);
-}
-.pitch-features svg {
-  background: var(--gradient);
-  color: #fff6df;
-  border-radius: 7px;
-  box-sizing: content-box;
-  padding: 7px;
-}
-.guide-cta {
-  width: 100%;
-  max-width: 720px;
-  margin: auto;
-  font-weight: 400;
-  gap: 7px;
-  font-size: 16px;
-}
-.guide-cta strong {
-  font-weight: 700;
-}
-.marquees {
-  height: 128px;
-  margin-top: 10px;
-  overflow: hidden;
-  padding-top: 19px;
-  position: relative;
-}
-.marquee {
-  width: 104%;
-  position: absolute;
-  left: -2%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-.marquee > div {
-  display: flex;
-  white-space: nowrap;
-  animation: marquee 45s linear infinite;
-}
-.marquee span {
-  display: flex;
-  align-items: center;
-  gap: 27px;
-  padding-right: 27px;
-  font-size: 15px;
-  letter-spacing: 0.04em;
-}
-.marquee i {
-  font-style: normal;
-  color: #dbe6c2;
-}
-.marquee.dark {
-  background: #20382b;
-  color: #fbf9eb;
-  transform: rotate(2.5deg);
-  top: 25px;
-  z-index: 1;
-}
-.marquee.light {
-  background: #e5ebce;
-  color: #46633d;
-  transform: rotate(-2deg);
-  top: 58px;
-  z-index: 2;
-}
-.marquee.light > div {
-  animation-direction: reverse;
-}
-.marquee.light span {
-  gap: 21px;
 }
 .products-section {
   padding-top: 42px;
@@ -1822,12 +1703,10 @@ footer {
   max-width: 370px;
 }
 .overlay-search,
-.overlay-guide,
 .overlay-privacy {
   width: 650px;
 }
 .search-panel,
-.guide-panel,
 .privacy-panel {
   padding: 28px 32px;
 }
@@ -1931,49 +1810,6 @@ footer {
 .empty-state > .button {
   margin-top: 25px;
   min-width: 220px;
-}
-.guide-panel > .round-icon {
-  margin: auto;
-}
-.guide-panel > h2 {
-  font-size: 32px;
-  line-height: 1.2;
-  text-align: center;
-  margin-top: 20px;
-}
-.guide-panel > p {
-  font-size: 17px;
-  text-align: center;
-  margin-top: 20px;
-  color: var(--muted);
-}
-.guide-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 22px;
-}
-.guide-options > button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  text-align: left;
-  border: 1px solid #d4dec3;
-  border-radius: 8px;
-  padding: 16px;
-  font-size: 16px;
-}
-.guide-options > button[aria-pressed="true"] {
-  background: var(--green);
-  border-color: var(--green);
-  color: var(--bg);
-}
-.guide-results {
-  padding-top: 28px;
-}
-.guide-results > .eyebrow {
-  font-size: 12px;
 }
 .privacy-panel h2 {
   font-size: 28px;
@@ -2127,11 +1963,6 @@ footer {
   to {
     opacity: 1;
     transform: none;
-  }
-}
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
   }
 }
 @keyframes rotate-ring {
@@ -2351,9 +2182,6 @@ footer {
   .hero {
     min-height: 670px;
   }
-  .pitch h2 {
-    font-size: 27px;
-  }
   .product-grid {
     gap: 18px 13px;
   }
@@ -2493,14 +2321,6 @@ footer {
   }
   .section {
     padding-block: 62px;
-  }
-  .announcement {
-    font-size: 11px;
-    gap: 10px;
-    height: 27px;
-  }
-  .announcement > span:first-child {
-    display: none;
   }
   .header-inner {
     height: 65px;
@@ -2700,72 +2520,6 @@ footer {
   }
   .hero-bottom > a svg {
     width: 12px;
-  }
-  .pitch {
-    padding: 57px 0 34px;
-  }
-  .pitch h2 {
-    font-size: 26px;
-    max-width: 320px;
-    margin: auto;
-    line-height: 1.25;
-  }
-  .pitch > p {
-    font-size: 14px;
-    max-width: 300px;
-    margin: 12px auto 0;
-  }
-  .pitch-features {
-    gap: 7px;
-    margin-top: 22px;
-  }
-  .pitch-features > div {
-    padding: 8px;
-    font-size: 12px;
-    gap: 7px;
-    border-radius: 6px;
-  }
-  .pitch-features svg {
-    width: 14px;
-    height: 14px;
-    padding: 5px;
-    border-radius: 5px;
-  }
-  .guide-cta {
-    font-size: 12px;
-    gap: 4px;
-    min-height: 44px;
-    padding: 10px 13px;
-    flex-wrap: wrap;
-  }
-  .guide-cta svg {
-    width: 13px;
-  }
-  .marquees {
-    height: 100px;
-    margin-top: 12px;
-  }
-  .marquee {
-    height: 30px;
-  }
-  .marquee span {
-    font-size: 11px;
-    gap: 18px;
-    padding-right: 18px;
-  }
-  .marquee.dark {
-    top: 22px;
-    transform: rotate(3deg);
-  }
-  .marquee.light {
-    top: 46px;
-    transform: rotate(-3deg);
-  }
-  .marquee.light span {
-    gap: 16px;
-  }
-  .marquee.light svg {
-    width: 14px;
   }
   .products-section {
     padding-top: 24px;
@@ -3359,7 +3113,6 @@ footer {
     font-size: 14px;
   }
   .search-panel,
-  .guide-panel,
   .privacy-panel {
     padding: 24px 20px;
   }
@@ -3384,19 +3137,6 @@ footer {
   .search-result > img {
     width: 53px;
     height: 80px;
-  }
-  .guide-panel > h2 {
-    font-size: 30px;
-  }
-  .guide-panel > p {
-    font-size: 16px;
-  }
-  .guide-options {
-    gap: 9px;
-  }
-  .guide-options > button {
-    font-size: 15px;
-    padding: 14px 12px;
   }
   .privacy-panel h2 {
     font-size: 26px;
@@ -3449,9 +3189,6 @@ footer {
   .signal {
     top: 50%;
   }
-  .marquee > div {
-    transform: none;
-  }
 }
 
 /* Typography roles and room for readable content. */
@@ -3459,7 +3196,6 @@ h1,
 h2,
 h3,
 .hero-lead,
-.pitch > p,
 .section-heading > p:last-child,
 .product-summary,
 .eyebrow,
@@ -3651,19 +3387,6 @@ h3 {
   .hero-cta {
     width: 100%;
     font-size: 14px;
-  }
-  .pitch > p {
-    font-size: 15px;
-    max-width: 330px;
-  }
-  .pitch-features > div {
-    font-size: 12px;
-    gap: 7px;
-  }
-  .guide-cta {
-    font-size: 13px;
-    line-height: 1.7;
-    padding: 12px;
   }
   .shop-heading h2 {
     font-size: 26px;
