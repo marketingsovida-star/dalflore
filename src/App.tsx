@@ -16,7 +16,6 @@ import {
   Plus,
   ChevronLeft,
   ChevronRight,
-  CircleHelp,
   FlaskConical,
   Headphones,
   Heart,
@@ -683,102 +682,104 @@ function Axis() {
   const [active, setActive] = useState(0);
   return (
     <section className="axis-section" id="eixo">
-      <div className="wrap axis-layout">
-        <div className="axis-copy">
+      <div className="wrap">
+        <div className="section-heading">
           <p className="eyebrow section-label">
             <Brain size={16} /> EIXO INTESTINO–CÉREBRO
           </p>
           <h2>
-            O que acontece no intestino
-            <br />{" "}
-            <em>
-              faz parte de uma
-              <br /> conversa maior.
-            </em>
+            O que acontece no intestino{" "}
+            <em>faz parte de uma conversa maior.</em>
           </h2>
           <p>
             Seu corpo funciona em conexão. Conheça três caminhos estudados pela
             ciência nessa comunicação.
           </p>
-          <div
-            className="axis-tabs"
-            role="tablist"
-            aria-label="Vias do eixo intestino–cérebro"
-          >
-            {axes.map((a, i) => (
-              <button
-                id={`axis-tab-${i}`}
-                role="tab"
-                aria-controls={`axis-panel-${i}`}
-                tabIndex={active === i ? 0 : -1}
-                aria-selected={active === i}
-                key={a.label}
-                onClick={() => setActive(i)}
-                onKeyDown={(e) => {
-                  if (["ArrowRight", "ArrowLeft"].includes(e.key)) {
-                    e.preventDefault();
-                    const n = (active + (e.key === "ArrowRight" ? 1 : 2)) % 3;
-                    setActive(n);
-                    document.getElementById(`axis-tab-${n}`)?.focus();
-                  }
-                }}
-              >
-                {a.label}
-              </button>
-            ))}
-          </div>
-          <div className="axis-stack">
-            {axes.map((path, index) => (
-              <div
-                className={`axis-text ${active === index ? "active" : ""}`}
-                key={index}
-                id={`axis-panel-${index}`}
-                role="tabpanel"
-                aria-labelledby={`axis-tab-${index}`}
-                aria-hidden={active !== index}
-                inert={active !== index}
-              >
-                <span className="pathway-index">CONEXÃO 0{index + 1}</span>
-                <h3>{path.title}</h3>
-                <p>{path.body}</p>
-                <small>{path.foot}</small>
-              </div>
-            ))}
-          </div>
-          <a
-            className="text-link"
-            href="https://pubmed.ncbi.nlm.nih.gov/31460832/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Leia a revisão científica <ArrowUpRight size={15} />
-          </a>
         </div>
-        <div
-          className="axis-diagram"
-          aria-label="Diagrama: cérebro e intestino se comunicam nas duas direções"
-        >
-          <span className="diagram-kicker">
-            <span className="live-dot" /> UM CORPO. MÚLTIPLAS CONEXÕES.
-          </span>
-          <div className="brain-node">
-            <Brain size={87} strokeWidth={1} />
-            <span>CÉREBRO</span>
+        <div className="axis-layout">
+          <div className="axis-copy">
+            <div
+              className="axis-tabs"
+              role="tablist"
+              aria-label="Vias do eixo intestino–cérebro"
+            >
+              {axes.map((a, i) => (
+                <button
+                  id={`axis-tab-${i}`}
+                  role="tab"
+                  aria-controls={`axis-panel-${i}`}
+                  tabIndex={active === i ? 0 : -1}
+                  aria-selected={active === i}
+                  key={a.label}
+                  onClick={() => setActive(i)}
+                  onKeyDown={(e) => {
+                    if (["ArrowRight", "ArrowLeft"].includes(e.key)) {
+                      e.preventDefault();
+                      const n = (active + (e.key === "ArrowRight" ? 1 : 2)) % 3;
+                      setActive(n);
+                      document.getElementById(`axis-tab-${n}`)?.focus();
+                    }
+                  }}
+                >
+                  {a.label}
+                </button>
+              ))}
+            </div>
+            <div className="axis-stack">
+              {axes.map((path, index) => (
+                <div
+                  className={`axis-text ${active === index ? "active" : ""}`}
+                  key={index}
+                  id={`axis-panel-${index}`}
+                  role="tabpanel"
+                  aria-labelledby={`axis-tab-${index}`}
+                  aria-hidden={active !== index}
+                  inert={active !== index}
+                >
+                  <span className="pathway-index">CONEXÃO 0{index + 1}</span>
+                  <h3>{path.title}</h3>
+                  <p>{path.body}</p>
+                  <small>{path.foot}</small>
+                </div>
+              ))}
+            </div>
+            <a
+              className="text-link"
+              href="https://pubmed.ncbi.nlm.nih.gov/31460832/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Leia a revisão científica <ArrowUpRight size={15} />
+            </a>
           </div>
-          <div className="connection">
-            <span className="signal signal-left" />
-            <span className="signal signal-right" />
-            <ArrowDown size={25} />
-            <span className="connection-label">{axes[active].label}</span>
-            <ArrowDown size={25} className="up-arrow" />
+          <div
+            className="axis-diagram"
+            aria-label="Diagrama: cérebro e intestino se comunicam nas duas direções"
+          >
+            <span className="diagram-kicker">
+              <span className="live-dot" /> UM CORPO. MÚLTIPLAS CONEXÕES.
+            </span>
+            <div className="brain-node">
+              <Brain size={87} strokeWidth={1} />
+              <span>CÉREBRO</span>
+            </div>
+            <div className="connection">
+              <span className="signal signal-left" />
+              <span className="signal signal-right" />
+              <ArrowDown size={25} />
+              <span className="connection-label">{axes[active].label}</span>
+              <ArrowDown size={25} className="up-arrow" />
+            </div>
+            <div className="gut-node">
+              <GutIcon />
+              <span>INTESTINO + MICROBIOTA</span>
+            </div>
+            <div className="diagram-orbit orbit-a" />
+            <div className="diagram-orbit orbit-b" />
+            <small>
+              Representação ilustrativa da comunicação bidirecional.
+            </small>
           </div>
-          <div className="gut-node">
-            <GutIcon />
-            <span>INTESTINO + MICROBIOTA</span>
-          </div>
-          <div className="diagram-orbit orbit-a" />
-          <div className="diagram-orbit orbit-b" />
-          <small>Representação ilustrativa da comunicação bidirecional.</small>
         </div>
       </div>
     </section>
@@ -798,6 +799,9 @@ function Expert() {
             <br />
             <em>a DalFlore florescer.</em>
           </h2>
+          <p>
+            Conhecimento científico, escuta e cuidado humano em cada escolha.
+          </p>
         </div>
         <div className="expert-card">
           <figure className="expert-figure">
@@ -1555,7 +1559,7 @@ export default function App() {
               className="text-link"
               onClick={() => setModal({ kind: "search" })}
             >
-              Explore por interesse <Search size={15} />
+              Buscar fórmula <Search size={15} />
             </button>
           </div>
           <p className="catalog-count">
@@ -1567,36 +1571,9 @@ export default function App() {
               <ProductCard key={p.id} product={p} open={open} add={add} />
             ))}
           </div>
-          <a href="#duvidas" className="faq-strip">
-            <span>
-              <CircleHelp size={24} />
-              <span>
-                <strong>Dúvidas sobre os produtos?</strong>
-                <small>A informação faz parte do cuidado.</small>
-              </span>
-            </span>
-            <span>
-              Veja as respostas <ArrowDown size={16} />
-            </span>
-          </a>
         </section>
         <Science />
         <Axis />
-        <section className="care-strip wrap">
-          <div>
-            <Leaf size={29} strokeWidth={1.3} />
-            <h2>
-              Seu corpo tem uma história.
-              <br />
-              <em>O cuidado precisa ouvir.</em>
-            </h2>
-          </div>
-          <p>
-            Alimentação, sono, movimento e acompanhamento profissional fazem
-            parte do mesmo caminho. A suplementação entra com propósito, quando
-            faz sentido para você.
-          </p>
-        </section>
         <Expert />
         <FAQ />
         <section className="closing">

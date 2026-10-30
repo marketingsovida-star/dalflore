@@ -16,7 +16,7 @@ O build inclui verificação de tipos. Publicação automática pelo GitHub Acti
 
 ## Conteúdo e interações
 
-- Seis fórmulas; filtro por interesse e busca.
+- Seis fórmulas exibidas juntas, com busca por nome ou interesse.
 - Clique no mockup abre detalhes acessíveis com composição e modo de uso, sem páginas individuais. Link direto: `#produto/gutcare`.
 - Quantidades de 1, 3 e 6 frascos; carrinho persistido localmente.
 - Cada kit possui seu link de checkout oficial. Pedido com vários kits pode ser encaminhado ao WhatsApp; nenhum endpoint de carrinho combinado foi presumido.
@@ -31,5 +31,7 @@ Veja [fontes e pendências](docs/fontes-e-pendencias.md) antes de trocar o domí
 ## Direção visual da Aline
 
 Interface exclusivamente em branco, preto e verde, com contraste forte e contornos definidos. Conteúdos científicos em camadas: explicação breve, detalhes e fonte. Retrato fornecido pela cliente em `public/aline-retrato.webp`. As faixas e o guia foram removidos.
+
+O sistema usa um único raio de 12 px para superfícies e controles, bordas de 2 px e a mesma largura de conteúdo. Títulos, descrições, abas e espaçamentos seguem uma hierarquia comum. O detalhe quadriculado conecta a abertura aos diagramas de microbiota e eixo intestino–cérebro; as folhas reforçam o conceito de jardim interior. Círculos ficam restritos às representações científicas. Painéis em arco, botões em cápsula, caixas sobrepostas e chamadas intermediárias foram substituídos por uma organização editorial contínua.
 
 O FAQ segue a estrutura da Duet: título central, blocos empilhados, ícone de mais/fechar, uma resposta aberta e expansão em 500 ms. `src/useSmoothMotion.ts` usa o ritmo de entrada da referência (850 ms), entradas escalonadas e rolagem de 650–1.400 ms. As abas de ciência, eixo e fundadora fazem transições de 650 ms sem mudar a altura. Há feedback de toque, transições de hover e entrada/saída de janelas, respeitando a preferência por movimento reduzido. `src/motion.css` concentra o acabamento de marca e movimento.

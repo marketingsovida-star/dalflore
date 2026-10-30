@@ -1,12 +1,18 @@
 /* Brand finish: white, black and green. Motion timings follow the Duet reference. */
 :root {
+  --radius: 12px;
+  --border-width: 2px;
+  --content-width: 1160px;
+  --gutter: 32px;
+  --section-space: 88px;
+  --layout-gap: 48px;
   --bg: #fff;
   --ink: #17231a;
   --green: #25733a;
   --deep: #164e27;
   --accent: #378447;
   --muted: #425c49;
-  --line: #bad2c0;
+  --line: #a3bfa9;
   --gradient: linear-gradient(110deg, #15552a, #358b45);
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -144,7 +150,7 @@ em,
   content: "";
   width: 90px;
   height: 5px;
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: #2e853f;
   position: absolute;
   left: 50px;
@@ -353,7 +359,7 @@ em,
 .faq-item {
   overflow: hidden;
   border: 1.5px solid #b8d1bf;
-  border-radius: 8px;
+  border-radius: var(--radius);
   background: #e8f2eb;
   transition:
     background-color 0.5s var(--motion-ease),
@@ -435,7 +441,7 @@ em,
   padding: 10px 20px;
   min-height: 42px;
   border: 1.5px solid #a8c6b0;
-  border-radius: 6px;
+  border-radius: var(--radius);
   background: #edf5ef;
   color: #285c36;
   font:
@@ -445,6 +451,390 @@ em,
 }
 .faq-contact:hover {
   background: #dceee1;
+}
+/* One visual grammar: shared surfaces, aligned editorial headings and botanical diagrams. */
+.wrap,
+.hero-inner,
+.science.section.wrap {
+  width: min(var(--content-width), calc(100% - var(--gutter) * 2));
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+.products-section {
+  padding-top: var(--section-space);
+  padding-bottom: 0;
+}
+.science.section.wrap {
+  margin-block: 0;
+  padding: var(--section-space) 0;
+  border: 0;
+  background: #fff;
+  overflow: hidden;
+}
+.science.section.wrap::before {
+  display: none;
+}
+.axis-section,
+.expert-section {
+  padding-block: var(--section-space);
+}
+.science .section-heading,
+.axis-section .section-heading,
+.expert-section .section-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--layout-gap);
+  row-gap: 0;
+  max-width: none;
+  text-align: left;
+}
+.science .section-heading .section-label,
+.axis-section .section-heading .section-label,
+.expert-section .section-heading .section-label {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin: 0;
+}
+.section-label,
+.shop-heading .eyebrow {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--green);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+.section-label > svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.8;
+}
+.shop-heading {
+  border: 0;
+  padding-top: 0;
+}
+.shop-heading h2,
+.science .section-heading h2,
+.axis-section .section-heading h2,
+.expert-section .section-heading h2 {
+  font-size: clamp(30px, 3.1vw, 42px);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+  margin-top: 16px;
+}
+.axis-section .section-heading h2 br {
+  display: none;
+}
+.science .section-heading > p:last-child,
+.axis-section .section-heading > p:last-child,
+.expert-section .section-heading > p:last-child {
+  align-self: end;
+  max-width: 470px;
+  margin: 16px 0 0;
+  font:
+    17px/1.75 Arial,
+    sans-serif;
+  color: #344b3b;
+}
+.catalog-count {
+  margin: 20px 0 28px;
+  font-size: 14px;
+  color: #344b3b;
+}
+.product-grid {
+  gap: 24px;
+}
+.product-card,
+.microbiota-art,
+.axis-diagram,
+.portrait-frame,
+.overlay,
+.faq-item,
+.search-field,
+.quantities,
+.note-top,
+.image-hint,
+.connection-label,
+.micro-label,
+.ingredient-note {
+  border: var(--border-width) solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+.product-media {
+  background: linear-gradient(180deg, #edf5ef, #f8fbf9);
+}
+.product-card:hover {
+  border-color: var(--green);
+  box-shadow: 0 8px 24px #164e2710;
+}
+.button,
+.buy,
+.shop-heading > .text-link,
+.expert-copy > .button {
+  min-height: 50px;
+  border-radius: var(--radius);
+  background: var(--green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: none;
+}
+.icon-button,
+.faq-toggle,
+.round-icon {
+  border-radius: var(--radius);
+}
+.icon-button {
+  border: var(--border-width) solid var(--line);
+}
+.science-layout,
+.axis-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--layout-gap);
+  align-items: stretch;
+  margin-top: 40px;
+}
+.science-copy,
+.axis-copy {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.education-tabs,
+.axis-tabs,
+.expert-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.expert-tabs {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.education-tabs button,
+.axis-tabs button,
+.expert-tabs button {
+  min-height: 50px;
+  padding: 12px 8px;
+  border: var(--border-width) solid var(--line);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  background: #fff;
+  color: var(--green);
+  box-shadow: none;
+}
+.education-tabs button[aria-selected="true"],
+.axis-tabs button[aria-selected="true"],
+.expert-tabs button[aria-selected="true"] {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+  box-shadow: none;
+}
+.expert-tabs button::after {
+  display: none;
+}
+.education-panel,
+.axis-text {
+  min-height: 0;
+  padding: 28px 0 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.axis-stack {
+  margin-top: 0;
+}
+.microbiota-art,
+.axis-diagram {
+  width: 100%;
+  max-width: none;
+  min-height: 520px;
+  height: auto;
+  max-height: none;
+  margin: 0;
+  background:
+    linear-gradient(#25733a0a 1px, transparent 1px),
+    linear-gradient(90deg, #25733a0a 1px, transparent 1px),
+    radial-gradient(ellipse at center, #fff, #e6f1e9);
+  background-size:
+    28px 28px,
+    28px 28px,
+    auto;
+}
+.hero-art::before {
+  inset: 60px 0 0 16px;
+  transform: none;
+  border: var(--border-width) solid var(--line);
+  background:
+    linear-gradient(#25733a0a 1px, transparent 1px),
+    linear-gradient(90deg, #25733a0a 1px, transparent 1px),
+    linear-gradient(150deg, #f4f9f5, #e0eee4);
+  background-size:
+    28px 28px,
+    28px 28px,
+    auto;
+}
+.art-caption {
+  right: 20px;
+  bottom: 18px;
+  padding: 12px 0 0;
+  border-top: var(--border-width) solid var(--line);
+  border-bottom: 0;
+}
+.science-topic-meta > span,
+.pathway-index {
+  font-size: 12px;
+}
+.expert-card {
+  max-width: none;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: var(--layout-gap);
+  margin-top: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.portrait-frame {
+  min-height: 0;
+  aspect-ratio: 0.74;
+}
+.expert-copy > .eyebrow {
+  margin-bottom: 16px;
+  font-size: 12px;
+  text-align: left;
+}
+.expert-panels h3,
+.expert-signoff {
+  text-align: left;
+}
+.expert-figure figcaption {
+  text-align: left;
+}
+.expert-figure figcaption span {
+  max-width: none;
+  margin-inline: 0;
+  font-size: 14px;
+}
+.expert-panels {
+  margin-top: 24px;
+}
+.faq-section {
+  padding-block: var(--section-space);
+}
+.faq-contact {
+  border: var(--border-width) solid var(--line);
+}
+@media (max-width: 900px) {
+  :root {
+    --gutter: 24px;
+    --layout-gap: 28px;
+  }
+  .science .section-heading,
+  .axis-section .section-heading,
+  .expert-section .section-heading {
+    grid-template-columns: 1fr;
+  }
+  .science-layout,
+  .axis-layout,
+  .expert-card {
+    grid-template-columns: 1fr;
+  }
+  .microbiota-art,
+  .axis-diagram {
+    min-height: 440px;
+  }
+  .expert-figure {
+    width: 100%;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+  .portrait-frame {
+    aspect-ratio: 0.8;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --gutter: 20px;
+    --section-space: 64px;
+  }
+  .hero-copy {
+    padding: 28px 0 0;
+  }
+  .hero-art {
+    width: 100%;
+    height: 390px;
+    max-width: 400px;
+  }
+  .hero-art::before {
+    inset: 55px 0 0;
+  }
+  .main-bottle {
+    width: 66%;
+    right: 0;
+  }
+  .secondary-bottle {
+    width: 44%;
+    left: 2%;
+  }
+  .orbital-one {
+    width: 80%;
+    left: 10%;
+  }
+  .orbital-two {
+    width: 94%;
+    left: 3%;
+  }
+  .shop-heading {
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 20px;
+  }
+  .shop-heading > .text-link {
+    max-width: none;
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+  .science .section-heading,
+  .axis-section .section-heading,
+  .expert-section .section-heading {
+    display: grid;
+    text-align: left;
+  }
+  .science .section-heading > p:last-child,
+  .axis-section .section-heading > p:last-child,
+  .expert-section .section-heading > p:last-child {
+    max-width: none;
+    margin: 16px 0 0;
+    font-size: 16px;
+  }
+  .science-layout,
+  .axis-layout,
+  .expert-card {
+    margin-top: 28px;
+  }
+  .microbiota-art,
+  .axis-diagram {
+    min-height: 400px;
+    height: 400px;
+  }
+  .education-tabs button,
+  .axis-tabs button {
+    font-size: 12px;
+    padding-inline: 4px;
+  }
 }
 /* Same entry curve and 0.85s duration as Duet; stagger only small groups of cards. */
 .motion-ready [data-reveal] {

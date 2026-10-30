@@ -138,7 +138,7 @@ em {
   background: var(--gradient);
   color: #ffffff;
   min-height: 49px;
-  border-radius: 50px;
+  border-radius: var(--radius);
   padding: 14px 24px;
   font-size: 16px;
   font-weight: 700;
@@ -257,7 +257,7 @@ em {
   top: -5px;
   color: white;
   background: var(--green);
-  border-radius: 99px;
+  border-radius: var(--radius);
   min-width: 18px;
   height: 18px;
   font-size: 12px;
@@ -562,31 +562,9 @@ em {
   background: var(--gradient);
   color: white;
   text-decoration: none;
-  border-radius: 40px;
+  border-radius: var(--radius);
   padding: 12px 17px;
   font-size: 14px;
-}
-.category-filter {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 26px;
-}
-.category-filter button {
-  border: 1.5px solid #c9dfcf;
-  border-radius: 50px;
-  font-size: 15px;
-  padding: 10px 16px;
-  min-height: 38px;
-  transition: all 0.2s;
-}
-.category-filter button[aria-pressed="true"] {
-  background: var(--green);
-  color: white;
-  border-color: var(--green);
-}
-.category-filter button:hover {
-  border-color: var(--green);
 }
 .catalog-count {
   font-size: 14px;
@@ -601,7 +579,7 @@ em {
 .product-card {
   background: #f0f7f1;
   border: 1.5px solid #c9dfcf;
-  border-radius: 18px;
+  border-radius: var(--radius);
   overflow: hidden;
   transition: box-shadow 0.3s;
 }
@@ -641,7 +619,7 @@ em {
   font-size: 12px;
   background: #ffffffe6;
   padding: 6px 10px;
-  border-radius: 30px;
+  border-radius: var(--radius);
 }
 .product-media:hover .image-hint,
 .product-media:focus-visible .image-hint {
@@ -727,12 +705,12 @@ em {
   background: #f0f7f1;
   border: 1.5px solid #c9dfcf;
   padding: 3px;
-  border-radius: 50px;
+  border-radius: var(--radius);
   margin: 10px 0;
 }
 .quantities button {
   padding: 8px 3px;
-  border-radius: 30px;
+  border-radius: var(--radius);
   min-height: 36px;
   font-size: 14px;
   line-height: 1.1;
@@ -773,12 +751,12 @@ em {
 .payments b {
   border: 1.5px solid #c9dfcf;
   background: white;
-  border-radius: 2px;
+  border-radius: var(--radius);
   padding: 3px 5px;
 }
 .faq-strip {
   border: 1.5px solid #c9dfcf;
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 19px 23px;
   margin-top: 29px;
   display: flex;
@@ -890,7 +868,7 @@ em {
   width: 13px;
   height: 30px;
   border: 1.5px solid #286a3b;
-  border-radius: 40px;
+  border-radius: var(--radius);
   background: linear-gradient(110deg, #c9dfcfaa, #f0f7f1);
   transform: translate(-50%, -50%) rotate(calc(var(--i) * 37deg));
   box-shadow:
@@ -914,7 +892,7 @@ em {
   color: #285e37;
   background: var(--bg);
   padding: 5px 10px;
-  border-radius: 3px;
+  border-radius: var(--radius);
 }
 .micro-label-a {
   left: 6px;
@@ -1021,7 +999,7 @@ em {
 }
 .axis-tabs button {
   border: 1.5px solid #91bc9c40;
-  border-radius: 30px;
+  border-radius: var(--radius);
   padding: 10px 16px;
   font-size: 14px;
   color: #3f7048;
@@ -1209,7 +1187,7 @@ em {
   margin: 48px auto 0;
   background: #ffffffe8;
   border: 1.5px solid #91bc9c9c;
-  border-radius: 14px;
+  border-radius: var(--radius);
   box-shadow: 0 15px 35px #153d240d;
 }
 .expert-figure {
@@ -1220,7 +1198,7 @@ em {
 }
 .portrait-frame {
   position: relative;
-  border-radius: 180px 180px 25px 25px;
+  border-radius: var(--radius);
   flex: 1;
   min-height: 450px;
   border: 1.5px solid #52875c;
@@ -1280,7 +1258,7 @@ em {
   align-items: center;
   gap: 9px;
   border: 1.5px solid #91bc9c;
-  border-radius: 9px;
+  border-radius: var(--radius);
   min-height: 58px;
   padding: 8px;
   font-size: 16px;
@@ -1449,7 +1427,7 @@ footer {
   padding: 0;
   margin: auto;
   border: 1.5px solid #c9dfcf;
-  border-radius: 15px;
+  border-radius: var(--radius);
   background: var(--bg);
   color: var(--ink);
   max-width: min(960px, calc(100% - 40px));
@@ -1586,7 +1564,7 @@ footer {
   padding: 18px;
   border: 1.5px solid #c9dfcf;
   background: #f0f7f1;
-  border-radius: 8px;
+  border-radius: var(--radius);
   margin-top: 22px;
   color: #17251c;
 }
@@ -1664,7 +1642,7 @@ footer {
   gap: 12px;
   margin-top: 20px;
   border: 1.5px solid #91bc9c;
-  border-radius: 40px;
+  border-radius: var(--radius);
   padding: 14px 18px;
   color: #285e37;
 }
@@ -1772,7 +1750,7 @@ footer {
   max-height: 100svh;
   max-width: min(520px, 100%);
   height: 100svh;
-  border-radius: 15px 0 0 15px;
+  border-radius: var(--radius) 0 0 var(--radius);
   right: 0;
   left: auto;
   width: 520px;
@@ -1806,7 +1784,7 @@ footer {
   object-fit: contain;
   mix-blend-mode: multiply;
   background: #f0f7f1;
-  border-radius: 6px;
+  border-radius: var(--radius);
 }
 .cart-item > div {
   flex: 1;
@@ -2167,13 +2145,6 @@ footer {
   .product-price .consult-price {
     font-size: 21px;
   }
-  .category-filter {
-    gap: 6px;
-  }
-  .category-filter button {
-    font-size: 14px;
-    padding: 9px 12px;
-  }
   .shop-heading h2 {
     font-size: 25px;
   }
@@ -2487,25 +2458,6 @@ footer {
   .shop-heading > .text-link svg {
     width: 13px;
   }
-  .category-filter {
-    margin-top: 22px;
-    flex-wrap: nowrap;
-    overflow: auto;
-    gap: 6px;
-    padding: 2px 0 9px;
-    scrollbar-width: none;
-    margin-right: -19px;
-    padding-right: 19px;
-  }
-  .category-filter::-webkit-scrollbar {
-    display: none;
-  }
-  .category-filter button {
-    flex-shrink: 0;
-    min-height: 34px;
-    font-size: 12px;
-    padding: 9px 13px;
-  }
   .catalog-count {
     font-size: 11px;
     line-height: 1.6;
@@ -2519,7 +2471,7 @@ footer {
     margin: auto;
   }
   .product-card {
-    border-radius: 15px;
+    border-radius: var(--radius);
   }
   .product-media {
     height: 325px;
@@ -2918,7 +2870,7 @@ footer {
     max-width: 100%;
     width: 100%;
     max-height: 95svh;
-    border-radius: 15px 15px 0 0;
+    border-radius: var(--radius) var(--radius) 0 0;
     margin: auto 0 0;
     bottom: 0;
   }
@@ -3098,26 +3050,6 @@ footer {
 }
 
 /* Typography roles and room for readable content. */
-h1,
-h2,
-h3,
-.hero-lead,
-.section-heading > p:last-child,
-.product-summary,
-.eyebrow,
-.expert-signoff,
-.button,
-.desktop-nav,
-.product-price > div,
-.detail-price,
-.cart-total,
-.quantities,
-.expert-tabs,
-.education-tabs,
-.axis-tabs,
-.category-filter {
-  font-family: "Open Sans", Arial, sans-serif;
-}
 h1,
 h2,
 h3 {
