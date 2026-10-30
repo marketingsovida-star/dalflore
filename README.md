@@ -16,12 +16,12 @@ O build inclui verificação de tipos. Publicação automática pelo GitHub Acti
 
 ## Conteúdo e interações
 
-- Seis fórmulas exibidas juntas, com busca por nome ou interesse.
+- Seis fórmulas em carrossel manual, com navegação por setas, arraste e busca por nome ou interesse.
 - Clique no mockup abre detalhes acessíveis com composição e modo de uso, sem páginas individuais. Link direto: `#produto/gutcare`.
 - Quantidades de 1, 3 e 6 frascos; carrinho persistido localmente.
 - Cada kit possui seu link de checkout oficial. Pedido com vários kits pode ser encaminhado ao WhatsApp; nenhum endpoint de carrinho combinado foi presumido.
 - Conteúdo educativo com fontes científicas e diagrama interativo das vias neural, metabólica e imune.
-- Biografia e marca em duas abas, sem mudança de altura.
+- Biografia e marca em duas abas, com introdução breve e história completa expansível.
 - Modais nativos com foco contido, Escape, navegação por teclado e suporte a movimento reduzido.
 
 Imagens originais e PDFs enviados ficam em `public/products`, `public/brand` e `public/labels`. As versões WebP são otimizadas para a web. Os textos e ofertas estão em `src/catalog.ts`.
@@ -32,6 +32,6 @@ Veja [fontes e pendências](docs/fontes-e-pendencias.md) antes de trocar o domí
 
 Interface exclusivamente em branco, preto e verde, com contraste forte e contornos definidos. Conteúdos científicos em camadas: explicação breve, detalhes e fonte. Retrato fornecido pela cliente em `public/aline-retrato.webp`. As faixas e o guia foram removidos.
 
-O sistema usa um único raio de 12 px para superfícies e controles, bordas de 2 px e a mesma largura de conteúdo. Títulos, descrições, abas e espaçamentos seguem uma hierarquia comum. O detalhe quadriculado conecta a abertura aos diagramas de microbiota e eixo intestino–cérebro; as folhas reforçam o conceito de jardim interior. Círculos ficam restritos às representações científicas. Painéis em arco, botões em cápsula, caixas sobrepostas e chamadas intermediárias foram substituídos por uma organização editorial contínua.
+O sistema usa um único raio de 12 px para superfícies e controles e a mesma largura de conteúdo. A composição prioriza blocos curtos, com título, explicação e ilustração lado a lado. Fundos verdes suaves e folhas conectam as seções ao conceito de jardim interior; o quadriculado e as molduras dos diagramas foram removidos. A loja ocupa uma única fileira navegável. Detalhes científicos e histórias completas ficam em expansores de leitura. No celular, a decoração da microbiota é omitida, o diagrama do eixo fica horizontal e a foto da Aline acompanha o título para evitar empilhar blocos grandes.
 
-O FAQ segue a estrutura da Duet: título central, blocos empilhados, ícone de mais/fechar, uma resposta aberta e expansão em 500 ms. `src/useSmoothMotion.ts` usa o ritmo de entrada da referência (850 ms), entradas escalonadas e rolagem de 650–1.400 ms. As abas de ciência, eixo e fundadora fazem transições de 650 ms sem mudar a altura. Há feedback de toque, transições de hover e entrada/saída de janelas, respeitando a preferência por movimento reduzido. `src/motion.css` concentra o acabamento de marca e movimento.
+O FAQ mantém os blocos expansíveis da Duet, com quatro perguntas iniciais e um botão para exibir todas as oito. As respostas abrem em 500 ms. `src/useSmoothMotion.ts` usa entradas de 850 ms e rolagem de 650–1.400 ms. As abas fazem transições de 650 ms; expansores aumentam a leitura apenas quando abertos. O carrossel não avança automaticamente. As interações respeitam a preferência por movimento reduzido. `src/motion.css` concentra o acabamento de marca e movimento.

@@ -270,6 +270,94 @@ function ProductCard({
     </article>
   );
 }
+function ProductShelf({
+  open,
+  add,
+}: {
+  open: (p: Product) => void;
+  add: (p: Product, q: Quantity) => void;
+}) {
+  const track = useRef<HTMLDivElement>(null);
+  const [range, setRange] = useState({ first: 0, shown: 3 });
+  const measure = () => {
+    const el = track.current;
+    const card = el?.firstElementChild as HTMLElement | null;
+    if (!el || !card) return;
+    const step =
+      card.offsetWidth + Number.parseFloat(getComputedStyle(el).columnGap);
+    const shown = Math.max(1, Math.round((el.clientWidth + 20) / step));
+    setRange({
+      first: Math.min(
+        products.length - shown,
+        Math.round(el.scrollLeft / step),
+      ),
+      shown,
+    });
+  };
+  useEffect(() => {
+    const el = track.current;
+    if (!el) return;
+    const resize = new ResizeObserver(measure);
+    resize.observe(el);
+    return () => resize.disconnect();
+  }, []);
+  const move = (direction: number) => {
+    const el = track.current;
+    if (!el) return;
+    const step =
+      (el.firstElementChild as HTMLElement).offsetWidth +
+      Number.parseFloat(getComputedStyle(el).columnGap);
+    el.scrollBy({
+      left: direction * step,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+    });
+  };
+  return (
+    <>
+      <div className="shelf-toolbar">
+        <p className="catalog-count">Clique no frasco e descubra a fórmula.</p>
+        <div className="shelf-controls">
+          <span aria-live="polite">
+            {range.first + 1}–
+            {Math.min(products.length, range.first + range.shown)} /{" "}
+            {products.length}
+          </span>
+          <button
+            className="icon-button"
+            aria-label="Fórmulas anteriores"
+            disabled={range.first === 0}
+            onClick={() => move(-1)}
+          >
+            <ArrowLeft size={18} />
+          </button>
+          <button
+            className="icon-button"
+            aria-label="Próximas fórmulas"
+            disabled={range.first + range.shown >= products.length}
+            onClick={() => move(1)}
+          >
+            <ArrowRight size={18} />
+          </button>
+        </div>
+      </div>
+      <div
+        className="product-grid"
+        ref={track}
+        onScroll={measure}
+        role="region"
+        aria-label="Fórmulas DalFlore"
+        aria-roledescription="carrossel"
+        tabIndex={0}
+      >
+        {products.map((p) => (
+          <ProductCard key={p.id} product={p} open={open} add={add} />
+        ))}
+      </div>
+    </>
+  );
+}
 function BotanicalDetail() {
   return (
     <svg
@@ -304,7 +392,7 @@ const slides = [
       </>
     ),
     label: "MICROBIOTA · CIÊNCIA · CUIDADO",
-    text: "Um novo olhar para a sua saúde. Probióticos, prebióticos e nutrientes, com a ciência como ponto de partida e você no centro do cuidado.",
+    text: "Cuide do seu jardim interior. Fórmulas com probióticos, prebióticos e nutrientes, criadas pela Dra. Aline para acompanhar a sua rotina.",
     primary: "gutcare",
     secondary: "concentra",
     cta: "Conhecer o GUTcare",
@@ -619,14 +707,16 @@ function Science() {
                   <h3>{content.title}</h3>
                   <p className="science-simple">{content.simple}</p>
                   <p>{content.text}</p>
-                  <div className="science-detail">
-                    <span className="eyebrow">NA PRÁTICA</span>
+                  <details className="science-detail read-more" key={active}>
+                    <summary>
+                      Ingredientes e cuidados <Plus size={16} />
+                    </summary>
                     <p>{content.detail}</p>
                     <span className="ingredient-note">
                       <Leaf size={15} />
                       {content.example}
                     </span>
-                  </div>
+                  </details>
                   <a
                     className="text-link"
                     href={content.source}
@@ -688,12 +778,11 @@ function Axis() {
             <Brain size={16} /> EIXO INTESTINO–CÉREBRO
           </p>
           <h2>
-            O que acontece no intestino{" "}
-            <em>faz parte de uma conversa maior.</em>
+            Corpo e mente.
+            <br /> <em>Em conexão.</em>
           </h2>
           <p>
-            Seu corpo funciona em conexão. Conheça três caminhos estudados pela
-            ciência nessa comunicação.
+            Intestino e cérebro conversam. Conheça os caminhos dessa conexão.
           </p>
         </div>
         <div className="axis-layout">
@@ -795,9 +884,8 @@ function Expert() {
             <Heart size={16} /> CIÊNCIA COM UM OLHAR HUMANO
           </p>
           <h2>
-            Conheça quem faz
-            <br />
-            <em>a DalFlore florescer.</em>
+            Por trás da fórmula,
+            <br /> <em>um olhar humano.</em>
           </h2>
           <p>
             Conhecimento científico, escuta e cuidado humano em cada escolha.
@@ -820,7 +908,6 @@ function Expert() {
             </figcaption>
           </figure>
           <div className="expert-copy">
-            <p className="eyebrow">ESCOLHA QUAL HISTÓRIA QUER LER</p>
             <div
               className="expert-tabs"
               role="tablist"
@@ -865,31 +952,34 @@ function Expert() {
                 aria-hidden={tab !== "marca"}
               >
                 <h3>
-                  Quando a ciência encontra
-                  <br />
-                  <em>o equilíbrio natural.</em>
+                  Quando a ciência encontra <em>o equilíbrio natural.</em>
                 </h3>
                 <p>
                   A DalFlore nasceu para transformar a forma como cuidamos da
                   saúde. Unimos inovação científica, ingredientes puros e uma
                   visão humana do bem-estar.
                 </p>
-                <p>
-                  A inspiração vem da microbiota, o nosso “jardim interno”.
-                  Assim como um jardim, ela precisa de cuidado, nutrição e
-                  equilíbrio para florescer.
-                </p>
-                <p>
-                  Foi dessa visão que Aline Dalmazo criou uma marca de
-                  probióticos, prebióticos e nutracêuticos: um encontro entre
-                  conhecimento, natureza e cuidado com pessoas reais.
-                </p>
-                <p>
-                  <strong>
-                    Pureza dos ingredientes. Respeito ao corpo humano.
-                    Simplicidade que funciona.
-                  </strong>
-                </p>
+                <details className="read-more" key={tab}>
+                  <summary>
+                    Leia a história da DalFlore <Plus size={16} />
+                  </summary>
+                  <p>
+                    A inspiração vem da microbiota, o nosso “jardim interno”.
+                    Assim como um jardim, ela precisa de cuidado, nutrição e
+                    equilíbrio para florescer.
+                  </p>
+                  <p>
+                    Foi dessa visão que Aline Dalmazo criou uma marca de
+                    probióticos, prebióticos e nutracêuticos: um encontro entre
+                    conhecimento, natureza e cuidado com pessoas reais.
+                  </p>
+                  <p>
+                    <strong>
+                      Pureza dos ingredientes. Respeito ao corpo humano.
+                      Simplicidade que funciona.
+                    </strong>
+                  </p>
+                </details>
                 <div className="expert-signoff">
                   Porque quando sua flora floresce,
                   <br />
@@ -904,9 +994,7 @@ function Expert() {
                 aria-hidden={tab !== "aline"}
               >
                 <h3>
-                  Conhecimento para orientar.
-                  <br />
-                  <em>Escuta para cuidar.</em>
+                  Conhecimento para orientar. <em>Escuta para cuidar.</em>
                 </h3>
                 <p>
                   <strong>
@@ -915,21 +1003,26 @@ function Expert() {
                   , dedicada ao estudo da microbiota intestinal e da nutrição de
                   precisão.
                 </p>
-                <p>
-                  Sua trajetória reúne pesquisa, prática clínica e
-                  acompanhamento de pacientes. A ciência orienta a forma como
-                  ela conversa, explica e constrói o cuidado no consultório.
-                </p>
-                <p>
-                  Para Aline, aproximar a ciência da vida cotidiana significa
-                  oferecer informação com clareza, considerar a individualidade
-                  e ouvir a história de cada pessoa.
-                </p>
-                <p>
-                  Foi da união entre essa trajetória acadêmica e a experiência
-                  clínica que nasceu a DalFlore, com o propósito de levar esse
-                  olhar para além do consultório.
-                </p>
+                <details className="read-more" key={tab}>
+                  <summary>
+                    Conheça a trajetória da Aline <Plus size={16} />
+                  </summary>
+                  <p>
+                    Sua trajetória reúne pesquisa, prática clínica e
+                    acompanhamento de pacientes. A ciência orienta a forma como
+                    ela conversa, explica e constrói o cuidado no consultório.
+                  </p>
+                  <p>
+                    Para Aline, aproximar a ciência da vida cotidiana significa
+                    oferecer informação com clareza, considerar a
+                    individualidade e ouvir a história de cada pessoa.
+                  </p>
+                  <p>
+                    Foi da união entre essa trajetória acadêmica e a experiência
+                    clínica que nasceu a DalFlore, com o propósito de levar esse
+                    olhar para além do consultório.
+                  </p>
+                </details>
                 <div className="expert-signoff">
                   Ciência na escolha.
                   <br />
@@ -988,12 +1081,13 @@ const faqs = [
 ];
 function FAQ() {
   const [openFaq, setOpenFaq] = useState(0);
+  const [showAll, setShowAll] = useState(false);
   return (
     <section className="faq-section" id="duvidas">
       <div className="faq-inner">
         <h2>Perguntas frequentes</h2>
-        <div className="faq-items">
-          {faqs.map(([q, a], index) => {
+        <div className="faq-items" id="faq-items">
+          {faqs.slice(0, showAll ? faqs.length : 4).map(([q, a], index) => {
             const isOpen = openFaq === index;
             return (
               <div className="faq-item" data-open={isOpen} key={q}>
@@ -1026,6 +1120,20 @@ function FAQ() {
             );
           })}
         </div>
+        <button
+          className="text-link faq-more"
+          aria-expanded={showAll}
+          aria-controls="faq-items"
+          onClick={() => {
+            setShowAll(!showAll);
+            if (showAll && openFaq >= 4) setOpenFaq(0);
+          }}
+        >
+          {showAll
+            ? "Mostrar menos dúvidas"
+            : `Ver todas as dúvidas (${faqs.length})`}{" "}
+          <Plus size={16} />
+        </button>
         <a
           className="faq-contact"
           href={whatsapp("Olá! Estou no site da DalFlore e tenho uma dúvida.")}
@@ -1562,15 +1670,7 @@ export default function App() {
               Buscar fórmula <Search size={15} />
             </button>
           </div>
-          <p className="catalog-count">
-            {products.length} {products.length === 1 ? "fórmula" : "fórmulas"} ·
-            Clique no frasco para conhecer a composição e como funciona.
-          </p>
-          <div className="product-grid">
-            {products.map((p) => (
-              <ProductCard key={p.id} product={p} open={open} add={add} />
-            ))}
-          </div>
+          <ProductShelf open={open} add={add} />
         </section>
         <Science />
         <Axis />
