@@ -451,10 +451,12 @@ em,
   --rx: 0px;
   --ry: 45px;
   opacity: 0;
-  transform: translate3d(var(--rx), var(--ry), 0) scale(0.97);
+  translate: var(--rx) var(--ry);
+  scale: 0.97;
   transition:
     opacity 0.85s var(--motion-ease) var(--reveal-delay, 0s),
-    transform 0.85s var(--motion-ease) var(--reveal-delay, 0s),
+    translate 0.85s var(--motion-ease) var(--reveal-delay, 0s),
+    scale 0.85s var(--motion-ease) var(--reveal-delay, 0s),
     box-shadow 0.5s var(--motion-ease);
 }
 .motion-ready [data-reveal="left"] {
@@ -467,7 +469,8 @@ em,
 }
 .motion-ready [data-reveal][data-revealed] {
   opacity: 1;
-  transform: none;
+  translate: 0 0;
+  scale: 1;
 }
 :where(a, button) {
   transition:
@@ -619,7 +622,8 @@ em,
 @media (max-width: 767px) {
   .motion-ready [data-reveal] {
     --ry: 20px;
-    transform: translate3d(var(--rx), var(--ry), 0) scale(0.99);
+    translate: var(--rx) var(--ry);
+    scale: 0.99;
   }
   .motion-ready [data-reveal="left"] {
     --rx: 20px;
@@ -630,7 +634,8 @@ em,
     --ry: 0px;
   }
   .motion-ready [data-reveal][data-revealed] {
-    transform: none;
+    translate: 0 0;
+    scale: 1;
   }
 }
 @media (max-width: 640px) {
@@ -667,7 +672,8 @@ em,
 @media (prefers-reduced-motion: reduce) {
   .motion-ready [data-reveal] {
     opacity: 1;
-    transform: none;
+    translate: 0 0;
+    scale: 1;
     transition: none;
   }
   .faq-item,
