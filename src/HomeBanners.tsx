@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, CreditCard, Headphones, Pause, Play, ShieldCheck, Truck } from "lucide-react";
 import { asset, products, type Product } from "./catalog";
 import "./banners.css";
@@ -67,7 +67,10 @@ export function HomeBanners({ open, onVisibilityChange }: {
       if (touch.current !== null && end !== undefined && Math.abs(end - touch.current) > 50) move(end < touch.current ? 1 : -1);
       touch.current = null;
     }}>
-      {banners.map((banner, index) => <img key={banner.title} src={asset(`banners/banner-${index + 1}.webp`)} alt={banner.alt} width={1672} height={941} fetchPriority={index === 0 ? "high" : "auto"} className={active === index ? "is-active" : ""} aria-hidden={active !== index} />)}
+      {banners.map((banner, index) => <Fragment key={banner.title}>
+        <img className={`df-banner-backdrop${active === index ? " is-active" : ""}`} src={asset(`banners/banner-${index + 1}.webp`)} alt="" aria-hidden="true" width={1672} height={941} />
+        <img src={asset(`banners/banner-${index + 1}.webp`)} alt={banner.alt} width={1672} height={941} fetchPriority={index === 0 ? "high" : "auto"} className={`df-banner-photo${index === 0 ? " df-banner-photo-first" : ""}${active === index ? " is-active" : ""}`} aria-hidden={active !== index} />
+      </Fragment>)}
       <div className="df-banner-shade" />
     </div>
     <div className="df-banner-copy">
