@@ -6,22 +6,22 @@ import "./banners.css";
 const banners = [
   {
     image: "banners/banner-1.webp",
-    title: "Seu equilíbrio\ncomeça por dentro.",
-    description: "Probióticos e prebióticos em uma fórmula para o cuidado com a sua microbiota. Conheça GUTcare e comece um novo ritual de bem-estar.",
+    title: "Cuidar começa\npor dentro.",
+    description: "Probióticos e prebióticos para fazer do cuidado intestinal um ritual diário.",
     alt: "Aline com um frasco de GUTcare DalFlore em um ambiente iluminado e cercado de plantas",
     actions: [{ id: "gutcare", label: "Conhecer GUTcare" }],
   },
   {
     image: "banners/slim-balance-banner.webp",
     title: "Seu ritmo.\nSeu equilíbrio.",
-    description: "Sua rotina de cuidado merece um olhar por dentro. Conheça Slim Balance, a combinação de probióticos da DalFlore para o cuidado metabólico.",
+    description: "Probióticos para acompanhar sua rotina de cuidado com o equilíbrio metabólico.",
     alt: "Frasco Slim Balance DalFlore sobre uma base de mármore com folhas e luz natural",
     actions: [{ id: "slim-balance", label: "Conhecer Slim Balance" }],
   },
   {
     image: "banners/banner-2.webp",
-    title: "Nutra sua beleza.\nCuide de você.",
-    description: "Hair & Skin e Immune: nutrientes para pele, cabelos e unhas, e uma fórmula que conecta microbiota e cuidado com as suas defesas.",
+    title: "Sua beleza.\nSeu cuidado.",
+    description: "Hair & Skin para pele, cabelos e unhas. Immune para o cuidado com suas defesas.",
     alt: "Frascos Hair & Skin e Immune DalFlore entre folhagens verdes",
     actions: [{ id: "hair-skin", label: "Conhecer Hair & Skin" }, { id: "immune", label: "Conhecer Immune" }],
   },

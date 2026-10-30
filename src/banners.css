@@ -9,21 +9,21 @@
 .df-banner-visual > .df-banner-photo-first { left: 80%; transform: translateX(-80%); }
 .df-banner-visual > img.is-active { opacity: 1; }
 .df-banner-shade { display: none; }
-.df-banner-copy { grid-row: 4; padding: 12px 24px 28px; text-align: left; }
+.df-banner-copy { grid-row: 3; padding: 20px 24px 12px; text-align: left; }
 .df-banner-copy-inner { max-width: 540px; margin: auto; }
 .df-banner-logo { display: none; }
 .df-banner-messages { display: grid; }
 .df-banner-message { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .65s ease, visibility .65s; }
 .df-banner-message.is-active { opacity: 1; visibility: visible; }
-.df-home .df-banner-message h1, .df-home .df-banner-message h2 { font-family: "Open Sans", Arial, sans-serif; font-weight: 600; font-size: 36px; line-height: 1.14; letter-spacing: -.045em; white-space: pre-line; text-wrap: balance; margin: 0; color: inherit; }
-.df-home .df-banner-message p { margin: 15px 0 0; max-width: 420px; font: 16px/1.65 Arial, sans-serif; text-wrap: pretty; color: inherit; }
-.df-banner-actions { display: flex; align-items: stretch; justify-content: flex-start; gap: 12px; margin-top: 22px; }
-.df-banner-cta { border: 0; border-radius: var(--radius); background: #205b36; color: #fff; padding: 14px 25px; min-height: 48px; font: 600 16px/1.3 "Open Sans", Arial, sans-serif; cursor: pointer; transition: background .35s ease, transform .35s ease; }
+.df-home .df-banner-message h1, .df-home .df-banner-message h2 { font-family: "Open Sans", Arial, sans-serif; font-weight: 600; font-size: 32px; line-height: 1.14; height: 2lh; letter-spacing: -.045em; white-space: pre-line; text-wrap: balance; margin: 0; color: inherit; }
+.df-home .df-banner-message p { margin: 16px 0 0; height: 3lh; max-width: 420px; font: 16px/1.65 Arial, sans-serif; text-wrap: pretty; color: inherit; }
+.df-banner-actions { display: flex; align-items: stretch; justify-content: flex-start; gap: 12px; margin-top: 20px; }
+.df-banner-cta { flex: 0 1 calc((100% - 12px) / 2); min-width: 0; height: 64px; border: 0; border-radius: var(--radius); background: #205b36; color: #fff; padding: 10px 12px; font: 600 15px/1.3 "Open Sans", Arial, sans-serif; text-wrap: balance; cursor: pointer; transition: background .35s ease, transform .35s ease; }
 .df-banner-cta:hover { background: #337649; transform: translateY(-2px); }
 .df-banner-actions-pair .df-banner-cta { flex: 1 1 0; min-width: 0; padding-inline: 12px; text-wrap: balance; }
 .df-banner-controls { display: flex; align-items: center; justify-content: flex-start; gap: 3px; }
 .df-banner-controls-desktop { display: none; }
-.df-banner-controls-mobile { grid-row: 3; padding: 5px 24px; }
+.df-banner-controls-mobile { grid-row: 4; padding: 0 24px 20px; }
 .df-banner-controls button { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: var(--radius); background: transparent; color: inherit; cursor: pointer; transition: background .3s; }
 .df-banner-controls button:hover { background: #ffffff26; }
 .df-banner-dots { display: flex; gap: 2px; }
@@ -44,13 +44,13 @@
   .df-banner-shade { display: block; position: absolute; inset: 0; background: linear-gradient(90deg, #123d28e8 0%, #123d28d9 30%, #123d28a6 40%, #123d2800 57%); }
   .df-banner-copy { grid-area: 1 / 1; z-index: 1; align-self: center; width: 100%; max-width: 1400px; margin: auto; padding: 30px 6%; color: #fff; pointer-events: none; }
   .df-banner-copy-inner { width: 43%; max-width: 510px; margin: 0 0 0 -3.5%; pointer-events: auto; }
-  .df-banner-logo { display: block; width: auto; height: 76px; object-fit: contain; margin: 0 0 20px; }
-  .df-home .df-banner-message h1, .df-home .df-banner-message h2 { font-size: clamp(40px, 4.55vw, 68px); text-shadow: 0 2px 24px #0b301e40; }
-  .df-home .df-banner-message p { font-size: 19px; line-height: 1.7; margin-top: 19px; }
-  .df-banner-actions { margin-top: 26px; }
+  .df-banner-logo { display: block; width: auto; height: 92px; object-fit: contain; margin: 0 0 16px; }
+  .df-home .df-banner-message h1, .df-home .df-banner-message h2 { font-size: clamp(36px, 4.2vw, 60px); text-shadow: 0 2px 24px #0b301e40; }
+  .df-home .df-banner-message p { font-size: 19px; line-height: 1.65; margin-top: 16px; }
+  .df-banner-actions { margin-top: 20px; }
   .df-banner-cta { background: #fff; color: #17452b; }
   .df-banner-cta:hover { background: #e5f2e2; }
-  .df-banner-controls-desktop { display: flex; margin-top: 20px; }
+  .df-banner-controls-desktop { display: flex; margin-top: 12px; }
   .df-banner-controls-mobile { display: none; }
   .df-banner-benefits { grid-area: 2 / 1; height: 52px; }
   .df-benefits-group { min-width: 100vw; justify-content: space-around; gap: 20px; padding-inline: 24px; }
@@ -58,11 +58,17 @@
 @media (min-width: 768px) and (min-aspect-ratio: 16/9) {
   .df-banner-visual > .df-banner-photo-first { left: 100%; transform: translateX(-100%); }
 }
+@media (min-width: 1100px) {
+  .df-home .df-banner-message p { height: 2lh; }
+  .df-banner-cta { height: 52px; }
+}
 @media (min-width: 768px) and (max-height: 650px) {
-  .df-banner-logo { height: 48px; margin-bottom: 12px; }
+  .df-banner-copy { padding-block: 24px; }
+  .df-banner-logo { height: 64px; margin-bottom: 12px; }
   .df-home .df-banner-message h1, .df-home .df-banner-message h2 { font-size: 40px; }
   .df-home .df-banner-message p { font-size: 16px; margin-top: 12px; }
-  .df-banner-actions, .df-banner-controls-desktop { margin-top: 14px; }
+  .df-banner-actions { margin-top: 18px; }
+  .df-banner-controls-desktop { margin-top: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .df-banner-visual > img, .df-banner-message, .df-banner-dots span, .site-header.df-floating-header { transition: none; }
