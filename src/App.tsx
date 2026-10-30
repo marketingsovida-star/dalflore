@@ -476,9 +476,19 @@ function Hero({ open }: { open: (p: Product) => void }) {
             <ArrowRight size={18} />
           </button>
           <div className="hero-perks">
-            <span>
-              <Check size={14} />
-              Criada pela Dra. Aline Dalmazo
+            <span className="creator-note">
+              <span className="creator-portrait">
+                <img
+                  src={asset("aline-retrato.webp")}
+                  width="40"
+                  height="44"
+                  alt=""
+                />
+              </span>
+              <span className="creator-text">
+                <strong>Dra. Aline Dalmazo</strong>
+                <small>Ciência e cuidado, de perto.</small>
+              </span>
             </span>
             <span>
               <Check size={14} />
