@@ -5,22 +5,25 @@ import "./banners.css";
 
 const banners = [
   {
+    image: "banners/banner-1.webp",
     title: "Seu equilíbrio\ncomeça por dentro.",
     description: "Probióticos e prebióticos em uma fórmula para o cuidado com a sua microbiota. Conheça GUTcare e comece um novo ritual de bem-estar.",
     alt: "Aline com um frasco de GUTcare DalFlore em um ambiente iluminado e cercado de plantas",
     actions: [{ id: "gutcare", label: "Conhecer GUTcare" }],
   },
   {
-    title: "Nutra sua beleza.\nCuide de você.",
-    description: "Hair & Skin e Immune: nutrientes para pele, cabelos e unhas, e uma fórmula que conecta microbiota e cuidado com as suas defesas.",
-    alt: "Frascos Hair & Skin e Immune DalFlore entre folhagens verdes",
-    actions: [{ id: "hair-skin", label: "Conhecer Hair & Skin" }, { id: "immune", label: "Conhecer Immune" }],
-  },
-  {
+    image: "banners/slim-balance-banner.webp",
     title: "Seu ritmo.\nSeu equilíbrio.",
     description: "Sua rotina de cuidado merece um olhar por dentro. Conheça Slim Balance, a combinação de probióticos da DalFlore para o cuidado metabólico.",
     alt: "Frasco Slim Balance DalFlore sobre uma base de mármore com folhas e luz natural",
     actions: [{ id: "slim-balance", label: "Conhecer Slim Balance" }],
+  },
+  {
+    image: "banners/banner-2.webp",
+    title: "Nutra sua beleza.\nCuide de você.",
+    description: "Hair & Skin e Immune: nutrientes para pele, cabelos e unhas, e uma fórmula que conecta microbiota e cuidado com as suas defesas.",
+    alt: "Frascos Hair & Skin e Immune DalFlore entre folhagens verdes",
+    actions: [{ id: "hair-skin", label: "Conhecer Hair & Skin" }, { id: "immune", label: "Conhecer Immune" }],
   },
 ];
 const benefits = [
@@ -68,8 +71,8 @@ export function HomeBanners({ open, onVisibilityChange }: {
       touch.current = null;
     }}>
       {banners.map((banner, index) => <Fragment key={banner.title}>
-        <img className={`df-banner-backdrop${active === index ? " is-active" : ""}`} src={asset(`banners/banner-${index + 1}.webp`)} alt="" aria-hidden="true" width={1672} height={941} />
-        <img src={asset(`banners/banner-${index + 1}.webp`)} alt={banner.alt} width={1672} height={941} fetchPriority={index === 0 ? "high" : "auto"} className={`df-banner-photo${index === 0 ? " df-banner-photo-first" : ""}${active === index ? " is-active" : ""}`} aria-hidden={active !== index} />
+        <img className={`df-banner-backdrop${active === index ? " is-active" : ""}`} src={asset(banner.image)} alt="" aria-hidden="true" width={1672} height={941} />
+        <img src={asset(banner.image)} alt={banner.alt} width={1672} height={941} fetchPriority={index === 0 ? "high" : "auto"} className={`df-banner-photo${index === 0 ? " df-banner-photo-first" : ""}${active === index ? " is-active" : ""}`} aria-hidden={active !== index} />
       </Fragment>)}
       <div className="df-banner-shade" />
     </div>
