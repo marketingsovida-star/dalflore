@@ -21,7 +21,7 @@ export function useSmoothMotion() {
       },
     );
     const selectors =
-      ".hero-copy,.hero-art,.shop-heading,.product-card,.science .section-heading,.axis-section .section-heading,.microbiota-art,.science-copy,.axis-copy,.axis-diagram,.expert-section .section-heading,.expert-figure,.expert-copy,.faq-inner>h2,.faq-items,.faq-contact,.closing .wrap";
+      ".df-hero-copy,.df-catalog .shop-heading,.product-card,.df-science-copy,.df-science-art,.df-axis-copy,.df-axis-visual,.df-expert-heading,.df-founder,.df-expert-copy,.faq-inner>h2,.faq-items,.faq-contact,.df-closing .df-container";
     const watch = () => {
       document.querySelectorAll<HTMLElement>(selectors).forEach((el) => {
         if (el.hasAttribute("data-reveal")) return;

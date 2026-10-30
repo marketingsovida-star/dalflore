@@ -12,13 +12,11 @@ import {
   ArrowUpRight,
   BookOpen,
   Brain,
-  Check,
   Plus,
   ChevronLeft,
   ChevronRight,
   FlaskConical,
   Headphones,
-  Heart,
   Instagram,
   Leaf,
   Menu,
@@ -358,228 +356,103 @@ function ProductShelf({
     </>
   );
 }
-function BotanicalDetail() {
-  return (
-    <svg
-      className="botanical-detail"
-      viewBox="0 0 240 360"
-      fill="none"
-      aria-hidden="true"
-    >
-      <g
-        stroke="currentColor"
-        strokeWidth="1.1"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M58 339C88 285 112 225 124 167C135 113 132 66 119 24" />
-        <path d="M125 161C89 146 69 117 77 81C112 94 130 123 125 161ZM130 121C158 104 171 76 161 46C136 66 126 93 130 121ZM112 218C77 207 55 182 57 150C91 159 112 185 112 218ZM99 254C131 242 153 215 150 181C117 191 99 220 99 254ZM78 298C48 293 25 273 24 244C55 246 75 268 78 298ZM127 81C101 69 87 48 91 21C116 31 129 54 127 81ZM115 200C149 186 170 158 164 125C133 139 115 168 115 200" />
-        <path
-          opacity=".6"
-          d="M125 161L77 81M130 121L161 46M112 218L57 150M99 254L150 181M78 298L24 244M127 81L91 21M115 200L164 125"
-        />
-      </g>
-    </svg>
-  );
-}
 
-const slides = [
-  {
-    title: (
-      <>
-        Seu equilíbrio
-        <br /> começa <em>por dentro.</em>
-      </>
-    ),
-    label: "MICROBIOTA · CIÊNCIA · CUIDADO",
-    text: "Cuide do seu jardim interior. Fórmulas com probióticos, prebióticos e nutrientes, criadas pela Dra. Aline para acompanhar a sua rotina.",
-    primary: "gutcare",
-    secondary: "concentra",
-    cta: "Conhecer o GUTcare",
-    tag: "SAÚDE INTESTINAL",
-    sub: "Quatro cepas + FOS",
-  },
-  {
-    title: (
-      <>
-        Corpo e mente.
-        <br /> <em>Uma só conexão.</em>
-      </>
-    ),
-    label: "EIXO INTESTINO–CÉREBRO",
-    text: "O intestino e o cérebro conversam o tempo todo. Conheça a fórmula que reúne cepas probióticas, prebióticos, colina e vitamina B6 ativa.",
-    primary: "concentra",
-    secondary: "gutcare",
-    cta: "Conhecer o Concentra+",
-    tag: "FOCO E COGNIÇÃO",
-    sub: "Cinco cepas + GOS + FOS",
-  },
-  {
-    title: (
-      <>
-        Ciência que cuida.
-        <br /> <em>Você que floresce.</em>
-      </>
-    ),
-    label: "O UNIVERSO DALFLORE",
-    text: "Cada corpo tem sua história. Descubra fórmulas pensadas para diferentes momentos, com ingredientes transparentes e um olhar humano para a sua rotina.",
-    primary: "immune",
-    secondary: "cycle",
-    cta: "Explorar as fórmulas",
-    tag: "CUIDADO INTEGRADO",
-    sub: "Conhecimento em cada escolha",
-  },
-];
 function Hero({ open }: { open: (p: Product) => void }) {
-  const [slide, setSlide] = useState(0);
-  const s = slides[slide];
-  const primary = products.find((p) => p.id === s.primary)!;
-  const secondary = products.find((p) => p.id === s.secondary)!;
   return (
-    <section
-      className="hero"
-      aria-label="Conheça a DalFlore"
-      aria-roledescription="carrossel"
-    >
-      <div className="hero-inner" key={slide}>
-        <div className="hero-copy">
-          <div className="hero-meta">
-            <div
-              className="slide-dots"
-              role="group"
-              aria-label="Selecionar destaque"
-            >
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  aria-label={`Destaque ${i + 1}`}
-                  aria-pressed={slide === i}
-                  onClick={() => setSlide(i)}
-                />
-              ))}
-            </div>
-            <span>{s.label}</span>
-          </div>
-          <h1>{s.title}</h1>
-          <p className="hero-lead">{s.text}</p>
-          <button
-            className="button hero-cta"
-            onClick={() =>
-              slide === 2
-                ? document
-                    .getElementById("produtos")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                : open(primary)
-            }
-          >
-            {s.cta}
-            <ArrowRight size={18} />
-          </button>
-          <div className="hero-perks">
-            <span className="creator-note">
-              <span className="creator-portrait">
-                <img
-                  src={asset("aline-retrato.webp")}
-                  width="40"
-                  height="44"
-                  alt=""
-                />
-              </span>
-              <span className="creator-text">
-                <strong>Dra. Aline Dalmazo</strong>
-                <small>Ciência e cuidado, de perto.</small>
-              </span>
-            </span>
-            <span>
-              <Check size={14} />
-              Composição transparente
-            </span>
-          </div>
-        </div>
-        <div className="hero-art">
-          <BotanicalDetail />
-          <div className="orbital orbital-one" />
-          <div className="orbital orbital-two" />
-          <span className="orbit-dot dot-one" />
-          <span className="orbit-dot dot-two" />
-          <span className="art-note note-top">
-            <Microscope size={21} />
-            <span>
-              Ciência encontra
-              <br />
-              <strong>equilíbrio natural.</strong>
-            </span>
-          </span>
-          <button
-            className="hero-bottle secondary-bottle"
-            onClick={() => open(secondary)}
-            aria-label={`Conhecer ${secondary.name}`}
-          >
-            <img
-              src={productPhoto(secondary)}
-              alt={`DalFlore ${secondary.name}`}
-              width="680"
-              height="920"
-            />
-          </button>
-          <button
-            className="hero-bottle main-bottle"
-            onClick={() => open(primary)}
-            aria-label={`Saiba como funciona ${primary.name}`}
-          >
-            <img
-              src={productPhoto(primary)}
-              alt={`DalFlore ${primary.name}`}
-              width="680"
-              height="920"
-              fetchPriority="high"
-            />
-          </button>
-          <div className="art-caption">
-            <span className="little-line" />
-            <span>
-              <b>{s.tag}</b>
-              <small>{s.sub}</small>
-            </span>
-            <button
-              onClick={() => open(primary)}
-              aria-label={`Ler sobre ${primary.name}`}
-            >
-              <ArrowUpRight size={20} />
-            </button>
-          </div>
-          <span className="art-coordinate">
-            DALFLORE / CIÊNCIA PARA FLORESCER
-          </span>
-        </div>
-      </div>
-      <div className="hero-bottom">
-        <a href="#ciencia">
-          Explore o seu universo interior <ArrowDown size={15} />
-        </a>
-        <div>
-          <button
-            className="icon-button"
-            aria-label="Destaque anterior"
-            onClick={() => setSlide((slide + 2) % 3)}
-          >
-            <ChevronLeft size={18} />
-          </button>
+    <section className="df-hero" aria-label="Conheça a DalFlore">
+      <div className="df-hero-scene">
+        <img
+          src={asset("editorial/dalflore-campaign.webp")}
+          alt="GUTcare e Concentra+ DalFlore em uma composição de vidro, luz natural e folhagem verde"
+          width="1895"
+          height="830"
+          fetchPriority="high"
+        />
+        <button
+          className="df-hotspot df-hotspot-gut"
+          onClick={() => open(products.find((p) => p.id === "gutcare")!)}
+          aria-label="Conhecer GUTcare"
+        >
           <span>
-            0{slide + 1} <i>/ 03</i>
+            Conhecer GUTcare <ArrowUpRight size={15} />
           </span>
-          <button
-            className="icon-button"
-            aria-label="Próximo destaque"
-            onClick={() => setSlide((slide + 1) % 3)}
-          >
-            <ChevronRight size={18} />
-          </button>
+        </button>
+        <button
+          className="df-hotspot df-hotspot-concentra"
+          onClick={() => open(products.find((p) => p.id === "concentra")!)}
+          aria-label="Conhecer Concentra+"
+        >
+          <span>
+            Conhecer Concentra+ <ArrowUpRight size={15} />
+          </span>
+        </button>
+      </div>
+      <div className="df-container df-hero-inner">
+        <div className="df-hero-copy">
+          <p className="df-kicker">Ciência que acolhe. Cuidado que floresce.</p>
+          <h1>
+            Seu cuidado,
+            <br />
+            de dentro para fora.
+          </h1>
+          <p className="df-hero-lead">
+            Probióticos, prebióticos e nutrientes. Fórmulas criadas pela Dra.
+            Aline para uma rotina de cuidado com ciência e sensibilidade.
+          </p>
+          <a href="#produtos" className="button df-primary">
+            Encontre a sua fórmula <ArrowRight size={18} />
+          </a>
+          <a href="#ciencia" className="df-text-link">
+            Conheça a ciência da DalFlore <ArrowDown size={15} />
+          </a>
         </div>
       </div>
     </section>
   );
 }
+function KnowledgeTabs({
+  id,
+  labels,
+  active,
+  change,
+  name,
+}: {
+  id: string;
+  labels: string[];
+  active: number;
+  change: (value: number) => void;
+  name: string;
+}) {
+  return (
+    <div className="df-tabs" role="tablist" aria-label={name}>
+      {labels.map((label, index) => (
+        <button
+          key={label}
+          id={id + "-tab-" + index}
+          role="tab"
+          aria-selected={active === index}
+          aria-controls={id + "-panel-" + index}
+          tabIndex={active === index ? 0 : -1}
+          onClick={() => change(index)}
+          onKeyDown={(event) => {
+            if (["ArrowLeft", "ArrowRight"].includes(event.key)) {
+              event.preventDefault();
+              const next =
+                (active +
+                  (event.key === "ArrowRight" ? 1 : labels.length - 1)) %
+                labels.length;
+              change(next);
+              document.getElementById(id + "-tab-" + next)?.focus();
+            }
+          }}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 const education = [
   {
     label: "Prebióticos",
@@ -623,128 +496,79 @@ const education = [
 function Science() {
   const [active, setActive] = useState(0);
   return (
-    <section id="ciencia" className="science section wrap">
-      <div className="section-heading">
-        <p className="eyebrow section-label">
-          <Microscope size={16} /> A CIÊNCIA POR TRÁS DO CUIDADO
-        </p>
-        <h2>
-          Um universo vivo.
-          <br />
-          <em>Dentro de você.</em>
-        </h2>
-        <p>
-          Sua microbiota é um ecossistema. Entender como ela funciona
-          <br className="desktop-break" /> é o primeiro passo para cuidar melhor
-          de você.
-        </p>
-      </div>
-      <div className="science-layout">
-        <div className="microbiota-art" aria-hidden="true">
-          <span className="figure-caption">O seu jardim interior</span>
-          <BotanicalDetail />
-          <div className="micro-ring ring-a" />
-          <div className="micro-ring ring-b" />
-          <div className="micro-ring ring-c" />
-          <div className="micro-center">
-            <Sprout size={58} strokeWidth={1} />
-            <span>
-              SEU ECOSSISTEMA
-              <br />
-              <b>INTERIOR</b>
-            </span>
-          </div>
-          {Array.from({ length: 12 }, (_, i) => (
-            <span
-              className={`microbe m-${i}`}
-              key={i}
-              style={{ "--i": i } as CSSProperties}
-            />
-          ))}
-          <div className="micro-label micro-label-a">diversidade</div>
-          <div className="micro-label micro-label-b">nutrição</div>
-          <div className="micro-label micro-label-c">equilíbrio</div>
-          <span className="art-index">01 — MICROBIOTA INTESTINAL</span>
-        </div>
-        <div className="science-copy">
-          <div
-            className="education-tabs"
-            role="tablist"
-            aria-label="Entenda os ingredientes"
-          >
-            {education.map((item, i) => (
-              <button
-                id={`science-tab-${i}`}
-                key={item.label}
-                role="tab"
-                aria-selected={i === active}
-                aria-controls={`science-panel-${i}`}
-                tabIndex={i === active ? 0 : -1}
-                onClick={() => setActive(i)}
-                onKeyDown={(e) => {
-                  if (["ArrowRight", "ArrowLeft"].includes(e.key)) {
-                    e.preventDefault();
-                    const n = (active + (e.key === "ArrowRight" ? 1 : 2)) % 3;
-                    setActive(n);
-                    document.getElementById(`science-tab-${n}`)?.focus();
-                  }
-                }}
+    <section className="df-science" id="ciencia">
+      <div className="df-container df-science-grid">
+        <div className="df-science-copy">
+          <p className="df-kicker">Ciência, com clareza.</p>
+          <h2>
+            Entender o seu corpo
+            <br />
+            também é cuidar.
+          </h2>
+          <p className="df-intro">
+            Sua microbiota é um universo vivo. Conhecer o papel de cada
+            ingrediente ajuda você a fazer escolhas com mais consciência.
+          </p>
+          <KnowledgeTabs
+            id="science"
+            labels={education.map((e) => e.label)}
+            active={active}
+            change={setActive}
+            name="Entenda os ingredientes"
+          />
+          <div className="df-panels">
+            {education.map((content, index) => (
+              <div
+                key={index}
+                className={"df-panel " + (active === index ? "active" : "")}
+                role="tabpanel"
+                id={"science-panel-" + index}
+                aria-labelledby={"science-tab-" + index}
+                aria-hidden={active !== index}
+                inert={active !== index}
               >
-                {item.label}
-              </button>
+                <h3>{content.title}</h3>
+                <p>{content.text}</p>
+                <details className="df-read-more" key={active}>
+                  <summary>
+                    Na prática: ingredientes e cuidados <Plus size={16} />
+                  </summary>
+                  <p>{content.detail}</p>
+                  <span className="df-ingredient">
+                    <Leaf size={15} />
+                    {content.example}
+                  </span>
+                </details>
+                <a
+                  className="df-source"
+                  href={content.source}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {content.sourceLabel} <ArrowUpRight size={14} />
+                </a>
+              </div>
             ))}
           </div>
-          <div className="education-stack">
-            {education.map((content, index) => {
-              const Icon = content.icon;
-              return (
-                <div
-                  key={index}
-                  id={`science-panel-${index}`}
-                  role="tabpanel"
-                  aria-labelledby={`science-tab-${index}`}
-                  aria-hidden={active !== index}
-                  inert={active !== index}
-                  className={`education-panel ${active === index ? "active" : ""}`}
-                >
-                  <span className="round-icon">
-                    <Icon size={26} />
-                  </span>
-                  <div className="science-topic-meta">
-                    <span>0{index + 1} / ENTENDA A DIFERENÇA</span>
-                    <span>{content.label}</span>
-                  </div>
-                  <h3>{content.title}</h3>
-                  <p className="science-simple">{content.simple}</p>
-                  <p>{content.text}</p>
-                  <details className="science-detail read-more" key={active}>
-                    <summary>
-                      Ingredientes e cuidados <Plus size={16} />
-                    </summary>
-                    <p>{content.detail}</p>
-                    <span className="ingredient-note">
-                      <Leaf size={15} />
-                      {content.example}
-                    </span>
-                  </details>
-                  <a
-                    className="text-link"
-                    href={content.source}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {content.sourceLabel}
-                    <ArrowUpRight size={15} />
-                  </a>
-                </div>
-              );
-            })}
-          </div>
         </div>
+        <figure className="df-science-art">
+          <img
+            src={asset("editorial/microbiota-concept.webp")}
+            alt="Ilustração conceitual de uma comunidade diversa de microrganismos em vidro transparente"
+            width="1448"
+            height="1086"
+            loading="lazy"
+          />
+          <figcaption>
+            Um ecossistema diverso. Um cuidado individual.
+            <small>Ilustração conceitual da microbiota.</small>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
 }
+
 function GutIcon() {
   return (
     <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
@@ -781,129 +605,96 @@ const axes = [
 function Axis() {
   const [active, setActive] = useState(0);
   return (
-    <section className="axis-section" id="eixo">
-      <div className="wrap">
-        <div className="section-heading">
-          <p className="eyebrow section-label">
-            <Brain size={16} /> EIXO INTESTINO–CÉREBRO
-          </p>
-          <h2>
-            Corpo e mente.
-            <br /> <em>Em conexão.</em>
-          </h2>
-          <p>
-            Intestino e cérebro conversam. Conheça os caminhos dessa conexão.
-          </p>
+    <section className="df-axis" id="eixo">
+      <div className="df-container df-axis-grid">
+        <div
+          className="df-axis-visual"
+          role="img"
+          aria-label="Intestino e cérebro se comunicam em duas direções pelas vias neural, metabólica e imune"
+        >
+          <span className="df-diagram-title">
+            Uma conversa em duas direções
+          </span>
+          <div className="df-organ">
+            <Brain size={66} strokeWidth={1.4} />
+            <span>Cérebro</span>
+          </div>
+          <div className="df-connection">
+            <span className="df-signal" />
+            <ArrowDown size={22} />
+            <b>{axes[active].label}</b>
+            <ArrowDown size={22} className="df-up" />
+          </div>
+          <div className="df-organ">
+            <GutIcon />
+            <span>Intestino + microbiota</span>
+          </div>
+          <small>Representação ilustrativa</small>
         </div>
-        <div className="axis-layout">
-          <div className="axis-copy">
-            <div
-              className="axis-tabs"
-              role="tablist"
-              aria-label="Vias do eixo intestino–cérebro"
-            >
-              {axes.map((a, i) => (
-                <button
-                  id={`axis-tab-${i}`}
-                  role="tab"
-                  aria-controls={`axis-panel-${i}`}
-                  tabIndex={active === i ? 0 : -1}
-                  aria-selected={active === i}
-                  key={a.label}
-                  onClick={() => setActive(i)}
-                  onKeyDown={(e) => {
-                    if (["ArrowRight", "ArrowLeft"].includes(e.key)) {
-                      e.preventDefault();
-                      const n = (active + (e.key === "ArrowRight" ? 1 : 2)) % 3;
-                      setActive(n);
-                      document.getElementById(`axis-tab-${n}`)?.focus();
-                    }
-                  }}
-                >
-                  {a.label}
-                </button>
-              ))}
-            </div>
-            <div className="axis-stack">
-              {axes.map((path, index) => (
-                <div
-                  className={`axis-text ${active === index ? "active" : ""}`}
-                  key={index}
-                  id={`axis-panel-${index}`}
-                  role="tabpanel"
-                  aria-labelledby={`axis-tab-${index}`}
-                  aria-hidden={active !== index}
-                  inert={active !== index}
-                >
-                  <span className="pathway-index">CONEXÃO 0{index + 1}</span>
-                  <h3>{path.title}</h3>
-                  <p>{path.body}</p>
-                  <small>{path.foot}</small>
-                </div>
-              ))}
-            </div>
-            <a
-              className="text-link"
-              href="https://pubmed.ncbi.nlm.nih.gov/31460832/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Leia a revisão científica <ArrowUpRight size={15} />
-            </a>
+        <div className="df-axis-copy">
+          <h2>
+            Intestino e cérebro.
+            <br />Uma só conversa.
+          </h2>
+          <p className="df-intro">
+            Três caminhos estudados pela ciência para entender essa conexão.
+          </p>
+          <KnowledgeTabs
+            id="axis"
+            labels={axes.map((a) => a.label)}
+            active={active}
+            change={setActive}
+            name="Vias do eixo intestino–cérebro"
+          />
+          <div className="df-panels">
+            {axes.map((path, index) => (
+              <div
+                key={index}
+                className={"df-panel " + (active === index ? "active" : "")}
+                role="tabpanel"
+                id={"axis-panel-" + index}
+                aria-labelledby={"axis-tab-" + index}
+                aria-hidden={active !== index}
+                inert={active !== index}
+              >
+                <h3>{path.title}</h3>
+                <p>{path.body}</p>
+                <small className="df-path-note">{path.foot}</small>
+              </div>
+            ))}
           </div>
-          <div
-            className="axis-diagram"
-            aria-label="Diagrama: cérebro e intestino se comunicam nas duas direções"
+          <a
+            className="df-source"
+            href="https://pubmed.ncbi.nlm.nih.gov/31460832/"
+            target="_blank"
+            rel="noreferrer"
           >
-            <span className="diagram-kicker">
-              <span className="live-dot" /> UM CORPO. MÚLTIPLAS CONEXÕES.
-            </span>
-            <div className="brain-node">
-              <Brain size={87} strokeWidth={1} />
-              <span>CÉREBRO</span>
-            </div>
-            <div className="connection">
-              <span className="signal signal-left" />
-              <span className="signal signal-right" />
-              <ArrowDown size={25} />
-              <span className="connection-label">{axes[active].label}</span>
-              <ArrowDown size={25} className="up-arrow" />
-            </div>
-            <div className="gut-node">
-              <GutIcon />
-              <span>INTESTINO + MICROBIOTA</span>
-            </div>
-            <div className="diagram-orbit orbit-a" />
-            <div className="diagram-orbit orbit-b" />
-            <small>
-              Representação ilustrativa da comunicação bidirecional.
-            </small>
-          </div>
+            Leia a revisão científica <ArrowUpRight size={14} />
+          </a>
         </div>
       </div>
     </section>
   );
 }
+
 function Expert() {
   const [tab, setTab] = useState("marca");
   return (
-    <section className="expert-section section" id="aline">
-      <div className="wrap">
-        <div className="section-heading">
-          <p className="eyebrow section-label">
-            <Heart size={16} /> CIÊNCIA COM UM OLHAR HUMANO
-          </p>
+    <section className="df-expert" id="aline">
+      <div className="df-container">
+        <div className="df-expert-heading">
+          <p className="df-kicker">Da pesquisa para o cuidado.</p>
           <h2>
-            Por trás da fórmula,
-            <br /> <em>um olhar humano.</em>
+            Um olhar humano.
+            <br /> <em>Uma base científica.</em>
           </h2>
           <p>
             Conhecimento científico, escuta e cuidado humano em cada escolha.
           </p>
         </div>
-        <div className="expert-card">
-          <figure className="expert-figure">
-            <div className="portrait-frame">
+        <div className="df-expert-layout">
+          <figure className="df-founder">
+            <div className="df-portrait">
               <img
                 src={asset("aline-retrato.webp")}
                 alt="Dra. Aline Dalmazo, nutricionista e doutora em Ciências da Saúde, fundadora da DalFlore"
@@ -917,19 +708,19 @@ function Expert() {
               <span>Nutricionista · Doutora em Ciências da Saúde</span>
             </figcaption>
           </figure>
-          <div className="expert-copy">
+          <div className="df-expert-copy">
             <div
-              className="expert-tabs"
+              className="df-tabs df-story-tabs"
               role="tablist"
               aria-label="Sobre a DalFlore e a fundadora"
             >
               {[
                 {
                   id: "marca",
-                  label: "A história da DalFlore",
+                  label: "A história da marca",
                   icon: BookOpen,
                 },
-                { id: "aline", label: "Quem é a Dra. Aline", icon: UserRound },
+                { id: "aline", label: "Aline Dalmazo", icon: UserRound },
               ].map(({ id, label, icon: Icon }) => (
                 <button
                   key={id}
@@ -953,12 +744,12 @@ function Expert() {
                 </button>
               ))}
             </div>
-            <div className="expert-panels">
+            <div className="df-panels df-story-panels">
               <div
                 role="tabpanel"
                 id="expert-panel-marca"
                 aria-labelledby="expert-tab-marca"
-                className={tab === "marca" ? "active" : ""}
+                className={"df-panel " + (tab === "marca" ? "active" : "")}
                 aria-hidden={tab !== "marca"}
               >
                 <h3>
@@ -969,7 +760,7 @@ function Expert() {
                   saúde. Unimos inovação científica, ingredientes puros e uma
                   visão humana do bem-estar.
                 </p>
-                <details className="read-more" key={tab}>
+                <details className="df-read-more" key={tab}>
                   <summary>
                     Leia a história da DalFlore <Plus size={16} />
                   </summary>
@@ -990,7 +781,7 @@ function Expert() {
                     </strong>
                   </p>
                 </details>
-                <div className="expert-signoff">
+                <div className="df-signoff">
                   Porque quando sua flora floresce,
                   <br />
                   <em>você floresce.</em>
@@ -1000,7 +791,7 @@ function Expert() {
                 role="tabpanel"
                 id="expert-panel-aline"
                 aria-labelledby="expert-tab-aline"
-                className={tab === "aline" ? "active" : ""}
+                className={"df-panel " + (tab === "aline" ? "active" : "")}
                 aria-hidden={tab !== "aline"}
               >
                 <h3>
@@ -1013,7 +804,7 @@ function Expert() {
                   , dedicada ao estudo da microbiota intestinal e da nutrição de
                   precisão.
                 </p>
-                <details className="read-more" key={tab}>
+                <details className="df-read-more" key={tab}>
                   <summary>
                     Conheça a trajetória da Aline <Plus size={16} />
                   </summary>
@@ -1033,7 +824,7 @@ function Expert() {
                     olhar para além do consultório.
                   </p>
                 </details>
-                <div className="expert-signoff">
+                <div className="df-signoff">
                   Ciência na escolha.
                   <br />
                   <em>Cuidado em cada conversa.</em>
@@ -1665,13 +1456,13 @@ export default function App() {
           </nav>
         )}
       </header>
-      <main id="conteudo">
+      <main id="conteudo" className="df-home">
         <Hero open={open} />
-        <section id="produtos" className="products-section wrap">
+        <section id="produtos" className="df-catalog df-container">
           <div className="shop-heading">
             <div>
               <p className="eyebrow">ENCONTRE O SEU CUIDADO</p>
-              <h2>Fórmulas para a sua vida real.</h2>
+              <h2>Um cuidado para cada momento.</h2>
             </div>
             <button
               className="text-link"
@@ -1686,8 +1477,8 @@ export default function App() {
         <Axis />
         <Expert />
         <FAQ />
-        <section className="closing">
-          <div className="wrap">
+        <section className="df-closing">
+          <div className="df-container">
             <Sprout size={33} strokeWidth={1.1} />
             <p className="eyebrow">DALFLORE</p>
             <h2>

@@ -1,0 +1,16 @@
+{
+ "brief": "DalFlore: modern science, delicate human care, white/black/green. Open Sans headings, Arial reading text. Compact sections and consistent 12px interface corners. Preserve original catalog labels, prices, checkout and Aline portrait.",
+ "references": [
+  {"url":"https://www.duethealth.com.br/","observation":"Photographic campaign hero, two explicit product paths, gentle motion, expert/brand tabs and expandable FAQ."},
+  {"url":"https://berschealth.com.br/","observation":"Art-directed product still life and strong product scale; clear section contrast."},
+  {"url":"https://metabolia.com.br/","observation":"Integrated product photography with quiet text area, prominent sales cards and informative product interactions."},
+  {"url":"https://sanovi.com.br/","observation":"Green photographic brand world, tangible materials, coherent product collection cards."},
+  {"url":"https://lenviaoficial.com.br/","observation":"Emotional photographic opening, restrained composition and atmosphere tied to the subject."}
+ ],
+ "external_research": ["https://github.com/anthropics/skills/tree/main/skills/frontend-design","https://developer.chrome.com/blog/inside-browser-part4"],
+ "palette": {"white":"#ffffff","ink":"#19281e","forest":"#205b36","leaf":"#3d7d46","soft":"#edf4e9","line":"#abc4ad"},
+ "type": {"headings":"Open Sans, 500/600","reading":"Arial, 16px minimum for main paragraphs"},
+ "layout": "[campaign photograph + quiet left copy] -> [3 product cards / manual carousel] -> [science text + conceptual glass microbiota art] -> [forest connection diagram + pathway tabs] -> [Aline portrait + brand/expert tabs] -> [Duet-like FAQ].",
+ "critique": "Earlier drafts relied on floating cutouts, orbit decorations, repeated uppercase labels and layered overrides. Replace the opening with one distinctive photographic campaign and build a fresh home stylesheet; retain compact information disclosure and actual commerce behavior. Do not borrow gold/pink palettes, serif fonts, testimonials, pharma areas, category filters or marquee bands.",
+ "assets": {"tool":"built-in image_gen","campaign":"public/editorial/dalflore-campaign.webp","science":"public/editorial/microbiota-concept.webp","original_product_files":"public/products","portrait":"public/aline-retrato.webp","prompts":"docs/image-prompts.json"}
+}
