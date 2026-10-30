@@ -40,6 +40,7 @@ import {
   type Quantity,
 } from "./catalog";
 
+import { HomeBanners } from "./HomeBanners";
 import { useSmoothMotion } from "./useSmoothMotion";
 
 type CartItem = { id: string; quantity: Quantity; count: number };
@@ -357,59 +358,6 @@ function ProductShelf({
   );
 }
 
-function Hero({ open }: { open: (p: Product) => void }) {
-  return (
-    <section className="df-hero" aria-label="Conheça a DalFlore">
-      <div className="df-hero-scene">
-        <img
-          src={asset("editorial/dalflore-campaign.webp")}
-          alt="GUTcare e Concentra+ DalFlore em uma composição de vidro, luz natural e folhagem verde"
-          width="1895"
-          height="830"
-          fetchPriority="high"
-        />
-        <button
-          className="df-hotspot df-hotspot-gut"
-          onClick={() => open(products.find((p) => p.id === "gutcare")!)}
-          aria-label="Conhecer GUTcare"
-        >
-          <span>
-            Conhecer GUTcare <ArrowUpRight size={15} />
-          </span>
-        </button>
-        <button
-          className="df-hotspot df-hotspot-concentra"
-          onClick={() => open(products.find((p) => p.id === "concentra")!)}
-          aria-label="Conhecer Concentra+"
-        >
-          <span>
-            Conhecer Concentra+ <ArrowUpRight size={15} />
-          </span>
-        </button>
-      </div>
-      <div className="df-container df-hero-inner">
-        <div className="df-hero-copy">
-          <p className="df-kicker">Ciência que acolhe. Cuidado que floresce.</p>
-          <h1>
-            Seu cuidado,
-            <br />
-            de dentro para fora.
-          </h1>
-          <p className="df-hero-lead">
-            Probióticos, prebióticos e nutrientes. Fórmulas criadas pela Dra.
-            Aline para uma rotina de cuidado com ciência e sensibilidade.
-          </p>
-          <a href="#produtos" className="button df-primary">
-            Encontre a sua fórmula <ArrowRight size={18} />
-          </a>
-          <a href="#ciencia" className="df-text-link">
-            Conheça a ciência da DalFlore <ArrowDown size={15} />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
 function KnowledgeTabs({
   id,
   labels,
@@ -1328,6 +1276,7 @@ export default function App() {
   useSmoothMotion();
   const [modal, setModal] = useState<ModalState>(getProductHash);
   const [mobile, setMobile] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(false);
   const [cart, setCart] = useState<CartItem[]>(readCart);
   useEffect(() => {
     try {
@@ -1381,7 +1330,7 @@ export default function App() {
       <a className="skip-link" href="#conteudo">
         Ir para o conteúdo
       </a>
-      <header className="site-header">
+      <header className={`site-header df-floating-header${headerVisible ? " is-visible" : ""}`} inert={!headerVisible} aria-hidden={!headerVisible}>
         <div className="header-inner wrap">
           <a href="#" className="brand" aria-label="DalFlore, início">
             <img
@@ -1457,7 +1406,7 @@ export default function App() {
         )}
       </header>
       <main id="conteudo" className="df-home">
-        <Hero open={open} />
+        <HomeBanners open={open} onVisibilityChange={setHeaderVisible} />
         <section id="produtos" className="df-catalog df-container">
           <div className="shop-heading">
             <div>

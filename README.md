@@ -30,10 +30,16 @@ Veja [fontes e pendências](docs/fontes-e-pendencias.md) antes de trocar o domí
 
 ## Direção visual da Aline
 
-Interface exclusivamente em branco, preto e verde, com contraste forte e contornos definidos. Conteúdos científicos em camadas: explicação breve, detalhes e fonte. Retrato fornecido pela cliente em `public/aline-retrato.webp`. As faixas e o guia foram removidos.
+Interface exclusivamente em branco, preto e verde, com contraste forte e contornos definidos. Conteúdos científicos em camadas: explicação breve, detalhes e fonte. Retrato fornecido pela cliente em `public/aline-retrato.webp`. O guia foi removido. O topo usa o formato de banners e faixa da Sanoví, conforme a revisão mais recente.
 
 O sistema usa um único raio de 12 px para superfícies e controles e a mesma largura de conteúdo. A composição editorial foi reconstruída em `src/design.css`; as folhas de ajustes anteriores foram removidas, junto com os estilos antigos da página inicial. A loja ocupa uma única fileira navegável. Conteúdo científico e biográfico tem introdução breve e detalhes expansíveis. No celular, a imagem decorativa da microbiota é omitida, o diagrama do eixo fica horizontal e a foto da Aline acompanha o título para evitar empilhar blocos grandes.
 
 As referências e decisões de layout estão em `docs/design-study.json`. Os arquivos de campanha e ilustração conceitual estão em `public/editorial`; foram criados com o gerador de imagens integrado a partir dos materiais da marca. Os prompts e a procedência estão em `docs/image-prompts.json`. Os mockups da loja, os rótulos, as composições, preços e links oficiais continuam originais. Essas imagens editoriais podem ser substituídas sem reconstruir o layout.
 
-O FAQ mantém os blocos expansíveis da Duet, com quatro perguntas iniciais e um botão para exibir todas as oito. As respostas abrem em 500 ms. `src/useSmoothMotion.ts` usa entradas de 850 ms e rolagem de 650–1.400 ms. As abas fazem transições de 600 ms; expansores aumentam a leitura apenas quando abertos. O carrossel não avança automaticamente. As interações respeitam a preferência por movimento reduzido. `src/design.css` concentra o sistema visual e o movimento.
+O FAQ mantém os blocos expansíveis da Duet, com quatro perguntas iniciais e um botão para exibir todas as oito. As respostas abrem em 500 ms. `src/useSmoothMotion.ts` usa entradas de 850 ms e rolagem de 650–1.400 ms. As abas fazem transições de 600 ms; expansores aumentam a leitura apenas quando abertos. O carrossel de produtos não avança automaticamente. As interações respeitam a preferência por movimento reduzido. `src/design.css` concentra o sistema visual e o movimento.
+
+## Banners da página inicial
+
+`src/HomeBanners.tsx` e `src/banners.css` reproduzem as proporções da Sanoví: desktop com imagem e texto sobrepostos em `100svh - 52px` e faixa de 52 px; celular com imagem de `min(43svh, 420px)`, faixa de 48 px, controles e texto abaixo. As imagens enviadas `BANNER 1.png`, `BANNER 2.png` e `BANNER 3.png` foram convertidas para WebP sem geração ou alteração do conteúdo, em `public/banners/banner-1.webp` a `banner-3.webp`. A ordem é Aline/GUTcare, Hair & Skin/Immune e Slim Balance.
+
+Transição de imagem de 800 ms, troca a cada sete segundos, pausa explícita, pausa ao interagir, seleção direta, setas, teclado e gesto horizontal. Movimento reduzido desativa avanço automático e animações. Os botões abrem os detalhes dos produtos existentes. O cabeçalho fica fixo e oculto/inativo enquanto qualquer parte da seção de banners estiver visível; aparece suavemente ao sair dela.
