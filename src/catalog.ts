@@ -249,12 +249,3 @@ export const checkoutUrl = (p: Product, q: Quantity) =>
     : whatsapp(
         `Olá! Gostaria de saber o valor e a disponibilidade do DalFlore ${p.name}, ${q} ${q === 1 ? "frasco" : "frascos"}.`,
       );
-export const categories = [
-  { id: "todos", name: "Todas as fórmulas" },
-  { id: "intestino", name: "Intestino" },
-  { id: "foco", name: "Foco e cognição" },
-  { id: "imunidade", name: "Imunidade" },
-  { id: "feminino", name: "Cuidado feminino" },
-  { id: "beleza", name: "Beleza" },
-  { id: "metabolismo", name: "Metabolismo" },
-];

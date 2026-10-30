@@ -35,7 +35,6 @@ import {
 import {
   asset,
   brl,
-  categories,
   checkoutUrl,
   price,
   products,
@@ -1416,7 +1415,6 @@ export default function App() {
   useSmoothMotion();
   const [modal, setModal] = useState<ModalState>(getProductHash);
   const [mobile, setMobile] = useState(false);
-  const [category, setCategory] = useState("todos");
   const [cart, setCart] = useState<CartItem[]>(readCart);
   useEffect(() => {
     try {
@@ -1465,10 +1463,6 @@ export default function App() {
     setModal({ kind: "cart" });
   };
   const count = cart.reduce((s, i) => s + i.quantity * i.count, 0);
-  const visible =
-    category === "todos"
-      ? products
-      : products.filter((p) => p.tags.includes(category));
   return (
     <>
       <a className="skip-link" href="#conteudo">
@@ -1564,27 +1558,12 @@ export default function App() {
               Explore por interesse <Search size={15} />
             </button>
           </div>
-          <div
-            className="category-filter"
-            role="group"
-            aria-label="Filtrar fórmulas"
-          >
-            {categories.map((c) => (
-              <button
-                key={c.id}
-                aria-pressed={category === c.id}
-                onClick={() => setCategory(c.id)}
-              >
-                {c.name}
-              </button>
-            ))}
-          </div>
-          <p className="catalog-count" role="status">
-            {visible.length} {visible.length === 1 ? "fórmula" : "fórmulas"} ·
+          <p className="catalog-count">
+            {products.length} {products.length === 1 ? "fórmula" : "fórmulas"} ·
             Clique no frasco para conhecer a composição e como funciona.
           </p>
           <div className="product-grid">
-            {visible.map((p) => (
+            {products.map((p) => (
               <ProductCard key={p.id} product={p} open={open} add={add} />
             ))}
           </div>
