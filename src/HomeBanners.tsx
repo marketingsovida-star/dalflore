@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { ChevronLeft, ChevronRight, CreditCard, Headphones, Pause, Play, ShieldCheck, Truck } from "lucide-react";
+import { BadgeCheck, ChevronLeft, ChevronRight, CreditCard, Headphones, Leaf, Pause, Play, ShieldCheck, Truck } from "lucide-react";
 import { asset, products, type Product } from "./catalog";
 import "./banners.css";
 
@@ -27,25 +27,28 @@ const banners = [
   },
 ];
 const benefits = [
+  { icon: Leaf, text: "Ingredientes selecionados" },
   { icon: CreditCard, text: "Até 12x no cartão" },
   { icon: Truck, text: "Frete grátis a partir de R$ 150" },
   { icon: ShieldCheck, text: "Compra segura" },
   { icon: Headphones, text: "Atendimento pelo WhatsApp" },
+  { icon: BadgeCheck, text: "7 dias de garantia" },
 ];
 
 function BenefitsStrip() {
   const strip = useRef<HTMLDivElement>(null);
   const cycle = useRef<HTMLDivElement>(null);
-  const [layout, setLayout] = useState({ copies: 1, cycleWidth: 0 });
+  const [layout, setLayout] = useState({ copies: 1, cycleWidth: 0, viewportWidth: 0 });
 
   useLayoutEffect(() => {
     const measure = () => {
       if (!strip.current || !cycle.current) return;
       const cycleWidth = cycle.current.getBoundingClientRect().width;
       if (!cycleWidth) return;
-      const copies = Math.max(1, Math.ceil(strip.current.clientWidth / cycleWidth));
-      setLayout(current => current.copies === copies && current.cycleWidth === cycleWidth
-        ? current : { copies, cycleWidth });
+      const viewportWidth = strip.current.clientWidth;
+      const copies = Math.max(1, Math.ceil(viewportWidth / cycleWidth));
+      setLayout(current => current.copies === copies && current.cycleWidth === cycleWidth && current.viewportWidth === viewportWidth
+        ? current : { copies, cycleWidth, viewportWidth });
     };
     const observer = new ResizeObserver(measure);
     if (strip.current) observer.observe(strip.current);
@@ -55,7 +58,7 @@ function BenefitsStrip() {
   }, []);
 
   return <div ref={strip} className="df-banner-benefits" aria-label="Benefícios da compra">
-    <div className="df-benefits-track" style={{ "--benefits-duration": `${layout.cycleWidth ? layout.cycleWidth * layout.copies / 32 : 36}s` } as CSSProperties}>
+    <div className="df-benefits-track" style={{ "--benefits-duration": `${layout.cycleWidth ? layout.cycleWidth * layout.copies / 32 : 36}s`, "--benefits-viewport": layout.viewportWidth ? `${layout.viewportWidth}px` : undefined } as CSSProperties}>
       {[0, 1].map(copy => <div className="df-benefits-group" key={copy} aria-hidden={copy === 1}>
         {Array.from({ length: layout.copies }, (_, index) => <div className="df-benefits-cycle" key={index} ref={copy === 0 && index === 0 ? cycle : undefined} aria-hidden={copy === 1 || index > 0}>
           {benefits.map(({ icon: Icon, text }) => <span key={text}><Icon size={18} aria-hidden="true" />{text}</span>)}

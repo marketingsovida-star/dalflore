@@ -30,11 +30,11 @@
 .df-banner-dots button { width: 27px; }
 .df-banner-dots span { display: block; width: 7px; height: 7px; border-radius: 99px; background: currentColor; opacity: .4; transition: width .35s ease, opacity .35s; }
 .df-banner-dots [aria-pressed="true"] span { width: 22px; opacity: 1; }
-.df-banner-benefits { --benefits-gap: 32px; grid-row: 2; height: 48px; display: flex; align-items: center; overflow: hidden; background: #205b36; color: #fff; }
+.df-banner-benefits { --benefits-visible: 1.2; grid-row: 2; height: 48px; display: flex; align-items: center; overflow: hidden; background: #205b36; color: #fff; }
 .df-benefits-track { display: flex; width: max-content; flex-shrink: 0; animation: df-benefits-scroll var(--benefits-duration, 36s) linear infinite; will-change: transform; }
 .df-benefits-group { display: flex; align-items: center; flex-shrink: 0; }
-.df-benefits-cycle { display: flex; align-items: center; flex-shrink: 0; gap: var(--benefits-gap); padding-right: var(--benefits-gap); }
-.df-benefits-group span { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; font: 15px/1.4 Arial, sans-serif; }
+.df-benefits-cycle { display: flex; align-items: center; flex-shrink: 0; }
+.df-benefits-group span { display: inline-flex; justify-content: center; align-items: center; flex: 0 0 auto; width: calc(var(--benefits-viewport, 100vw) / var(--benefits-visible)); padding-inline: 12px; gap: 9px; white-space: nowrap; font: 15px/1.4 Arial, sans-serif; }
 .df-benefits-group svg { flex-shrink: 0; }
 .df-banner-benefits:hover .df-benefits-track { animation-play-state: paused; }
 @keyframes df-benefits-scroll { to { transform: translateX(-50%); } }
@@ -53,7 +53,10 @@
   .df-banner-cta:hover { background: #e5f2e2; }
   .df-banner-controls-desktop { display: flex; margin-top: 12px; }
   .df-banner-controls-mobile { display: none; }
-  .df-banner-benefits { --benefits-gap: 60px; grid-area: 2 / 1; height: 52px; }
+  .df-banner-benefits { --benefits-visible: 2; grid-area: 2 / 1; height: 52px; }
+}
+@media (min-width: 1024px) {
+  .df-banner-benefits { --benefits-visible: 3; }
 }
 @media (min-width: 768px) and (min-aspect-ratio: 16/9) {
   .df-banner-visual > .df-banner-photo-first { left: 100%; transform: translateX(-100%); }
