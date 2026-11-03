@@ -5,53 +5,77 @@ import { IntestineIcon } from "./IntestineIcon";
 
 const ingredients = [
   {
-    label: "Prebióticos", title: "Alimentar a microbiota.",
-    text: "São substâncias utilizadas por parte dos microrganismos que vivem no seu corpo. FOS, GOS e inulina são exemplos: pense neles como alimento para essa comunidade.",
-    detail: "A definição científica também exige benefício à saúde. Nem toda fibra é um prebiótico; o tipo de ingrediente e a quantidade utilizada importam.",
-    source: "https://isappscience.org/resource/prebiotics/",
-    visualTitle: "O alimento encontra a microbiota", from: "FOS, GOS e inulina", to: "Microrganismos", verb: "Alimentam",
-    caption: "As partículas representam substratos utilizados por parte da microbiota.",
-    product: "gutcare", productText: "O GUTcare reúne cepas probióticas e FOS. Aqui, o FOS é o exemplo de prebiótico na composição.",
+    "label": "Prebióticos",
+    "title": "O que são prebióticos?",
+    "text": "São substâncias que alimentam microrganismos benéficos do intestino, ajudando essa comunidade a exercer suas funções.",
+    "benefits": "Podem favorecer a regularidade intestinal e a saúde digestiva. O efeito depende do tipo e da quantidade utilizada.",
+    "source": "https://isappscience.org/wp-content/uploads/2019/04/Prebiotics_Infographic_rev1029.pdf",
+    "sourceLabel": "Veja os benefícios na ISAPP",
+    "visualTitle": "Nutrir a microbiota é cuidar do intestino",
+    "caption": "O alimento para os microrganismos ajuda a sustentar as funções dessa comunidade.",
+    "product": "gutcare",
+    "productText": "GUTcare reúne Lactobacillus, Bifidobacterium e o prebiótico FOS para complementar o cuidado com a microbiota e a saúde intestinal."
   },
   {
-    label: "Probióticos", title: "Microrganismos com funções específicas.",
-    text: "São microrganismos vivos que, em quantidades adequadas, conferem benefícios à saúde. A cepa e a dose ajudam a entender a proposta de cada composição.",
-    detail: "Lactobacillus e Bifidobacterium incluem diferentes cepas. Mais cepas ou mais bilhões não significam, por si só, uma fórmula melhor para cada pessoa.",
-    source: "https://isappscience.org/resource/probiotics-prebiotics-synbiotics-postbiotics-and-fermented-foods-defined/",
-    visualTitle: "Conhecer a cepa faz diferença", from: "Cepas identificadas", to: "Intestino", verb: "Cepa e dose",
-    caption: "O nome da cepa e a quantidade em UFC ajudam a identificar cada composição.",
-    product: "immune", productText: "O Immune reúne quatro cepas probióticas. Nos detalhes, você pode conferir os nomes e as quantidades.",
+    "label": "Probióticos",
+    "title": "O que são probióticos?",
+    "text": "São microrganismos vivos que, consumidos em quantidades adequadas, oferecem benefícios à saúde.",
+    "benefits": "Podem ajudar no conforto digestivo e nas defesas naturais. Os benefícios dependem da cepa, da dose e do uso estudado.",
+    "source": "https://isappscience.org/resource/health-benefits-of-probiotics/",
+    "sourceLabel": "Veja os benefícios na ISAPP",
+    "visualTitle": "Microrganismos com funções específicas",
+    "caption": "Cada cepa tem características próprias: a escolha depende do benefício pesquisado.",
+    "product": "immune",
+    "productText": "Immune combina Lactobacillus, Bifidobacterium, FOS, inulina e beta-glucanas em uma fórmula voltada ao cuidado da microbiota e das defesas naturais."
   },
   {
-    label: "Simbióticos", title: "Combinar com fundamento.",
-    text: "Reúnem microrganismos vivos e substratos utilizados seletivamente pela microbiota, com benefício à saúde. O sentido está na combinação, e não apenas em somar ingredientes.",
-    detail: "A avaliação considera o conjunto, as cepas, as doses e as evidências para o uso proposto. A lista de ingredientes, sozinha, não demonstra o benefício clínico de uma fórmula.",
-    source: "https://isappscience.org/resource/probiotics-prebiotics-synbiotics-postbiotics-and-fermented-foods-defined/",
-    visualTitle: "Uma combinação com propósito", from: "Microrganismos + substratos", to: "Microbiota", verb: "Em conjunto",
-    caption: "As duas formas representam os componentes de uma combinação avaliada em conjunto.",
-    product: "concentra", productText: "Concentra+ reúne cepas, GOS e FOS. Essa composição ajuda a visualizar os dois tipos de ingrediente.",
-  },
+    "label": "Simbióticos",
+    "title": "O que são simbióticos?",
+    "text": "São combinações de microrganismos vivos e substâncias que alimentam a microbiota, com benefício à saúde demonstrado para o conjunto.",
+    "benefits": "Podem apoiar a saúde intestinal e a função imune. Os resultados dependem da combinação e das quantidades avaliadas em estudos.",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7581511/",
+    "sourceLabel": "Leia o consenso científico",
+    "visualTitle": "Microrganismos e alimento, juntos",
+    "caption": "A proposta reúne os dois componentes; o benefício precisa ser avaliado na combinação.",
+    "product": "concentra",
+    "productText": "Concentra+ reúne Lactobacillus, Bifidobacterium, GOS e FOS, combinando microrganismos e seu alimento em uma proposta de cuidado com a microbiota."
+  }
 ];
 
 const pathways = [
   {
-    label: "Nervos", title: "Sinais que vão e voltam.",
-    text: "O nervo vago é uma das vias de comunicação entre intestino e cérebro. Os sinais circulam nos dois sentidos: o que acontece em um pode se relacionar com o outro.",
-    visualTitle: "Pelos nervos", caption: "As setas mostram a comunicação em duas direções. O nervo vago é uma dessas vias.", icon: Zap,
-    product: "concentra", productText: "É nesse olhar integrado que entra a proposta do Concentra+, com cepas, colina e B6 para o cuidado nutricional com foco e cognição.",
+    "label": "Nervos",
+    "title": "Como os nervos participam?",
+    "text": "O nervo vago leva sinais entre intestino e cérebro e participa do controle da digestão.",
+    "benefits": "Essa via ajuda a coordenar a digestão e a resposta ao estresse. Sono, alimentação e rotina de cuidado participam desse equilíbrio.",
+    "visualTitle": "Uma comunicação em duas direções",
+    "caption": "O cérebro influencia o intestino, e os sinais do intestino também chegam ao cérebro.",
+    "icon": Zap,
+    "product": "concentra",
+    "productText": "Concentra+ reúne cepas probióticas, colina e B6. A B6 participa da produção de neurotransmissores, ligando a proposta ao cuidado nutricional do sistema nervoso."
   },
   {
-    label: "Metabólitos", title: "Pequenas moléculas participam da conversa.",
-    text: "Ao utilizar componentes da alimentação, a microbiota produz metabólitos. Alguns desses compostos participam de sinais locais e da comunicação com outros sistemas do corpo.",
-    visualTitle: "Pelos metabólitos", caption: "Os pontos representam moléculas envolvidas na sinalização, em um esquema simplificado.", icon: FlaskConical,
-    product: "slim-balance", productText: "Slim Balance reúne quatro cepas em uma proposta de cuidado metabólico. Conhecer a composição é o primeiro passo para avaliar seu uso.",
+    "label": "Metabólitos",
+    "title": "O que são metabólitos?",
+    "text": "Ao aproveitar componentes dos alimentos, a microbiota produz moléculas que atuam no intestino e enviam sinais ao organismo.",
+    "benefits": "Algumas nutrem células intestinais e apoiam a barreira do intestino. Uma alimentação variada e rica em fibras favorece essa produção.",
+    "visualTitle": "Moléculas que conectam funções",
+    "caption": "Compostos produzidos pela microbiota participam da nutrição intestinal e da sinalização.",
+    "icon": FlaskConical,
+    "product": "gutcare",
+    "productText": "GUTcare reúne quatro cepas e FOS. Esse prebiótico pode ser fermentado pela microbiota, conectando a fórmula ao cuidado com a produção de metabólitos intestinais."
   },
   {
-    label: "Imunidade", title: "Uma rede que trabalha conectada.",
-    text: "A microbiota, a barreira intestinal e o sistema imune interagem. Os sinais dessa rede também se relacionam com a comunicação entre intestino e cérebro.",
-    visualTitle: "Pelos sinais imunes", caption: "O escudo identifica a participação do sistema imune nessa rede de comunicação.", icon: ShieldCheck,
-    product: "immune", productText: "O Immune considera a relação entre microbiota e cuidado imunológico, combinando cepas, prebióticos e beta-glucanas.",
-  },
+    "label": "Imunidade",
+    "title": "Como as defesas entram nessa conversa?",
+    "text": "A microbiota interage com as células de defesa e a barreira intestinal. Essa rede envia sinais que também participam da comunicação com o cérebro.",
+    "benefits": "O equilíbrio dessa rede ajuda a proteger o intestino e regular as respostas de defesa. Cuidar da microbiota faz parte desse suporte.",
+    "visualTitle": "Microbiota e defesas em conexão",
+    "caption": "A barreira intestinal e as células de defesa fazem parte dessa rede de comunicação.",
+    "icon": ShieldCheck,
+    "product": "immune",
+    "productText": "Immune reúne cepas probióticas, FOS, inulina e beta-glucanas para complementar o cuidado nutricional com a microbiota e as defesas naturais."
+  }
 ];
 
 function MicrobesIcon() {
@@ -161,8 +185,8 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
           <Illustration kind="ingredients" active={ingredient} />
           <div className="sj-panels">
             {ingredients.map((item, index) => <div className={`sj-panel ${ingredient === index ? "active" : ""}`} key={item.label} role="tabpanel" id={`science-panel-${index}`} aria-labelledby={`science-tab-${index}`} aria-hidden={ingredient !== index} inert={ingredient !== index}>
-              <h3>{item.title}</h3><p>{item.text}</p>
-              <details className="sj-more" key={`${index}-${ingredient}`}><summary>Aprofundar o conceito<Plus size={15} /></summary><p>{item.detail}</p><a href={item.source} target="_blank" rel="noreferrer">Leia a definição da ISAPP<ArrowUpRight size={14} /></a></details>
+              <h3>{item.title}</h3><p>{item.text}</p><p className="sj-benefits"><strong>Benefícios: </strong>{item.benefits}</p>
+              <a className="sj-research" href={item.source} target="_blank" rel="noreferrer">{item.sourceLabel}<ArrowUpRight size={14}/></a>
             </div>)}
           </div>
           <ProductConnection id={ingredients[ingredient].product} text={ingredients[ingredient].productText} open={open} />
@@ -175,16 +199,15 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
         <div className="sj-copy">
           <p className="sj-kicker">Eixo intestino–cérebro</p>
           <h2>O intestino conversa<br />com o cérebro.</h2>
-          <p className="sj-intro">A microbiota participa de uma rede que conecta intestino, sistema imune e cérebro. Explore três caminhos dessa comunicação.</p>
+          <p className="sj-intro">Os microrganismos do intestino produzem moléculas e interagem com nervos e células de defesa. Esses sinais participam da comunicação com o cérebro, ligada à digestão e à resposta ao estresse. Entenda essas conexões.</p>
           <Tabs id="axis" labels={pathways.map(item => item.label)} active={pathway} change={setPathway} label="Caminhos do eixo intestino–cérebro" />
           <Illustration kind="axis" active={pathway} />
           <div className="sj-panels">
             {pathways.map((item, index) => <div className={`sj-panel ${pathway === index ? "active" : ""}`} key={item.label} role="tabpanel" id={`axis-panel-${index}`} aria-labelledby={`axis-tab-${index}`} aria-hidden={pathway !== index} inert={pathway !== index}>
-              <h3>{item.title}</h3><p>{item.text}</p>
+              <h3>{item.title}</h3><p>{item.text}</p><p className="sj-benefits"><strong>Por que importa: </strong>{item.benefits}</p><a className="sj-research" href="https://pubmed.ncbi.nlm.nih.gov/31460832/" target="_blank" rel="noreferrer">Leia a revisão científica<ArrowUpRight size={14}/></a>
             </div>)}
           </div>
           <ProductConnection id={pathways[pathway].product} text={pathways[pathway].productText} open={open} />
-          <a className="sj-source" href="https://pubmed.ncbi.nlm.nih.gov/31460832/" target="_blank" rel="noreferrer">Explore a revisão científica<ArrowUpRight size={14} /></a>
         </div>
       </div>
     </section>

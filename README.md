@@ -64,8 +64,10 @@ O diagrama do eixo usa um ícone de intestino com contorno do cólon e alças in
 
 Após os banners e a faixa, o respiro branco “Quando sua flora floresce, você floresce” leva à loja. Em seguida, `ScienceJourney.tsx` apresenta microbiota e eixo intestino–cérebro no mesmo fundo #205b36, antes dos produtos. As abas atualizam explicação, ilustração e exemplo de fórmula; os links abrem os detalhes existentes.
 
-Os símbolos mostram substratos, microrganismos, intestino e cérebro. Partículas e setas indicam alimentação ou comunicação bidirecional, com legenda conceitual, pausa e respeito a movimento reduzido. Navegação por teclado, fontes primárias e aprofundamento opcional preservam clareza e acesso. As definições e exemplos não substituem evidências clínicas específicas de cada fórmula.
+Os símbolos mostram substratos, microrganismos, intestino e cérebro. Partículas e setas indicam alimentação ou comunicação bidirecional, com legenda conceitual, pausa e respeito a movimento reduzido. Navegação por teclado, fontes primárias e explicações visíveis preservam clareza e acesso. As definições e exemplos não substituem evidências clínicas específicas de cada fórmula.
 
 Fontes: [ISAPP: prebióticos](https://isappscience.org/resource/prebiotics/), [ISAPP: definições](https://isappscience.org/resource/probiotics-prebiotics-synbiotics-postbiotics-and-fermented-foods-defined/), [Cryan et al., 2019](https://pubmed.ncbi.nlm.nih.gov/31460832/). Composição dos exemplos conferida no catálogo original.
 
 A revisão visual seguinte substitui as caixas de diagramas pequenos por ilustrações vetoriais maiores: uma composição inspirada em microbiologia e outra dedicada ao eixo intestino–cérebro. As colunas se alternam no desktop, com controles integrados e exemplos de produtos em destaque compacto. Referências, direção de arte e verificações estão em `docs/science-visual-study.json`. Nenhuma imagem ou alegação clínica foi copiada da Seed.
+
+Os textos científicos agora mostram definição, benefícios ou importância e link científico em cada aba, sem conteúdo expansível. Os benefícios têm até cinco linhas em 320 px, sem truncamento. Os exemplos de ingredientes saíram da definição de prebióticos; os trechos dos produtos mantêm suas composições e objetivos. As fontes da revisão estão em `docs/science-copy-sources.json`.

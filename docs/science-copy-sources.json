@@ -1,0 +1,14 @@
+{
+ "date":"2026-11-03",
+ "scope":"Visible definitions and benefits for prebiotics, probiotics and synbiotics; clearer microbiota-gut-brain explanation and product composition connections",
+ "sources":[
+  {"url":"https://isappscience.org/wp-content/uploads/2019/04/Prebiotics_Infographic_rev1029.pdf","supports":"Prebiotics feed beneficial microbes; digestive function and bowel regularity are among studied benefits."},
+  {"url":"https://isappscience.org/resource/health-benefits-of-probiotics/","supports":"Digestive and immune benefits depend on strain, formulation, dose and use."},
+  {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC7581511/","supports":"Synbiotic definition requires health benefit for the combination; benefits cannot be inferred solely from ingredient lists."},
+  {"url":"https://pubmed.ncbi.nlm.nih.gov/31460832/","supports":"Neural, metabolic and immune communication in the microbiota-gut-brain axis; intestinal barrier, microbial metabolites and stress responses."},
+  {"url":"https://ods.od.nih.gov/factsheets/VitaminB6-HealthProfessional/","supports":"Vitamin B6 participates in neurotransmitter biosynthesis. This ingredient role is not a clinical efficacy claim for Concentra+."}
+ ],
+ "product_composition":"Checked against original src/catalog.ts ingredient lists. Product connections describe composition and nutritional purpose; finished-product benefits are not inferred from these general references.",
+ "reading":"No accordion or example ingredient list in the prebiotic definition. Benefits and importance are always visible within the selected tab, with a primary source immediately below.",
+ "validation":"Production build, all six tabs, source links, 320px line measurement: 4/4/5 lines for ingredient benefits and 5/5/5 for pathway importance; no clipping or horizontal overflow."
+}
