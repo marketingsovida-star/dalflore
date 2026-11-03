@@ -53,6 +53,7 @@ export function useSmoothMotion() {
     const scrollToSection = (el: HTMLElement | null) => {
       cancel();
       const header =
+        el?.closest(".df-science-block") ? 0 :
         document.querySelector<HTMLElement>(".site-header")?.offsetHeight ?? 0;
       let top = 0;
       for (let node = el; node; node = node.offsetParent as HTMLElement | null)

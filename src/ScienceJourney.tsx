@@ -67,7 +67,7 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
     setSelected(null);
     open(product);
   };
-  return <section id="ciencia" className={"sx-explorer " + (item ? "is-paused" : "")} aria-labelledby="science-explorer-title">
+  return <section className={"sx-explorer " + (item ? "is-paused" : "")} aria-labelledby="science-explorer-title">
     <div className="df-container">
       <header className="sx-heading"><h2 id="science-explorer-title">Explore a ciência do seu cuidado.</h2><p>Descubra como tudo se relaciona clicando nos símbolos para abrir as explicações.</p></header>
       <div className="sx-maps">

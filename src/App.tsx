@@ -826,7 +826,18 @@ export default function App() {
   useSmoothMotion();
   const [modal, setModal] = useState<ModalState>(getProductHash);
   const [mobile, setMobile] = useState(false);
-  const [headerVisible, setHeaderVisible] = useState(false);
+  const [bannerCleared, setBannerCleared] = useState(false);
+  const [scienceVisible, setScienceVisible] = useState(false);
+  const headerVisible = bannerCleared && !scienceVisible;
+  useEffect(() => {
+    const block = document.querySelector('.df-science-block');
+    const observer = new IntersectionObserver(([entry]) => {
+      setScienceVisible(entry.isIntersecting);
+      if (entry.isIntersecting) setMobile(false);
+    }, { threshold: 0 });
+    if (block) observer.observe(block);
+    return () => observer.disconnect();
+  }, []);
   const [cart, setCart] = useState<CartItem[]>(readCart);
   useEffect(() => {
     try {
@@ -949,7 +960,7 @@ export default function App() {
         )}
       </header>
       <main id="conteudo" className="df-home">
-        <HomeBanners open={open} onVisibilityChange={setHeaderVisible} />
+        <HomeBanners open={open} onVisibilityChange={setBannerCleared} />
         <section className="df-closing">
           <div className="df-container">
             <Sprout size={33} strokeWidth={1.1} />
@@ -964,8 +975,10 @@ export default function App() {
             </a>
           </div>
         </section>
-        <ScienceJourney open={open} />
-        <MicrobiotaWhy />
+        <div id="ciencia" className="df-science-block">
+          <ScienceJourney open={open} />
+          <MicrobiotaWhy />
+        </div>
         <section id="produtos" className="df-catalog df-container">
           <div className="shop-heading">
             <div>
