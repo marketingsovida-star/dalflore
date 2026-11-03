@@ -1,8 +1,5 @@
 /* Editorial introduction: two panels following the client's reference, in DalFlore greens. */
-.mw-section { --mw-ink:#f4f8ef; --mw-body:#cfddcd; --mw-accent:#c4dda8; background:#205b36; color:var(--mw-ink); padding:34px 0 22px; }
-.mw-heading { text-align:center; margin-bottom:24px; }
-.mw-heading > span { display:flex; justify-content:center; align-items:center; gap:7px; color:var(--mw-accent); font:500 12px/1.5 'Open Sans',Arial,sans-serif; margin-bottom:9px; }
-.df-home .mw-heading h2 { color:var(--mw-ink); font:500 clamp(29px,3vw,38px)/1.2 'Open Sans',Arial,sans-serif; letter-spacing:-.035em; margin:0; }
+.mw-section { --mw-ink:#f4f8ef; --mw-body:#cfddcd; --mw-accent:#c4dda8; background:#205b36; color:var(--mw-ink); padding:0 0 22px; }
 .mw-panels { display:grid; grid-template-columns:1.15fr .95fr; gap:16px; align-items:stretch; }
 .mw-panel { min-width:0; position:relative; overflow:hidden; border:1px solid #718b5d70; border-radius:var(--radius); background:#1c2d22; padding:25px 28px 20px; transition:border-color .5s,background .5s; }
 .mw-panel:hover { border-color:#9abb7f9c; background:#1f3125; }
@@ -36,9 +33,7 @@
 @keyframes mw-flow { to{stroke-dashoffset:-340} }
 @media(min-width:761px) and (max-width:1000px){.mw-panel{padding:22px 21px 18px}.df-home .mw-panel h3{font-size:21px}.mw-steps li{gap:11px;padding-block:13px}.mw-connections a{gap:10px;padding-block:14px}}
 @media(max-width:760px){
- .mw-section{padding:28px 0 21px}
- .mw-heading{margin-bottom:20px}
- .df-home .mw-heading h2{font-size:29px}
+ .mw-section{padding:0 0 21px}
  .mw-panels{grid-template-columns:minmax(0,1fr);gap:15px}
  .mw-panel{padding:22px 20px 18px}
  .df-home .mw-panel h3{font-size:22px}

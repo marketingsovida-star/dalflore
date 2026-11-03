@@ -964,8 +964,8 @@ export default function App() {
             </a>
           </div>
         </section>
-        <MicrobiotaWhy />
         <ScienceJourney open={open} />
+        <MicrobiotaWhy />
         <section id="produtos" className="df-catalog df-container">
           <div className="shop-heading">
             <div>

@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Check, ShieldCheck, Sprout } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check, ShieldCheck } from "lucide-react";
 
 const steps = [
   { title: "Nutrir a microbiota", text: "Fibras da alimentação nutrem microrganismos benéficos." },
@@ -16,11 +16,10 @@ const connections = [
 export function MicrobiotaWhy() {
   return <section id="por-que-cuidar" className="mw-section" aria-labelledby="microbiota-why-title">
     <div className="df-container">
-      <header className="mw-heading"><span><Sprout size={16}/>Saúde de dentro para fora</span><h2 id="microbiota-why-title">Por que cuidar da sua microbiota?</h2></header>
       <div className="mw-panels">
         <article className="mw-panel mw-how">
           <svg className="mw-molecular-trace" viewBox="0 0 210 100" fill="none" aria-hidden="true"><path d="M5 85Q70-10 125 52T205 15"/><path className="mw-moving-trace" d="M5 85Q70-10 125 52T205 15"/><circle cx="48" cy="44" r="5"/><circle cx="125" cy="52" r="7"/><circle cx="185" cy="38" r="4"/></svg>
-          <h3>Como esse cuidado funciona?</h3>
+          <h3 id="microbiota-why-title">Por que cuidar da sua microbiota?</h3>
           <p className="mw-intro">Seu intestino vai além da digestão. A microbiota participa das defesas e conversa com o cérebro, conectando diferentes aspectos da sua saúde.</p>
           <ol className="mw-steps">{steps.map((step, index) => <li key={step.title}><span className="mw-step-number" aria-hidden="true">{"0"+(index+1)}</span><div><h4>{step.title}</h4><p>{step.text}</p></div></li>)}</ol>
         </article>
