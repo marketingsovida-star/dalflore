@@ -16,10 +16,8 @@
 .sx-organ-drawing { transform-box:fill-box; transform-origin:center; transition:transform .65s cubic-bezier(.22,1,.36,1),filter .65s; }
 @media(hover:hover) and (pointer:fine){
  .sx-topic-card:hover .sx-point-icon{transform:scale(1.1)}
- .sx-art:has(.sx-cell-target:hover) .sj-micrograph{transform:translateY(-3px) scale(1.035)}
  .sx-art:has(.sx-brain:hover) .sx-brain-drawing,.sx-art:has(.sx-intestine:hover) .sx-intestine-drawing{transform:translateY(-4px) scale(1.08);filter:drop-shadow(0 0 7px #d8efb559)}
 }
-.sx-art:has(.sx-cell-target:focus-visible) .sj-micrograph{transform:translateY(-3px) scale(1.035)}
 .sx-art:has(.sx-brain:focus-visible) .sx-brain-drawing,.sx-art:has(.sx-intestine:focus-visible) .sx-intestine-drawing{transform:translateY(-4px) scale(1.08)}
 
 .sx-topics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:repeat(2,1fr); gap:12px; min-width:0; }
@@ -28,7 +26,11 @@
 .sx-point-icon { width:26px; height:26px; color:#d4e9bf; grid-column:1; grid-row:1; justify-self:start; transition:transform .55s cubic-bezier(.22,1,.36,1); }
 .sx-point > span:not(.sx-plus) { grid-column:1/-1; grid-row:2; text-align:center; }
 .sx-plus { display:grid; place-items:center; width:19px; height:19px; color:#205b36; background:#d5ebbf; border-radius:50%; grid-column:2; grid-row:1; }
-.sx-cell-target { position:absolute; z-index:1; left:14%; top:14%; width:72%; height:73%; border:0; border-radius:var(--card-radius,24px); background:transparent; cursor:pointer; }
+.sx-microbe-target { position:absolute; z-index:1; padding:0; border:0; border-radius:45%; background:transparent; cursor:pointer; }
+.sj-cell-hover { transform-box:fill-box; transform-origin:center; transition:transform .6s cubic-bezier(.22,1,.36,1),filter .6s; }
+.sj-cell-body { transition:fill-opacity .6s,stroke .6s; }
+.sj-cell-hover.is-highlighted { transform:translateY(-4px) scale(1.12); filter:drop-shadow(0 0 6px #aee99b70); }
+.sj-cell-hover.is-highlighted .sj-cell-body { fill-opacity:.95; stroke:#f0ffd9; }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
 .sx-organ { position:absolute; padding:0; width:27%; aspect-ratio:1; border:0; border-radius:var(--radius); background:transparent; box-shadow:none; cursor:pointer; }
 .sx-brain { left:52%; top:23%; width:27%; }
@@ -87,3 +89,5 @@
 
 @media(min-width:761px) and (max-width:1000px){.sx-art{--art-height:188px}}
 @media(prefers-reduced-motion:reduce){.sx-illustration-scene{transform:scale(1.2)!important}.sx-art .sx-illustration-scene > svg,.sx-art .sx-organ-drawing{transform:none!important}}
+
+@media(prefers-reduced-motion:reduce){.sj-cell-hover.is-highlighted{transform:none}}

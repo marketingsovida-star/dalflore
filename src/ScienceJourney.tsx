@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Blend, Brain, CircleHelp, FlaskConical, Microscope, Plus, ShieldCheck, Sprout, Zap } from "lucide-react";
 import { products, type Product } from "./catalog";
 import { IntestineIcon } from "./IntestineIcon";
-import { MicrobiotaArt } from "./MicrobiotaArt";
+import { MicrobiotaArt, microbiotaCells } from "./MicrobiotaArt";
 import { Overlay } from "./Overlay";
 import { ScienceSurface } from "./ScienceSurface";
 import { ingredients, pathways } from "./scienceContent";
@@ -57,6 +57,7 @@ function AxisMap({ explore }: { explore: (index: number) => void }) {
 
 export function ScienceJourney({ open }: { open: (product: Product) => void }) {
   const [selected, setSelected] = useState<number | null>(null);
+  const [highlightedMicrobe, setHighlightedMicrobe] = useState<number | null>(null);
   const item = selected === null ? null : topics[selected];
   const Icon = item?.icon ?? CircleHelp;
   const explore = (index: number) => setSelected(index);
@@ -71,8 +72,8 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
       <header className="sx-heading"><h2 id="science-explorer-title">Explore a ciência do seu cuidado.</h2><p>Descubra como tudo se relaciona clicando nos símbolos para abrir as explicações.</p></header>
       <div className="sx-maps">
         <figure className="sx-map" aria-label="Explore prebióticos, probióticos e simbióticos">
-          <ScienceSurface className="sx-microbiota" scene={<MicrobiotaArt active={0}/>}>
-            <button className="sx-cell-target" aria-label="Entender a microbiota ilustrada" aria-haspopup="dialog" onClick={() => explore(6)}><span className="sr-only">Abrir explicação sobre a microbiota</span></button>
+          <ScienceSurface className="sx-microbiota" scene={<MicrobiotaArt active={0} highlighted={highlightedMicrobe}/>}>
+            {microbiotaCells.map(([x,y,angle,scale],index) => <button key={index} className="sx-microbe-target" aria-label={"Entender a microbiota: microrganismo " + (index + 1)} aria-haspopup="dialog" style={{left:((x-55)/390*100)+"%",top:((y-10)/390*100)+"%",width:(62/390*100)+"%",height:(104/390*100)+"%",transform:"translate(-50%,-50%) rotate("+angle+"deg) scale("+scale+")"}} onPointerEnter={() => setHighlightedMicrobe(index)} onPointerLeave={() => setHighlightedMicrobe(null)} onFocus={() => setHighlightedMicrobe(index)} onBlur={() => setHighlightedMicrobe(null)} onClick={() => explore(6)}/>)} 
           </ScienceSurface>
         </figure>
         <div className="sx-topics" role="group" aria-label="Explore os seis temas científicos">{[0,1,2,3,4,5].map(topic => <Point key={topic} topic={topic} className="sx-topic-card" explore={explore}/>)}</div>
