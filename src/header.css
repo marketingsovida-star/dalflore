@@ -1,9 +1,9 @@
 /* Compact dark navigation, matched to the benefits strip. */
 :root { --deep-surface:#17452f; }
 .site-header { background:var(--deep-surface); color:#fff; border-bottom:1px solid #cde7b933; backdrop-filter:none; }
-.site-header .header-inner { height:66px; display:grid; grid-template-columns:minmax(0,1fr) 80px minmax(0,1fr); align-items:center; }
+.site-header .header-inner { height:60px; display:grid; grid-template-columns:minmax(0,1fr) 80px minmax(0,1fr); align-items:center; }
 .site-header .brand { display:flex; align-items:center; flex-shrink:0; grid-column:2; grid-row:1; justify-self:center; }
-.site-header .brand img { width:66px; height:56px; max-height:56px; object-fit:contain; }
+.site-header .brand img { width:52px; height:44px; max-height:44px; object-fit:contain; }
 .site-header .desktop-nav { color:#fff; grid-column:1; grid-row:1; justify-self:start; gap:24px; }
 .site-header :is(.desktop-nav,.mobile-nav) a { text-transform:uppercase; letter-spacing:.035em; }
 .site-header .desktop-nav a:hover { color:#d3e8bf; }
@@ -16,8 +16,8 @@
 .site-header .mobile-nav > a { border-color:#accf9b50; }
 .site-header :is(a,button):focus-visible { outline:2px solid #e4f1d8; outline-offset:3px; }
 @media(max-width:640px){
- .site-header .header-inner{height:62px}
- .site-header .brand img{width:60px;height:50px;max-height:50px}
+ .site-header .header-inner{height:58px}
+ .site-header .brand img{width:50px;height:42px;max-height:42px}
  .site-header .header-actions{gap:7px}
  .site-header .header-actions > .icon-button{width:42px;height:42px}
  .site-header .header-actions > .icon-button > svg{width:23px;height:23px}
