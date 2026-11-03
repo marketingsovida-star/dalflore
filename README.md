@@ -107,3 +107,5 @@ O respiro branco “Quando sua flora floresce, você floresce” foi removido. A
 A faixa e o bloco científico compartilham agora o fundo sólido `--science-background: #205b36`, sem degradê. O conjunto científico usa grade com alinhamento vertical central e altura mínima de 100dvh (100svh como fallback), acompanhando a área visível da tela e preservando as dimensões internas.
 
 A faixa usa agora o verde sólido #17452f, próximo ao verde da sobreposição do banner (#123d28), com contorno interno sutil. Esse tom diferencia a faixa do fundo científico #205b36 sem introduzir uma nova família de cores.
+
+A altura mínima do fundo científico foi ampliada suavemente para 112dvh (112svh como fallback), mantendo o conjunto centralizado e as dimensões internas intactas.
