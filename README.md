@@ -111,3 +111,5 @@ A faixa usa agora o verde sólido #17452f, próximo ao verde da sobreposição d
 A altura mínima do fundo científico foi ampliada suavemente para 112dvh (112svh como fallback), mantendo o conjunto centralizado e as dimensões internas intactas.
 
 Ajuste fino: o fundo científico passou de 112 para 108dvh, com o acréscimo de margem reduzido de 6 para 4svh em cada extremidade. A centralização e o conteúdo permanecem iguais.
+
+O cabeçalho usa a logo branca original e o mesmo verde #17452f da faixa. Sua altura é de 66 px no desktop (antes 76) e 62 px no celular (antes 68); os links mantêm fonte de 15 px e área de 44 px no desktop, agora em caixa alta. As ações usam botões de 44 px/42 px e ícones de 24 px/23 px, com logo de 56 px/50 px de altura. `src/header.css` centraliza os ajustes e preserva o comportamento de ocultação no banner e no bloco científico. Menu mobile e carrinho foram conferidos.

@@ -1,0 +1,24 @@
+/* Compact dark navigation, matched to the benefits strip. */
+:root { --deep-surface:#17452f; }
+.site-header { background:var(--deep-surface); color:#fff; border-bottom:1px solid #cde7b933; backdrop-filter:none; }
+.site-header .header-inner { height:66px; }
+.site-header .brand { display:flex; align-items:center; flex-shrink:0; }
+.site-header .brand img { width:60px; height:56px; max-height:56px; object-fit:contain; }
+.site-header .desktop-nav { color:#fff; }
+.site-header :is(.desktop-nav,.mobile-nav) a { text-transform:uppercase; letter-spacing:.035em; }
+.site-header .desktop-nav a:hover { color:#d3e8bf; }
+.site-header .header-actions { align-items:center; gap:9px; }
+.site-header .header-actions > .icon-button { width:44px; height:44px; flex-shrink:0; color:#fff; background:#ffffff08; border:2px solid #accf9b80; border-radius:var(--radius); transition:background .35s,border-color .35s; }
+.site-header .header-actions > .icon-button:hover { background:#ffffff18; border-color:#dfefcc; }
+.site-header .header-actions > .icon-button > svg { width:24px; height:24px; }
+.site-header .cart-icon > span { background:#e4f1d8; color:#17452f; }
+.site-header .mobile-nav { background:var(--deep-surface); color:#fff; border-color:#accf9b80; }
+.site-header .mobile-nav > a { border-color:#accf9b50; }
+.site-header :is(a,button):focus-visible { outline:2px solid #e4f1d8; outline-offset:3px; }
+@media(max-width:640px){
+ .site-header .header-inner{height:62px}
+ .site-header .brand img{width:54px;height:50px;max-height:50px}
+ .site-header .header-actions{gap:7px}
+ .site-header .header-actions > .icon-button{width:42px;height:42px}
+ .site-header .header-actions > .icon-button > svg{width:23px;height:23px}
+}

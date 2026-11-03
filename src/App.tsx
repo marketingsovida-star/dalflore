@@ -895,7 +895,7 @@ export default function App() {
         <div className="header-inner wrap">
           <a href="#" className="brand" aria-label="DalFlore, início">
             <img
-              src={asset("brand/logo.png")}
+              src={asset("brand/logo-white.png")}
               alt="DalFlore"
               width="160"
               height="67"
@@ -913,7 +913,7 @@ export default function App() {
               aria-label={`Abrir carrinho${count ? `, ${count} frascos` : ""}`}
               onClick={() => setModal({ kind: "cart" })}
             >
-              <ShoppingBag size={19} />
+              <ShoppingBag size={24} />
               {count > 0 && <span>{count}</span>}
             </button>
             <a
@@ -925,7 +925,7 @@ export default function App() {
               target="_blank"
               rel="noreferrer"
             >
-              <Headphones size={20} />
+              <Headphones size={24} />
             </a>
             <button
               className="icon-button mobile-trigger"
