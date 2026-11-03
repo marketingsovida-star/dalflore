@@ -32,7 +32,7 @@ Veja [fontes e pendências](docs/fontes-e-pendencias.md) antes de trocar o domí
 
 Interface exclusivamente em branco, preto e verde, com contraste forte e contornos definidos. Conteúdos científicos em camadas: explicação breve, detalhes e fonte. Retrato fornecido pela cliente em `public/aline-retrato.webp`. O guia foi removido. O topo usa o formato de banners e faixa da Sanoví, conforme a revisão mais recente.
 
-O sistema usa um único raio de 12 px para superfícies e controles e a mesma largura de conteúdo. A composição editorial foi reconstruída em `src/design.css`; as folhas de ajustes anteriores foram removidas, junto com os estilos antigos da página inicial. A loja apresenta os seis produtos diretamente em uma grade, sem navegação ou rolagem lateral. Conteúdo científico e biográfico tem introdução breve e detalhes expansíveis. No celular, a imagem decorativa da microbiota é omitida, o diagrama do eixo fica horizontal e a foto da Aline acompanha o título para evitar empilhar blocos grandes.
+O sistema usa um único raio de 12 px para superfícies e controles e a mesma largura de conteúdo. A composição editorial foi reconstruída em `src/design.css`; as folhas de ajustes anteriores foram removidas, junto com os estilos antigos da página inicial. A loja apresenta os seis produtos diretamente em uma grade, sem navegação ou rolagem lateral. Conteúdo científico e biográfico tem introdução breve e detalhes expansíveis. No celular, as ilustrações científicas aparecem logo depois das abas e antes da explicação. A foto da Aline acompanha o título para evitar empilhar blocos grandes.
 
 As referências e decisões de layout estão em `docs/design-study.json`. Os arquivos de campanha e ilustração conceitual estão em `public/editorial`; foram criados com o gerador de imagens integrado a partir dos materiais da marca. Os prompts e a procedência estão em `docs/image-prompts.json`. Os mockups da loja, os rótulos, as composições, preços e links oficiais continuam originais. Essas imagens editoriais podem ser substituídas sem reconstruir o layout.
 
@@ -59,3 +59,11 @@ Cards brancos contínuos, sem painel verde ou divisão na foto. Mockups de 310 p
 A busca foi removida: não há ícone de pesquisa no cabeçalho, botão Buscar fórmula na loja ou modal de pesquisa. Os produtos são acessados diretamente pelos seis cards.
 
 O diagrama do eixo usa um ícone de intestino com contorno do cólon e alças internas. A origem e a licença estão em docs/intestine-icon-source.json e docs/licenses/healthicons.txt.
+
+## Jornada científica integrada
+
+Após os banners e a faixa, o respiro branco “Quando sua flora floresce, você floresce” leva à loja. Em seguida, `ScienceJourney.tsx` apresenta microbiota e eixo intestino–cérebro no mesmo fundo #205b36, antes dos produtos. As abas atualizam explicação, ilustração e exemplo de fórmula; os links abrem os detalhes existentes.
+
+Os símbolos mostram substratos, microrganismos, intestino e cérebro. Partículas e setas indicam alimentação ou comunicação bidirecional, com legenda conceitual, pausa e respeito a movimento reduzido. Navegação por teclado, fontes primárias e aprofundamento opcional preservam clareza e acesso. As definições e exemplos não substituem evidências clínicas específicas de cada fórmula.
+
+Fontes: [ISAPP: prebióticos](https://isappscience.org/resource/prebiotics/), [ISAPP: definições](https://isappscience.org/resource/probiotics-prebiotics-synbiotics-postbiotics-and-fermented-foods-defined/), [Cryan et al., 2019](https://pubmed.ncbi.nlm.nih.gov/31460832/). Composição dos exemplos conferida no catálogo original.

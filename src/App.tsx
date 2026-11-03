@@ -41,7 +41,7 @@ import {
   type Quantity,
 } from "./catalog";
 
-import { IntestineIcon } from "./IntestineIcon";
+import { ScienceJourney } from "./ScienceJourney";
 import { HomeBanners } from "./HomeBanners";
 import { useSmoothMotion } from "./useSmoothMotion";
 
@@ -289,260 +289,6 @@ function ProductShelf({ open, add }: {
     </div>
   </>;
 }
-function KnowledgeTabs({
-  id,
-  labels,
-  active,
-  change,
-  name,
-}: {
-  id: string;
-  labels: string[];
-  active: number;
-  change: (value: number) => void;
-  name: string;
-}) {
-  return (
-    <div className="df-tabs" role="tablist" aria-label={name}>
-      {labels.map((label, index) => (
-        <button
-          key={label}
-          id={id + "-tab-" + index}
-          role="tab"
-          aria-selected={active === index}
-          aria-controls={id + "-panel-" + index}
-          tabIndex={active === index ? 0 : -1}
-          onClick={() => change(index)}
-          onKeyDown={(event) => {
-            if (["ArrowLeft", "ArrowRight"].includes(event.key)) {
-              event.preventDefault();
-              const next =
-                (active +
-                  (event.key === "ArrowRight" ? 1 : labels.length - 1)) %
-                labels.length;
-              change(next);
-              document.getElementById(id + "-tab-" + next)?.focus();
-            }
-          }}
-        >
-          {label}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-const education = [
-  {
-    label: "Prebióticos",
-    simple: "O alimento de parte da sua microbiota.",
-    example: "FOS, GOS e inulina",
-    icon: Sprout,
-    title: "Nutrir quem cuida de você.",
-    text: "Prebióticos são substâncias utilizadas seletivamente por microrganismos do nosso corpo e que, em quantidades adequadas, conferem benefícios à saúde. Pense neles como alimento para parte da sua microbiota.",
-    detail:
-      "FOS, GOS e inulina são exemplos presentes em algumas fórmulas DalFlore. Nem toda fibra é um prebiótico, e a quantidade consumida também importa.",
-    source: "https://isappscience.org/resource/prebiotics/",
-    sourceLabel: "Conheça a definição da ISAPP",
-  },
-  {
-    label: "Probióticos",
-    simple: "A função depende da cepa, da dose e do contexto.",
-    example: "Cepas de Lactobacillus e Bifidobacterium",
-    icon: Microscope,
-    title: "Microrganismos. Funções específicas.",
-    text: "Probióticos são microrganismos vivos que, quando administrados em quantidades adequadas, conferem benefícios à saúde. Diferentes cepas podem ter funções diferentes.",
-    detail:
-      "O nome da cepa e a quantidade em UFC ajudam a identificar a composição. Mais cepas ou mais bilhões não significam, por si só, uma fórmula melhor para você.",
-    source:
-      "https://isappscience.org/resource/probiotics-prebiotics-synbiotics-postbiotics-and-fermented-foods-defined/",
-    sourceLabel: "Explore os conceitos da ISAPP",
-  },
-  {
-    label: "Simbióticos",
-    simple: "Microrganismos e substratos, em uma combinação com propósito.",
-    example: "Uma combinação avaliada em conjunto",
-    icon: FlaskConical,
-    title: "Uma combinação que tem propósito.",
-    text: "Simbióticos combinam microrganismos vivos e substratos utilizados seletivamente por microrganismos do hospedeiro, com benefício à saúde. A escolha da combinação deve ter fundamento.",
-    detail:
-      "Combinar ingredientes é só o começo. A avaliação considera cepas, doses, qualidade e evidências para o uso proposto, sempre dentro do contexto de cada pessoa.",
-    source:
-      "https://isappscience.org/resource/probiotics-prebiotics-synbiotics-postbiotics-and-fermented-foods-defined/",
-    sourceLabel: "Entenda a definição científica",
-  },
-];
-function Science() {
-  const [active, setActive] = useState(0);
-  return (
-    <section className="df-science" id="ciencia">
-      <div className="df-container df-science-grid">
-        <div className="df-science-copy">
-          <p className="df-kicker">Ciência, com clareza.</p>
-          <h2>
-            Entender o seu corpo
-            <br />
-            também é cuidar.
-          </h2>
-          <p className="df-intro">
-            Sua microbiota é um universo vivo. Conhecer o papel de cada
-            ingrediente ajuda você a fazer escolhas com mais consciência.
-          </p>
-          <KnowledgeTabs
-            id="science"
-            labels={education.map((e) => e.label)}
-            active={active}
-            change={setActive}
-            name="Entenda os ingredientes"
-          />
-          <div className="df-panels">
-            {education.map((content, index) => (
-              <div
-                key={index}
-                className={"df-panel " + (active === index ? "active" : "")}
-                role="tabpanel"
-                id={"science-panel-" + index}
-                aria-labelledby={"science-tab-" + index}
-                aria-hidden={active !== index}
-                inert={active !== index}
-              >
-                <h3>{content.title}</h3>
-                <p>{content.text}</p>
-                <details className="df-read-more" key={active}>
-                  <summary>
-                    Na prática: ingredientes e cuidados <Plus size={16} />
-                  </summary>
-                  <p>{content.detail}</p>
-                  <span className="df-ingredient">
-                    <Leaf size={15} />
-                    {content.example}
-                  </span>
-                </details>
-                <a
-                  className="df-source"
-                  href={content.source}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {content.sourceLabel} <ArrowUpRight size={14} />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-        <figure className="df-science-art">
-          <img
-            src={asset("editorial/microbiota-concept.webp")}
-            alt="Ilustração conceitual de uma comunidade diversa de microrganismos em vidro transparente"
-            width="1448"
-            height="1086"
-            loading="lazy"
-          />
-          <figcaption>
-            Um ecossistema diverso. Um cuidado individual.
-            <small>Ilustração conceitual da microbiota.</small>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-  );
-}
-
-const axes = [
-  {
-    label: "Via neural",
-    title: "Uma conversa em duas direções.",
-    body: "O nervo vago e o sistema nervoso entérico participam da comunicação entre intestino e cérebro. Sinais viajam nos dois sentidos: do intestino para o cérebro e do cérebro para o intestino.",
-    foot: "Digestão, sensações e respostas ao estresse fazem parte dessa rede.",
-  },
-  {
-    label: "Via metabólica",
-    title: "Pequenas moléculas, novas conexões.",
-    body: "Ao utilizar componentes da alimentação, a microbiota produz metabólitos, como os ácidos graxos de cadeia curta. Esses compostos podem participar de sinais locais e sistêmicos.",
-    foot: "Alimentação, diversidade microbiana e contexto individual importam.",
-  },
-  {
-    label: "Via imune",
-    title: "Sistemas que trabalham juntos.",
-    body: "A microbiota interage com a barreira intestinal e com o sistema imune. Sinais imunológicos também participam da comunicação com outros sistemas do corpo, incluindo o nervoso.",
-    foot: "A ciência ainda investiga como traduzir esses mecanismos em intervenções clínicas.",
-  },
-];
-function Axis() {
-  const [active, setActive] = useState(0);
-  return (
-    <section className="df-axis" id="eixo">
-      <div className="df-container df-axis-grid">
-        <div
-          className="df-axis-visual"
-          role="img"
-          aria-label="Intestino e cérebro se comunicam em duas direções pelas vias neural, metabólica e imune"
-        >
-          <span className="df-diagram-title">
-            Uma conversa em duas direções
-          </span>
-          <div className="df-organ">
-            <Brain size={66} strokeWidth={1.4} />
-            <span>Cérebro</span>
-          </div>
-          <div className="df-connection">
-            <span className="df-signal" />
-            <ArrowDown size={22} />
-            <b>{axes[active].label}</b>
-            <ArrowDown size={22} className="df-up" />
-          </div>
-          <div className="df-organ">
-            <IntestineIcon />
-            <span>Intestino + microbiota</span>
-          </div>
-          <small>Representação ilustrativa</small>
-        </div>
-        <div className="df-axis-copy">
-          <h2>
-            Intestino e cérebro.
-            <br />Uma só conversa.
-          </h2>
-          <p className="df-intro">
-            Três caminhos estudados pela ciência para entender essa conexão.
-          </p>
-          <KnowledgeTabs
-            id="axis"
-            labels={axes.map((a) => a.label)}
-            active={active}
-            change={setActive}
-            name="Vias do eixo intestino–cérebro"
-          />
-          <div className="df-panels">
-            {axes.map((path, index) => (
-              <div
-                key={index}
-                className={"df-panel " + (active === index ? "active" : "")}
-                role="tabpanel"
-                id={"axis-panel-" + index}
-                aria-labelledby={"axis-tab-" + index}
-                aria-hidden={active !== index}
-                inert={active !== index}
-              >
-                <h3>{path.title}</h3>
-                <p>{path.body}</p>
-                <small className="df-path-note">{path.foot}</small>
-              </div>
-            ))}
-          </div>
-          <a
-            className="df-source"
-            href="https://pubmed.ncbi.nlm.nih.gov/31460832/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Leia a revisão científica <ArrowUpRight size={14} />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Expert() {
   const [tab, setTab] = useState("marca");
   return (
@@ -1269,19 +1015,6 @@ export default function App() {
       </header>
       <main id="conteudo" className="df-home">
         <HomeBanners open={open} onVisibilityChange={setHeaderVisible} />
-        <section id="produtos" className="df-catalog df-container">
-          <div className="shop-heading">
-            <div>
-              <p className="eyebrow">ENCONTRE O SEU CUIDADO</p>
-              <h2>Um cuidado para cada momento.</h2>
-            </div>
-          </div>
-          <ProductShelf open={open} add={add} />
-        </section>
-        <Science />
-        <Axis />
-        <Expert />
-        <FAQ />
         <section className="df-closing">
           <div className="df-container">
             <Sprout size={33} strokeWidth={1.1} />
@@ -1296,6 +1029,19 @@ export default function App() {
             </a>
           </div>
         </section>
+        <ScienceJourney open={open} />
+        <section id="produtos" className="df-catalog df-container">
+          <div className="shop-heading">
+            <div>
+              <p className="eyebrow">ENCONTRE O SEU CUIDADO</p>
+              <h2>Um cuidado para cada momento.</h2>
+            </div>
+          </div>
+          <ProductShelf open={open} add={add} />
+        </section>
+        <Expert />
+        <FAQ />
+
       </main>
       <footer>
         <div className="wrap footer-grid">
