@@ -21,7 +21,7 @@ export function useSmoothMotion() {
       },
     );
     const selectors =
-      ".df-hero-copy,.df-catalog .shop-heading,.product-card,.df-science-copy,.df-science-art,.df-axis-copy,.df-axis-visual,.df-expert-heading,.df-founder,.df-expert-copy,.faq-inner>h2,.faq-items,.faq-contact,.df-closing .df-container";
+      ".df-hero-copy,.df-catalog .shop-heading,.df-science-copy,.df-science-art,.df-axis-copy,.df-axis-visual,.df-expert-heading,.df-founder,.df-expert-copy,.faq-inner>h2,.faq-items,.faq-contact,.df-closing .df-container";
     const watch = () => {
       document.querySelectorAll<HTMLElement>(selectors).forEach((el) => {
         if (el.hasAttribute("data-reveal")) return;
@@ -30,13 +30,6 @@ export function useSmoothMotion() {
           : el.matches(".microbiota-art")
             ? "left"
             : "up";
-        if (el.matches(".product-card")) {
-          const index = Array.from(el.parentElement!.children).indexOf(el);
-          el.style.setProperty(
-            "--reveal-delay",
-            `${(index % (mobile ? 1 : 3)) * 0.09}s`,
-          );
-        }
         if (reduce.matches || el.closest("dialog"))
           el.setAttribute("data-revealed", "");
         else observer.observe(el);
