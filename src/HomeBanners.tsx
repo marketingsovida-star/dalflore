@@ -58,7 +58,7 @@ function BenefitsStrip() {
   }, []);
 
   return <div ref={strip} className="df-banner-benefits" aria-label="Benefícios da compra">
-    <div className="df-benefits-track" style={{ "--benefits-duration": `${layout.cycleWidth ? layout.cycleWidth * layout.copies / 32 : 36}s`, "--benefits-viewport": layout.viewportWidth ? `${layout.viewportWidth}px` : undefined } as CSSProperties}>
+    <div className="df-benefits-track" style={{ "--benefits-duration": `${layout.cycleWidth ? layout.cycleWidth * layout.copies / 37 : 36}s`, "--benefits-viewport": layout.viewportWidth ? `${layout.viewportWidth}px` : undefined } as CSSProperties}>
       {[0, 1].map(copy => <div className="df-benefits-group" key={copy} aria-hidden={copy === 1}>
         {Array.from({ length: layout.copies }, (_, index) => <div className="df-benefits-cycle" key={index} ref={copy === 0 && index === 0 ? cycle : undefined} aria-hidden={copy === 1 || index > 0}>
           {benefits.map(({ icon: Icon, text }) => <span key={text}><Icon size={18} aria-hidden="true" />{text}</span>)}
