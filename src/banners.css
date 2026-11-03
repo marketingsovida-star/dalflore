@@ -34,7 +34,7 @@
 .df-benefits-track { display: flex; width: max-content; flex-shrink: 0; animation: df-benefits-scroll var(--benefits-duration, 36s) linear infinite; will-change: transform; }
 .df-benefits-group { display: flex; align-items: center; flex-shrink: 0; }
 .df-benefits-cycle { display: flex; align-items: center; flex-shrink: 0; }
-.df-benefits-group span { display: inline-flex; justify-content: center; align-items: center; flex: 0 0 auto; width: calc(var(--benefits-viewport, 100vw) / var(--benefits-visible)); padding-inline: 12px; gap: 9px; white-space: nowrap; font: 15px/1.4 Arial, sans-serif; }
+.df-benefits-group span { display: inline-flex; justify-content: center; align-items: center; flex: 0 0 auto; min-width: 240px; width: calc(var(--benefits-viewport, 100vw) / var(--benefits-visible)); padding-inline: 12px; gap: 9px; white-space: nowrap; font: 15px/1.4 Arial, sans-serif; }
 .df-benefits-group svg { flex-shrink: 0; }
 .df-banner-benefits:hover .df-benefits-track { animation-play-state: paused; }
 @keyframes df-benefits-scroll { to { transform: translateX(-50%); } }
@@ -56,7 +56,7 @@
   .df-banner-benefits { --benefits-visible: 2; grid-area: 2 / 1; height: 52px; }
 }
 @media (min-width: 1024px) {
-  .df-banner-benefits { --benefits-visible: 3; }
+  .df-banner-benefits { --benefits-visible: 5; }
 }
 @media (min-width: 768px) and (min-aspect-ratio: 16/9) {
   .df-banner-visual > .df-banner-photo-first { left: 100%; transform: translateX(-100%); }
