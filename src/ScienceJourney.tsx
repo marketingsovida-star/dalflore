@@ -2,8 +2,9 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Blend, Brain, CircleHelp, FlaskConical, Microscope, Plus, ShieldCheck, Sprout, Zap } from "lucide-react";
 import { products, type Product } from "./catalog";
 import { IntestineIcon } from "./IntestineIcon";
-import { DishFrame, MicrobiotaArt } from "./MicrobiotaArt";
+import { MicrobiotaArt } from "./MicrobiotaArt";
 import { Overlay } from "./Overlay";
+import { ScienceSurface } from "./ScienceSurface";
 import { ingredients, pathways } from "./scienceContent";
 
 const review = "https://pubmed.ncbi.nlm.nih.gov/31460832/";
@@ -35,25 +36,23 @@ function Point({ topic, className, explore }: { topic: number; className: string
 }
 
 function AxisMap({ explore }: { explore: (index: number) => void }) {
-  return <div className="sx-art sx-axis">
-    <svg viewBox="55 10 390 390" fill="none" aria-hidden="true">
-      <DishFrame id="sx-axis-dish"/>
+  return <ScienceSurface className="sx-axis" scene={<svg viewBox="55 10 390 390" fill="none" aria-hidden="true">
       <defs><radialGradient id="sx-molecule"><stop stopColor="#e0f6c7"/><stop offset="1" stopColor="#a3d38b" stopOpacity=".2"/></radialGradient></defs>
       <path d="M152 272C78 234 119 95 254 150M365 160C422 212 365 341 260 280" stroke="#99c781" strokeOpacity=".65" strokeWidth="1.8"/>
       <path className="sx-signal" d="M152 272C78 234 119 95 254 150" stroke="#e0f4c8" strokeWidth="3" strokeDasharray="5 220" strokeLinecap="round"/>
       <path className="sx-signal sx-return" d="M365 160C422 212 365 341 260 280" stroke="#e0f4c8" strokeWidth="3" strokeDasharray="5 220" strokeLinecap="round"/>
       <path d="m242 141 12 9-14 3m33 128-13-1 6 12" stroke="#cce7b3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-      <g className="sx-organ-drawing" color="#c7e5b0"><Brain x="260" y="100" width="100" height="100" strokeWidth="1.5"/></g>
-      <g className="sx-organ-drawing" color="#badb9f"><svg x="150" y="222" width="112" height="112" viewBox="0 0 48 48"><IntestineIcon/></svg></g>
+      <g className="sx-organ-drawing sx-brain-drawing" color="#c7e5b0"><Brain x="260" y="100" width="100" height="100" strokeWidth="1.5"/></g>
+      <g className="sx-organ-drawing sx-intestine-drawing" color="#badb9f"><svg x="150" y="222" width="112" height="112" viewBox="0 0 48 48"><IntestineIcon/></svg></g>
       <g stroke="#9ac883" strokeOpacity=".55" strokeWidth="1.4" strokeLinecap="round">
         <path d="M312 205q-6 15-25 25m14-15q9 3 12 14m-16-10q-17-10-30-7"/>
         <circle cx="287" cy="230" r="3" fill="#bedd9e"/><circle cx="313" cy="229" r="3" fill="#bedd9e"/>
       </g>
       {[[147,162,8],[364,264,9],[267,212,6],[245,72,5]].map(([x,y,r],index)=><g key={index}><circle cx={x} cy={y} r={r} fill="url(#sx-molecule)" stroke="#cde8b7" strokeOpacity=".45"/><circle cx={x} cy={y} r={r*.35} fill="#def0c5" fillOpacity=".5"/></g>)}
-    </svg>
+    </svg>}>
     <button className="sx-organ sx-brain" aria-label="Entender a conexão intestino e cérebro" aria-haspopup="dialog" onClick={() => explore(7)}/>
     <button className="sx-organ sx-intestine" aria-label="Entender a microbiota intestinal" aria-haspopup="dialog" onClick={() => explore(6)}/>
-  </div>;
+  </ScienceSurface>;
 }
 
 export function ScienceJourney({ open }: { open: (product: Product) => void }) {
@@ -72,10 +71,9 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
       <header className="sx-heading"><h2 id="science-explorer-title">Explore a ciência do seu cuidado.</h2><p>Descubra como tudo se relaciona clicando nos símbolos para abrir as explicações.</p></header>
       <div className="sx-maps">
         <figure className="sx-map" aria-label="Explore prebióticos, probióticos e simbióticos">
-          <div className="sx-art sx-microbiota">
-            <MicrobiotaArt active={0}/>
+          <ScienceSurface className="sx-microbiota" scene={<MicrobiotaArt active={0}/>}>
             <button className="sx-cell-target" aria-label="Entender a microbiota ilustrada" aria-haspopup="dialog" onClick={() => explore(6)}><span className="sr-only">Abrir explicação sobre a microbiota</span></button>
-          </div>
+          </ScienceSurface>
         </figure>
         <div className="sx-topics" role="group" aria-label="Explore os seis temas científicos">{[0,1,2,3,4,5].map(topic => <Point key={topic} topic={topic} className="sx-topic-card" explore={explore}/>)}</div>
         <figure className="sx-map" id="eixo" aria-label="Explore a comunicação entre intestino e cérebro">
