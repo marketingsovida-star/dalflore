@@ -4,34 +4,31 @@
 .mw-panel { min-width:0; position:relative; overflow:hidden; border:1px solid #718b5d70; border-radius:var(--radius); background:#1c2d22; padding:25px 28px 20px; transition:border-color .5s,background .5s; }
 .mw-panel:hover { border-color:#9abb7f9c; background:#1f3125; }
 .df-home .mw-panel h3 { position:relative; margin:0; color:var(--mw-ink); font:500 23px/1.3 'Open Sans',Arial,sans-serif; letter-spacing:-.025em; }
-.df-home .mw-intro { position:relative; color:var(--mw-body); font:16px/1.65 Arial,sans-serif; margin:12px 0 17px; max-width:560px; }
+.df-home .mw-intro { position:relative; color:var(--mw-body); font:16px/1.65 Arial,sans-serif; margin:10px 0 14px; max-width:560px; }
 .mw-how { display:flex; flex-direction:column; }
 .mw-steps { display:flex; flex-direction:column; flex:1 0 auto; margin:0; padding:0; list-style:none; }
-.mw-steps li { flex:1 0 auto; display:grid; grid-template-columns:39px 1fr; align-items:center; gap:14px; border-top:1px solid #79936040; padding:14px 0; }
+.mw-steps li { flex:1 0 auto; display:grid; grid-template-columns:39px 1fr; align-items:center; gap:14px; border-top:1px solid #79936040; padding:12px 0; }
 .mw-step-number { width:39px; height:39px; display:grid; place-items:center; border-radius:50%; background:#a5c67b15; color:var(--mw-accent); font:600 13px/1 'Open Sans',Arial,sans-serif; }
 .df-home .mw-panel h4 { margin:0; color:#edf4e8; font:600 15px/1.4 'Open Sans',Arial,sans-serif; }
 .df-home .mw-steps p { color:var(--mw-body); font:15px/1.55 Arial,sans-serif; margin:5px 0 0; }
 .mw-connections h3 { display:flex; align-items:center; gap:10px; }
 .mw-shield { display:grid; place-items:center; color:var(--mw-accent); background:#a5c67b15; border-radius:50%; width:32px; height:32px; }
-.mw-connections ul { margin:13px 0 0; padding:0; list-style:none; }
+.mw-connections ul { margin:11px 0 0; padding:0; list-style:none; }
 .mw-connections li+li { border-top:1px solid #79936040; }
-.mw-connections a { display:grid; grid-template-columns:24px minmax(0,1fr) 15px; gap:12px; align-items:center; color:inherit; text-decoration:none; padding:13px 0; transition:background .45s; }
+.mw-connections a { display:grid; grid-template-columns:24px minmax(0,1fr) 15px; gap:12px; align-items:center; color:inherit; text-decoration:none; padding:10px 0; transition:background .45s; }
 .mw-check { display:grid; place-items:center; width:24px; height:24px; color:var(--mw-accent); background:#a5c67b18; border-radius:50%; transition:background .4s,color .4s; }
 .df-home .mw-connections h4 { font-size:15px; font-weight:500; }
 .df-home .mw-connections p { color:var(--mw-body); font:14px/1.55 Arial,sans-serif; margin:4px 0 0; }
 .mw-source-arrow { color:#93b479; opacity:.6; transition:opacity .4s,translate .4s; }
 .mw-connections a:hover .mw-source-arrow { opacity:1; translate:2px -2px; }
 .mw-connections a:hover .mw-check { background:#c4dda8; color:#1c2d22; }
-.mw-next { display:flex; justify-content:center; align-items:center; gap:8px; margin:19px auto 0; width:fit-content; color:#c4dda8; font:13px/1.6 'Open Sans',Arial,sans-serif; text-decoration:none; }
-.mw-next svg { transition:translate .4s; }
-.mw-next:hover svg { translate:0 3px; }
 .mw-section a:focus-visible { outline:2px solid #d3e7bc; outline-offset:4px; }
 .mw-molecular-trace { position:absolute; right:0; top:0; width:170px; height:82px; pointer-events:none; color:#a5c67b; opacity:.13; }
 .mw-molecular-trace path { stroke:currentColor; stroke-width:1; }
 .mw-molecular-trace circle { fill:#a5c67b; }
 .mw-molecular-trace .mw-moving-trace { stroke:#e1f3cb; stroke-width:3; stroke-dasharray:5 80; animation:mw-flow 15s linear infinite; }
 @keyframes mw-flow { to{stroke-dashoffset:-340} }
-@media(min-width:761px) and (max-width:1000px){.mw-panel{padding:22px 21px 18px}.df-home .mw-panel h3{font-size:21px}.mw-steps li{gap:11px;padding-block:13px}.mw-connections a{gap:10px;padding-block:14px}}
+@media(min-width:761px) and (max-width:1000px){.mw-panel{padding:22px 21px 18px}.df-home .mw-panel h3{font-size:21px}.mw-steps li{gap:11px;padding-block:12px}.mw-connections a{gap:10px;padding-block:11px}}
 @media(max-width:760px){
  .mw-section{padding:0}
  .mw-panels{grid-template-columns:minmax(0,1fr);gap:15px}
@@ -40,7 +37,7 @@
  .df-home .mw-intro{font-size:16px}
  .mw-steps li{gap:12px;grid-template-columns:35px minmax(0,1fr)}
  .mw-step-number{width:35px;height:35px}
- .mw-connections a{padding-block:14px}
+ .mw-connections a{padding-block:12px}
  .mw-molecular-trace{width:125px;opacity:.1}
 }
 @media(max-width:359px){.mw-panel{padding-inline:16px}.df-home .mw-panel h3{font-size:21px}.mw-steps li{grid-template-columns:31px minmax(0,1fr);gap:10px}.mw-step-number{width:31px;height:31px}.mw-connections a{gap:9px}}

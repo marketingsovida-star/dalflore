@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Check, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Check, ShieldCheck } from "lucide-react";
 
 const steps = [
   { title: "Nutrir a microbiota", text: "Fibras da alimentação nutrem microrganismos benéficos." },
@@ -28,7 +28,6 @@ export function MicrobiotaWhy() {
           <ul>{connections.map(item => <li key={item.title}><a href={item.source} target="_blank" rel="noreferrer" aria-label={"Ver a pesquisa sobre "+item.title}><span className="mw-check"><Check size={16}/></span><div><h4>{item.title}</h4><p>{item.text}</p></div><ArrowUpRight className="mw-source-arrow" size={15}/></a></li>)}</ul>
         </article>
       </div>
-      <a className="mw-next" href="#ciencia">Explore essas conexões<ArrowDown size={16}/></a>
     </div>
   </section>;
 }

@@ -29,8 +29,8 @@
   background:var(--card-green-hover);
   border-color:var(--card-green-border-hover);
 }
-/* Compensate for the extra pixel of border so panel dimensions do not change. */
-.mw-panel { padding:24px 27px 19px; }
+/* Balanced panel insets; retain generous horizontal room for the copy. */
+.mw-panel { padding:22px 27px 18px; }
 .df-portrait { border-radius:var(--card-radius); }
 .overlay-cart { border-radius:var(--card-radius) 0 0 var(--card-radius); }
 @media(min-width:761px) and (max-width:1000px){.mw-panel{padding:21px 20px 17px}}
