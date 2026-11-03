@@ -21,7 +21,6 @@ import {
   Leaf,
   Menu,
   Microscope,
-  Search,
   ShoppingBag,
   ShieldCheck,
   Sparkles,
@@ -48,7 +47,7 @@ import { useSmoothMotion } from "./useSmoothMotion";
 type CartItem = { id: string; quantity: Quantity; count: number };
 type ModalState =
   | { kind: "product"; id: string }
-  | { kind: "search" | "cart" | "privacy" }
+  | { kind: "cart" | "privacy" }
   | null;
 const getProductHash = (): ModalState => {
   const id = window.location.hash.replace("#produto/", "");
@@ -57,11 +56,6 @@ const getProductHash = (): ModalState => {
     ? { kind: "product", id }
     : null;
 };
-const normalize = (s: string) =>
-  s
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
 const productPhoto = (p: Product) => asset(`products/${p.image}.webp`);
 const productSymbols: Record<string, typeof Leaf> = {
   gutcare: FlaskConical,
@@ -1012,55 +1006,6 @@ function ProductDetail({
     </div>
   );
 }
-function SearchPanel({ open }: { open: (p: Product) => void }) {
-  const [term, setTerm] = useState("");
-  const visible = products.filter((p) =>
-    normalize(`${p.name} ${p.category} ${p.summary}`).includes(normalize(term)),
-  );
-  return (
-    <div className="search-panel">
-      <p>Encontre uma fórmula pelo nome ou pelo seu interesse.</p>
-      <div className="search-field">
-        <Search size={20} />
-        <input
-          autoFocus
-          type="search"
-          aria-label="Buscar uma fórmula"
-          placeholder="Busque por intestino, foco, nome..."
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-        />
-      </div>
-      <p className="search-count" role="status">
-        {visible.length}{" "}
-        {visible.length === 1 ? "fórmula encontrada" : "fórmulas encontradas"}
-      </p>
-      <div className="search-results">
-        {visible.map((p) => (
-          <button className="search-result" key={p.id} onClick={() => open(p)}>
-            <img src={productPhoto(p)} alt="" width="70" height="90" />
-            <span>
-              <small>{p.category}</small>
-              <strong>{p.name}</strong>
-              <span>{p.summary}</span>
-            </span>
-            <ArrowUpRight size={20} />
-          </button>
-        ))}
-      </div>
-      {!visible.length && (
-        <div className="empty-state">
-          <Search size={30} />
-          <h3>Nenhuma fórmula encontrada.</h3>
-          <p>Tente outro nome ou explore todas as fórmulas.</p>
-          <button className="button" onClick={() => setTerm("")}>
-            Ver todas as fórmulas
-          </button>
-        </div>
-      )}
-    </div>
-  );
-}
 function Cart({
   items,
   setItems,
@@ -1284,13 +1229,6 @@ export default function App() {
           </nav>
           <div className="header-actions">
             <button
-              className="icon-button"
-              aria-label="Buscar produtos"
-              onClick={() => setModal({ kind: "search" })}
-            >
-              <Search size={19} />
-            </button>
-            <button
               className="icon-button cart-icon"
               aria-label={`Abrir carrinho${count ? `, ${count} frascos` : ""}`}
               onClick={() => setModal({ kind: "cart" })}
@@ -1349,12 +1287,6 @@ export default function App() {
               <p className="eyebrow">ENCONTRE O SEU CUIDADO</p>
               <h2>Um cuidado para cada momento.</h2>
             </div>
-            <button
-              className="text-link"
-              onClick={() => setModal({ kind: "search" })}
-            >
-              Buscar fórmula <Search size={15} />
-            </button>
           </div>
           <ProductShelf open={open} add={add} />
         </section>
@@ -1463,9 +1395,7 @@ export default function App() {
               ? `Conheça a fórmula / ${products.find((p) => p.id === modal.id)!.name}`
               : modal.kind === "cart"
                 ? "Seu carrinho"
-                : modal.kind === "search"
-                  ? "Explore as fórmulas"
-                  : "Privacidade e navegação"
+                : "Privacidade e navegação"
           }
         >
           {modal.kind === "product" ? (
@@ -1475,8 +1405,6 @@ export default function App() {
             />
           ) : modal.kind === "cart" ? (
             <Cart items={cart} setItems={setCart} close={close} />
-          ) : modal.kind === "search" ? (
-            <SearchPanel open={open} />
           ) : (
             <div className="privacy-panel">
               <h2>Suas escolhas, com transparência.</h2>

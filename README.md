@@ -16,7 +16,7 @@ O build inclui verificação de tipos. Publicação automática pelo GitHub Acti
 
 ## Conteúdo e interações
 
-- Seis fórmulas em grade, com duas linhas de três cards no desktop, duas colunas no tablet e uma no celular; busca por nome ou interesse.
+- Seis fórmulas em grade, com duas linhas de três cards no desktop, duas colunas no tablet e uma no celular; navegação direta pelos cards.
 - Clique no mockup abre detalhes acessíveis com composição e modo de uso, sem páginas individuais. Link direto: `#produto/gutcare`.
 - Quantidades de 1, 3 e 6 frascos; carrinho persistido localmente.
 - Cada kit possui seu link de checkout oficial. Pedido com vários kits pode ser encaminhado ao WhatsApp; nenhum endpoint de carrinho combinado foi presumido.
@@ -54,4 +54,6 @@ A faixa de benefícios usa seis itens distintos: Ingredientes selecionados, Até
 
 ## Revisão dos cards da loja
 
-Cards brancos contínuos, sem painel verde ou divisão na foto. Mockups de 310 px de altura, com máscaras originais e sombra de apoio. Categorias recebem ícones funcionais, e o nome do produto abre os detalhes pelo controle de expansão. A composição e a finalidade são resumidas em três linhas completas, sem truncamento. Kits, preços, checkout, busca e carrinho mantêm as regras existentes. As referências, decisões e diretrizes usadas estão em `docs/shop-design-study.json`.
+Cards brancos contínuos, sem painel verde ou divisão na foto. Mockups de 310 px de altura, com máscaras originais e sombra de apoio. Categorias recebem ícones funcionais, e o nome do produto abre os detalhes pelo controle de expansão. A composição e a finalidade são resumidas em três linhas completas, sem truncamento. Kits, preços, checkout e carrinho mantêm as regras existentes. As referências, decisões e diretrizes usadas estão em `docs/shop-design-study.json`.
+
+A busca foi removida: não há ícone de pesquisa no cabeçalho, botão Buscar fórmula na loja ou modal de pesquisa. Os produtos são acessados diretamente pelos seis cards.
