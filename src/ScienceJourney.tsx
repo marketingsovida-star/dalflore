@@ -11,7 +11,7 @@ const topics = [
   ...ingredients.map((item, index) => ({ ...item, icon: [Sprout, Microscope, Blend][index], group: "Microbiota" })),
   ...pathways.map(item => ({ ...item, source: review, sourceLabel: "Leia a revisão científica", group: "Intestino e cérebro" })),
   {
-    label: "Microbiota", title: "Uma comunidade que participa do seu cuidado.",
+    label: "Microbiota", title: "O que é a microbiota?",
     text: "A microbiota intestinal é o conjunto de microrganismos que vive no intestino. Ela participa do aproveitamento dos alimentos, da proteção da barreira intestinal e da comunicação com o sistema imune e o cérebro.",
     benefits: "Alimentação variada, sono e acompanhamento profissional fazem parte do cuidado com essa comunidade.",
     source: review, sourceLabel: "Leia a revisão científica", group: "Microbiota", icon: IntestineIcon,
