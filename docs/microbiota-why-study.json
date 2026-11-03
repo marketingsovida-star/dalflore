@@ -11,5 +11,5 @@
   {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC11901370/","supports":"Bidirectional gut-skin signalling, microbial and immune pathways. Not proof of a cosmetic outcome or a finished product's efficacy."}
  ],
  "contentLimits":"Describe connected physiological functions and research areas. No claim that everything improves with microbiota care; no guaranteed reduction in appetite/stress, improved sleep, weight loss, or skin improvement.",
- "validation":["TypeScript/Vite production build","1100px visual review: panels equal height, section about631px","390px visual review","320px no horizontal or text overflow","Five scientific links present","Explore link positions the existing science atlas in view","Order: banners, white brand breather, new introduction, science atlas, products"]
+ "validation":["TypeScript/Vite production build","1100px visual review: panels equal height, section about646px","390px visual review","320px no horizontal or text overflow","Five scientific links present","Explore link positions the existing science atlas in view","Order: banners, white brand breather, new introduction, science atlas, products"]
 }
