@@ -961,20 +961,6 @@ export default function App() {
       </header>
       <main id="conteudo" className="df-home">
         <HomeBanners open={open} onVisibilityChange={setBannerCleared} />
-        <section className="df-closing">
-          <div className="df-container">
-            <Sprout size={33} strokeWidth={1.1} />
-            <p className="eyebrow">DALFLORE</p>
-            <h2>
-              Quando sua flora floresce,
-              <br />
-              <em>você floresce.</em>
-            </h2>
-            <a className="button" href="#produtos">
-              Encontre a sua fórmula <ArrowRight size={17} />
-            </a>
-          </div>
-        </section>
         <div id="ciencia" className="df-science-block">
           <ScienceJourney open={open} />
           <MicrobiotaWhy />

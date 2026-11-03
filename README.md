@@ -101,3 +101,5 @@ A seção científica ocupa no mínimo uma tela, com o conteúdo centralizado e 
 As duas partes científicas agora compartilham `.df-science-block`: uma única altura mínima de tela, centralização vertical do conjunto e 16 px entre ilustrações e painéis. Os componentes internos não têm altura de tela própria. As dimensões dos elementos permanecem iguais; em telas menores o conjunto cresce sem cortes. O cabeçalho fica oculto e inerte enquanto o bloco científico ou o banner estiverem visíveis e retorna ao sair deles. A navegação para as âncoras científicas dispensa a reserva de espaço do cabeçalho.
 
 O link “Explore essas conexões” foi removido. Os painéis inferiores usam intervalos internos ligeiramente menores (35 px a menos de altura no desktop de 1100 px), mantendo fontes e conteúdo. O bloco científico conserva a centralização conjunta e ganha margem externa mínima de 40 px no desktop e 32 px no celular.
+
+O respiro branco “Quando sua flora floresce, você floresce” foi removido. A faixa do banner agora usa um degradê de verdes da composição científica, distinguindo-a do fundo sólido da seção seguinte. A velocidade e a continuidade da faixa permanecem iguais.
