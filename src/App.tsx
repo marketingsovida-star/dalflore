@@ -1,8 +1,6 @@
 import {
   useEffect,
-  useRef,
   useState,
-  type ReactNode,
   type CSSProperties,
 } from "react";
 import {
@@ -41,6 +39,7 @@ import {
   type Quantity,
 } from "./catalog";
 
+import { Overlay } from "./Overlay";
 import { ScienceJourney } from "./ScienceJourney";
 import { HomeBanners } from "./HomeBanners";
 import { useSmoothMotion } from "./useSmoothMotion";
@@ -85,71 +84,6 @@ function readCart(): CartItem[] {
   } catch {
     return [];
   }
-}
-function Overlay({
-  title,
-  type,
-  close,
-  children,
-}: {
-  title: string;
-  type: string;
-  close: () => void;
-  children: ReactNode;
-}) {
-  const ref = useRef<HTMLDialogElement>(null);
-  const closing = useRef(false);
-  const closeTimer = useRef<number | undefined>(undefined);
-  const requestClose = () => {
-    if (closing.current) return;
-    closing.current = true;
-    ref.current?.classList.add("is-closing");
-    closeTimer.current = window.setTimeout(
-      close,
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 260,
-    );
-  };
-  useEffect(() => {
-    const el = ref.current!;
-    const previous = document.activeElement as HTMLElement | null;
-    el.showModal();
-    const overflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.clearTimeout(closeTimer.current);
-      el.close();
-      document.body.style.overflow = overflow;
-      previous?.focus({ preventScroll: true });
-    };
-  }, []);
-  return (
-    <dialog
-      ref={ref}
-      className={`overlay overlay-${type}`}
-      aria-label={title}
-      onCancel={(e) => {
-        e.preventDefault();
-        requestClose();
-      }}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) requestClose();
-      }}
-    >
-      <div className="modal-surface">
-        <header className="modal-header">
-          <span>{title}</span>
-          <button
-            className="icon-button"
-            aria-label="Fechar janela"
-            onClick={requestClose}
-          >
-            <X size={22} />
-          </button>
-        </header>
-        {children}
-      </div>
-    </dialog>
-  );
 }
 function QuantityPicker({
   quantity,

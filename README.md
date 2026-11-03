@@ -73,3 +73,9 @@ A revisão visual seguinte substitui as caixas de diagramas pequenos por ilustra
 Os textos científicos agora mostram definição, benefícios ou importância e link científico em cada aba, sem conteúdo expansível. Os benefícios têm até cinco linhas em 320 px, sem truncamento. Os exemplos de ingredientes saíram da definição de prebióticos; os trechos dos produtos mantêm suas composições e objetivos. As fontes da revisão estão em `docs/science-copy-sources.json`.
 
 A explicação e os benefícios agora formam um único parágrafo por aba, sem os rótulos “Benefícios” e “Por que importa”. O bloco final “É por isso que cada fórmula é diferente”, incluindo sua chamada para a loja, foi removido.
+
+## Mapa científico interativo
+
+A revisão mais recente reúne os dois desenhos em uma única seção `#ciencia`, com cabeçalho, instrução de clique e um controle de pausa compartilhado. Pontos com “+” abrem as explicações em um diálogo; os órgãos e o grupo de microrganismos também são clicáveis. Os seis temas anteriores continuam disponíveis, além das visões gerais de microbiota e conexão intestino–cérebro. Texto, fonte e relação com o produto aparecem na janela. A loja vem em seguida.
+
+As duas ilustrações compartilham escala, contornos e estilo de controles. Desktop usa duas colunas; celular empilha os desenhos. `#eixo` permanece como âncora da segunda ilustração. O componente `Overlay.tsx` é compartilhado pelos diálogos científicos e comerciais, preservando foco, Escape e transições existentes. As fontes científicas permanecem em `docs/science-copy-sources.json`; a revisão de composição está em `docs/science-explorer.json`.
