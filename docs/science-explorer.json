@@ -66,5 +66,11 @@
     "layout": "Larger central cards (up to 470px overall, 102px high, 14px labels); smaller illustrations capped at 280px.",
     "illustration": "Two uninterrupted cubic curves, related by a 180-degree rotation, replace the joined paths. Brain drawing uses two mirrored filled hemispheres and internal folds; neural branches, molecular forms and three small intestinal microbial forms bring visual detail closer to the microbiota artwork.",
     "validation": "Build passed. 1100px cards measured about149px wide versus107px before; artwork about258px wide. 320px no horizontal or card text overflow. Brain overview and synbiotic explanation opened correctly."
+  },
+  "connectionClearanceRevision": {
+    "removed": "Three lower microbial miniatures highlighted by the user; filled custom brain drawing.",
+    "organs": "Recognizable outline brain at x260/y100, intestine at x150/y222; both inset from the circular frame.",
+    "connections": "Forward route ends at x254/y150, before visible brain outline; return route ends at x260/y280, beyond the intestine right edge. Neural and molecular details moved into the free space between the organs.",
+    "validation": "Production build passed. Desktop visual inspection; both organ controls opened the correct explanations. 320px no horizontal overflow; no old brain or microbial miniatures remain."
   }
 }

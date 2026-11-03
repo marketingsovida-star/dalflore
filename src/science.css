@@ -16,8 +16,8 @@
 .sx-cell-target { position:absolute; z-index:1; left:14%; top:14%; width:72%; height:73%; border:0; border-radius:50%; background:transparent; cursor:pointer; }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
 .sx-organ { position:absolute; padding:0; width:27%; aspect-ratio:1; border:0; border-radius:var(--radius); background:transparent; box-shadow:none; cursor:pointer; }
-.sx-brain { left:50%; top:11%; width:34%; }
-.sx-intestine { left:21%; top:57%; }
+.sx-brain { left:52%; top:23%; width:27%; }
+.sx-intestine { left:24%; top:54%; width:29%; }
 .sx-organ-drawing { filter:drop-shadow(0 0 5px #bfdcaa20); }
 
 .sx-explorer :is(button,a):focus-visible { outline:2px solid #e6f5cf; outline-offset:4px; }
