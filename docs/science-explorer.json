@@ -61,5 +61,10 @@
       "320px and 820px no horizontal or card text overflow",
       "Brain overview and metabolite explanation open correctly"
     ]
+  },
+  "balanceRevision": {
+    "layout": "Larger central cards (up to 470px overall, 102px high, 14px labels); smaller illustrations capped at 280px.",
+    "illustration": "Two uninterrupted cubic curves, related by a 180-degree rotation, replace the joined paths. Brain drawing uses two mirrored filled hemispheres and internal folds; neural branches, molecular forms and three small intestinal microbial forms bring visual detail closer to the microbiota artwork.",
+    "validation": "Build passed. 1100px cards measured about149px wide versus107px before; artwork about258px wide. 320px no horizontal or card text overflow. Brain overview and synbiotic explanation opened correctly."
   }
 }
