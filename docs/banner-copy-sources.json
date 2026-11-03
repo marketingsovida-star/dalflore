@@ -1,0 +1,10 @@
+{
+  "updated": "2026-11-03",
+  "principle": "Identificar produto, ingredientes e finalidade. Usar a composição do catálogo e dos rótulos como base, preservando a distinção entre proposta de cuidado e eficácia clínica da fórmula pronta.",
+  "compositionSource": "src/catalog.ts; public/labels",
+  "slimBalance": {
+    "source": "https://pubmed.ncbi.nlm.nih.gov/29688793/",
+    "note": "Ensaio de 12 semanas com a cepa L. gasseri BNR17, em doses de 1 e 10 bilhões de UFC/dia. Relata diferença em gordura visceral no grupo de maior dose. Não avalia a fórmula completa Slim Balance, que contém 5 bilhões de UFC dessa cepa e outras três cepas. O banner apresenta a composição e a proposta de complementar a rotina de controle do peso; não afirma eficácia comprovada da fórmula para emagrecimento."
+  },
+  "layout": "Três linhas completas de descrição, sem truncamento. Faixa com menor distância entre itens e palavras; dimensões externas e fotos preservadas."
+}
