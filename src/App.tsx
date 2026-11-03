@@ -892,19 +892,19 @@ export default function App() {
         Ir para o conteúdo
       </a>
       <header className={`site-header df-floating-header${headerVisible ? " is-visible" : ""}`} inert={!headerVisible} aria-hidden={!headerVisible}>
+        <div className="header-shipping">FRETE GRÁTIS NA COMPRA DE 3 OU 6 UNIDADES</div>
         <div className="header-inner wrap">
           <a href="#" className="brand" aria-label="DalFlore, início">
             <img
-              src={asset("brand/logo-white.png")}
+              src={asset("brand/symbol-white.svg")}
               alt="DalFlore"
               width="160"
               height="67"
             />
           </a>
           <nav className="desktop-nav" aria-label="Navegação principal">
-            <a href="#produtos">Fórmulas</a>
-            <a href="#ciencia">Nossa ciência</a>
-            <a href="#aline">Dra. Aline</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#ciencia">Ciência</a>
             <a href="#duvidas">Dúvidas</a>
           </nav>
           <div className="header-actions">
@@ -945,10 +945,8 @@ export default function App() {
             aria-label="Navegação para celular"
           >
             {[
-              ["Fórmulas", "#produtos"],
-              ["Nossa ciência", "#ciencia"],
-              ["Eixo intestino–cérebro", "#eixo"],
-              ["Conheça a Dra. Aline", "#aline"],
+              ["Produtos", "#produtos"],
+              ["Ciência", "#ciencia"],
               ["Dúvidas", "#duvidas"],
             ].map(([label, href]) => (
               <a href={href} onClick={() => setMobile(false)} key={href}>
