@@ -1,26 +1,18 @@
 /* A single interactive atlas. Both drawings share their scale, rings and controls. */
 .sx-explorer { --sx-bg:#205b36; --sx-white:#f5faf2; --sx-leaf:#cde7b9; color:var(--sx-white); background:var(--sx-bg); padding:36px 0 25px; scroll-margin-top:76px; }
-.sx-heading { display:flex; align-items:start; justify-content:space-between; gap:25px; }
+.sx-heading { text-align:center; }
 .df-home .sx-heading h2 { margin:0; color:var(--sx-white); font:500 clamp(29px,3vw,39px)/1.2 'Open Sans',Arial,sans-serif; letter-spacing:-.04em; }
 .df-home .sx-heading p { margin:12px 0 0; color:#d3e5d0; font:16px/1.6 Arial,sans-serif; }
-.sx-pause { display:inline-flex; align-items:center; gap:7px; flex-shrink:0; border:1px solid #cde7b94a; color:#e5f2db; border-radius:var(--radius); padding:9px 12px; background:#ffffff05; font:13px/1.5 Arial,sans-serif; }
-.sx-pause:hover { background:#ffffff10; }
-.df-home .sx-instruction { display:flex; align-items:center; gap:9px; color:#e0efcf; font:14px/1.6 Arial,sans-serif; margin:17px 0 0; }
-.sx-instruction svg { flex-shrink:0; }
-.sx-instruction b { display:inline-grid; place-items:center; width:19px; height:19px; border-radius:50%; color:#205b36; background:#e4f2d5; font-weight:400; }
-.sx-maps { display:grid; grid-template-columns:1fr 1fr; gap:45px; margin-top:9px; }
+.sx-maps { display:grid; grid-template-columns:1fr 1fr; gap:45px; margin-top:20px; }
 .sx-map { margin:0; min-width:0; text-align:center; scroll-margin-top:90px; }
 .sx-art { position:relative; width:100%; max-width:500px; aspect-ratio:500/410; margin:auto; }
 .sx-art > svg { display:block; width:100%; height:100%; pointer-events:none; }
 .sx-map figcaption { margin:4px 0 0; color:#edf7e7; font:500 17px/1.5 'Open Sans',Arial,sans-serif; }
 .sx-legend { display:block; text-align:center; color:#b6d0af; font:12px/1.5 Arial,sans-serif; margin:20px 0 0; }
-.sx-point { position:absolute; z-index:2; display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:44px; padding:7px 10px; background:#1b4f30ed; color:#f5faf2; border:1px solid #accf9b80; border-radius:var(--radius); font:500 14px/1.4 'Open Sans',Arial,sans-serif; white-space:nowrap; box-shadow:0 5px 18px #123b2922; transition:background .4s,border-color .4s,box-shadow .4s,translate .4s; }
+.sx-point { position:relative; display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:44px; padding:7px 10px; background:#1b4f30ed; color:#f5faf2; border:1px solid #accf9b80; border-radius:var(--radius); font:500 13px/1.4 'Open Sans',Arial,sans-serif; white-space:nowrap; box-shadow:0 5px 18px #123b2922; transition:background .4s,border-color .4s,box-shadow .4s,translate .4s; }
 .sx-point:hover { background:#326d42; border-color:#dfefcc; box-shadow:0 5px 22px #143c2940; translate:0 -2px; }
 .sx-point-icon { width:18px; height:18px; color:#d4e9bf; flex-shrink:0; }
 .sx-plus { display:grid; place-items:center; width:21px; height:21px; color:#205b36; background:#d5ebbf; border-radius:50%; flex-shrink:0; }
-.sx-prebiotic { left:64%; top:6%; }
-.sx-probiotic { left:0; top:17%; }
-.sx-synbiotic { right:0; top:79%; }
 .sx-cell-target { position:absolute; z-index:1; left:24%; top:24%; width:49%; height:52%; border:0; border-radius:50%; background:transparent; cursor:pointer; transition:box-shadow .4s; }
 .sx-cell-target:hover { box-shadow:0 0 0 1px #cde7b945,0 0 35px #b8dc9e15; }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
@@ -31,9 +23,6 @@
 .sx-organ > svg { width:59%; height:59%; stroke-width:1.2; }
 .sx-organ > span { display:flex; align-items:center; justify-content:center; gap:5px; position:absolute; width:190%; left:-45%; top:calc(100% + 7px); color:#edf7e8; font:13px/1.5 Arial,sans-serif; white-space:nowrap; }
 .sx-organ > span > svg { color:#d7edc4; }
-.sx-nerves { left:11%; top:22%; }
-.sx-metabolites { right:0; top:67%; }
-.sx-immunity { left:42%; top:44%; }
 .sx-explorer :is(button,a):focus-visible { outline:2px solid #e6f5cf; outline-offset:4px; }
 .sj-cell-drift { animation:sx-drift 9s ease-in-out infinite alternate; }
 .sj-feed { offset-rotate:0deg; animation:sx-feeding 5s linear infinite; }
@@ -62,29 +51,19 @@
 @keyframes sx-feeding { 0%{offset-distance:0%;opacity:0}15%,85%{opacity:1}100%{offset-distance:100%;opacity:0} }
 @keyframes sx-signal { to{stroke-dashoffset:-450} }
 @keyframes sx-content-in { from{opacity:.25}to{opacity:1} }
-@media(min-width:701px) and (max-width:1000px){.sx-maps{gap:20px}.sx-point{font-size:12px;gap:5px;padding-inline:7px}.sx-point-icon{width:15px;height:15px}.sx-plus{width:18px;height:18px}.sx-prebiotic{left:auto;right:0}.sx-organ>span{font-size:11px}.sx-immunity{left:40%}.sx-nerves{left:5%}.sx-metabolites{top:70%}}
+@media(min-width:701px) and (max-width:1000px){.sx-maps{gap:20px}.sx-point{font-size:12px;gap:5px;padding-inline:7px}.sx-point-icon{width:15px;height:15px}.sx-plus{width:18px;height:18px}.sx-organ>span{font-size:11px}}
 @media(max-width:700px){
  .sx-explorer{padding:28px 0 23px;scroll-margin-top:70px}
  .sx-heading{gap:12px}
  .df-home .sx-heading h2{font-size:29px}
  .df-home .sx-heading p{font-size:15px;line-height:1.6;margin-top:12px}
- .sx-pause{padding:8px;min-width:34px;justify-content:center}
- .sx-pause>span{display:none}
- .df-home .sx-instruction{font-size:13px;align-items:start;gap:8px;margin-top:16px}
- .sx-instruction>svg{margin-top:2px}
  .sx-maps{grid-template-columns:minmax(0,1fr);gap:25px;margin-top:18px}
  .sx-art{max-width:390px}
  .sx-point{font-size:12px;padding:6px 8px;gap:5px;min-height:44px}
  .sx-point-icon{width:16px;height:16px}
  .sx-plus{width:19px;height:19px}
- .sx-prebiotic{left:auto;right:0;top:4%}
- .sx-probiotic{left:0;top:18%}
- .sx-synbiotic{right:0;top:80%}
  .sx-organ>span{font-size:11px}
  .sx-organ{box-shadow:inset 0 0 0 5px #d3e5d008}
- .sx-nerves{left:0;top:20%}
- .sx-immunity{left:40%;top:44%}
- .sx-metabolites{top:70%}
  .sx-map figcaption{font-size:16px;margin-top:10px}
  .sx-legend{font-size:11px;margin-top:20px}
  .overlay-science{max-width:100%;width:100%}
@@ -99,3 +78,10 @@
 .sx-brain > span { top:auto; bottom:8%; left:0; width:100%; font-size:12px; }
 @media(max-width:700px){.sx-brain > span{font-size:11px}}
 @media(max-width:359px){.sx-brain > span{font-size:10px}}
+
+.sx-topics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:19px; }
+.sx-point { min-width:0; padding:10px 8px; gap:6px; }
+.sx-point-icon { width:17px; height:17px; }
+.sx-plus { width:19px; height:19px; }
+@media(max-width:1000px){.sx-topics{gap:10px}.sx-point{display:grid;grid-template-columns:1fr auto;gap:6px;padding:10px;left:auto;right:auto;top:auto;white-space:normal}.sx-point-icon{display:block;width:19px;height:19px;grid-column:1;grid-row:1;justify-self:start}.sx-plus{grid-column:2;grid-row:1}.sx-point>span:not(.sx-plus){grid-column:1/-1;grid-row:2;font-size:12px;text-align:center}}
+@media(max-width:359px){.sx-point{padding:8px 5px}.sx-topics{gap:8px}.sx-point>span:not(.sx-plus){font-size:11px}}

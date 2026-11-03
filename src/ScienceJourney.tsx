@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Blend, Brain, CircleHelp, FlaskConical, Microscope, MousePointer2, Pause, Play, Plus, ShieldCheck, Sprout, Zap } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Blend, Brain, CircleHelp, FlaskConical, Microscope, Plus, ShieldCheck, Sprout, Zap } from "lucide-react";
 import { products, type Product } from "./catalog";
 import { IntestineIcon } from "./IntestineIcon";
 import { MicrobiotaArt } from "./MicrobiotaArt";
@@ -47,15 +47,11 @@ function AxisMap({ explore }: { explore: (index: number) => void }) {
     </svg>
     <button className="sx-organ sx-brain" aria-label="Entender a conexão intestino e cérebro" aria-haspopup="dialog" onClick={() => explore(7)}><Brain/><span>Cérebro <Plus size={13}/></span></button>
     <button className="sx-organ sx-intestine" aria-label="Entender a microbiota intestinal" aria-haspopup="dialog" onClick={() => explore(6)}><IntestineIcon/><span>Intestino e microbiota <Plus size={13}/></span></button>
-    <Point topic={3} className="sx-nerves" explore={explore}/>
-    <Point topic={4} className="sx-metabolites" explore={explore}/>
-    <Point topic={5} className="sx-immunity" explore={explore}/>
   </div>;
 }
 
 export function ScienceJourney({ open }: { open: (product: Product) => void }) {
   const [selected, setSelected] = useState<number | null>(null);
-  const [paused, setPaused] = useState(false);
   const item = selected === null ? null : topics[selected];
   const Icon = item?.icon ?? CircleHelp;
   const explore = (index: number) => setSelected(index);
@@ -65,30 +61,25 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
     setSelected(null);
     open(product);
   };
-  return <section id="ciencia" className={"sx-explorer " + (paused || item ? "is-paused" : "")} aria-labelledby="science-explorer-title">
+  return <section id="ciencia" className={"sx-explorer " + (item ? "is-paused" : "")} aria-labelledby="science-explorer-title">
     <div className="df-container">
-      <header className="sx-heading">
-        <div><h2 id="science-explorer-title">Explore a ciência do seu cuidado.</h2><p>Da microbiota à conexão intestino–cérebro, descubra como tudo se relaciona.</p></div>
-        <button className="sx-pause" aria-label={paused ? "Reproduzir animações" : "Pausar animações"} aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? <Play size={15}/> : <Pause size={15}/>}<span>{paused ? "Reproduzir" : "Pausar"}</span></button>
-      </header>
-      <p className="sx-instruction"><MousePointer2 size={18}/><span>Clique nos símbolos com <b>+</b> para abrir as explicações.</span></p>
+      <header className="sx-heading"><h2 id="science-explorer-title">Explore a ciência do seu cuidado.</h2><p>Descubra como tudo se relaciona clicando nos símbolos para abrir as explicações.</p></header>
       <div className="sx-maps">
         <figure className="sx-map" aria-label="Explore prebióticos, probióticos e simbióticos">
           <div className="sx-art sx-microbiota">
             <MicrobiotaArt active={0}/>
-            <button className="sx-cell-target" aria-label="Entender os microrganismos probióticos" aria-haspopup="dialog" onClick={() => explore(1)}><span className="sr-only">Abrir explicação sobre probióticos</span></button>
-            <Point topic={0} className="sx-prebiotic" explore={explore}/>
-            <Point topic={1} className="sx-probiotic" explore={explore}/>
-            <Point topic={2} className="sx-synbiotic" explore={explore}/>
+            <button className="sx-cell-target" aria-label="Entender a microbiota ilustrada" aria-haspopup="dialog" onClick={() => explore(6)}><span className="sr-only">Abrir explicação sobre a microbiota</span></button>
           </div>
           <figcaption>O universo da microbiota</figcaption>
+          <div className="sx-topics" role="group" aria-label="Explicações sobre a microbiota"><Point topic={0} className="sx-prebiotic" explore={explore}/><Point topic={1} className="sx-probiotic" explore={explore}/><Point topic={2} className="sx-synbiotic" explore={explore}/></div>
         </figure>
         <figure className="sx-map" id="eixo" aria-label="Explore a comunicação entre intestino e cérebro">
           <AxisMap explore={explore}/>
           <figcaption>A conexão intestino–cérebro</figcaption>
+          <div className="sx-topics" role="group" aria-label="Explicações sobre a conexão intestino e cérebro"><Point topic={3} className="sx-nerves" explore={explore}/><Point topic={4} className="sx-metabolites" explore={explore}/><Point topic={5} className="sx-immunity" explore={explore}/></div>
         </figure>
       </div>
-      <small className="sx-legend">Ilustrações conceituais. Explore cada ponto no seu ritmo.</small>
+      <small className="sx-legend">Representações conceituais. Os formatos não identificam cepas ou ingredientes.</small>
     </div>
     {item && <Overlay title={item.label} type="science" close={() => setSelected(null)}>
       <div className="sx-explanation" key={item.label}>

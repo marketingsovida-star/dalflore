@@ -25,6 +25,5 @@ export function MicrobiotaArt({ active }: { active: number }) {
       <circle className="sj-feed sj-feed-c" cx="0" cy="0" r="4"/>
       <path d="m105 108 5 5-5 5-5-5ZM368 306l5 5-5 5-5-5Z"/>
     </g>}
-    <g stroke="#c9e5bc" strokeOpacity=".6" strokeLinecap="round"><path d="M168 148 99 95H28"/><circle cx="168" cy="148" r="3" fill="#d8edc6"/><path d="m311 247 66 84h92"/><circle cx="311" cy="247" r="3" fill="#d8edc6"/><path d="m338 62-25 19"/><circle cx="313" cy="81" r="3" fill="#e3f5c9"/></g>
   </svg>;
 }

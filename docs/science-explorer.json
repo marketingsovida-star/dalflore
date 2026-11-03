@@ -1,9 +1,50 @@
 {
- "date":"2026-11-03",
- "brief":"Combine the two existing illustrations into one explanatory interactive section, with clear click cues and a consistent visual system.",
- "plan":{"palette":{"forest":"#205b36","leaf":"#cde7b9","white":"#f5faf2","ink":"#354d3d"},"type":"Existing Open Sans headings and controls, Arial reading text","layout":"One heading and instruction; two equally scaled circular illustrations side by side, stacked on mobile; topic explanations open on demand.","principle":"Illustrated points are the navigation. Avoid repeating long text sections or introducing another category/tab bar."},
- "review":"The previous repeated explanatory columns were removed. Matching circular outlines and shared plus controls make the figures belong to one system. Instruction explicitly explains how to open information; all labelled controls have accessible names and native button behavior.",
- "interaction":{"topics":["Prebióticos","Probióticos","Simbióticos","Nervos","Metabólitos","Imunidade","Microbiota","Intestino e cérebro"],"reading":"Existing approved paragraphs and sources moved into a native dialog; related product remains available there.","navigation":"Previous/next topics, close button, Escape and backdrop dismissal. Focus returns to the originating button.","productHandoff":"Closes scientific dialog before opening existing product details; exactly one dialog remains open.","motion":"Shared pause control, paused while explanation is open, reduced-motion support."},
- "assets":"Existing native SVG microbiota and organ artwork adapted without image generation or changes to original product images.",
- "validation":["TypeScript and Vite production build","Desktop and mobile visual review","All topic controls open matching explanations","Escape and focus restoration","Product handoff and scroll unlock","320px overflow and control bounds"]
+  "date": "2026-11-03",
+  "brief": "Combine the two existing illustrations into one explanatory interactive section, with clear click cues and a consistent visual system.",
+  "plan": {
+    "palette": {
+      "forest": "#205b36",
+      "leaf": "#cde7b9",
+      "white": "#f5faf2",
+      "ink": "#354d3d"
+    },
+    "type": "Existing Open Sans headings and controls, Arial reading text",
+    "layout": "One heading and instruction; two equally scaled circular illustrations side by side, stacked on mobile; topic explanations open on demand.",
+    "principle": "Illustrated points are the navigation. Avoid repeating long text sections or introducing another category/tab bar."
+  },
+  "review": "The previous repeated explanatory columns were removed. Matching circular outlines and shared plus controls make the figures belong to one system. Instruction explicitly explains how to open information; all labelled controls have accessible names and native button behavior.",
+  "interaction": {
+    "topics": [
+      "Prebióticos",
+      "Probióticos",
+      "Simbióticos",
+      "Nervos",
+      "Metabólitos",
+      "Imunidade",
+      "Microbiota",
+      "Intestino e cérebro"
+    ],
+    "reading": "Existing approved paragraphs and sources moved into a native dialog; related product remains available there.",
+    "navigation": "Previous/next topics, close button, Escape and backdrop dismissal. Focus returns to the originating button.",
+    "productHandoff": "Closes scientific dialog before opening existing product details; exactly one dialog remains open.",
+    "motion": "Shared pause control, paused while explanation is open, reduced-motion support."
+  },
+  "assets": "Existing native SVG microbiota and organ artwork adapted without image generation or changes to original product images.",
+  "validation": [
+    "TypeScript and Vite production build",
+    "Desktop and mobile visual review",
+    "All topic controls open matching explanations",
+    "Escape and focus restoration",
+    "Product handoff and scroll unlock",
+    "320px overflow and control bounds"
+  ],
+  "latestRevision": {
+    "heading": "Explore a ciência do seu cuidado.",
+    "subtitle": "Descubra como tudo se relaciona clicando nos símbolos para abrir as explicações.",
+    "alignment": "Centered",
+    "controls": "Six separated topic controls below the illustrations, with no topic box overlapping a drawing. Pause button removed; reduced-motion support retained.",
+    "classification": "General cell illustration opens microbiota overview, not probiotic classification. Shape alone does not identify probiotic status; prebiotics are nonliving substrates; synbiotics are combinations with demonstrated health benefit.",
+    "source": "https://isappscience.org/wp-content/uploads/2021/07/DefinitionsInfographic.pdf",
+    "validation": "Production build; 320px no overflow, all six controls fully visible and outside artwork; microbiota overview and prebiotic dialog checked."
+  }
 }
