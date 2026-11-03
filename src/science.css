@@ -1,5 +1,7 @@
+/* One background shared by the banner strip and the scientific chapter. */
+:root { --science-background:#205b36; }
 /* Two matching scientific illustrations around one compact, six-topic centre. */
-.sx-explorer { --sx-bg:#205b36; --sx-white:#f5faf2; --sx-leaf:#cde7b9; color:var(--sx-white); background:var(--sx-bg); padding:0; }
+.sx-explorer { --sx-bg:var(--science-background); --sx-white:#f5faf2; --sx-leaf:#cde7b9; color:var(--sx-white); background:var(--sx-bg); padding:0; }
 .sx-heading { text-align:center; }
 .df-home .sx-heading h2 { margin:0; color:var(--sx-white); font:500 clamp(29px,3vw,39px)/1.2 'Open Sans',Arial,sans-serif; letter-spacing:-.04em; }
 .df-home .sx-heading p { margin:12px 0 0; color:#d3e5d0; font:16px/1.6 Arial,sans-serif; }
@@ -67,5 +69,5 @@
 @media(prefers-reduced-motion:reduce){.sx-explorer *,.sx-explorer *::before,.sx-explorer *::after{animation:none!important;transition:none!important}.sj-feed{offset-distance:50%}}
 
 /* One continuous, vertically centred science chapter; preserve all internal sizes. */
-.df-science-block { min-height:100svh; display:flex; flex-direction:column; justify-content:center; gap:16px; padding:40px 0; background:#205b36; scroll-margin-top:0; }
+.df-science-block { min-height:100svh; min-height:100dvh; display:grid; align-content:center; gap:16px; padding:40px 0; background:var(--science-background); scroll-margin-top:0; }
 @media(max-width:760px){.df-science-block{padding:32px 0;gap:20px}}

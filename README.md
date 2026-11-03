@@ -103,3 +103,5 @@ As duas partes científicas agora compartilham `.df-science-block`: uma única a
 O link “Explore essas conexões” foi removido. Os painéis inferiores usam intervalos internos ligeiramente menores (35 px a menos de altura no desktop de 1100 px), mantendo fontes e conteúdo. O bloco científico conserva a centralização conjunta e ganha margem externa mínima de 40 px no desktop e 32 px no celular.
 
 O respiro branco “Quando sua flora floresce, você floresce” foi removido. A faixa do banner agora usa um degradê de verdes da composição científica, distinguindo-a do fundo sólido da seção seguinte. A velocidade e a continuidade da faixa permanecem iguais.
+
+A faixa e o bloco científico compartilham agora o fundo sólido `--science-background: #205b36`, sem degradê. O conjunto científico usa grade com alinhamento vertical central e altura mínima de 100dvh (100svh como fallback), acompanhando a área visível da tela e preservando as dimensões internas.
