@@ -41,6 +41,7 @@ import {
   type Quantity,
 } from "./catalog";
 
+import { IntestineIcon } from "./IntestineIcon";
 import { HomeBanners } from "./HomeBanners";
 import { useSmoothMotion } from "./useSmoothMotion";
 
@@ -447,19 +448,6 @@ function Science() {
   );
 }
 
-function GutIcon() {
-  return (
-    <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
-      <path
-        d="M30 20c-17 0-20 14-20 25v26c0 12 11 17 18 11 8 9 18 9 25 1 8 7 23 1 23-9V46c0-11-14-15-19-6-7-9-21-8-25 2-7-7-16-1-16 7m14-29v13m2 10v24m25-25v22M33 56h24M33 72h24M75 60h12V34c0-13-9-20-21-20H43"
-        stroke="currentColor"
-        strokeWidth="3.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 const axes = [
   {
     label: "Via neural",
@@ -504,7 +492,7 @@ function Axis() {
             <ArrowDown size={22} className="df-up" />
           </div>
           <div className="df-organ">
-            <GutIcon />
+            <IntestineIcon />
             <span>Intestino + microbiota</span>
           </div>
           <small>Representação ilustrativa</small>

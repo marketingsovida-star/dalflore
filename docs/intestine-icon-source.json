@@ -1,0 +1,7 @@
+{
+  "source": "https://healthicons.org/icon/outline/body/colon",
+  "original": "https://raw.githubusercontent.com/resolvetosavelives/healthicons/main/public/icons/svg/outline/body/colon.svg",
+  "license": "CC0-1.0 (icons); mixed repository license",
+  "change": "Added central intestinal loops to make the diagram recognizable as the intestine.",
+  "component": "src/IntestineIcon.tsx"
+}

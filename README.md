@@ -57,3 +57,5 @@ A faixa de benefícios usa seis itens distintos: Ingredientes selecionados, Até
 Cards brancos contínuos, sem painel verde ou divisão na foto. Mockups de 310 px de altura, com máscaras originais e sombra de apoio. Categorias recebem ícones funcionais, e o nome do produto abre os detalhes pelo controle de expansão. A composição e a finalidade são resumidas em três linhas completas, sem truncamento. Kits, preços, checkout e carrinho mantêm as regras existentes. As referências, decisões e diretrizes usadas estão em `docs/shop-design-study.json`.
 
 A busca foi removida: não há ícone de pesquisa no cabeçalho, botão Buscar fórmula na loja ou modal de pesquisa. Os produtos são acessados diretamente pelos seis cards.
+
+O diagrama do eixo usa um ícone de intestino com contorno do cólon e alças internas. A origem e a licença estão em docs/intestine-icon-source.json e docs/licenses/healthicons.txt.
