@@ -1,0 +1,42 @@
+/* Shared surfaces: generous round corners and one green outline across the site. */
+:root {
+  --card-radius:24px;
+  --card-border-width:2px;
+  --card-border-color:#accf9b80;
+  --card-border-hover:#7d9b70;
+  --card-green-bg:#1b4f30ed;
+  --card-green-hover:#326d42;
+  --card-green-border-hover:#dfefcc;
+}
+.df-catalog .product-card,
+.mw-panel,
+.sx-point,
+.faq-item,
+.sx-product,
+.information-note,
+.overlay {
+  border-radius:var(--card-radius);
+  border-width:var(--card-border-width);
+  border-style:solid;
+  border-color:var(--card-border-color);
+}
+.df-catalog .product-card:hover,
+.faq-item[data-open="true"] { border-color:var(--card-border-hover); }
+.mw-panel,
+.sx-point { background:var(--card-green-bg); }
+.mw-panel:hover,
+.sx-point:hover {
+  background:var(--card-green-hover);
+  border-color:var(--card-green-border-hover);
+}
+/* Compensate for the extra pixel of border so panel dimensions do not change. */
+.mw-panel { padding:24px 27px 19px; }
+.df-portrait { border-radius:var(--card-radius); }
+.overlay-cart { border-radius:var(--card-radius) 0 0 var(--card-radius); }
+@media(min-width:761px) and (max-width:1000px){.mw-panel{padding:21px 20px 17px}}
+@media(max-width:760px){
+  .mw-panel{padding:21px 19px 17px}
+  .overlay{border-radius:var(--card-radius) var(--card-radius) 0 0}
+  .overlay-cart{border-radius:0}
+}
+@media(max-width:359px){.mw-panel{padding-inline:15px}}
