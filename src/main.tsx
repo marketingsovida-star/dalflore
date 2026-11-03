@@ -4,6 +4,7 @@ import App from "./App";
 import "./style.css";
 import "./design.css";
 import "./science.css";
+import "./microbiota-why.css";
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />

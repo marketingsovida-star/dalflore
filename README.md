@@ -87,3 +87,9 @@ A composição atual coloca seis cards compactos em três colunas e duas linhas 
 A revisão de proporções amplia a grade central para até 470 px e os cards para 102 px de altura no desktop, com tipografia de 14 px. As ilustrações têm limite de 280 px. O desenho intestino–cérebro usa duas curvas cúbicas contínuas e simétricas, cérebro ilustrado com preenchimento e sulcos internos, ramificações nervosas, moléculas e pequenos microrganismos. Molduras, cores, conteúdo e navegação permanecem compartilhados.
 
 A correção do desenho intestino–cérebro remove os três pequenos microrganismos inferiores marcados pela cliente, substitui o cérebro ilustrado pelo ícone de contorno e reposiciona ambos os órgãos para dentro da moldura. Os trajetos e suas pontas terminam fora das áreas visíveis dos órgãos; os detalhes centrais também foram afastados dos contornos. As áreas de clique acompanham as novas posições.
+
+## Por que cuidar da microbiota
+
+`MicrobiotaWhy.tsx` acrescenta uma introdução entre o respiro da marca e o mapa científico, seguindo a composição da imagem de referência: título centralizado, explicação e três pontos numerados à esquerda, cinco conexões com a saúde à direita. O verde escuro, os contornos de 12 px, Open Sans e Arial mantêm a identidade. A entrada em conjunto usa o movimento existente; um traço molecular discreto e os estados de hover acrescentam movimento, com suporte a movimento reduzido. Os cinco itens abrem suas fontes científicas.
+
+O texto explica funções e relações estudadas: digestão, defesas, saciedade, estresse/sono e pele. Não promete melhora generalizada, emagrecimento, tratamento de pele ou de sono, nem atribui esses resultados às fórmulas DalFlore. Fontes, direção visual e verificação: `docs/microbiota-why-study.json`.

@@ -1,0 +1,15 @@
+{
+ "date":"2026-11-03",
+ "brief":"Add a concise, dark introduction before the science explorer using the client's two-panel reference: how care works, three numbered items, five health connections.",
+ "plan":{"palette":{"background":"#14251b","panel":"#1c2d22","accent":"#c4dda8","text":"#f4f8ef","body":"#cfddcd"},"type":"Open Sans for headings and emphasis; Arial for reading","layout":"Centred heading, equal-height panels in 1.15/.95 proportions; left introductory paragraph and three numbered points, right five rows. 12px corners match the existing system.","motion":"One coordinated entrance using existing useSmoothMotion; faint molecular trace; research-row hover feedback; reduced motion respected."},
+ "reviewAgainstBrief":"Follow the client's provided composition closely, substituting brand greens for gold/brown and avoiding a new large illustration. Keep both panels concise and let the existing atlas provide the deeper interaction.",
+ "sources":[
+  {"url":"https://nigms.nih.gov/biobeat/2024/03/what-is-the-microbiome","supports":"Microbiome contribution to digestion and immune function."},
+  {"url":"https://pubmed.ncbi.nlm.nih.gov/31460832/","supports":"Microbiota-gut-brain signalling, neural/immune/metabolic routes and stress response."},
+  {"url":"https://pubmed.ncbi.nlm.nih.gov/28356427/","supports":"Microbiota interactions with appetite and satiety regulation. Not proof of appetite reduction from a specific supplement."},
+  {"url":"https://pubmed.ncbi.nlm.nih.gov/37023468/","supports":"Sleep interventions are under study; this meta-analysis did not demonstrate consistent sleep-quality improvement. Copy therefore says connections are studied and makes no sleep benefit promise."},
+  {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC11901370/","supports":"Bidirectional gut-skin signalling, microbial and immune pathways. Not proof of a cosmetic outcome or a finished product's efficacy."}
+ ],
+ "contentLimits":"Describe connected physiological functions and research areas. No claim that everything improves with microbiota care; no guaranteed reduction in appetite/stress, improved sleep, weight loss, or skin improvement.",
+ "validation":["TypeScript/Vite production build","1100px visual review: panels equal height, section about631px","390px visual review","320px no horizontal or text overflow","Five scientific links present","Explore link positions the existing science atlas in view","Order: banners, white brand breather, new introduction, science atlas, products"]
+}

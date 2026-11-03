@@ -40,6 +40,7 @@ import {
 } from "./catalog";
 
 import { Overlay } from "./Overlay";
+import { MicrobiotaWhy } from "./MicrobiotaWhy";
 import { ScienceJourney } from "./ScienceJourney";
 import { HomeBanners } from "./HomeBanners";
 import { useSmoothMotion } from "./useSmoothMotion";
@@ -963,6 +964,7 @@ export default function App() {
             </a>
           </div>
         </section>
+        <MicrobiotaWhy />
         <ScienceJourney open={open} />
         <section id="produtos" className="df-catalog df-container">
           <div className="shop-heading">
