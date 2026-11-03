@@ -69,5 +69,5 @@
 @media(prefers-reduced-motion:reduce){.sx-explorer *,.sx-explorer *::before,.sx-explorer *::after{animation:none!important;transition:none!important}.sj-feed{offset-distance:50%}}
 
 /* One continuous, vertically centred science chapter; preserve all internal sizes. */
-.df-science-block { min-height:112svh; min-height:112dvh; display:grid; align-content:center; gap:16px; padding:calc(40px + 6svh) 0; background:var(--science-background); scroll-margin-top:0; }
-@media(max-width:760px){.df-science-block{padding:calc(32px + 6svh) 0;gap:20px}}
+.df-science-block { min-height:108svh; min-height:108dvh; display:grid; align-content:center; gap:16px; padding:calc(40px + 4svh) 0; background:var(--science-background); scroll-margin-top:0; }
+@media(max-width:760px){.df-science-block{padding:calc(32px + 4svh) 0;gap:20px}}

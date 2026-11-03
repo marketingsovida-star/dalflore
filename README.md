@@ -109,3 +109,5 @@ A faixa e o bloco científico compartilham agora o fundo sólido `--science-back
 A faixa usa agora o verde sólido #17452f, próximo ao verde da sobreposição do banner (#123d28), com contorno interno sutil. Esse tom diferencia a faixa do fundo científico #205b36 sem introduzir uma nova família de cores.
 
 A altura mínima do fundo científico foi ampliada suavemente para 112dvh (112svh como fallback), mantendo o conjunto centralizado e as dimensões internas intactas.
+
+Ajuste fino: o fundo científico passou de 112 para 108dvh, com o acréscimo de margem reduzido de 6 para 4svh em cada extremidade. A centralização e o conteúdo permanecem iguais.
