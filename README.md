@@ -71,3 +71,5 @@ Fontes: [ISAPP: prebióticos](https://isappscience.org/resource/prebiotics/), [I
 A revisão visual seguinte substitui as caixas de diagramas pequenos por ilustrações vetoriais maiores: uma composição inspirada em microbiologia e outra dedicada ao eixo intestino–cérebro. As colunas se alternam no desktop, com controles integrados e exemplos de produtos em destaque compacto. Referências, direção de arte e verificações estão em `docs/science-visual-study.json`. Nenhuma imagem ou alegação clínica foi copiada da Seed.
 
 Os textos científicos agora mostram definição, benefícios ou importância e link científico em cada aba, sem conteúdo expansível. Os benefícios têm até cinco linhas em 320 px, sem truncamento. Os exemplos de ingredientes saíram da definição de prebióticos; os trechos dos produtos mantêm suas composições e objetivos. As fontes da revisão estão em `docs/science-copy-sources.json`.
+
+A explicação e os benefícios agora formam um único parágrafo por aba, sem os rótulos “Benefícios” e “Por que importa”. O bloco final “É por isso que cada fórmula é diferente”, incluindo sua chamada para a loja, foi removido.

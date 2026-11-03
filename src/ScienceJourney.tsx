@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, ArrowUpRight, Brain, FlaskConical, Leaf, Pause, Play, Plus, ShieldCheck, Sprout, Zap } from "lucide-react";
+import { ArrowUpRight, Brain, FlaskConical, Leaf, Pause, Play, Plus, ShieldCheck, Sprout, Zap } from "lucide-react";
 import { products, type Product } from "./catalog";
 import { IntestineIcon } from "./IntestineIcon";
 
@@ -185,7 +185,7 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
           <Illustration kind="ingredients" active={ingredient} />
           <div className="sj-panels">
             {ingredients.map((item, index) => <div className={`sj-panel ${ingredient === index ? "active" : ""}`} key={item.label} role="tabpanel" id={`science-panel-${index}`} aria-labelledby={`science-tab-${index}`} aria-hidden={ingredient !== index} inert={ingredient !== index}>
-              <h3>{item.title}</h3><p>{item.text}</p><p className="sj-benefits"><strong>Benefícios: </strong>{item.benefits}</p>
+              <h3>{item.title}</h3><p>{item.text} {item.benefits}</p>
               <a className="sj-research" href={item.source} target="_blank" rel="noreferrer">{item.sourceLabel}<ArrowUpRight size={14}/></a>
             </div>)}
           </div>
@@ -204,13 +204,12 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
           <Illustration kind="axis" active={pathway} />
           <div className="sj-panels">
             {pathways.map((item, index) => <div className={`sj-panel ${pathway === index ? "active" : ""}`} key={item.label} role="tabpanel" id={`axis-panel-${index}`} aria-labelledby={`axis-tab-${index}`} aria-hidden={pathway !== index} inert={pathway !== index}>
-              <h3>{item.title}</h3><p>{item.text}</p><p className="sj-benefits"><strong>Por que importa: </strong>{item.benefits}</p><a className="sj-research" href="https://pubmed.ncbi.nlm.nih.gov/31460832/" target="_blank" rel="noreferrer">Leia a revisão científica<ArrowUpRight size={14}/></a>
+              <h3>{item.title}</h3><p>{item.text} {item.benefits}</p><a className="sj-research" href="https://pubmed.ncbi.nlm.nih.gov/31460832/" target="_blank" rel="noreferrer">Leia a revisão científica<ArrowUpRight size={14}/></a>
             </div>)}
           </div>
           <ProductConnection id={pathways[pathway].product} text={pathways[pathway].productText} open={open} />
         </div>
       </div>
     </section>
-    <div className="df-container sj-to-products"><div><h3>É por isso que cada fórmula é diferente.</h3><p>Conheça os ativos e a proposta de cada produto para escolher com mais clareza e orientação.</p></div><a className="button" href="#produtos">Encontre a sua fórmula<ArrowRight size={17} /></a></div>
   </section>;
 }
