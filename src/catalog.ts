@@ -32,7 +32,7 @@ export const products: Product[] = [
     name: "GUTcare",
     category: "Saúde intestinal",
     summary:
-      "Probióticos e FOS para um olhar integrado sobre a microbiota intestinal.",
+      "Probióticos e FOS para apoiar a microbiota e o cuidado diário com a saúde intestinal.",
     color: "#6b9c58",
     image: "gutcare",
     capsules: 30,
@@ -66,7 +66,7 @@ export const products: Product[] = [
     name: "Concentra+",
     category: "Foco e cognição",
     summary:
-      "Cinco cepas, prebióticos, colina e B6 em uma fórmula com olhar para o eixo intestino–cérebro.",
+      "Probióticos, colina e B6 para complementar o cuidado nutricional com foco e cognição.",
     color: "#b18637",
     image: "concentra",
     capsules: 60,
@@ -104,7 +104,7 @@ export const products: Product[] = [
     name: "Immune",
     category: "Saúde imunológica",
     summary:
-      "Quatro cepas probióticas combinadas a FOS, inulina e beta-glucanas.",
+      "Probióticos e beta-glucanas para cuidar da microbiota e complementar suas defesas.",
     color: "#699dc0",
     image: "immune",
     capsules: 30,
@@ -140,7 +140,7 @@ export const products: Product[] = [
     name: "Slim Balance",
     category: "Equilíbrio metabólico",
     summary:
-      "Quatro cepas probióticas em uma proposta de cuidado com o equilíbrio metabólico.",
+      "Probióticos, com L. gasseri, para complementar o cuidado intestinal no controle do peso.",
     color: "#a47daf",
     image: "slim-balance",
     capsules: 30,
@@ -173,7 +173,7 @@ export const products: Product[] = [
     name: "Cycle",
     category: "Cuidado feminino",
     summary:
-      "Probióticos, prebióticos e nutrientes em uma fórmula voltada ao cuidado feminino.",
+      "Probióticos, isoflavonas e magnésio para complementar o cuidado com a saúde feminina.",
     color: "#cd9290",
     image: "cycle",
     capsules: 60,
@@ -214,7 +214,7 @@ export const products: Product[] = [
     name: "Hair & Skin",
     category: "Pele, cabelos e unhas",
     summary:
-      "Silício orgânico, MSM, cistina, vitaminas e minerais para complementar o cuidado nutricional.",
+      "Silício, biotina e zinco para o cuidado nutricional com a pele, os cabelos e as unhas.",
     color: "#c09257",
     image: "hair-skin",
     capsules: 60,

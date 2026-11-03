@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-03",
+  "references": [
+    {
+      "url": "https://metabolia.com.br/",
+      "applied": "Imagem do produto e informações comerciais integradas, com compra e quantidades agrupadas."
+    },
+    {
+      "url": "https://www.duethealth.com.br/loja",
+      "applied": "Mockups grandes, grade em três colunas e identificação por finalidade."
+    }
+  ],
+  "skills": {
+    "applied": "frontend-design",
+    "source": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+    "additionalCatalogReviewed": "https://github.com/openai/skills/tree/main/skills/.curated",
+    "decision": "Usar a skill de design existente e a revisão visual no navegador; nenhuma instalação adicional necessária."
+  },
+  "tokens": {
+    "white": "#ffffff",
+    "ink": "#19281e",
+    "forest": "#205b36",
+    "border": "#d3dbd4",
+    "heading": "Open Sans",
+    "body": "Arial",
+    "radius": "12px"
+  },
+  "layout": [
+    "GUTcare | Concentra+ | Immune",
+    "Slim Balance | Cycle | Hair & Skin"
+  ],
+  "card": [
+    "Finalidade com ícone e apresentação em cápsulas",
+    "Frasco inteiro em campo branco contínuo",
+    "Nome com expansão dos detalhes",
+    "Composição e finalidade em três linhas",
+    "Preço, kit e ação de compra"
+  ],
+  "preserved": [
+    "Imagens e máscaras originais",
+    "Composições e PDFs",
+    "Preços e links de cada kit",
+    "Carrinho e busca",
+    "Banners e outras seções"
+  ],
+  "copyRule": "Ingredientes reais e proposta de cuidado de cada produto; não inferir resultados clínicos apenas a partir do nome comercial."
+}

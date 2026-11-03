@@ -23,6 +23,8 @@ import {
   Microscope,
   Search,
   ShoppingBag,
+  ShieldCheck,
+  Sparkles,
   Sprout,
   Trash2,
   Truck,
@@ -61,6 +63,14 @@ const normalize = (s: string) =>
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 const productPhoto = (p: Product) => asset(`products/${p.image}.webp`);
+const productSymbols: Record<string, typeof Leaf> = {
+  gutcare: FlaskConical,
+  concentra: Brain,
+  immune: ShieldCheck,
+  "slim-balance": Leaf,
+  cycle: Sprout,
+  "hair-skin": Sparkles,
+};
 function readCart(): CartItem[] {
   try {
     const value: unknown = JSON.parse(
@@ -185,11 +195,16 @@ function ProductCard({
 }) {
   const [quantity, setQuantity] = useState<Quantity>(1);
   const total = price(p, quantity);
+  const Symbol = productSymbols[p.id];
   return (
     <article
       className="product-card"
       style={{ "--product-color": p.color } as CSSProperties}
     >
+      <div className="product-card-top">
+        <p className="category"><Symbol size={16} aria-hidden="true" />{p.category}</p>
+        <span className="product-format">{p.capsules} cápsulas</span>
+      </div>
       <button
         className="product-media"
         onClick={() => open(p)}
@@ -207,9 +222,8 @@ function ProductCard({
         </span>
       </button>
       <div className="product-body">
-        <p className="eyebrow category">{p.category}</p>
         <h3>
-          <button onClick={() => open(p)}>{p.name}</button>
+          <button onClick={() => open(p)}>{p.name}<Plus size={18} aria-hidden="true" /></button>
         </h3>
         <p className="product-summary">{p.summary}</p>
         <div className="product-price">
@@ -269,95 +283,17 @@ function ProductCard({
     </article>
   );
 }
-function ProductShelf({
-  open,
-  add,
-}: {
+function ProductShelf({ open, add }: {
   open: (p: Product) => void;
   add: (p: Product, q: Quantity) => void;
 }) {
-  const track = useRef<HTMLDivElement>(null);
-  const [range, setRange] = useState({ first: 0, shown: 3 });
-  const measure = () => {
-    const el = track.current;
-    const card = el?.firstElementChild as HTMLElement | null;
-    if (!el || !card) return;
-    const step =
-      card.offsetWidth + Number.parseFloat(getComputedStyle(el).columnGap);
-    const shown = Math.max(1, Math.round((el.clientWidth + 20) / step));
-    setRange({
-      first: Math.min(
-        products.length - shown,
-        Math.round(el.scrollLeft / step),
-      ),
-      shown,
-    });
-  };
-  useEffect(() => {
-    const el = track.current;
-    if (!el) return;
-    const resize = new ResizeObserver(measure);
-    resize.observe(el);
-    return () => resize.disconnect();
-  }, []);
-  const move = (direction: number) => {
-    const el = track.current;
-    if (!el) return;
-    const step =
-      (el.firstElementChild as HTMLElement).offsetWidth +
-      Number.parseFloat(getComputedStyle(el).columnGap);
-    el.scrollBy({
-      left: direction * step,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "auto"
-        : "smooth",
-    });
-  };
-  return (
-    <>
-      <div className="shelf-toolbar">
-        <p className="catalog-count">Clique no frasco e descubra a fórmula.</p>
-        <div className="shelf-controls">
-          <span aria-live="polite">
-            {range.first + 1}–
-            {Math.min(products.length, range.first + range.shown)} /{" "}
-            {products.length}
-          </span>
-          <button
-            className="icon-button"
-            aria-label="Fórmulas anteriores"
-            disabled={range.first === 0}
-            onClick={() => move(-1)}
-          >
-            <ArrowLeft size={18} />
-          </button>
-          <button
-            className="icon-button"
-            aria-label="Próximas fórmulas"
-            disabled={range.first + range.shown >= products.length}
-            onClick={() => move(1)}
-          >
-            <ArrowRight size={18} />
-          </button>
-        </div>
-      </div>
-      <div
-        className="product-grid"
-        ref={track}
-        onScroll={measure}
-        role="region"
-        aria-label="Fórmulas DalFlore"
-        aria-roledescription="carrossel"
-        tabIndex={0}
-      >
-        {products.map((p) => (
-          <ProductCard key={p.id} product={p} open={open} add={add} />
-        ))}
-      </div>
-    </>
-  );
+  return <>
+    <p className="catalog-intro">Compare as seis fórmulas. Clique no frasco para conhecer os ativos e o modo de uso.</p>
+    <div className="product-grid" role="region" aria-label="Todas as fórmulas DalFlore">
+      {products.map(product => <ProductCard key={product.id} product={product} open={open} add={add} />)}
+    </div>
+  </>;
 }
-
 function KnowledgeTabs({
   id,
   labels,

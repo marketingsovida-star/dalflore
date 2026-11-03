@@ -16,7 +16,7 @@ O build inclui verificação de tipos. Publicação automática pelo GitHub Acti
 
 ## Conteúdo e interações
 
-- Seis fórmulas em carrossel manual, com navegação por setas, arraste e busca por nome ou interesse.
+- Seis fórmulas em grade, com duas linhas de três cards no desktop, duas colunas no tablet e uma no celular; busca por nome ou interesse.
 - Clique no mockup abre detalhes acessíveis com composição e modo de uso, sem páginas individuais. Link direto: `#produto/gutcare`.
 - Quantidades de 1, 3 e 6 frascos; carrinho persistido localmente.
 - Cada kit possui seu link de checkout oficial. Pedido com vários kits pode ser encaminhado ao WhatsApp; nenhum endpoint de carrinho combinado foi presumido.
@@ -32,11 +32,11 @@ Veja [fontes e pendências](docs/fontes-e-pendencias.md) antes de trocar o domí
 
 Interface exclusivamente em branco, preto e verde, com contraste forte e contornos definidos. Conteúdos científicos em camadas: explicação breve, detalhes e fonte. Retrato fornecido pela cliente em `public/aline-retrato.webp`. O guia foi removido. O topo usa o formato de banners e faixa da Sanoví, conforme a revisão mais recente.
 
-O sistema usa um único raio de 12 px para superfícies e controles e a mesma largura de conteúdo. A composição editorial foi reconstruída em `src/design.css`; as folhas de ajustes anteriores foram removidas, junto com os estilos antigos da página inicial. A loja ocupa uma única fileira navegável. Conteúdo científico e biográfico tem introdução breve e detalhes expansíveis. No celular, a imagem decorativa da microbiota é omitida, o diagrama do eixo fica horizontal e a foto da Aline acompanha o título para evitar empilhar blocos grandes.
+O sistema usa um único raio de 12 px para superfícies e controles e a mesma largura de conteúdo. A composição editorial foi reconstruída em `src/design.css`; as folhas de ajustes anteriores foram removidas, junto com os estilos antigos da página inicial. A loja apresenta os seis produtos diretamente em uma grade, sem navegação ou rolagem lateral. Conteúdo científico e biográfico tem introdução breve e detalhes expansíveis. No celular, a imagem decorativa da microbiota é omitida, o diagrama do eixo fica horizontal e a foto da Aline acompanha o título para evitar empilhar blocos grandes.
 
 As referências e decisões de layout estão em `docs/design-study.json`. Os arquivos de campanha e ilustração conceitual estão em `public/editorial`; foram criados com o gerador de imagens integrado a partir dos materiais da marca. Os prompts e a procedência estão em `docs/image-prompts.json`. Os mockups da loja, os rótulos, as composições, preços e links oficiais continuam originais. Essas imagens editoriais podem ser substituídas sem reconstruir o layout.
 
-O FAQ mantém os blocos expansíveis da Duet, com quatro perguntas iniciais e um botão para exibir todas as oito. As respostas abrem em 500 ms. `src/useSmoothMotion.ts` usa entradas de 850 ms e rolagem de 650–1.400 ms. As abas fazem transições de 600 ms; expansores aumentam a leitura apenas quando abertos. O carrossel de produtos não avança automaticamente. As interações respeitam a preferência por movimento reduzido. `src/design.css` concentra o sistema visual e o movimento.
+O FAQ mantém os blocos expansíveis da Duet, com quatro perguntas iniciais e um botão para exibir todas as oito. As respostas abrem em 500 ms. `src/useSmoothMotion.ts` usa entradas de 850 ms e rolagem de 650–1.400 ms. As abas fazem transições de 600 ms; expansores aumentam a leitura apenas quando abertos. Os produtos permanecem em uma grade estática. As interações respeitam a preferência por movimento reduzido. `src/design.css` concentra o sistema visual e o movimento.
 
 ## Banners da página inicial
 
@@ -51,3 +51,7 @@ Os três banners compartilham a mesma grade de conteúdo: títulos com duas linh
 Na revisão de 3 de novembro, as descrições dos banners passaram a identificar cada produto, ingredientes e finalidade. As fontes e limites de alegações estão em `docs/banner-copy-sources.json`. A faixa tem espaçamentos menores, sem distribuição pelo viewport inteiro. As descrições reservam três linhas também em desktops largos.
 
 A faixa de benefícios usa seis itens distintos: Ingredientes selecionados, Até 12x no cartão, Frete grátis a partir de R$ 150, Compra segura, Atendimento pelo WhatsApp e 7 dias de garantia. Cada item ocupa um quinto da largura da faixa no desktop (a partir de 1024 px), metade no tablet e cerca de 83% no celular. Assim, aparecem aproximadamente cinco benefícios por vez no desktop, com largura mínima de 240 px por item para preservar a leitura em janelas menores. A sequência só se repete depois dos seis itens. Duas sequências idênticas mantêm o loop contínuo a 37 px/s. ResizeObserver adapta as medidas ao redimensionar; cópias visuais ficam ocultas de leitores de tela.
+
+## Revisão dos cards da loja
+
+Cards brancos contínuos, sem painel verde ou divisão na foto. Mockups de 310 px de altura, com máscaras originais e sombra de apoio. Categorias recebem ícones funcionais, e o nome do produto abre os detalhes pelo controle de expansão. A composição e a finalidade são resumidas em três linhas completas, sem truncamento. Kits, preços, checkout, busca e carrinho mantêm as regras existentes. As referências, decisões e diretrizes usadas estão em `docs/shop-design-study.json`.
