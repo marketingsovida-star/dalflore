@@ -46,5 +46,20 @@
     "classification": "General cell illustration opens microbiota overview, not probiotic classification. Shape alone does not identify probiotic status; prebiotics are nonliving substrates; synbiotics are combinations with demonstrated health benefit.",
     "source": "https://isappscience.org/wp-content/uploads/2021/07/DefinitionsInfographic.pdf",
     "validation": "Production build; 320px no overflow, all six controls fully visible and outside artwork; microbiota overview and prebiotic dialog checked."
+  },
+  "centralLayoutRevision": {
+    "layout": "Three columns of two compact cards between two illustrations. Row one: prebiotics, probiotics, synbiotics; row two: nerves, metabolites, immunity. The rows are conceptual families, not a claim of one-to-one biological relationships.",
+    "visual": "Shared DishFrame component with exactly matching green fill and circular contours. Bare brain and intestine symbols, no bubble surfaces or visible organ labels. Bidirectional animated paths connect them.",
+    "removed": [
+      "Illustration captions",
+      "Conceptual representation notice"
+    ],
+    "responsive": "Desktop has three zones; mobile stacks microbiota, all six cards in 3x2, then gut-brain illustration.",
+    "validation": [
+      "TypeScript and Vite build",
+      "1100px grid has three equal columns and two equal rows",
+      "320px and 820px no horizontal or card text overflow",
+      "Brain overview and metabolite explanation open correctly"
+    ]
   }
 }

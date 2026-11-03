@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Blend, Brain, CircleHelp, FlaskConical, Microscope, Plus, ShieldCheck, Sprout, Zap } from "lucide-react";
 import { products, type Product } from "./catalog";
 import { IntestineIcon } from "./IntestineIcon";
-import { MicrobiotaArt } from "./MicrobiotaArt";
+import { DishFrame, MicrobiotaArt } from "./MicrobiotaArt";
 import { Overlay } from "./Overlay";
 import { ingredients, pathways } from "./scienceContent";
 
@@ -36,17 +36,21 @@ function Point({ topic, className, explore }: { topic: number; className: string
 
 function AxisMap({ explore }: { explore: (index: number) => void }) {
   return <div className="sx-art sx-axis">
-    <svg viewBox="0 0 500 410" fill="none" aria-hidden="true">
-      <circle cx="250" cy="205" r="180" fill="#ffffff03" stroke="#c4e2b6" strokeOpacity=".28"/>
-      <circle cx="250" cy="205" r="171" stroke="#d3ebc7" strokeOpacity=".12"/>
-      <path d="M88 137A178 178 0 0 1 354 60M411 284A178 178 0 0 1 141 346" stroke="#ddf2ce" strokeWidth="2" strokeLinecap="round" strokeOpacity=".55"/>
-      <path d="M178 251C91 138 207 33 300 97M326 162C419 272 294 381 202 310" stroke="#8abd79" strokeWidth="2"/>
-      <path className="sx-signal" d="M178 251C91 138 207 33 300 97" stroke="#e0f4c8" strokeWidth="3" strokeDasharray="5 220" strokeLinecap="round"/>
-      <path className="sx-signal sx-return" d="M326 162C419 272 294 381 202 310" stroke="#e0f4c8" strokeWidth="3" strokeDasharray="5 220" strokeLinecap="round"/>
-      <path d="m292 88 10 10-14 2m-78 200-10 10 14 3" stroke="#def2c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg viewBox="55 10 390 390" fill="none" aria-hidden="true">
+      <DishFrame id="sx-axis-dish"/>
+      <defs><linearGradient id="sx-organ-line" x1="140" y1="90" x2="345" y2="340" gradientUnits="userSpaceOnUse"><stop stopColor="#e0f2cb"/><stop offset=".5" stopColor="#a7d28e"/><stop offset="1" stopColor="#c8e7af"/></linearGradient></defs>
+      <path d="M170 245C80 200 80 117 184 100C215 90 252 80 275 120M320 172C415 195 405 295 315 310C280 324 250 312 225 295" stroke="#8abd79" strokeOpacity=".6" strokeWidth="1.7"/>
+      <path className="sx-signal" d="M170 245C80 200 80 117 184 100C215 90 252 80 275 120" stroke="#e0f4c8" strokeWidth="3" strokeDasharray="5 220" strokeLinecap="round"/>
+      <path className="sx-signal sx-return" d="M320 172C415 195 405 295 315 310C280 324 250 312 225 295" stroke="#e0f4c8" strokeWidth="3" strokeDasharray="5 220" strokeLinecap="round"/>
+      <path d="m263 111 12 9-15 3m-20 169-15 3 7 13" stroke="#cce7b3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+      <g className="sx-organ-drawing" stroke="url(#sx-organ-line)"><Brain x="269" y="82" width="94" height="94" strokeWidth="1.25"/></g>
+      <g className="sx-organ-drawing" color="#b8dc9f"><svg x="139" y="233" width="102" height="102" viewBox="0 0 48 48"><IntestineIcon/></svg></g>
+      <g stroke="#95c17e" strokeOpacity=".35" strokeWidth="1.2"><path d="m210 180 39 23-15 32m15-32 39 3"/><circle cx="210" cy="180" r="4"/><circle cx="234" cy="235" r="5"/><circle cx="288" cy="206" r="4"/></g>
+      <circle cx="249" cy="203" r="7" fill="#c4e5a9" fillOpacity=".55"/>
+      <circle cx="116" cy="198" r="3" fill="#d9efbe" fillOpacity=".7"/><circle cx="365" cy="257" r="3" fill="#d9efbe" fillOpacity=".7"/>
     </svg>
-    <button className="sx-organ sx-brain" aria-label="Entender a conexão intestino e cérebro" aria-haspopup="dialog" onClick={() => explore(7)}><Brain/><span>Cérebro <Plus size={13}/></span></button>
-    <button className="sx-organ sx-intestine" aria-label="Entender a microbiota intestinal" aria-haspopup="dialog" onClick={() => explore(6)}><IntestineIcon/><span>Intestino e microbiota <Plus size={13}/></span></button>
+    <button className="sx-organ sx-brain" aria-label="Entender a conexão intestino e cérebro" aria-haspopup="dialog" onClick={() => explore(7)}/>
+    <button className="sx-organ sx-intestine" aria-label="Entender a microbiota intestinal" aria-haspopup="dialog" onClick={() => explore(6)}/>
   </div>;
 }
 
@@ -70,16 +74,12 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
             <MicrobiotaArt active={0}/>
             <button className="sx-cell-target" aria-label="Entender a microbiota ilustrada" aria-haspopup="dialog" onClick={() => explore(6)}><span className="sr-only">Abrir explicação sobre a microbiota</span></button>
           </div>
-          <figcaption>O universo da microbiota</figcaption>
-          <div className="sx-topics" role="group" aria-label="Explicações sobre a microbiota"><Point topic={0} className="sx-prebiotic" explore={explore}/><Point topic={1} className="sx-probiotic" explore={explore}/><Point topic={2} className="sx-synbiotic" explore={explore}/></div>
         </figure>
+        <div className="sx-topics" role="group" aria-label="Explore os seis temas científicos">{[0,1,2,3,4,5].map(topic => <Point key={topic} topic={topic} className="sx-topic-card" explore={explore}/>)}</div>
         <figure className="sx-map" id="eixo" aria-label="Explore a comunicação entre intestino e cérebro">
           <AxisMap explore={explore}/>
-          <figcaption>A conexão intestino–cérebro</figcaption>
-          <div className="sx-topics" role="group" aria-label="Explicações sobre a conexão intestino e cérebro"><Point topic={3} className="sx-nerves" explore={explore}/><Point topic={4} className="sx-metabolites" explore={explore}/><Point topic={5} className="sx-immunity" explore={explore}/></div>
         </figure>
       </div>
-      <small className="sx-legend">Representações conceituais. Os formatos não identificam cepas ou ingredientes.</small>
     </div>
     {item && <Overlay title={item.label} type="science" close={() => setSelected(null)}>
       <div className="sx-explanation" key={item.label}>

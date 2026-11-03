@@ -1,14 +1,11 @@
 export function MicrobiotaArt({ active }: { active: number }) {
   const cells = [[169,148,-32,1],[285,116,38,.78],[316,230,-28,1.15],[181,269,38,.8],[240,193,20,.68]];
-  return <svg className="sj-micrograph" viewBox="0 0 500 410" fill="none" aria-hidden="true">
+  return <svg className="sj-micrograph" viewBox="55 10 390 390" fill="none" aria-hidden="true">
     <defs>
-      <radialGradient id="sj-dish"><stop stopColor="#689e62" stopOpacity=".48"/><stop offset=".78" stopColor="#347747" stopOpacity=".22"/><stop offset="1" stopColor="#173e29" stopOpacity=".55"/></radialGradient>
       <linearGradient id="sj-cell" x2="1" y2="1"><stop stopColor="#d3edbd"/><stop offset=".5" stopColor="#8ac37a"/><stop offset="1" stopColor="#4a8b54"/></linearGradient>
       <radialGradient id="sj-nucleus"><stop stopColor="#e0f6c7"/><stop offset="1" stopColor="#a3d38b" stopOpacity=".2"/></radialGradient>
     </defs>
-    <circle cx="250" cy="205" r="180" fill="url(#sj-dish)" stroke="#c4e2b6" strokeOpacity=".28"/>
-    <circle cx="250" cy="205" r="171" stroke="#d3ebc7" strokeOpacity=".12"/>
-    <path d="M88 137A178 178 0 0 1 354 60M411 284A178 178 0 0 1 141 346" stroke="#ddf2ce" strokeWidth="2" strokeLinecap="round" strokeOpacity=".55"/>
+    <DishFrame id="sj-dish"/>
     {cells.map(([x,y,angle,scale],i)=><g key={i} transform={`translate(${x} ${y}) rotate(${angle}) scale(${scale})`}>
       <g className="sj-cell-drift" style={{animationDelay:`-${i*1.3}s`}}>
         <rect x="-23" y="-47" width="46" height="94" rx="23" fill="url(#sj-cell)" fillOpacity={active===0?'.55':'.88'} stroke="#d7edc7" strokeWidth="1.8"/>
@@ -26,4 +23,13 @@ export function MicrobiotaArt({ active }: { active: number }) {
       <path d="m105 108 5 5-5 5-5-5ZM368 306l5 5-5 5-5-5Z"/>
     </g>}
   </svg>;
+}
+
+export function DishFrame({ id }: { id: string }) {
+  return <>
+    <defs><radialGradient id={id}><stop stopColor="#689e62" stopOpacity=".48"/><stop offset=".78" stopColor="#347747" stopOpacity=".22"/><stop offset="1" stopColor="#173e29" stopOpacity=".55"/></radialGradient></defs>
+    <circle cx="250" cy="205" r="180" fill={"url(#" + id + ")"} stroke="#c4e2b6" strokeOpacity=".28"/>
+    <circle cx="250" cy="205" r="171" stroke="#d3ebc7" strokeOpacity=".12"/>
+    <path d="M88 137A178 178 0 0 1 354 60M411 284A178 178 0 0 1 141 346" stroke="#ddf2ce" strokeWidth="2" strokeLinecap="round" strokeOpacity=".55"/>
+  </>;
 }
