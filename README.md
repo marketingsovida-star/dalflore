@@ -105,3 +105,5 @@ O link “Explore essas conexões” foi removido. Os painéis inferiores usam i
 O respiro branco “Quando sua flora floresce, você floresce” foi removido. A faixa do banner agora usa um degradê de verdes da composição científica, distinguindo-a do fundo sólido da seção seguinte. A velocidade e a continuidade da faixa permanecem iguais.
 
 A faixa e o bloco científico compartilham agora o fundo sólido `--science-background: #205b36`, sem degradê. O conjunto científico usa grade com alinhamento vertical central e altura mínima de 100dvh (100svh como fallback), acompanhando a área visível da tela e preservando as dimensões internas.
+
+A faixa usa agora o verde sólido #17452f, próximo ao verde da sobreposição do banner (#123d28), com contorno interno sutil. Esse tom diferencia a faixa do fundo científico #205b36 sem introduzir uma nova família de cores.
