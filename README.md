@@ -117,3 +117,5 @@ O cabeçalho usa a logo branca original e o mesmo verde #17452f da faixa. Sua al
 A composição do cabeçalho foi reorganizada conforme a referência enviada: três links à esquerda (Produtos, Ciência, Dúvidas), símbolo branco central e ações preservadas à direita. `public/brand/symbol-white.svg` extrai somente o primeiro path do SVG branco original, sem redesenho. Uma faixa superior de 26 px (25 no celular) exibe “FRETE GRÁTIS NA COMPRA DE 3 OU 6 UNIDADES”. O menu mobile contém os mesmos três destinos; a ocultação no banner e no bloco científico permanece.
 
 Ajuste fino no cabeçalho central: faixa escura de 60 px no desktop e 58 px no celular, com símbolo de 44/42 px de altura e 8 px de respiro vertical. Links, botões de ação e faixa superior de frete permanecem nas mesmas dimensões.
+
+O cabeçalho ganhou iluminação estática e discreta: luz radial verde ao redor do símbolo, brilho secundário difuso e sombra luminosa suave na logo. O texto não recebe brilho; dimensões e áreas de clique permanecem iguais. O hover das ações acompanha essa luz com transição suave.
