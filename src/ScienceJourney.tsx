@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowDown, ArrowRight, ArrowUpRight, Brain, FlaskConical, Leaf, Pause, Play, Plus, ShieldCheck, Sprout, Zap } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Brain, FlaskConical, Leaf, Pause, Play, Plus, ShieldCheck, Sprout, Zap } from "lucide-react";
 import { products, type Product } from "./catalog";
 import { IntestineIcon } from "./IntestineIcon";
 
@@ -73,53 +73,77 @@ function Tabs({ id, labels, active, change, label }: { id: string; labels: strin
       event.preventDefault();
       const next = event.key === "Home" ? 0 : event.key === "End" ? labels.length - 1 : (active + (event.key === "ArrowRight" ? 1 : labels.length - 1)) % labels.length;
       change(next); document.getElementById(`${id}-tab-${next}`)?.focus();
-    }}>{text}</button>)}
+    }}>{id === "science" ? index === 0 ? <Sprout/> : index === 1 ? <MicrobesIcon/> : <Plus/> : index === 0 ? <Zap/> : index === 1 ? <FlaskConical/> : <ShieldCheck/>}<span>{text}</span></button>)}
+  </div>;
+}
+
+function MicrobiotaArt({ active }: { active: number }) {
+  const cells = [[169,148,-32,1],[285,116,38,.78],[316,230,-28,1.15],[181,269,38,.8],[240,193,20,.68]];
+  return <svg className="sj-micrograph" viewBox="0 0 500 410" fill="none" aria-hidden="true">
+    <defs>
+      <radialGradient id="sj-dish"><stop stopColor="#689e62" stopOpacity=".48"/><stop offset=".78" stopColor="#347747" stopOpacity=".22"/><stop offset="1" stopColor="#173e29" stopOpacity=".55"/></radialGradient>
+      <linearGradient id="sj-cell" x2="1" y2="1"><stop stopColor="#d3edbd"/><stop offset=".5" stopColor="#8ac37a"/><stop offset="1" stopColor="#4a8b54"/></linearGradient>
+      <radialGradient id="sj-nucleus"><stop stopColor="#e0f6c7"/><stop offset="1" stopColor="#a3d38b" stopOpacity=".2"/></radialGradient>
+    </defs>
+    <circle cx="250" cy="205" r="180" fill="url(#sj-dish)" stroke="#c4e2b6" strokeOpacity=".28"/>
+    <circle cx="250" cy="205" r="171" stroke="#d3ebc7" strokeOpacity=".12"/>
+    <path d="M88 137A178 178 0 0 1 354 60M411 284A178 178 0 0 1 141 346" stroke="#ddf2ce" strokeWidth="2" strokeLinecap="round" strokeOpacity=".55"/>
+    {cells.map(([x,y,angle,scale],i)=><g key={i} transform={`translate(${x} ${y}) rotate(${angle}) scale(${scale})`}>
+      <g className="sj-cell-drift" style={{animationDelay:`-${i*1.3}s`}}>
+        <rect x="-23" y="-47" width="46" height="94" rx="23" fill="url(#sj-cell)" fillOpacity={active===0?'.55':'.88'} stroke="#d7edc7" strokeWidth="1.8"/>
+        <rect x="-17" y="-39" width="34" height="78" rx="17" stroke="#e7f6de" strokeOpacity=".35"/>
+        <path d="M-10-25C13-30-15-8 8-4S-11 19 8 27" stroke="#275c35" strokeWidth="3" strokeLinecap="round"/>
+        <path d="M-26-26l-8-5m10 26-10 1m10 25-8 6m56-53 8-5m-8 26 10 1m-10 25 8 6" stroke="#a4d28e" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="9" cy="-20" r="3" fill="#ebf8dc"/><circle cx="-8" cy="17" r="2.5" fill="#d0eab9"/>
+      </g>
+    </g>)}
+    {[ [121,219,13],[244,309,18],[357,155,14],[231,79,9] ].map(([x,y,r],i)=><g key={i}><circle cx={x} cy={y} r={r} fill="url(#sj-nucleus)" stroke="#cde8b7" strokeOpacity=".5"/><circle cx={x} cy={y} r={r*.4} fill="#ddf3c3" fillOpacity=".6"/></g>)}
+    {active!==1&&<g className="sj-substrates" fill="#e3f5c9">
+      <circle className="sj-feed sj-feed-a" cx="0" cy="0" r="4"/>
+      <circle className="sj-feed sj-feed-b" cx="0" cy="0" r="3"/>
+      <circle className="sj-feed sj-feed-c" cx="0" cy="0" r="4"/>
+      <path d="m105 108 5 5-5 5-5-5ZM368 306l5 5-5 5-5-5Z"/>
+    </g>}
+    <g stroke="#c9e5bc" strokeOpacity=".7" strokeLinecap="round"><path d="M168 148 99 95H28"/><circle cx="168" cy="148" r="3" fill="#d8edc6"/><path d="m311 247 66 84h92"/><circle cx="311" cy="247" r="3" fill="#d8edc6"/></g>
+    <g fill="#edf7e8" fontFamily="Arial" fontSize="14"><text x="28" y="83">Microrganismos</text><text x="378" y="354">Microbiota</text></g>
+    {active!==1&&<g fill="#edf7e8" fontFamily="Arial" fontSize="14"><text x="340" y="52">{active===0?'Prebióticos':'Substratos'}</text><path d="m338 62-25 19" stroke="#c9e5bc"/><circle cx="313" cy="81" r="3" fill="#e3f5c9"/></g>}
+  </svg>;
+}
+
+function AxisArt({ active }: { active: number }) {
+  const Signal = pathways[active].icon;
+  return <div className="sj-axis-art" aria-hidden="true">
+    <svg viewBox="0 0 500 410" fill="none">
+      <ellipse cx="250" cy="205" rx="191" ry="148" transform="rotate(-35 250 205)" stroke="#c5e2b4" strokeOpacity=".15"/>
+      <ellipse cx="250" cy="205" rx="213" ry="165" transform="rotate(-35 250 205)" stroke="#c5e2b4" strokeOpacity=".08"/>
+      <path d="M178 251C91 138 207 33 300 97" stroke="#8abd79" strokeWidth="2"/>
+      <path d="M326 162C419 272 294 381 202 310" stroke="#8abd79" strokeWidth="2"/>
+      <path className="sj-nerve-pulse" d="M178 251C91 138 207 33 300 97" stroke="#e0f4c8" strokeWidth="3" strokeDasharray="5 220" strokeLinecap="round"/>
+      <path className="sj-nerve-pulse sj-return" d="M326 162C419 272 294 381 202 310" stroke="#e0f4c8" strokeWidth="3" strokeDasharray="5 220" strokeLinecap="round"/>
+      <path d="m292 88 10 10-14 2m-78 200-10 10 14 3" stroke="#def2c9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+    <div className="sj-organ sj-brain"><Brain/><span>Cérebro</span></div>
+    <div className="sj-organ sj-intestine"><IntestineIcon/><span>Intestino e microbiota</span></div>
+    <div className="sj-pathway-symbol"><Signal/><span>{pathways[active].label}</span></div>
   </div>;
 }
 
 function Illustration({ kind, active }: { kind: "ingredients" | "axis"; active: number }) {
   const [paused, setPaused] = useState(false);
-  const isAxis = kind === "axis";
-  const ingredient = ingredients[active];
-  const pathway = pathways[active];
-  const SignalIcon = pathway.icon;
-  return <figure className={`sj-visual ${paused ? "is-paused" : ""}`}>
-    <figcaption className="sj-visual-title">{isAxis ? pathway.visualTitle : ingredient.visualTitle}</figcaption>
+  const item = kind === "axis" ? pathways[active] : ingredients[active];
+  return <figure className={`sj-visual sj-visual-${kind} ${paused ? "is-paused" : ""}`}>
     <button className="sj-pause" aria-label={paused ? "Reproduzir ilustração" : "Pausar ilustração"} aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? <Play size={15} /> : <Pause size={15} />}</button>
-    <div className="sj-scene" key={`${kind}-${active}`}>
-      <div className="sj-flow">
-        <div className="sj-node">
-          <div className="sj-symbol">{isAxis ? <IntestineIcon /> : active === 0 ? <Sprout /> : active === 1 ? <MicrobesIcon /> : <div className="sj-symbol-pair"><MicrobesIcon /><Plus size={15} /><Sprout /></div>}</div>
-          <span>{isAxis ? <>Intestino<br />e microbiota</> : ingredient.from}</span>
-        </div>
-        <div className={`sj-connection ${isAxis ? "sj-two-way" : ""}`}>
-          <svg viewBox="0 0 130 88" fill="none" aria-hidden="true">
-            <path className="sj-track" d={isAxis ? "M6 25H124" : "M6 48H124"} />
-            <path className="sj-arrow" d={isAxis ? "m116 19 8 6-8 6" : "m116 42 8 6-8 6"} />
-            <circle className="sj-particle sj-forward" cx="6" cy={isAxis ? 25 : 48} r="4" />
-            {!isAxis && active === 2 && <rect className="sj-particle sj-forward sj-delayed" x="3" y="45" width="7" height="7" rx="1.5" />}
-            {isAxis && <><path className="sj-track" d="M124 65H6" /><path className="sj-arrow" d="m14 59-8 6 8 6" /><circle className="sj-particle sj-backward" cx="124" cy="65" r="4" /></>}
-            {!isAxis && <text x="65" y="24" textAnchor="middle">{ingredient.verb}</text>}
-          </svg>
-          {isAxis && <div className="sj-signal-icon"><SignalIcon size={20} /></div>}
-        </div>
-        <div className="sj-node">
-          <div className="sj-symbol sj-destination">{isAxis ? <Brain /> : active === 0 ? <MicrobesIcon /> : <IntestineIcon />}</div>
-          <span>{isAxis ? "Cérebro" : ingredient.to}</span>
-        </div>
-      </div>
-      <p className="sj-visual-caption">{isAxis ? pathway.caption : ingredient.caption}</p>
-    </div>
-    <small>Ilustração conceitual. Movimento sem escala de tempo.</small>
+    <div className="sj-scene" key={`${kind}-${active}`}>{kind==='axis'?<AxisArt active={active}/>:<MicrobiotaArt active={active}/>}</div>
+    <figcaption><strong className="sj-visual-title">{item.visualTitle}</strong><span className="sj-visual-caption">{item.caption}</span><small>Representação ilustrativa</small></figcaption>
   </figure>;
 }
 
 function ProductConnection({ id, text, open }: { id: string; text: string; open: (product: Product) => void }) {
   const product = products.find(item => item.id === id)!;
   return <aside className="sj-product-note">
-    <span><Leaf size={15} />Nas fórmulas DalFlore</span>
+    <span className="sj-product-icon"><Leaf size={24}/></span><div className="sj-product-content"><span>Da ciência à sua rotina</span>
     <p>{text}</p>
-    <button onClick={() => open(product)}>Conhecer {product.name}<ArrowUpRight size={16} /></button>
+    <button onClick={() => open(product)}>Conhecer {product.name}<ArrowUpRight size={16} /></button></div>
   </aside>;
 }
 
@@ -130,8 +154,8 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
     <section className="sj-step" id="ciencia">
       <div className="df-container sj-grid">
         <div className="sj-copy">
-          <p className="sj-kicker">Comece pela microbiota</p>
-          <h2>Um cuidado que começa<br />no seu intestino.</h2>
+          <p className="sj-kicker">A ciência por trás do cuidado</p>
+          <h2>Pequenos organismos.<br />Um universo de cuidado.</h2>
           <p className="sj-intro">No intestino vive uma comunidade de microrganismos: a microbiota. Entenda o papel de cada tipo de ingrediente nesse cuidado.</p>
           <Tabs id="science" labels={ingredients.map(item => item.label)} active={ingredient} change={setIngredient} label="Entenda os ingredientes" />
           <Illustration kind="ingredients" active={ingredient} />
@@ -145,11 +169,11 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
         </div>
       </div>
     </section>
-    <div className="df-container sj-continuation"><span /><p>Essa história começa no intestino.<br /><strong>Mas a conversa vai além dele.</strong></p><ArrowDown size={22} /></div>
+    <div className="df-container sj-continuation"><span/><p>O cuidado começa no intestino.<br/><strong>E se conecta a você por inteiro.</strong></p><span/></div>
     <section className="sj-step" id="eixo">
       <div className="df-container sj-grid">
         <div className="sj-copy">
-          <p className="sj-kicker">Entenda a conexão</p>
+          <p className="sj-kicker">Eixo intestino–cérebro</p>
           <h2>O intestino conversa<br />com o cérebro.</h2>
           <p className="sj-intro">A microbiota participa de uma rede que conecta intestino, sistema imune e cérebro. Explore três caminhos dessa comunicação.</p>
           <Tabs id="axis" labels={pathways.map(item => item.label)} active={pathway} change={setPathway} label="Caminhos do eixo intestino–cérebro" />

@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-03",
+  "scope": "Visual redesign of the connected science sections, preserving approved banner, brand breather and shop",
+  "references": [
+    {"url":"https://seed.com/approach","takeaway":"Let microbiological imagery carry the scientific subject, with readable editorial content. No imagery, code or product claims copied."},
+    {"url":"https://github.com/anthropics/skills/tree/main/skills/frontend-design","takeaway":"Reviewed official guidance; same skill already installed locally. No duplicate installation required."}
+  ],
+  "tokens": {"forest":"#205b36","deepGreen":"#143d29","leaf":"#cde7b9","white":"#f5faf2","body":"#d3e5d0","type":"Open Sans for headings and controls; Arial for reading"},
+  "plan": "Continuous green field, larger microbiota illustration on the left and explanatory content on the right, then reversed columns for the gut-brain connection. Tabs update the illustration and the text. Existing product modals connect the educational story to the catalogue.",
+  "reviewBeforeBuild": "Rejected repeating framed mini-diagrams. Native vector microbiology becomes the focal point; restrained typography and a compact inset product connection support it. Preserve the client's preferred fonts, palette, section order and continuous green.",
+  "originalAssets": "SVG microbiota illustration with rod-shaped cells, circular microbial forms, labelled leaders and substrate paths; composed organ illustration with two directional communication paths. Conceptual, not laboratory imagery or clinical data.",
+  "motion": "Substrates travel toward microorganisms; paired signal paths communicate in both directions. Each illustration has an independent pause control. Tab transitions are user initiated; prefers-reduced-motion disables animation.",
+  "qa": ["Production build including TypeScript", "Desktop and mobile visual inspection", "No horizontal overflow at 320, 390, 820 and 1100 pixels", "Tabs and keyboard selection update text and visual", "Pause and product modal links"]
+}
