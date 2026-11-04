@@ -33,6 +33,7 @@
     "radius": "Raio calculado de 24 px nos cards científicos, de microbiota, catálogo, FAQ e imagem de detalhes.",
     "comparison": "Kits de três e seis com total de unidades avulsas riscado, calculado por preço unitário × quantidade. GUTcare de três: R$ 362,43 / R$ 389,70 avulsos, conferido no card e na janela do produto. Produtos sob consulta continuam sem comparação.",
     "motion": "Quatro partículas por card flutuam continuamente, sem depender do ponteiro, com ciclos de 6 a 9 segundos e trajetórias de até 19 px. Confirmadas transformações diferentes em duas leituras sem hover. Movimento reduzido respeitado.",
-    "alignment": "Alinhamento anterior à esquerda restaurado para nome, descrição e preço; categoria e cápsulas voltam às extremidades. + permanece junto ao nome. Celular de 320 px sem transbordamento, seis descrições em três linhas."
+    "alignment": "Alinhamento anterior à esquerda restaurado para nome, descrição e preço; categoria e cápsulas voltam às extremidades. + permanece junto ao nome. Celular de 320 px sem transbordamento, seis descrições em três linhas.",
+    "connections": "Duas curvas elípticas discretas atrás de cada frasco, com sinais luminosos contínuos em sentidos opostos, leve oscilação e halo de luz gradual. SVG decorativo sem captura de cliques. Card preserva altura 666,25 px e área de mockup 285 px; celular de 320 px sem transbordamento ou corte de texto. Clique no frasco continua abrindo os detalhes. Respeita movimento reduzido."
   }
 }

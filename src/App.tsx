@@ -144,6 +144,14 @@ function ProductCard({
         onClick={() => open(p)}
         aria-label={`Conhecer ${p.name}`}
       >
+        <svg className="product-connections" viewBox="0 0 320 285" fill="none" aria-hidden="true" focusable="false">
+          <g className="product-connection-field">
+            <ellipse className="product-connection-track" cx="160" cy="145" rx="126" ry="78" transform="rotate(-28 160 145)" />
+            <ellipse className="product-connection-track product-connection-secondary" cx="160" cy="145" rx="120" ry="90" transform="rotate(28 160 145)" />
+            <ellipse className="product-connection-signal" cx="160" cy="145" rx="126" ry="78" transform="rotate(-28 160 145)" pathLength="100" />
+            <ellipse className="product-connection-signal product-connection-return" cx="160" cy="145" rx="120" ry="90" transform="rotate(28 160 145)" pathLength="100" />
+          </g>
+        </svg>
         <span className="product-particles" aria-hidden="true"><i/><i/><i/><i/></span>
         <img
           src={productPhoto(p)}
