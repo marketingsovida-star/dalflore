@@ -561,7 +561,12 @@ function ProductDetail({
           <p key={text}>{text}</p>
         ))}
         <button className="detail-composition" onClick={() => setLabelOpen(true)}>
-          <FileText size={20} /> Ver composição e modo de uso
+          <FileText size={24} aria-hidden="true" />
+          <span>
+            <strong>Ver composição e modo de uso</strong>
+            <small>Veja o rótulo com os ativos, a dose e a conservação</small>
+          </span>
+          <ChevronRight size={22} aria-hidden="true" />
         </button>
         <button className="detail-research" onClick={() => setStudiesOpen(true)}>
           <BookOpen size={24} aria-hidden="true" />

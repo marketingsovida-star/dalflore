@@ -137,7 +137,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 ### Pop-ups
 
 - Todos usam `src/overlays.css`: fundo verde claro igual ao do catálogo, cards internos no material dos cards de produto, sem partículas. Fundo escuro com partículas foi testado e REJEITADO. A descrição do detalhe fica completa no card de compra; o “Como funciona” não repete o que ela já diz. Cabeçalho do pop-up sem separação do fundo. Carrinho entra pela direita, com total fixo embaixo.
-- Detalhe do produto em dois cards: compra e “Como funciona” (`howItWorks` em `src/catalog.ts`). Dentro do segundo ficam os botões “Ver composição e modo de uso” e, abaixo dele, “Embasamento Científico” (`studies`, abre os links do PubMed). O botão claro de composição abre o recorte do rótulo em `public/labels/composicao/<id>.png`, feito a partir dos PDFs originais.
+- Detalhe do produto em um único card, com a compra em cima e, depois de um fio divisório, “Como funciona” (`howItWorks` em `src/catalog.ts`). Abaixo ficam dois botões com a mesma geometria (ícone, texto à esquerda e seta): “Ver composição e modo de uso” e “Embasamento Científico” (`studies`, abre os links do PubMed). O botão claro de composição abre o recorte do rótulo em `public/labels/composicao/<id>.png`, feito a partir dos PDFs originais.
 - Os links de pesquisa do site antigo não são confiáveis: vários PMIDs levam a artigos sem relação. Os de `studies` foram conferidos no PubMed e tratam de ativos do rótulo. Conferir qualquer novo estudo antes de incluir.
 - Textos escritos a partir do site antigo, mas só com ativos do rótulo: lá há itens que não estão nos rótulos atuais, como L-glutamina, gengibre e Exsynutriment.
 
