@@ -79,14 +79,15 @@ export function PrivacyPanel() {
         configurações do seu navegador.
       </p>
       <p>
-        Este site não utiliza ferramentas de publicidade. Ao abrir WhatsApp,
-        Instagram, checkout ou links científicos, você acessa serviços externos,
-        sujeitos às próprias políticas de privacidade.
+        Este site não utiliza formulários de cadastro ou ferramentas de
+        publicidade. Ao abrir WhatsApp, Instagram, checkout ou links
+        científicos, você acessa serviços externos, sujeitos às próprias
+        políticas de privacidade.
       </p>
       <p>
-        O pedido e os dados do chamado do SAC só são enviados ao atendimento
-        quando você abre o WhatsApp e confirma o envio da mensagem. Os
-        pagamentos são realizados no ambiente do provedor de checkout.
+        O pedido só é enviado ao atendimento quando você abre o WhatsApp e
+        confirma o envio da mensagem. Os pagamentos são realizados no ambiente
+        do provedor de checkout.
       </p>
       <a
         className="text-link"

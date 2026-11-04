@@ -1,8 +1,10 @@
 export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
-export const sacUrl = asset("sac/");
 export const support = "https://wa.me/5551997264646";
 export const whatsapp = (message: string) =>
   `${support}?text=${encodeURIComponent(message)}`;
+export const contactUrl = whatsapp(
+  "Olá! Estou com dúvidas com relação a DalFlore.",
+);
 export const brl = (value: number) =>
   value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 export type Quantity = 1 | 3 | 6;

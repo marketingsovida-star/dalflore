@@ -128,13 +128,11 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - Luz suave que pulsa atrás da logo e no topo, e oito partículas no material da seção da Aline, sempre ao lado da logo, sem passar pela frase ou pela base.
 - Sem colunas de navegação, contatos ou aviso educativo: retirados a pedido.
 
-### SAC (/sac)
+### Contato
 
-- Página própria: `sac/index.html` + `src/sac-main.tsx` + `src/SacPage.tsx` + `src/sac.css`. Estrutura copiada da Duet, no fundo claro do catálogo com um único card no material dos cards de produto, compacto, sem partículas na seção.
-- O site não tem backend: enviar o formulário abre o WhatsApp de `support` (`src/catalog.ts`) com os dados na mensagem, e a pessoa confirma o envio. Anexos não vão pelo link; a página orienta enviá-los na conversa.
-- Botões de contato (ícone do cabeçalho e “Fale com a nossa equipe”) usam `sacUrl`. Compra pelo WhatsApp (carrinho e Hair & Skin) continua direta.
-- Rodapé e texto de privacidade são compartilhados em `src/SiteFooter.tsx`. O carrinho do SAC abre a home em `#carrinho`.
-- Build em duas passagens (`vite build` e `vite build --mode sac`) de propósito: um build único de duas páginas muda a ordem do CSS da home.
+- Sem página de SAC. O usuário pediu para retirá-la; o código pronto está no commit `3c629ba`, caso volte.
+- Botão flutuante de WhatsApp no canto inferior direito, círculo no material científico, acima da linha legal do rodapé. No celular some ao chegar nessa linha, para não cobrir os textos.
+- Botão flutuante, ícone do cabeçalho, “Fale com a nossa equipe” e o link SAC do FAQ usam `contactUrl` (`src/catalog.ts`), com a mensagem “Olá! Estou com dúvidas com relação a DalFlore.”. Compra pelo WhatsApp (carrinho e Hair & Skin) mantém a própria mensagem.
 
 ## Arquivos importantes e ordem dos estilos
 
