@@ -432,13 +432,12 @@ const faqs = [
 ];
 function FAQ() {
   const [openFaq, setOpenFaq] = useState(0);
-  const [showAll, setShowAll] = useState(false);
   return (
     <section className="faq-section" id="duvidas">
       <div className="faq-inner">
         <h2>Perguntas frequentes</h2>
         <div className="faq-items" id="faq-items">
-          {faqs.slice(0, showAll ? faqs.length : 4).map(([q, a], index) => {
+          {faqs.map(([q, a], index) => {
             const isOpen = openFaq === index;
             return (
               <div className="faq-item" data-open={isOpen} key={q}>
@@ -452,7 +451,7 @@ function FAQ() {
                 >
                   <span>{q}</span>
                   <span className="faq-toggle" aria-hidden="true">
-                    {isOpen ? <X size={16} /> : <Plus size={16} />}
+                    <Plus size={16} />
                   </span>
                 </button>
                 <div
@@ -471,21 +470,7 @@ function FAQ() {
             );
           })}
         </div>
-        <button
-          className="text-link faq-more"
-          aria-expanded={showAll}
-          aria-controls="faq-items"
-          onClick={() => {
-            setShowAll(!showAll);
-            if (showAll && openFaq >= 4) setOpenFaq(0);
-          }}
-        >
-          {showAll
-            ? "Mostrar menos dúvidas"
-            : `Ver todas as dúvidas (${faqs.length})`}{" "}
-          <Plus size={16} />
-        </button>
-        <a
+<a
           className="faq-contact"
           href={whatsapp("Olá! Estou no site da DalFlore e tenho uma dúvida.")}
           target="_blank"

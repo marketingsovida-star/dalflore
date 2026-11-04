@@ -9,6 +9,7 @@ import "./cards.css";
 import "./header.css";
 import "./catalog.css";
 import "./expert.css";
+import "./faq.css";
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
