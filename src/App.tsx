@@ -964,14 +964,15 @@ export default function App() {
 
       </main>
       <footer className="site-footer">
+        <span className="site-footer-atmosphere" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/><i/></span>
         <div className="wrap site-footer-inner">
           <div className="site-footer-brand">
             <a href="#" aria-label="DalFlore, início">
               <img
-                src={asset("brand/symbol-white.svg")}
+                src={asset("brand/logo-white.png")}
                 alt=""
-                width="160"
-                height="67"
+                width="1171"
+                height="1093"
                 loading="lazy"
               />
             </a>
