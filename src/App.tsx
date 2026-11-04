@@ -224,8 +224,7 @@ function ProductShelf({ open, add }: {
     </div>
   </>;
 }
-function Expert() {
-  const [tab, setTab] = useState("marca");
+function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void }) {
   return (
     <section className="df-expert" id="aline">
       <div className="df-container">
@@ -827,6 +826,7 @@ export default function App() {
   const [modal, setModal] = useState<ModalState>(getProductHash);
   const [mobile, setMobile] = useState(false);
   const [bannerCleared, setBannerCleared] = useState(false);
+  const [expertTab, setExpertTab] = useState("marca");
   const [scienceVisible, setScienceVisible] = useState(false);
   const headerVisible = bannerCleared && !scienceVisible;
   useEffect(() => {
@@ -958,7 +958,7 @@ export default function App() {
         )}
       </header>
       <main id="conteudo" className="df-home">
-        <HomeBanners open={open} onVisibilityChange={setBannerCleared} />
+        <HomeBanners open={open} onVisibilityChange={setBannerCleared} onExpert={() => setExpertTab("aline")} />
         <div id="ciencia" className="df-science-block">
           <ScienceJourney open={open} />
           <MicrobiotaWhy />
@@ -972,7 +972,7 @@ export default function App() {
           </div>
           <ProductShelf open={open} add={add} />
         </section>
-        <Expert />
+        <Expert tab={expertTab} setTab={setExpertTab} />
         <FAQ />
 
       </main>

@@ -1,16 +1,18 @@
 import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { BadgeCheck, ChevronLeft, ChevronRight, CreditCard, FlaskConical, Headphones, Leaf, Pause, Play, ShieldCheck, Truck } from "lucide-react";
+import { BadgeCheck, ChevronLeft, ChevronRight, CreditCard, Headphones, Leaf, Pause, Play, ShieldCheck, Truck } from "lucide-react";
 import { asset, products, type Product } from "./catalog";
 import "./banners.css";
 
-const banners = [
+type BannerAction = { id: string; label: string; href?: never } | { href: string; label: string; id?: never };
+
+const banners: { name: string; image: string; title: string; description: string; alt: string; actions: BannerAction[] }[] = [
   {
     name: "GUTcare",
     image: "banners/banner-1.webp",
     title: "Cuidar começa\npor dentro.",
     description: "GUTcare combina 4 cepas probióticas e o prebiótico FOS para cuidar da microbiota e apoiar a saúde intestinal.",
     alt: "Aline com um frasco de GUTcare DalFlore em um ambiente iluminado e cercado de plantas",
-    actions: [{ id: "gutcare", label: "Conhecer GUTcare" }],
+    actions: [{ id: "gutcare", label: "Conhecer GUTcare" }, { href: "#aline", label: "Conhecer a Aline" }],
   },
   {
     name: "Slim Balance",
@@ -18,7 +20,7 @@ const banners = [
     title: "Seu ritmo.\nSeu equilíbrio.",
     description: "Slim Balance: 4 cepas probióticas, com L. gasseri BNR17, para complementar o controle do peso.",
     alt: "Frasco Slim Balance DalFlore sobre uma base de mármore com folhas e luz natural",
-    actions: [{ id: "slim-balance", label: "Conhecer Slim Balance" }],
+    actions: [{ id: "slim-balance", label: "Conhecer Slim Balance" }, { href: "#ciencia", label: "Conhecer a ciência" }],
   },
   {
     name: "Hair & Skin e Immune",
@@ -71,9 +73,10 @@ function BenefitsStrip() {
   </div>;
 }
 
-export function HomeBanners({ open, onVisibilityChange }: {
+export function HomeBanners({ open, onVisibilityChange, onExpert }: {
   open: (product: Product) => void;
   onVisibilityChange: (visible: boolean) => void;
+  onExpert: () => void;
 }) {
   const root = useRef<HTMLElement>(null);
   const touch = useRef<number | null>(null);
@@ -91,6 +94,36 @@ export function HomeBanners({ open, onVisibilityChange }: {
     const timer = window.setTimeout(() => move(1), 7000);
     return () => window.clearTimeout(timer);
   }, [active, paused, interacting]);
+  useLayoutEffect(() => {
+    const element = root.current;
+    const pane = element?.querySelector<HTMLElement>(".df-banner-copy-inner");
+    const visual = element?.querySelector<HTMLElement>(".df-banner-visual");
+    if (!element || !pane || !visual) return;
+    const context = document.createElement("canvas").getContext("2d");
+    let frame = 0, disposed = false;
+    const measure = () => {
+      const desktop = window.matchMedia("(min-width: 768px)").matches;
+      const headings = pane.querySelectorAll<HTMLElement>(".df-banner-message h1,.df-banner-message h2");
+      if (desktop && context && headings[0]) {
+        const style = getComputedStyle(headings[0]);
+        context.font = style.fontWeight + " 100px " + style.fontFamily;
+        const tracking = parseFloat(style.letterSpacing) / parseFloat(style.fontSize) * 100 || 0;
+        const widest = Math.max(...banners.flatMap(banner => banner.title.split("\n")).map(line => context.measureText(line).width + Math.max(0,line.length-1) * tracking));
+        const ceiling = window.innerHeight <= 650 ? 46 : 72;
+        const size = Math.max(32, Math.min(ceiling, headings[0].clientWidth * .97 / widest * 100));
+        headings.forEach(heading => heading.style.setProperty("--banner-title-size", size.toFixed(2) + "px"));
+      } else headings.forEach(heading => heading.style.removeProperty("--banner-title-size"));
+      const bounds = pane.getBoundingClientRect(), image = visual.getBoundingClientRect();
+      element.style.setProperty("--banner-copy-top", (bounds.top-image.top) + "px");
+      element.style.setProperty("--banner-copy-bottom", (bounds.bottom-image.top) + "px");
+    };
+    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(measure); };
+    const observer = new ResizeObserver(schedule);
+    observer.observe(pane); observer.observe(visual);
+    schedule();
+    void document.fonts.ready.then(() => { if (!disposed) schedule(); });
+    return () => { disposed = true; cancelAnimationFrame(frame); observer.disconnect(); };
+  }, []);
   const controls = <>
     <button type="button" aria-label="Banner anterior" onClick={() => move(-1)}><ChevronLeft size={18} /></button>
     <div className="df-banner-dots" role="group" aria-label="Escolher banner">
@@ -113,15 +146,16 @@ export function HomeBanners({ open, onVisibilityChange }: {
         <img src={asset(banner.image)} alt={banner.alt} width={1672} height={941} fetchPriority={index === 0 ? "high" : "auto"} className={`df-banner-photo${index === 0 ? " df-banner-photo-first" : ""}${active === index ? " is-active" : ""}`} aria-hidden={active !== index} />
       </Fragment>)}
       <div className="df-banner-shade" />
+      <div className="df-banner-particles" aria-hidden="true"><div className="df-banner-particle-zone df-banner-particle-top"><i/><i/></div><div className="df-banner-particle-zone df-banner-particle-bottom"><i/><i/></div></div>
     </div>
     <div className="df-banner-copy">
       <div className="df-banner-copy-inner">
-        <div className="df-banner-brand"><img className="df-banner-logo" src={asset("brand/logo-white.png")} alt="DalFlore" width={160} height={67} /><span className="df-banner-signature"><FlaskConical size={19} aria-hidden="true"/><span>Ciência para<br/>florescer.</span></span></div>
+        <div className="df-banner-brand"><img className="df-banner-logo" src={asset("brand/logo-white.png")} alt="DalFlore" width={160} height={67} /></div>
         <div className="df-banner-messages" aria-live={paused || interacting ? "polite" : "off"} aria-atomic="true">
           {banners.map((banner, index) => <div key={banner.title} className={`df-banner-message${active === index ? " is-active" : ""}`} aria-hidden={active !== index} inert={active !== index}>
             {index === 0 ? <h1>{banner.title}</h1> : <h2>{banner.title}</h2>}
             <p>{banner.description}</p>
-            <div className={`df-banner-actions${banner.actions.length > 1 ? " df-banner-actions-pair" : ""}`}>{banner.actions.map(action => <button type="button" className="df-banner-cta" key={action.id} onClick={() => open(products.find(product => product.id === action.id)!)}><span>{action.label}</span></button>)}</div>
+            <div className={`df-banner-actions${banner.actions.length > 1 ? " df-banner-actions-pair" : ""}`}>{banner.actions.map(action => action.href ? <a className="df-banner-cta" key={action.href} href={action.href} onClick={action.href === "#aline" ? onExpert : undefined}><span>{action.label}</span></a> : <button type="button" className="df-banner-cta" key={action.id} onClick={() => open(products.find(product => product.id === action.id)!)}><span>{action.label}</span></button>)}</div>
           </div>)}
         </div>
         <div className="df-banner-controls df-banner-controls-desktop">{controls}</div>
