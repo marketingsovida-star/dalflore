@@ -8,6 +8,7 @@ export const contactUrl = whatsapp(
 export const brl = (value: number) =>
   value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 export type Quantity = 1 | 3 | 6;
+export type Study = { id: string; title: string; source: string };
 export type Product = {
   id: string;
   name: string;
@@ -25,6 +26,7 @@ export type Product = {
   ingredients: [string, string][];
   description: string;
   howItWorks: string[];
+  studies: Study[];
   emphasis: string;
   tags: string[];
 };
@@ -56,6 +58,23 @@ export const products: Product[] = [
     howItWorks: [
       "O GUTcare reúne quatro cepas de Lactobacillus e Bifidobacterium com o FOS, uma fibra prebiótica que serve de alimento para as bactérias benéficas. Os probióticos levam microrganismos benéficos ao intestino e o prebiótico ajuda a nutri-los.",
       "Com o uso diário, a proposta é apoiar o equilíbrio da microbiota, a regularidade intestinal e o conforto digestivo, ajudando a reduzir a sensação de inchaço e gases. Como o intestino conversa com as defesas e com o cérebro, esse cuidado também contribui para o bem-estar geral.",
+    ],
+    studies: [
+      {
+        id: "25070051",
+        title: "Efficacy of prebiotics, probiotics, and synbiotics in irritable bowel syndrome and chronic idiopathic constipation: systematic review and meta-analysis",
+        source: "The American journal of gastroenterology, 2014",
+      },
+      {
+        id: "17951492",
+        title: "Inulin-type fructans: functional food ingredients",
+        source: "The Journal of nutrition, 2007",
+      },
+      {
+        id: "25860609",
+        title: "Indigenous bacteria from the gut microbiota regulate host serotonin biosynthesis",
+        source: "Cell, 2015",
+      },
     ],
     ingredients: [
       ["Lactobacillus plantarum LP01", "6 bilhões UFC"],
@@ -92,6 +111,38 @@ export const products: Product[] = [
     howItWorks: [
       "O Concentra+ reúne cinco cepas probióticas estudadas no eixo intestino–cérebro, como L. plantarum PS128 e B. longum 1714, com os prebióticos GOS e FOS. A colina é a base da acetilcolina, mensageiro ligado à memória e ao aprendizado, e a vitamina B6 ativa participa da produção de neurotransmissores.",
       "A proposta é apoiar o foco, a clareza mental e a memória sem estimulantes, cuidando da microbiota e da resposta ao estresse, que também pesam na concentração do dia a dia.",
+    ],
+    studies: [
+      {
+        id: "39232392",
+        title: "The effects of Lactobacillus plantarum PS128 in patients with major depressive disorder: an eight-week double-blind, placebo-controlled study",
+        source: "Asian journal of psychiatry, 2024",
+      },
+      {
+        id: "27801892",
+        title: "Bifidobacterium longum 1714 as a translational psychobiotic: modulation of stress, electrophysiology and neurocognition in healthy volunteers",
+        source: "Translational psychiatry, 2016",
+      },
+      {
+        id: "20974015",
+        title: "Assessment of psychotropic-like properties of a probiotic formulation (Lactobacillus helveticus R0052 and Bifidobacterium longum R0175) in rats and human subjects",
+        source: "The British journal of nutrition, 2011",
+      },
+      {
+        id: "25449699",
+        title: "Prebiotic intake reduces the waking cortisol response and alters emotional bias in healthy volunteers",
+        source: "Psychopharmacology, 2015",
+      },
+      {
+        id: "22071706",
+        title: "The relation of dietary choline to cognitive performance and white-matter hyperintensity in the Framingham Offspring Cohort",
+        source: "The American journal of clinical nutrition, 2011",
+      },
+      {
+        id: "25830558",
+        title: "The gut-brain axis: interactions between enteric microbiota, central and enteric nervous systems",
+        source: "Annals of gastroenterology, 2015",
+      },
     ],
     ingredients: [
       ["Lactobacillus rhamnosus GG", "5 bilhões UFC"],
@@ -133,6 +184,28 @@ export const products: Product[] = [
       "Grande parte das células de defesa do corpo está no intestino. O Immune combina quatro cepas, entre elas L. rhamnosus GG e B. lactis Bl-04, com os prebióticos FOS e inulina, que nutrem as bactérias benéficas, e com beta-glucanas, fibras estudadas pela ação sobre as células de defesa.",
       "Com o uso diário, a proposta é apoiar a barreira intestinal e as defesas naturais do organismo, principalmente nas mudanças de estação e nos períodos de rotina mais intensa.",
     ],
+    studies: [
+      {
+        id: "40612762",
+        title: "Role of Lacticaseibacillus rhamnosus GG in the Management of Respiratory Diseases: A Systematic Review and Meta-Analysis",
+        source: "Preventive nutrition and food science, 2025",
+      },
+      {
+        id: "24780623",
+        title: "Effectiveness of probiotics on the duration of illness in healthy children and adults who develop common acute respiratory infectious conditions: a systematic review and meta-analysis",
+        source: "The British journal of nutrition, 2014",
+      },
+      {
+        id: "24268677",
+        title: "Probiotic supplementation for respiratory and gastrointestinal illness symptoms in healthy physically active individuals",
+        source: "Clinical nutrition (Edinburgh, Scotland), 2014",
+      },
+      {
+        id: "16689181",
+        title: "Effect of probiotic Bifidobacterium longum BB536 in relieving clinical symptoms and modulating plasma cytokine levels of Japanese cedar pollinosis during the pollen season. A randomized double-blind, placebo-controlled trial",
+        source: "Journal of investigational allergology & clinical immunology, 2006",
+      },
+    ],
     ingredients: [
       ["Lactobacillus rhamnosus GG", "10 bilhões UFC"],
       ["Bifidobacterium lactis Bl-04", "10 bilhões UFC"],
@@ -171,6 +244,23 @@ export const products: Product[] = [
       "O Slim Balance reúne quatro cepas ligadas à relação entre microbiota e metabolismo. L. gasseri BNR17, B. lactis B420 e L. rhamnosus CGMCC 1.3724 foram pesquisadas em adultos, com foco em gordura corporal, circunferência abdominal e saciedade. L. delbrueckii apoia o equilíbrio da microbiota.",
       "Não é termogênico nem estimulante: a proposta é cuidar do intestino para apoiar o metabolismo e a saciedade. A fórmula complementa alimentação equilibrada, movimento e sono, e não garante perda de peso.",
     ],
+    studies: [
+      {
+        id: "29688793",
+        title: "Lactobacillus gasseri BNR17 Supplementation Reduces the Visceral Fat Accumulation and Waist Circumference in Obese Adults: A Randomized, Double-Blind, Placebo-Controlled Trial",
+        source: "Journal of medicinal food, 2018",
+      },
+      {
+        id: "30525950",
+        title: "Probiotic or synbiotic alters the gut microbiota and metabolism in a randomised controlled trial of weight management in overweight adults",
+        source: "Beneficial microbes, 2019",
+      },
+      {
+        id: "24299712",
+        title: "Effect of Lactobacillus rhamnosus CGMCC1.3724 supplementation on weight loss and maintenance in obese men and women",
+        source: "The British journal of nutrition, 2014",
+      },
+    ],
     ingredients: [
       ["Lactobacillus gasseri BNR17", "5 bilhões UFC"],
       ["Lactobacilos delbrueckii", "5 bilhões UFC"],
@@ -205,6 +295,33 @@ export const products: Product[] = [
     howItWorks: [
       "O Cycle combina cinco cepas probióticas com GOS, FOS e inulina, que nutrem a microbiota, incluindo as bactérias ligadas ao metabolismo do estrogênio. As isoflavonas de soja e a cimicífuga são estudadas nos sintomas da menopausa, e o magnésio e a vitamina B6 ativa participam do funcionamento do sistema nervoso.",
       "A proposta é apoiar o bem-estar feminino na TPM, na perimenopausa e na menopausa, com atenção a calorões, sono e humor. Por conter isoflavonas e cimicífuga, converse com seu profissional de saúde antes de usar, principalmente se utilizar medicamentos ou tiver alguma condição hormonal ou hepática.",
+    ],
+    studies: [
+      {
+        id: "28778332",
+        title: "Estrogen-gut microbiome axis: Physiological and clinical implications",
+        source: "Maturitas, 2017",
+      },
+      {
+        id: "22433977",
+        title: "Extracted or synthesized soybean isoflavones reduce menopausal hot flash frequency and severity: systematic review and meta-analysis of randomized controlled trials",
+        source: "Menopause (New York, N.Y.), 2012",
+      },
+      {
+        id: "22972105",
+        title: "Black cohosh (Cimicifuga spp.) for menopausal symptoms",
+        source: "The Cochrane database of systematic reviews, 2012",
+      },
+      {
+        id: "23853635",
+        title: "The effect of magnesium supplementation on primary insomnia in elderly: A double-blind placebo-controlled clinical trial",
+        source: "Journal of research in medical sciences : the official journal of Isfahan University of Medical Sciences, 2012",
+      },
+      {
+        id: "27801892",
+        title: "Bifidobacterium longum 1714 as a translational psychobiotic: modulation of stress, electrophysiology and neurocognition in healthy volunteers",
+        source: "Translational psychiatry, 2016",
+      },
     ],
     ingredients: [
       ["Lactobacillus reuteri", "3 bilhões UFC"],
@@ -241,6 +358,23 @@ export const products: Product[] = [
     howItWorks: [
       "O Hair & Skin reúne nutrientes que participam da formação de cabelos, pele e unhas. O silício orgânico e a vitamina C estão ligados ao colágeno, o MSM e a cistina fornecem enxofre, base da queratina, e a biotina, o zinco e a vitamina B5 participam do crescimento dos fios. A vitamina E tem ação antioxidante.",
       "Com o uso diário, a proposta é nutrir de dentro para fora, para apoiar fios mais fortes, unhas mais resistentes e uma pele com mais firmeza. Queda intensa de cabelo merece avaliação profissional, e é importante informar o uso de biotina antes de exames laboratoriais.",
+    ],
+    studies: [
+      {
+        id: "16205932",
+        title: "Effect of oral intake of choline-stabilized orthosilicic acid on skin, nails and hair in women with photodamaged skin",
+        source: "Archives of dermatological research, 2005",
+      },
+      {
+        id: "39148962",
+        title: "Biotin for Hair Loss: Teasing Out the Evidence",
+        source: "The Journal of clinical and aesthetic dermatology, 2024",
+      },
+      {
+        id: "30547302",
+        title: "The Role of Vitamins and Minerals in Hair Loss: A Review",
+        source: "Dermatology and therapy, 2019",
+      },
     ],
     ingredients: [
       ["Silício orgânico", "200 mg"],

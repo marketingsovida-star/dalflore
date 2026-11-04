@@ -508,6 +508,7 @@ function ProductDetail({
   add: (p: Product, q: Quantity) => void;
 }) {
   const [labelOpen, setLabelOpen] = useState(false);
+  const [studiesOpen, setStudiesOpen] = useState(false);
   const [q, setQ] = useState<Quantity>(1);
   const total = price(p, q);
   return (
@@ -520,10 +521,12 @@ function ProductDetail({
             width="680"
             height="920"
           />
-          <span>{p.capsules} cápsulas</span>
         </div>
         <div className="detail-intro">
-          <p className="eyebrow">DALFLORE / {p.category}</p>
+          <div className="detail-meta">
+            <p className="eyebrow">DALFLORE / {p.category}</p>
+            <span>{p.capsules} cápsulas</span>
+          </div>
           <h2>{p.name}</h2>
           <h3>{p.emphasis}</h3>
           <p>{p.description}</p>
@@ -558,9 +561,46 @@ function ProductDetail({
           <p key={text}>{text}</p>
         ))}
         <button className="detail-composition" onClick={() => setLabelOpen(true)}>
-          <FileText size={17} /> Ver composição e modo de uso
+          <FileText size={20} /> Ver composição e modo de uso
         </button>
       </section>
+      <button className="detail-research" onClick={() => setStudiesOpen(true)}>
+        <BookOpen size={24} aria-hidden="true" />
+        <span>
+          <strong>Embasamento Científico</strong>
+          <small>Veja os estudos sobre os ativos desta fórmula</small>
+        </span>
+        <ChevronRight size={22} aria-hidden="true" />
+      </button>
+      {studiesOpen && (
+        <Overlay
+          type="research"
+          title="Embasamento Científico"
+          close={() => setStudiesOpen(false)}
+        >
+          <div className="research-panel">
+            <p>
+              Pesquisas sobre ativos presentes no {p.name}. Os resultados se
+              referem às cepas, doses e pessoas de cada estudo.
+            </p>
+            <ul>
+              {p.studies.map((study) => (
+                <li key={study.id}>
+                  <h3>{study.title}</h3>
+                  <small>{study.source}</small>
+                  <a
+                    href={`https://pubmed.ncbi.nlm.nih.gov/${study.id}/`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ver no PubMed <ArrowUpRight size={15} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Overlay>
+      )}
       {labelOpen && (
         <Overlay
           type="label"
