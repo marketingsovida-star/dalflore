@@ -141,16 +141,6 @@ function ProductCard({
       </div>
       <button
         className="product-media"
-        onPointerMove={event => {
-          if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-          const element = event.currentTarget, rect = element.getBoundingClientRect();
-          element.style.setProperty("--product-drift-x", ((event.clientX-rect.left)/rect.width-.5)*6 + "px");
-          element.style.setProperty("--product-drift-y", ((event.clientY-rect.top)/rect.height-.5)*5 + "px");
-        }}
-        onPointerLeave={event => {
-          event.currentTarget.style.setProperty("--product-drift-x", "0px");
-          event.currentTarget.style.setProperty("--product-drift-y", "0px");
-        }}
         onClick={() => open(p)}
         aria-label={`Conhecer ${p.name}`}
       >
