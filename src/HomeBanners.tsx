@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { BadgeCheck, ChevronLeft, ChevronRight, CreditCard, Headphones, Leaf, Pause, Play, ShieldCheck, Truck } from "lucide-react";
-import { asset, products, type Product } from "./catalog";
+import { asset } from "./catalog";
 import "./banners.css";
 
 type BannerAction = { id: string; label: string; href?: never } | { href: string; label: string; id?: never };
@@ -85,8 +85,12 @@ function BenefitsStrip() {
   </div>;
 }
 
-export function HomeBanners({ open, onVisibilityChange, onExpert }: {
-  open: (product: Product) => void;
+const goToProduct = (id: string) => document.getElementById(`card-${id}`)?.scrollIntoView({
+  behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+  block: "start",
+});
+
+export function HomeBanners({ onVisibilityChange, onExpert }: {
   onVisibilityChange: (visible: boolean) => void;
   onExpert: () => void;
 }) {
@@ -167,7 +171,7 @@ export function HomeBanners({ open, onVisibilityChange, onExpert }: {
           {banners.map((banner, index) => <div key={banner.title} className={`df-banner-message${active === index ? " is-active" : ""}`} aria-hidden={active !== index} inert={active !== index}>
             {index === 0 ? <h1>{banner.title}</h1> : <h2>{banner.title}</h2>}
             <p>{banner.description}</p>
-            <div className={`df-banner-actions${banner.actions.length > 1 ? " df-banner-actions-pair" : ""}`}>{banner.actions.map(action => action.href ? <a className="df-banner-cta" key={action.href} href={action.href} onClick={action.href === "#aline" ? onExpert : undefined}><span>{action.label}</span></a> : <button type="button" className="df-banner-cta" key={action.id} onClick={() => open(products.find(product => product.id === action.id)!)}><span>{action.label}</span></button>)}</div>
+            <div className={`df-banner-actions${banner.actions.length > 1 ? " df-banner-actions-pair" : ""}`}>{banner.actions.map(action => action.href ? <a className="df-banner-cta" key={action.href} href={action.href} onClick={action.href === "#aline" ? onExpert : undefined}><span>{action.label}</span></a> : <button type="button" className="df-banner-cta" key={action.id} onClick={() => goToProduct(action.id!)}><span>{action.label}</span></button>)}</div>
           </div>)}
         </div>
         <div className="df-banner-controls df-banner-controls-desktop">{controls}</div>

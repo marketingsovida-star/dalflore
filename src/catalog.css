@@ -62,3 +62,4 @@
 .df-catalog button.buy:hover { background:radial-gradient(ellipse 90% 140% at 50% -35%,#67965d,#326d42 58%,#245936) padding-box,var(--card-science-border) border-box; box-shadow:inset 0 1px 0 #e0f2c977,0 0 19px #c2df9b40; }
 @keyframes purchase-light { from { opacity:.55; } to { opacity:.9; } }
 @media(prefers-reduced-motion:reduce){.df-catalog button.buy::after{animation:none}}
+.df-catalog .product-card { scroll-margin-top:100px; }

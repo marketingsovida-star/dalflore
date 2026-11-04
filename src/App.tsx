@@ -135,6 +135,7 @@ function ProductCard({
   const Symbol = productSymbols[p.id];
   return (
     <article
+      id={`card-${p.id}`}
       className="product-card"
       style={{ "--product-color": p.color } as CSSProperties}
     >
@@ -914,7 +915,7 @@ export default function App() {
         )}
       </header>
       <main id="conteudo" className="df-home">
-        <HomeBanners open={open} onVisibilityChange={setBannerCleared} onExpert={() => setExpertTab("aline")} />
+        <HomeBanners onVisibilityChange={setBannerCleared} onExpert={() => setExpertTab("aline")} />
         <div id="ciencia" className="df-science-block">
           <ScienceJourney open={open} />
           <MicrobiotaWhy />

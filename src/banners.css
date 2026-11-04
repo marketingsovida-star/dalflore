@@ -162,6 +162,10 @@
  .df-home .df-banner-message p{margin-inline:auto}
  .df-banner-actions,.df-banner-controls,.df-banner-dots{justify-content:center}
  .df-benefits-group span{min-width:0;width:auto;padding-inline:14px}
+ .df-banners{background:radial-gradient(ellipse 75% 38% at 0% 60%,#cadac366,transparent 75%),radial-gradient(ellipse 75% 42% at 100% 100%,#c5d9bb66,transparent 75%),linear-gradient(180deg,#e2ecdc,#eef3e9 42%,#e5edde)}
+ .df-banner-controls-mobile{grid-row:3;padding:8px 24px 0}
+ .df-banner-copy{grid-row:4;padding:6px 24px 22px}
+ .df-banner-cta{height:58px}
 }
 
 /* Longer messages grow past the even columns instead of running into the next one. */

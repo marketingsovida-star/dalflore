@@ -52,6 +52,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 
 - Três fotos fornecidas pelo usuário, nesta ordem: Aline com GUTcare; Slim Balance; Hair & Skin + Immune.
 - Preservar tamanho e enquadramento aprovados. Houve várias correções; o usuário rejeitou alterar o tamanho da seção para resolver enquadramento.
+- Botões “Conhecer” de produto rolam até o card do produto (`card-<id>`), sem abrir pop-up.
 - Todos têm dois botões: GUTcare + conhecer Aline; Slim Balance + conhecer ciência; Hair & Skin + Immune com igual destaque.
 - Textos à esquerda, títulos padronizados em duas linhas, descrição em até três linhas explicando composição e função do produto.
 - Botões escuros com material/bordas científicos. Controle compacto: setas, três pontos com ativo alongado, pausa. Sem números grandes ou muitas molduras.
@@ -143,7 +144,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 
 ### Celular
 
-- Faixa com textos próximos (largura natural), elementos do banner centralizados, as duas ilustrações da ciência lado a lado acima dos seis temas e a sacola do cabeçalho à esquerda, com o menu à direita. Regras só em `max-width` no fim de `banners.css`, `science.css` e `header.css`.
+- Faixa com textos próximos (largura natural), fundo do banner no verde claro do catálogo, controles de troca logo abaixo da faixa, elementos do banner centralizados, as duas ilustrações da ciência lado a lado acima dos seis temas e a sacola do cabeçalho à esquerda, com o menu à direita. Regras só em `max-width` no fim de `banners.css`, `science.css` e `header.css`.
 
 ## Arquivos importantes e ordem dos estilos
 
