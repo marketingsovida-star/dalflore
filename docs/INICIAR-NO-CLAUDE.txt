@@ -1,0 +1,11 @@
+Vamos continuar o projeto DalFlore que estava sendo feito no Codex. O pacote anexo contém o contexto aprovado e a skill de design utilizada. Leia primeiro docs/CONTINUIDADE-CLAUDE.md, depois CLAUDE.md e docs/skills/frontend-design/SKILL.md. As escolhas explícitas do usuário prevalecem sobre recomendações genéricas da skill.
+
+Projeto existente: https://github.com/marketingsovida-star/dalflore
+Site atual: https://marketingsovida-star.github.io/dalflore/
+Pasta local, se você tiver acesso: C:/Users/auxil/Downloads/Estúdio de sites/dalflore
+
+Se não conseguir abrir o anexo, o resumo também está no repositório:
+https://github.com/marketingsovida-star/dalflore/blob/main/docs/CONTINUIDADE-CLAUDE.md
+https://raw.githubusercontent.com/marketingsovida-star/dalflore/main/docs/CONTINUIDADE-CLAUDE.md
+
+Continue o site existente, sem recriar do zero ou mudar a identidade visual. Nesta mensagem estou transferindo o contexto; primeiro leia, examine o site e confirme o que entendeu. Aguarde meu próximo pedido antes de iniciar novas alterações. Se não tiver acesso ao repositório ou aos arquivos locais, explique a limitação em vez de simular edições.
