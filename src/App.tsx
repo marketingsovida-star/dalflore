@@ -1,4 +1,3 @@
-import FloraStory from "./FloraStory";
 import {
   useEffect,
   useState,
@@ -231,10 +230,26 @@ function ProductShelf({ open, add }: {
   </>;
 }
 function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void }) {
+  useEffect(() => {
+    const science = document.querySelector(".df-science-block");
+    const panels = document.querySelector(".mw-panels");
+    const expert = document.getElementById("aline");
+    if (!science || !panels || !expert) return;
+    const syncSpacing = () => {
+      const gap = Math.max(0, science.getBoundingClientRect().bottom - panels.getBoundingClientRect().bottom);
+      expert.style.setProperty("--expert-section-space", gap + "px");
+    };
+    const observer = new ResizeObserver(syncSpacing);
+    observer.observe(science);
+    observer.observe(panels);
+    window.addEventListener("resize", syncSpacing);
+    syncSpacing();
+    return () => { observer.disconnect(); window.removeEventListener("resize", syncSpacing); };
+  }, []);
   return (
-    <section className="df-expert">
-      <span className="df-expert-atmosphere" aria-hidden="true"><i/><i/><i/><i/><i/><i/></span>
-      <div className="df-container" id="aline">
+    <section className="df-expert" id="aline">
+      <span className="df-expert-atmosphere" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/></span>
+      <div className="df-container">
         <div className="df-expert-layout">
           <figure className="df-founder">
             <a className="df-portrait" href="https://www.instagram.com/dra.alinedalmazo/" target="_blank" rel="noreferrer" aria-label="Acompanhe a Dra. Aline no Instagram">
@@ -318,7 +333,11 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
                     </strong>
                   </p>
 
-                <FloraStory />
+                <div className="df-signoff">
+                  Porque quando sua flora floresce,{" "}
+                  <br />
+                  <em>você floresce.</em>
+                </div>
               </div>
               <div
                 role="tabpanel"
