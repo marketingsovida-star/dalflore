@@ -1,5 +1,5 @@
 /* Human care, framed with the same green material as the science chapter. */
-.df-expert { padding:48px 0; background:var(--science-background); color:#f5faf2; }
+.df-expert { min-height:108svh; min-height:108dvh; display:grid; align-content:center; padding:48px 0; background:var(--science-background); color:#f5faf2; }
 .df-expert > .df-container { grid-template-columns:minmax(280px,350px) minmax(0,1fr); column-gap:32px; align-items:stretch; padding:24px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--card-science-surface) padding-box,var(--card-science-border) border-box; box-shadow:0 12px 35px #123b2933; }
 .df-expert-heading .df-kicker { color:#cde7b9; font:500 14px/1.5 "Open Sans",Arial,sans-serif; margin:0 0 10px; }
 .df-home .df-expert-heading h2 { color:#f5faf2; font-size:clamp(28px,3vw,36px); line-height:1.2; margin:0; }
