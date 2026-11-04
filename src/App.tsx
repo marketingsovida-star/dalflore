@@ -1,3 +1,4 @@
+import FloraStory from "./FloraStory";
 import {
   useEffect,
   useState,
@@ -231,9 +232,9 @@ function ProductShelf({ open, add }: {
 }
 function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void }) {
   return (
-    <section className="df-expert" id="aline">
+    <section className="df-expert">
       <span className="df-expert-atmosphere" aria-hidden="true"><i/><i/><i/><i/><i/><i/></span>
-      <div className="df-container">
+      <div className="df-container" id="aline">
         <div className="df-expert-layout">
           <figure className="df-founder">
             <a className="df-portrait" href="https://www.instagram.com/dra.alinedalmazo/" target="_blank" rel="noreferrer" aria-label="Acompanhe a Dra. Aline no Instagram">
@@ -259,7 +260,7 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
             >
               {[
                 { id: "aline", label: "Aline Dalmazo", icon: UserRound },
-                { id: "marca", label: "A história da marca", icon: BookOpen },
+                { id: "marca", label: "História da DalFlore", icon: BookOpen },
               ].map(({ id, label, icon: Icon }) => (
                 <button
                   key={id}
@@ -317,11 +318,7 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
                     </strong>
                   </p>
 
-                <div className="df-signoff">
-                  Porque quando sua flora floresce,{" "}
-                  <br />
-                  <em>você floresce.</em>
-                </div>
+                <FloraStory />
               </div>
               <div
                 role="tabpanel"
