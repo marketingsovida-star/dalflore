@@ -963,79 +963,44 @@ export default function App() {
         <FAQ />
 
       </main>
-      <footer>
-        <div className="wrap footer-grid">
-          <div className="footer-brand">
-            <img
-              src={asset("brand/logo.png")}
-              alt="DalFlore"
-              width="160"
-              height="67"
-              loading="lazy"
-            />
+      <footer className="site-footer">
+        <div className="wrap site-footer-inner">
+          <div className="site-footer-brand">
+            <a href="#" aria-label="DalFlore, início">
+              <img
+                src={asset("brand/symbol-white.svg")}
+                alt=""
+                width="160"
+                height="67"
+                loading="lazy"
+              />
+            </a>
+            <p>Ciência para florescer de dentro para fora.</p>
+          </div>
+          <div className="site-footer-bottom">
             <p>
-              Ciência para florescer.
-              <br />
-              Cuidado de dentro para fora.
-            </p>
-          </div>
-          <div>
-            <p className="eyebrow">EXPLORE</p>
-            <a href="#produtos">Nossas fórmulas</a>
-            <a href="#ciencia">A ciência da microbiota</a>
-            <a href="#aline">A marca e a fundadora</a>
-          </div>
-          <div>
-            <p className="eyebrow">VAMOS CONVERSAR</p>
-            <a
-              href={whatsapp("Olá! Gostaria de falar com a DalFlore.")}
-              target="_blank"
-              rel="noreferrer"
-            >
-              WhatsApp: (51) 99726-4646 <ArrowUpRight size={13} />
-            </a>
-            <a
-              href="https://www.instagram.com/dra.alinedalmazo/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              @dra.alinedalmazo <ArrowUpRight size={13} />
-            </a>
-            <a href="#duvidas">Perguntas frequentes</a>
-          </div>
-          <div>
-            <p className="eyebrow">TRANSPARÊNCIA</p>
-            <button onClick={() => setModal({ kind: "privacy" })}>
-              Privacidade e navegação
-            </button>
-            <a
-              href="https://dalflore.com.br/politica-de-reembolso"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Política de reembolso <ArrowUpRight size={13} />
-            </a>
-            <a
-              href="https://dalflore.com.br/politica-de-privacidade#termos-de-uso"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Termos da loja <ArrowUpRight size={13} />
-            </a>
-          </div>
-        </div>
-        <div className="wrap footer-note">
-          <p>
-            Conteúdo educativo. Não substitui avaliação, diagnóstico ou
-            acompanhamento profissional. Consulte o rótulo e a orientação do
-            profissional de saúde antes de utilizar os produtos.
-          </p>
-          <div>
-            <span>
               © {new Date().getFullYear()} DalFlore. Todos os direitos
               reservados.
-            </span>
-            <span>Ciência. Natureza. Você.</span>
+            </p>
+            <nav aria-label="Políticas da loja">
+              <button onClick={() => setModal({ kind: "privacy" })}>
+                Privacidade
+              </button>
+              <a
+                href="https://dalflore.com.br/politica-de-reembolso"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Política de reembolso
+              </a>
+              <a
+                href="https://dalflore.com.br/politica-de-privacidade#termos-de-uso"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Termos de uso
+              </a>
+            </nav>
           </div>
         </div>
       </footer>

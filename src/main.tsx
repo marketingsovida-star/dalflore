@@ -10,6 +10,7 @@ import "./header.css";
 import "./catalog.css";
 import "./expert.css";
 import "./faq.css";
+import "./footer.css";
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />

@@ -121,6 +121,12 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - Outras perguntas preservadas: gestantes/crianças e pagamento/frete.
 - O botão de atendimento no WhatsApp continua abaixo do FAQ.
 
+### Rodapé
+
+- Modelo da Duet nas cores DalFlore: fundo verde escuro do cabeçalho (`--deep-surface`), símbolo branco centralizado e, abaixo dele, uma frase de uma linha: “Ciência para florescer de dentro para fora.”
+- Base com fio fino: à esquerda “© 2026 DalFlore. Todos os direitos reservados.”; à direita Privacidade (abre o modal), Política de reembolso e Termos de uso.
+- Sem colunas de navegação, contatos ou aviso educativo: retirados a pedido.
+
 ## Arquivos importantes e ordem dos estilos
 
 - `src/App.tsx`: composição, catálogo/modal/carrinho, Expert e FAQ.
@@ -129,8 +135,8 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - `src/ScienceJourney.tsx`, `src/MicrobiotaArt.tsx`, `src/ScienceSurface.tsx`, `src/science.css`: atlas científico e animações.
 - `src/MicrobiotaWhy.tsx` + `src/microbiota-why.css`: cards sob as ilustrações.
 - `src/cards.css`: tokens e geometria compartilhada.
-- `src/header.css`, `src/catalog.css`, `src/expert.css`, `src/faq.css`: estilos atuais por área.
-- `src/main.tsx` importa, nesta ordem: style.css → design.css → science.css → microbiota-why.css → cards.css → header.css → catalog.css → expert.css → faq.css. Há CSS antigo sobrescrito; inspecione os valores computados e a especificidade antes de acrescentar outra regra.
+- `src/header.css`, `src/catalog.css`, `src/expert.css`, `src/faq.css`, `src/footer.css`: estilos atuais por área.
+- `src/main.tsx` importa, nesta ordem: style.css → design.css → science.css → microbiota-why.css → cards.css → header.css → catalog.css → expert.css → faq.css → footer.css. Há CSS antigo sobrescrito; inspecione os valores computados e a especificidade antes de acrescentar outra regra.
 - `public/labels/`: seis rótulos originais em PDF; fonte para composição, dose e conservação.
 - `public/brand/`: variações da marca. `public/` também tem fotos e banners.
 - `README.md`: registro cronológico das revisões (trechos antigos podem descrever ideias já rejeitadas; código atual e este resumo prevalecem).
