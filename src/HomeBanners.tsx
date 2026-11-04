@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { ArrowRight, BadgeCheck, ChevronLeft, ChevronRight, CreditCard, FlaskConical, Headphones, Leaf, Pause, Play, ShieldCheck, Truck } from "lucide-react";
+import { BadgeCheck, ChevronLeft, ChevronRight, CreditCard, FlaskConical, Headphones, Leaf, Pause, Play, ShieldCheck, Truck } from "lucide-react";
 import { asset, products, type Product } from "./catalog";
 import "./banners.css";
 
@@ -98,7 +98,6 @@ export function HomeBanners({ open, onVisibilityChange }: {
     </div>
     <button type="button" aria-label="Próximo banner" onClick={() => move(1)}><ChevronRight size={18} /></button>
     <button type="button" aria-label={paused ? "Reproduzir banners" : "Pausar banners"} aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? <Play size={16} /> : <Pause size={16} />}</button>
-    <a className="df-banner-science" href="#ciencia" aria-label="Explore a ciência do seu cuidado" title="Explore a ciência do seu cuidado"><FlaskConical size={16} aria-hidden="true"/><span className="df-science-wide">Explore a ciência</span><span className="df-science-short">Ciência</span></a>
   </>;
   return <section ref={root} className="df-banners" aria-label="Destaques DalFlore" aria-roledescription="carrossel"
     onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}
@@ -122,7 +121,7 @@ export function HomeBanners({ open, onVisibilityChange }: {
           {banners.map((banner, index) => <div key={banner.title} className={`df-banner-message${active === index ? " is-active" : ""}`} aria-hidden={active !== index} inert={active !== index}>
             {index === 0 ? <h1>{banner.title}</h1> : <h2>{banner.title}</h2>}
             <p>{banner.description}</p>
-            <div className={`df-banner-actions${banner.actions.length > 1 ? " df-banner-actions-pair" : ""}`}>{banner.actions.map(action => <button type="button" className="df-banner-cta" key={action.id} onClick={() => open(products.find(product => product.id === action.id)!)}><span>{action.label}</span><ArrowRight size={16} aria-hidden="true"/></button>)}</div>
+            <div className={`df-banner-actions${banner.actions.length > 1 ? " df-banner-actions-pair" : ""}`}>{banner.actions.map(action => <button type="button" className="df-banner-cta" key={action.id} onClick={() => open(products.find(product => product.id === action.id)!)}><span>{action.label}</span></button>)}</div>
           </div>)}
         </div>
         <div className="df-banner-controls df-banner-controls-desktop">{controls}</div>
