@@ -983,6 +983,29 @@ export default function App() {
               © {new Date().getFullYear()} DalFlore. Todos os direitos
               reservados.
             </p>
+            <p className="site-footer-credits">
+              <span>
+                Desenvolvido por{" "}
+                <a
+                  href="https://www.instagram.com/thiagorocha.oficial"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Thiago Rocha
+                </a>
+              </span>{" "}
+              ·{" "}
+              <span>
+                Produzido por{" "}
+                <a
+                  href="https://www.instagram.com/sovida.life/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Sóvida
+                </a>
+              </span>
+            </p>
             <nav aria-label="Políticas da loja">
               <button onClick={() => setModal({ kind: "privacy" })}>
                 Privacidade
