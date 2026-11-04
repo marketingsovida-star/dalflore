@@ -34,6 +34,7 @@
     "comparison": "Kits de três e seis com total de unidades avulsas riscado, calculado por preço unitário × quantidade. GUTcare de três: R$ 362,43 / R$ 389,70 avulsos, conferido no card e na janela do produto. Produtos sob consulta continuam sem comparação.",
     "motion": "Duas partículas por card, com movimento contínuo independente do ponteiro, e halo discreto. Respeita movimento reduzido.",
     "alignment": "Alinhamento anterior à esquerda restaurado para nome, descrição e preço; categoria e cápsulas voltam às extremidades. + permanece junto ao nome. Celular de 320 px sem transbordamento, seis descrições em três linhas.",
-    "connections": "Curvas removidas para reduzir poluição visual. Mantido apenas halo suave, com duas partículas por frasco. Fundo verde claro em toda a largura, com luz difusa estática nas extremidades. Cards preservam dimensões de 325,66 × 666,25 px no desktop de 1100 px; celular de 320 px sem transbordamento ou corte de descrições."
+    "connections": "Curvas removidas para reduzir poluição visual. Mantido apenas halo suave, com duas partículas por frasco. Fundo verde claro em toda a largura, com luz difusa estática nas extremidades. Cards preservam dimensões de 325,66 × 666,25 px no desktop de 1100 px; celular de 320 px sem transbordamento ou corte de descrições.",
+    "purchaseLight": "Adicionar ao carrinho com iluminação superior, contorno e brilho suave; variação lenta de opacidade em sete segundos. Altura 48 px, raio 24 px e legibilidade preservados. Movimento reduzido respeitado."
   }
 }
