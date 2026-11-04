@@ -24,7 +24,7 @@ export type Product = {
   label: string;
   ingredients: [string, string][];
   description: string;
-  mechanism: string;
+  howItWorks: string[];
   emphasis: string;
   tags: string[];
 };
@@ -53,8 +53,10 @@ export const products: Product[] = [
     tags: ["intestino", "microbiota", "prebiotico"],
     description:
       "Uma fórmula que reúne quatro cepas de Lactobacillus e Bifidobacterium e o prebiótico FOS. Pensada para integrar uma rotina de cuidado com a saúde intestinal, respeitando as necessidades de cada pessoa.",
-    mechanism:
-      "Os probióticos são microrganismos vivos. O FOS é um substrato utilizado por determinados microrganismos intestinais. A resposta depende das cepas, das quantidades utilizadas e do contexto individual. Alimentação e acompanhamento profissional fazem parte desse cuidado.",
+    howItWorks: [
+      "O GUTcare reúne quatro cepas de Lactobacillus e Bifidobacterium com o FOS, uma fibra prebiótica que serve de alimento para as bactérias benéficas. Os probióticos levam microrganismos benéficos ao intestino e o prebiótico ajuda a nutri-los.",
+      "Com o uso diário, a proposta é apoiar o equilíbrio da microbiota, a regularidade intestinal e o conforto digestivo, ajudando a reduzir a sensação de inchaço e gases. Como o intestino conversa com as defesas e com o cérebro, esse cuidado também contribui para o bem-estar geral.",
+    ],
     ingredients: [
       ["Lactobacillus plantarum LP01", "6 bilhões UFC"],
       ["Lactobacillus rhamnosus HN001", "5 bilhões UFC"],
@@ -87,8 +89,10 @@ export const products: Product[] = [
     tags: ["foco", "cognicao", "prebiotico"],
     description:
       "Fórmula com cinco cepas probióticas, GOS, FOS, colina e vitamina B6 ativa. Sua proposta parte de um olhar integrado para a nutrição e para a comunicação entre intestino e cérebro.",
-    mechanism:
-      "A microbiota participa de vias de comunicação com o sistema nervoso. Essa relação é estudada pela ciência, mas o estudo de um ingrediente isolado não comprova o resultado de uma fórmula completa. A escolha deve considerar a sua rotina e a avaliação do profissional que acompanha você.",
+    howItWorks: [
+      "O Concentra+ reúne cinco cepas probióticas estudadas no eixo intestino–cérebro, como L. plantarum PS128 e B. longum 1714, com os prebióticos GOS e FOS. A colina é a base da acetilcolina, mensageiro ligado à memória e ao aprendizado, e a vitamina B6 ativa participa da produção de neurotransmissores.",
+      "A proposta é apoiar o foco, a clareza mental e a memória sem estimulantes, cuidando da microbiota e da resposta ao estresse, que também pesam na concentração do dia a dia.",
+    ],
     ingredients: [
       ["Lactobacillus rhamnosus GG", "5 bilhões UFC"],
       ["Lactobacillus plantarum PS128", "4 bilhões UFC"],
@@ -125,8 +129,10 @@ export const products: Product[] = [
     tags: ["imunidade", "intestino", "prebiotico"],
     description:
       "Combina Lactobacillus e Bifidobacterium com os prebióticos FOS e inulina, além de beta-glucanas. Uma proposta de cuidado que considera a relação entre microbiota e sistema imune.",
-    mechanism:
-      "O intestino e o sistema imune mantêm uma relação próxima. A composição foi pensada a partir dessa conexão. Benefícios de probióticos são específicos de cepa e dose; não se deve generalizar resultados de um estudo para qualquer produto.",
+    howItWorks: [
+      "Grande parte das células de defesa do corpo está no intestino. O Immune combina quatro cepas, entre elas L. rhamnosus GG e B. lactis Bl-04, com os prebióticos FOS e inulina, que nutrem as bactérias benéficas, e com beta-glucanas, fibras estudadas pela ação sobre as células de defesa.",
+      "Com o uso diário, a proposta é apoiar a barreira intestinal e as defesas naturais do organismo, principalmente nas mudanças de estação e nos períodos de rotina mais intensa.",
+    ],
     ingredients: [
       ["Lactobacillus rhamnosus GG", "10 bilhões UFC"],
       ["Bifidobacterium lactis Bl-04", "10 bilhões UFC"],
@@ -161,8 +167,10 @@ export const products: Product[] = [
     tags: ["metabolismo", "intestino"],
     description:
       "Uma combinação de quatro cepas probióticas para integrar o cuidado com a microbiota em uma rotina de saúde metabólica. O cuidado com o peso envolve alimentação, movimento, sono e acompanhamento individual.",
-    mechanism:
-      "A relação entre microbiota e metabolismo é uma área ativa de pesquisa. Estudos com cepas específicas não significam que todo probiótico produz o mesmo efeito. A fórmula não substitui uma alimentação equilibrada e não garante perda de peso.",
+    howItWorks: [
+      "O Slim Balance reúne quatro cepas ligadas à relação entre microbiota e metabolismo. L. gasseri BNR17, B. lactis B420 e L. rhamnosus CGMCC 1.3724 foram pesquisadas em adultos, com foco em gordura corporal, circunferência abdominal e saciedade. L. delbrueckii apoia o equilíbrio da microbiota.",
+      "Não é termogênico nem estimulante: a proposta é cuidar do intestino para apoiar o metabolismo e a saciedade. A fórmula complementa alimentação equilibrada, movimento e sono, e não garante perda de peso.",
+    ],
     ingredients: [
       ["Lactobacillus gasseri BNR17", "5 bilhões UFC"],
       ["Lactobacilos delbrueckii", "5 bilhões UFC"],
@@ -194,8 +202,10 @@ export const products: Product[] = [
     tags: ["feminino", "prebiotico"],
     description:
       "Reúne cinco cepas probióticas, três prebióticos, isoflavonas de soja, cimicífuga, magnésio e vitamina B6 ativa. Uma composição que pede um olhar individual para a saúde da mulher.",
-    mechanism:
-      "A fórmula combina microrganismos, substratos e compostos bioativos. Por conter isoflavonas e cimicífuga, é importante avaliar sua adequação com o profissional de saúde, especialmente em caso de uso de medicamentos, condições hormonais ou problemas hepáticos.",
+    howItWorks: [
+      "O Cycle combina cinco cepas probióticas com GOS, FOS e inulina, que nutrem a microbiota, incluindo as bactérias ligadas ao metabolismo do estrogênio. As isoflavonas de soja e a cimicífuga são estudadas nos sintomas da menopausa, e o magnésio e a vitamina B6 ativa participam do funcionamento do sistema nervoso.",
+      "A proposta é apoiar o bem-estar feminino na TPM, na perimenopausa e na menopausa, com atenção a calorões, sono e humor. Por conter isoflavonas e cimicífuga, converse com seu profissional de saúde antes de usar, principalmente se utilizar medicamentos ou tiver alguma condição hormonal ou hepática.",
+    ],
     ingredients: [
       ["Lactobacillus reuteri", "3 bilhões UFC"],
       ["Lactobacillus gasseri", "3 bilhões UFC"],
@@ -228,8 +238,10 @@ export const products: Product[] = [
     tags: ["beleza"],
     description:
       "Uma fórmula de nutrientes com silício orgânico, MSM, cistina, zinco, biotina e vitaminas B5, E e C. Desenvolvida para fazer parte do cuidado nutricional com pele, cabelos e unhas.",
-    mechanism:
-      "Nutrientes participam de processos normais do organismo. A necessidade de suplementação e a investigação de queixas como queda de cabelo devem ser avaliadas individualmente. Este produto é um nutracêutico; não contém probióticos ou prebióticos na composição.",
+    howItWorks: [
+      "O Hair & Skin reúne nutrientes que participam da formação de cabelos, pele e unhas. O silício orgânico e a vitamina C estão ligados ao colágeno, o MSM e a cistina fornecem enxofre, base da queratina, e a biotina, o zinco e a vitamina B5 participam do crescimento dos fios. A vitamina E tem ação antioxidante.",
+      "Com o uso diário, a proposta é nutrir de dentro para fora, para apoiar fios mais fortes, unhas mais resistentes e uma pele com mais firmeza. Queda intensa de cabelo merece avaliação profissional, e é importante informar o uso de biotina antes de exames laboratoriais.",
+    ],
     ingredients: [
       ["Silício orgânico", "200 mg"],
       ["MSM", "150 mg"],

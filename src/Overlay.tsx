@@ -52,6 +52,7 @@ export function Overlay({
     >
       <div className="modal-surface">
         <header className="modal-header">
+          <div className="modal-particles" aria-hidden="true"><i/><i/><i/><i/><i/></div>
           <span>{title}</span>
           <button
             className="icon-button"
@@ -61,7 +62,7 @@ export function Overlay({
             <X size={22} />
           </button>
         </header>
-        {children}
+        <div className="modal-scroll">{children}</div>
       </div>
     </dialog>
   );

@@ -14,12 +14,12 @@ import {
   Plus,
   ChevronLeft,
   ChevronRight,
+  FileText,
   FlaskConical,
   Headphones,
   Instagram,
   Leaf,
   Menu,
-  Microscope,
   ShoppingBag,
   ShieldCheck,
   Sparkles,
@@ -507,7 +507,7 @@ function ProductDetail({
   product: Product;
   add: (p: Product, q: Quantity) => void;
 }) {
-  const [tab, setTab] = useState("sobre");
+  const [labelOpen, setLabelOpen] = useState(false);
   const [q, setQ] = useState<Quantity>(1);
   const total = price(p, q);
   return (
@@ -552,131 +552,31 @@ function ProductDetail({
           )}
         </div>
       </div>
-      <div
-        className="detail-tabs"
-        role="tablist"
-        aria-label={`Informações de ${p.name}`}
-      >
-        {[
-          { id: "sobre", label: "Como funciona" },
-          { id: "composicao", label: "Composição" },
-          { id: "uso", label: "Como usar" },
-        ].map(({ id, label }, i, all) => (
-          <button
-            key={id}
-            id={`detail-tab-${id}`}
-            role="tab"
-            aria-selected={tab === id}
-            aria-controls="detail-panel"
-            tabIndex={tab === id ? 0 : -1}
-            onClick={() => setTab(id)}
-            onKeyDown={(e) => {
-              if (["ArrowRight", "ArrowLeft"].includes(e.key)) {
-                e.preventDefault();
-                const next = all[(i + (e.key === "ArrowRight" ? 1 : 2)) % 3].id;
-                setTab(next);
-                document.getElementById(`detail-tab-${next}`)?.focus();
-              }
-            }}
-          >
-            {label}
-          </button>
+      <section className="detail-how" aria-label={`Como funciona o ${p.name}`}>
+        <h3>Como funciona</h3>
+        {p.howItWorks.map((text) => (
+          <p key={text}>{text}</p>
         ))}
-      </div>
-      <div
-        key={tab}
-        className="detail-panel"
-        id="detail-panel"
-        role="tabpanel"
-        aria-labelledby={`detail-tab-${tab}`}
-      >
-        {tab === "sobre" ? (
-          <>
-            <h3>A lógica da fórmula</h3>
-            <p>{p.mechanism}</p>
-            <div className="information-note">
-              <Microscope size={23} />
-              <p>
-                Conhecimento para escolher melhor: a presença de um ingrediente
-                não garante um resultado clínico. A resposta e a indicação são
-                individuais.
-              </p>
-            </div>
-            <a
-              className="text-link"
-              href="https://isappscience.org/resource/probiotics-prebiotics-synbiotics-postbiotics-and-fermented-foods-defined/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Entenda os conceitos científicos <ArrowUpRight size={15} />
-            </a>
-          </>
-        ) : tab === "composicao" ? (
-          <>
-            <h3>Composição declarada no rótulo</h3>
-            <p>
-              Por dose de {p.dose} {p.dose === 1 ? "cápsula" : "cápsulas"}. UFC
-              = unidades formadoras de colônia.
-            </p>
-            <table>
-              <thead>
-                <tr>
-                  <th>Ingrediente</th>
-                  <th>Quantidade</th>
-                </tr>
-              </thead>
-              <tbody>
-                {p.ingredients.map(([ingredient, amount]) => (
-                  <tr key={ingredient}>
-                    <td>{ingredient}</td>
-                    <td>{amount}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <a
-              className="text-link"
-              href={asset(`labels/${encodeURIComponent(p.label)}`)}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Abrir rótulo original em PDF <ArrowUpRight size={15} />
-            </a>
-          </>
-        ) : (
-          <>
-            <h3>Um cuidado que faz parte da rotina.</h3>
-            <div className="usage">
-              <span>{String(p.dose).padStart(2, "0")}</span>
-              <p>
-                {p.dose === 1 ? "cápsula" : "cápsulas"}, uma vez ao dia.
-                <small>
-                  Conforme o rótulo. Siga a orientação do profissional que
-                  acompanha você.
-                </small>
-              </p>
-            </div>
-            <p>Conserve ao abrigo da luz, do calor e da umidade.</p>
-            <p>
-              Gestantes, nutrizes e crianças até 16 anos somente devem consumir
-              sob orientação de nutricionista ou médico.
-            </p>
-            {p.id === "hair-skin" && (
-              <p>
-                Informe o uso de biotina antes de realizar exames laboratoriais.
-              </p>
-            )}
-            <a
-              className="text-link"
-              href={asset(`labels/${encodeURIComponent(p.label)}`)}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Consulte as orientações do rótulo <ArrowUpRight size={15} />
-            </a>
-          </>
-        )}
-      </div>
+        <button className="detail-composition" onClick={() => setLabelOpen(true)}>
+          <FileText size={17} /> Ver composição e modo de uso
+        </button>
+      </section>
+      {labelOpen && (
+        <Overlay
+          type="label"
+          title="Composição e modo de uso"
+          close={() => setLabelOpen(false)}
+        >
+          <div className="label-panel">
+            <img
+              src={asset(`labels/composicao/${p.id}.png`)}
+              alt={`Rótulo de ${p.name}. Composição: ${p.ingredients.map(([name, amount]) => `${name}, ${amount}`).join("; ")}. Ingerir ${p.dose} ${p.dose === 1 ? "cápsula" : "cápsulas"} uma vez ao dia. Conservar ao abrigo da luz, calor e umidade.`}
+              width="694"
+              height="860"
+            />
+          </div>
+        </Overlay>
+      )}
     </div>
   );
 }

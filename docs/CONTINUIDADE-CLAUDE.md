@@ -134,6 +134,12 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - Botão flutuante de WhatsApp no canto inferior direito, círculo no material científico, 64 px a 20 px do canto (56 px a 16 px no celular). Até 1400 px de largura some ao chegar na linha legal do rodapé, para não cobrir os textos.
 - Botão flutuante, ícone do cabeçalho, “Fale com a nossa equipe” e o link SAC do FAQ usam `contactUrl` (`src/catalog.ts`), com a mensagem “Olá! Estou com dúvidas com relação a DalFlore.”. Compra pelo WhatsApp (carrinho e Hair & Skin) mantém a própria mensagem.
 
+### Pop-ups
+
+- Todos usam `src/overlays.css`: material dos cards de produto, cabeçalho no verde do site, contorno interno com luz e partículas só na faixa do título. Carrinho entra pela direita, com total fixo embaixo.
+- Detalhe do produto: compra em cima e, abaixo, apenas “Como funciona” (`howItWorks` em `src/catalog.ts`) e o botão “Ver composição e modo de uso”, que abre o recorte do rótulo em `public/labels/composicao/<id>.png`. Os recortes vêm dos PDFs originais.
+- Textos escritos a partir do site antigo, mas só com ativos do rótulo: lá há itens que não estão nos rótulos atuais, como L-glutamina, gengibre e Exsynutriment.
+
 ## Arquivos importantes e ordem dos estilos
 
 - `src/App.tsx`: composição, catálogo/modal/carrinho, Expert e FAQ.
@@ -142,8 +148,8 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - `src/ScienceJourney.tsx`, `src/MicrobiotaArt.tsx`, `src/ScienceSurface.tsx`, `src/science.css`: atlas científico e animações.
 - `src/MicrobiotaWhy.tsx` + `src/microbiota-why.css`: cards sob as ilustrações.
 - `src/cards.css`: tokens e geometria compartilhada.
-- `src/header.css`, `src/catalog.css`, `src/expert.css`, `src/faq.css`, `src/footer.css`: estilos atuais por área.
-- `src/main.tsx` importa, nesta ordem: style.css → design.css → science.css → microbiota-why.css → cards.css → header.css → catalog.css → expert.css → faq.css → footer.css. Há CSS antigo sobrescrito; inspecione os valores computados e a especificidade antes de acrescentar outra regra.
+- `src/header.css`, `src/catalog.css`, `src/expert.css`, `src/faq.css`, `src/footer.css`, `src/overlays.css`: estilos atuais por área.
+- `src/main.tsx` importa, nesta ordem: style.css → design.css → science.css → microbiota-why.css → cards.css → header.css → catalog.css → expert.css → faq.css → footer.css → overlays.css. Há CSS antigo sobrescrito; inspecione os valores computados e a especificidade antes de acrescentar outra regra.
 - `public/labels/`: seis rótulos originais em PDF; fonte para composição, dose e conservação.
 - `public/brand/`: variações da marca. `public/` também tem fotos e banners.
 - `README.md`: registro cronológico das revisões (trechos antigos podem descrever ideias já rejeitadas; código atual e este resumo prevalecem).
