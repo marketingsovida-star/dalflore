@@ -233,16 +233,6 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
   return (
     <section className="df-expert" id="aline">
       <div className="df-container">
-        <div className="df-expert-heading">
-          <p className="df-kicker">Da pesquisa para o cuidado.</p>
-          <h2>
-            Um olhar humano.
-            <br /> <em>Uma base científica.</em>
-          </h2>
-          <p>
-            Conhecimento científico, escuta e cuidado humano em cada escolha.
-          </p>
-        </div>
         <div className="df-expert-layout">
           <figure className="df-founder">
             <div className="df-portrait">
@@ -260,6 +250,7 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
             </figcaption>
           </figure>
           <div className="df-expert-copy">
+            <p className="df-expert-instruction">Escolha qual história quer conhecer</p>
             <div
               className="df-tabs df-story-tabs"
               role="tablist"

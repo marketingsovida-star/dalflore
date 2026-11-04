@@ -1,22 +1,24 @@
 /* Human care, framed with the same green material as the science chapter. */
 .df-expert { padding:48px 0; background:var(--science-background); color:#f5faf2; }
-.df-expert > .df-container { grid-template-columns:minmax(280px,350px) minmax(0,1fr); column-gap:44px; align-items:start; }
+.df-expert > .df-container { grid-template-columns:minmax(280px,350px) minmax(0,1fr); column-gap:32px; align-items:stretch; padding:24px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--card-science-surface) padding-box,var(--card-science-border) border-box; box-shadow:0 12px 35px #123b2933; }
 .df-expert-heading .df-kicker { color:#cde7b9; font:500 14px/1.5 "Open Sans",Arial,sans-serif; margin:0 0 10px; }
 .df-home .df-expert-heading h2 { color:#f5faf2; font-size:clamp(28px,3vw,36px); line-height:1.2; margin:0; }
 .df-expert-heading h2 br { display:none; }
-.df-founder { position:relative; align-self:center; padding:10px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--card-science-surface) padding-box,var(--card-science-border) border-box; box-shadow:0 12px 35px #123b2933; }
-.df-founder::before { content:""; position:absolute; inset:5px; border:1px solid #d3ebc733; border-radius:18px; pointer-events:none; }
-.df-portrait { height:446px; border-radius:18px; background:#173f2a; }
+.df-founder { position:relative; grid-row:1; align-self:stretch; display:flex; flex-direction:column; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; }
+.df-founder::before { content:none; }
+.df-portrait { height:auto; min-height:450px; flex:1; border-radius:var(--card-radius); background:#173f2a; border:1px solid #d3ebc740; position:relative; }
+.df-portrait > img { position:absolute; inset:0; }
 .df-portrait > img { object-position:50% 28%; transform:none; transition:transform 1.4s cubic-bezier(.22,1,.36,1); }
 .df-founder:hover .df-portrait > img { transform:scale(1.018); }
-.df-founder figcaption { position:relative; margin:0; padding:16px 12px 10px; color:#f5faf2; }
+.df-founder figcaption { position:relative; margin:0; padding:16px 4px 0; color:#f5faf2; }
 .df-founder figcaption span { color:#d3e5d0; font-size:13px; }
-.df-expert-copy { margin-top:22px; }
+.df-expert-copy { grid-row:1; margin-top:0; }
+.df-expert-instruction { margin:0 0 12px; color:#cde7b9; text-align:center; font:500 13px/1.5 "Open Sans",Arial,sans-serif; }
 .df-expert .df-story-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
 .df-expert .df-story-tabs button { border:2px solid transparent; border-radius:var(--card-radius); background:var(--card-science-surface) padding-box,var(--card-science-border) border-box; color:#dcebd5; min-height:48px; padding:11px 12px; }
 .df-expert .df-story-tabs button[aria-selected="true"] { background:radial-gradient(ellipse at 50% 0%,#4b7945,#326d42 70%) padding-box,var(--card-science-border) border-box; border-color:#cde7b9; color:#fff; box-shadow:0 0 16px #b8db9120,inset 0 1px 0 #dcefc840; }
 .df-expert .df-story-tabs button:hover { color:#fff; box-shadow:0 0 18px #b8db9126; }
-.df-expert .df-story-panels { margin-top:14px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--card-science-surface) padding-box,var(--card-science-border) border-box; padding:23px 25px; }
+.df-expert .df-story-panels { margin-top:22px; border:0; border-radius:0; background:transparent; padding:0; }
 .df-expert .df-story-panels h3 { font:500 24px/1.35 "Open Sans",Arial,sans-serif; color:#f5faf2; margin:0 0 12px; letter-spacing:-.025em; }
 .df-expert .df-panel > p { color:#dce9d6; font:16px/1.65 Arial,sans-serif; margin:0 0 12px; }
 .df-expert .df-panel > p:last-of-type { margin-bottom:0; }
@@ -29,19 +31,19 @@
 .df-expert-copy > .button:hover::after { transform:none; }
 .df-expert :is(button,a):focus-visible { outline:2px solid #e0f0ca; outline-offset:4px; }
 @keyframes expert-light { from { opacity:.35; } to { opacity:.8; } }
-@media(max-width:1000px) and (min-width:761px){.df-expert > .df-container{grid-template-columns:280px minmax(0,1fr);column-gap:28px}.df-portrait{height:400px}.df-expert .df-story-panels{padding:20px}.df-expert .df-story-tabs button{padding:10px 7px;font-size:13px}}
+@media(max-width:1000px) and (min-width:761px){.df-expert > .df-container{grid-template-columns:minmax(230px,.8fr) minmax(0,1.2fr);column-gap:24px;padding:22px}.df-expert .df-story-tabs button{padding:10px 7px;font-size:13px}}
 @media(max-width:760px){
  .df-expert{padding:34px 0}
- .df-expert > .df-container{grid-template-columns:minmax(0,1fr);gap:22px}
+ .df-expert > .df-container{grid-template-columns:minmax(0,1fr);gap:24px;padding:16px}
  .df-expert-heading{grid-column:1;grid-row:1;text-align:center}
  .df-home .df-expert-heading h2{font-size:29px}
- .df-founder{grid-column:1;grid-row:2;width:min(350px,100%);justify-self:center}
- .df-portrait{height:330px}
+ .df-founder{grid-column:1;grid-row:1;width:100%;justify-self:center}
+ .df-portrait{height:330px;min-height:0;flex:auto}
  .df-portrait > img{transform:none;object-position:50% 24%}
- .df-founder figcaption{display:block;padding:13px 10px 8px}
- .df-expert-copy{grid-column:1;grid-row:3;margin-top:0}
+ .df-founder figcaption{display:block;padding:13px 4px 0}
+ .df-expert-copy{grid-column:1;grid-row:2;margin-top:0}
  .df-expert .df-story-tabs button{font-size:12px;padding:10px 8px;gap:6px}
- .df-expert .df-story-panels{padding:20px 18px}
+ .df-expert .df-story-panels{padding:0;margin-top:20px}
  .df-expert .df-story-panels h3{font-size:23px}
  .df-expert .df-panel > p{font-size:16px;line-height:1.6}
  .df-expert-copy > .button{width:100%;padding-inline:12px}
