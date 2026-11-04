@@ -25,3 +25,11 @@
  .faq-contact{margin-top:22px;padding:12px 16px;font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.faq-section *{transition:none!important}.faq-contact:hover{transform:none}}
+
+/* Label-derived directions remain scannable inside the same accordion surface. */
+.faq-usage { padding:0 66px 20px 23px; color:#405641; font:16px/1.6 Arial,sans-serif; }
+.faq-usage p { padding:0; margin:0 0 12px; }
+.faq-usage p:last-child { margin:12px 0 0; }
+.faq-usage ul { list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+.faq-usage strong { color:#17452f; font-weight:600; }
+@media(max-width:640px){.faq-usage{padding:0 17px 18px}.faq-usage ul{gap:10px}}

@@ -2,6 +2,7 @@ import {
   useEffect,
   useState,
   type CSSProperties,
+  type ReactNode,
 } from "react";
 import {
   ArrowDown,
@@ -396,26 +397,24 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
     </section>
   );
 }
-const faqs = [
+const faqs: [string, ReactNode][] = [
   [
-    "Como escolher minha fórmula?",
-    "Comece conhecendo a composição, a proposta e o modo de uso de cada produto. A escolha deve considerar sua alimentação, seu histórico e a orientação do profissional que acompanha você.",
-  ],
-  [
-    "Todos os produtos têm probióticos?",
-    "Não. O Hair & Skin é uma fórmula de nutrientes e não contém probióticos ou prebióticos na composição. Os demais produtos do catálogo contêm cepas probióticas; confira a composição de cada um.",
+    "Os produtos DALFLORE precisam de receita médica?",
+    "Não. Nossos produtos são suplementos alimentares e não necessitam de receita médica. No entanto, recomendamos sempre consultar um profissional de saúde antes de iniciar qualquer suplementação, especialmente gestantes, lactantes e pessoas em tratamento médico.",
   ],
   [
     "Em quanto tempo posso perceber alguma mudança?",
-    "A resposta é individual e depende do produto, do objetivo, da rotina e do contexto de saúde. Não há um prazo universal nem garantia de resultado. Converse com seu profissional para definir quando reavaliar o uso.",
-  ],
-  [
-    "Posso combinar mais de uma fórmula?",
-    "A combinação precisa ser avaliada individualmente. Fórmulas podem compartilhar nutrientes e cepas, e a soma das doses deve ser considerada por um profissional.",
+    "Os resultados variam de acordo com cada organismo e o produto utilizado. Em geral, melhorias iniciais podem ser percebidas entre 15 a 30 dias de uso contínuo. Para resultados mais consistentes e duradouros, recomendamos o uso por 3 a 6 meses.",
   ],
   [
     "Como devo consumir e guardar os produtos?",
-    "Siga o modo de uso do rótulo e a orientação profissional. Conserve ao abrigo da luz, do calor e da umidade. A composição e as instruções estão disponíveis ao clicar no produto.",
+    <div className="faq-usage">
+      <p>Conforme o modo de uso indicado nos rótulos:</p>
+      <ul>
+        {products.map(product => <li key={product.id}><strong>{product.name}</strong> — Ingerir {product.dose} {product.dose === 1 ? "cápsula" : "cápsulas"}, uma vez ao dia.</li>)}
+      </ul>
+      <p><strong>Conservação de todos os produtos:</strong> conservar ao abrigo da luz, calor e umidade.</p>
+    </div>,
   ],
   [
     "Gestantes e crianças podem utilizar?",
@@ -425,11 +424,8 @@ const faqs = [
     "Como funcionam pagamento e frete?",
     "Você pode pagar com Pix ou cartão, com parcelamento em até 12x. O valor final, as condições de pagamento e o prazo de entrega são confirmados no checkout. Frete grátis em pedidos a partir de R$ 150. O Hair & Skin tem valor e disponibilidade consultados pelo atendimento.",
   ],
-  [
-    "Como falar com a DalFlore?",
-    "Você pode conversar com o atendimento pelo WhatsApp (51) 99726-4646, o número presente nos rótulos. Use o botão de atendimento para tirar dúvidas sobre o pedido, disponibilidade ou composição.",
-  ],
 ];
+
 function FAQ() {
   const [openFaq, setOpenFaq] = useState(0);
   return (
@@ -463,7 +459,7 @@ function FAQ() {
                   className="faq-answer"
                 >
                   <div className="faq-answer-clip">
-                    <p>{a}</p>
+                    {typeof a === "string" ? <p>{a}</p> : a}
                   </div>
                 </div>
               </div>
