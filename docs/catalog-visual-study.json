@@ -31,6 +31,8 @@
     "mobile320": "Uma coluna, seis descrições com altura e scroll de 65 px, sem transbordamento.",
     "commerce": "Kit de seis GUTcare adicionado ao carrinho com subtotal R$ 623,52 e depois removido. Botão do carrinho escuro com raio 24 px. Sem mudanças nos preços ou destinos de compra.",
     "radius": "Raio calculado de 24 px nos cards científicos, de microbiota, catálogo, FAQ e imagem de detalhes.",
-    "comparison": "Somente para seis frascos: preço do kit ao lado do preço unitário × 6 riscado. GUTcare: R$ 623,52 / R$ 779,40 avulsos. Mesma comparação conferida na janela de produto; ausente na opção de três. Sem quebra da linha em 320 px."
+    "comparison": "Kits de três e seis com total de unidades avulsas riscado, calculado por preço unitário × quantidade. GUTcare de três: R$ 362,43 / R$ 389,70 avulsos, conferido no card e na janela do produto. Produtos sob consulta continuam sem comparação.",
+    "motion": "Quatro partículas por card, com flutuação independente e deslocamento suave de até 3 px seguindo o ponteiro, confirmado em navegador. Movimento reduzido respeitado.",
+    "alignment": "Textos, preço e categoria centralizados; + junto ao nome com intervalo de 8 px. Cards desktop preservam 666,25 px; celular de 320 px mantém as seis descrições em três linhas e sem transbordamento."
   }
 }

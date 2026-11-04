@@ -113,10 +113,10 @@ function QuantityPicker({
     </div>
   );
 }
-function SixUnitComparison({ product, quantity }: { product: Product; quantity: Quantity }) {
-  if (quantity !== 6 || product.basePrice === null) return null;
-  const separateTotal = product.basePrice * 6;
-  return <del className="unit-comparison" aria-label={"Preço de seis frascos avulsos: " + brl(separateTotal)} title="Total de seis frascos comprados separadamente">{brl(separateTotal)}</del>;
+function KitPriceComparison({ product, quantity }: { product: Product; quantity: Quantity }) {
+  if (quantity === 1 || product.basePrice === null) return null;
+  const separateTotal = product.basePrice * quantity;
+  return <del className="unit-comparison" aria-label={"Preço de " + quantity + " frascos avulsos: " + brl(separateTotal)} title={"Total de " + quantity + " frascos comprados separadamente"}>{brl(separateTotal)}</del>;
 }
 function ProductCard({
   product: p,
@@ -141,9 +141,20 @@ function ProductCard({
       </div>
       <button
         className="product-media"
+        onPointerMove={event => {
+          if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          const element = event.currentTarget, rect = element.getBoundingClientRect();
+          element.style.setProperty("--product-drift-x", ((event.clientX-rect.left)/rect.width-.5)*6 + "px");
+          element.style.setProperty("--product-drift-y", ((event.clientY-rect.top)/rect.height-.5)*5 + "px");
+        }}
+        onPointerLeave={event => {
+          event.currentTarget.style.setProperty("--product-drift-x", "0px");
+          event.currentTarget.style.setProperty("--product-drift-y", "0px");
+        }}
         onClick={() => open(p)}
         aria-label={`Conhecer ${p.name}`}
       >
+        <span className="product-particles" aria-hidden="true"><i/><i/><i/><i/></span>
         <img
           src={productPhoto(p)}
           alt={`Frasco DalFlore ${p.name}`}
@@ -163,7 +174,7 @@ function ProductCard({
         <div className="product-price">
           {total !== null ? (
             <>
-              <div className="product-price-line"><span>{brl(total)}</span><SixUnitComparison product={p} quantity={quantity}/></div>
+              <div className="product-price-line"><span>{brl(total)}</span><KitPriceComparison product={p} quantity={quantity}/></div>
               <span>
                 à vista ·{" "}
                 {quantity > 1
@@ -526,7 +537,7 @@ function ProductDetail({
           <h3>{p.emphasis}</h3>
           <p>{p.description}</p>
           <div className="detail-price">
-            <div className="detail-price-line"><span>{total === null ? "Valor sob consulta" : brl(total)}</span>{total !== null && <SixUnitComparison product={p} quantity={q}/>}</div>
+            <div className="detail-price-line"><span>{total === null ? "Valor sob consulta" : brl(total)}</span>{total !== null && <KitPriceComparison product={p} quantity={q}/>}</div>
             <small>
               {total === null
                 ? "Fale com o atendimento"
