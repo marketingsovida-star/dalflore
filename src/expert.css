@@ -49,3 +49,30 @@
  .df-expert-copy > .button{width:100%;padding-inline:12px}
 }
 @media(prefers-reduced-motion:reduce){.df-expert *,.df-expert *::after{animation:none!important;transition:none!important}.df-founder:hover .df-portrait > img{transform:none}.df-expert-copy > .button:hover{transform:none}}
+
+/* Light and depth stay on the frame and photograph; the reading surface stays quiet. */
+.df-expert > .df-container { position:relative; isolation:isolate; box-shadow:0 14px 40px #103b2940,0 0 35px #b6d59d0a; }
+.df-expert > .df-container::before { content:""; position:absolute; inset:6px; border:1px solid #d3ebc72b; border-radius:18px; pointer-events:none; animation:expert-frame-light 9s ease-in-out infinite alternate; }
+.df-expert > .df-container::after { content:""; position:absolute; inset:0; z-index:-1; border-radius:22px; pointer-events:none; background:radial-gradient(ellipse 45% 65% at var(--expert-light-x,15%) var(--expert-light-y,15%),#c5e3a915,transparent 80%),radial-gradient(ellipse 50% 65% at 100% 100%,#9bbf7c12,transparent 80%); }
+.df-founder { border-radius:var(--card-radius); overflow:hidden; box-shadow:0 10px 24px #0a2d2633; }
+.df-portrait { border:2px solid #d1e5bd80; border-radius:var(--card-radius); overflow:hidden; }
+.df-portrait::after { content:""; position:absolute; inset:6px; border:1px solid #f0f8de40; border-radius:16px; pointer-events:none; z-index:2; }
+.df-portrait-signature { position:absolute; z-index:3; top:18px; left:18px; display:flex; align-items:center; gap:9px; padding:9px 13px; border:1px solid #d4e8c34d; border-radius:var(--card-radius); background:#173f2ac7; backdrop-filter:blur(12px); color:#f5faf2; font:500 12px/1.4 "Open Sans",Arial,sans-serif; box-shadow:inset 0 1px 0 #eff8df1f; }
+.df-portrait-signature img { display:block; width:30px; height:26px; }
+.df-founder figcaption { position:absolute; z-index:2; bottom:2px; left:2px; right:2px; padding:65px 24px 25px; border-radius:0 0 22px 22px; background:linear-gradient(transparent,#173f2ad9 45%,#173f2a 100%); }
+.df-founder figcaption strong { font-size:20px; }
+.df-founder figcaption span { color:#e0ecd6; max-width:260px; }
+.df-portrait-sparks { position:absolute; inset:0; z-index:2; pointer-events:none; }
+.df-portrait-sparks i { position:absolute; width:5px; height:5px; border-radius:50%; background:#dbefbc; box-shadow:0 0 9px #d0ebac80; left:15px; bottom:130px; opacity:.55; animation:expert-spark 8s ease-in-out infinite alternate; }
+.df-portrait-sparks i:nth-child(2) { left:auto; right:15px; bottom:175px; width:4px; height:4px; animation-delay:-4s; animation-duration:11s; }
+.df-expert .df-story-tabs { padding:5px; border:1px solid #accf9b40; border-radius:var(--card-radius); background:#123c293b; gap:6px; }
+.df-expert .df-story-tabs button { min-height:46px; border-radius:var(--card-radius); }
+.df-expert .df-story-tabs button[aria-selected="true"] { box-shadow:0 0 16px #b8db912b,inset 0 1px 0 #f0f8df55; }
+.df-expert .df-signoff { position:relative; padding:15px 0 0 18px; border-top-color:#accf9b38; }
+.df-expert .df-signoff::before { content:""; position:absolute; left:0; top:21px; width:6px; height:6px; border-radius:50%; background:#cde7b9; box-shadow:0 0 10px #cde7b955; }
+@keyframes expert-frame-light { from { border-color:#d3ebc722; } to { border-color:#d3ebc74d; } }
+@keyframes expert-spark { from { transform:translateY(0); opacity:.35; } to { transform:translateY(-18px); opacity:.75; } }
+@media(max-width:760px){.df-founder figcaption{padding:60px 17px 20px}.df-founder figcaption strong{font-size:18px}.df-founder figcaption span{font-size:12px}.df-portrait-signature{top:14px;left:14px;padding:7px 10px;font-size:11px;gap:7px}.df-portrait-signature img{width:25px;height:23px}.df-expert .df-story-tabs{padding:4px;gap:5px}.df-expert .df-story-tabs button{padding:10px 5px}}
+@media(prefers-reduced-motion:reduce){.df-expert > .df-container::before,.df-portrait-sparks i{animation:none!important}}
+
+@media(max-width:760px){.df-portrait-signature > span{display:none}.df-portrait-signature{padding:8px;border-radius:50%;top:14px;left:14px}}

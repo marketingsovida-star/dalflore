@@ -232,7 +232,18 @@ function ProductShelf({ open, add }: {
 function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void }) {
   return (
     <section className="df-expert" id="aline">
-      <div className="df-container">
+      <div className="df-container"
+        onPointerMove={event => {
+          if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          const rect = event.currentTarget.getBoundingClientRect();
+          event.currentTarget.style.setProperty("--expert-light-x", ((event.clientX-rect.left)/rect.width*100) + "%");
+          event.currentTarget.style.setProperty("--expert-light-y", ((event.clientY-rect.top)/rect.height*100) + "%");
+        }}
+        onPointerLeave={event => {
+          event.currentTarget.style.removeProperty("--expert-light-x");
+          event.currentTarget.style.removeProperty("--expert-light-y");
+        }}
+      >
         <div className="df-expert-layout">
           <figure className="df-founder">
             <div className="df-portrait">
@@ -243,6 +254,8 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
                 height="1241"
                 loading="lazy"
               />
+              <span className="df-portrait-signature" aria-hidden="true"><img src={asset("brand/symbol-white.svg")} alt="" width="30" height="26"/><span>Ciência no cuidado.</span></span>
+              <span className="df-portrait-sparks" aria-hidden="true"><i/><i/></span>
             </div>
             <figcaption>
               <strong>Dra. Aline Dalmazo</strong>
