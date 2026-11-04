@@ -50,6 +50,7 @@ export function Overlay({
         if (e.target === e.currentTarget) requestClose();
       }}
     >
+      <div className="overlay-particles" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/></div>
       <div className="modal-surface">
         <header className="modal-header">
           <div className="modal-particles" aria-hidden="true"><i/><i/><i/><i/><i/></div>
