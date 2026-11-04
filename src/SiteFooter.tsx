@@ -17,7 +17,6 @@ export function SiteFooter({
           <a href={home} aria-label="DalFlore, início">
             <img src={logo} alt="" width="1171" height="1093" loading="lazy" />
           </a>
-          <p>Ciência para florescer de dentro para fora.</p>
         </div>
         <div className="site-footer-bottom">
           <p>

@@ -123,9 +123,9 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 
 ### Rodapé
 
-- Modelo da Duet nas cores DalFlore: fundo verde escuro do cabeçalho (`--deep-surface`), logo branca com o nome DalFlore (`brand/logo-white.png`, a mesma do banner) centralizada e, abaixo dela, uma frase de uma linha: “Ciência para florescer de dentro para fora.”
+- Modelo da Duet nas cores DalFlore: fundo verde escuro do cabeçalho (`--deep-surface`), logo branca com o nome DalFlore (`brand/logo-white.png`, a mesma do banner) centralizada, sem frase abaixo dela (retirada a pedido)
 - Base com fio fino: à esquerda “© 2026 DalFlore. Todos os direitos reservados.”; ao centro “Desenvolvido por Thiago Rocha · Produzido por Sóvida” (mesmos links do Instagram da Duet); à direita Privacidade (abre o modal), Política de reembolso e Termos de uso.
-- Luz suave que pulsa atrás da logo e no topo, e oito partículas no material da seção da Aline, sempre ao lado da logo, sem passar pela frase ou pela base.
+- Luz suave que pulsa atrás da logo e no topo, e oito partículas no material da seção da Aline, sempre ao lado da logo, sem passar pela base.
 - Sem colunas de navegação, contatos ou aviso educativo: retirados a pedido.
 
 ### Contato
