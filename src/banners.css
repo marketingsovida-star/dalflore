@@ -139,3 +139,19 @@
 @keyframes df-banner-float{from{transform:translate(-3px,-4px)}to{transform:translate(4px,5px)}}
 @media(max-height:650px){.df-banner-particles{display:none}}
 @media(prefers-reduced-motion:reduce){.df-banner-particle-zone i{animation:none}.df-banner-cta::after{transition:none}}
+
+/* Gentle depth belongs to decoration; text and photography stay fixed. */
+.df-strip-particles { position:absolute; inset:0; overflow:hidden; pointer-events:none; transform:translateX(var(--atmosphere-x,0px)); transition:transform .9s cubic-bezier(.22,1,.36,1); }
+.df-strip-particles i { position:absolute; width:6px; height:6px; left:12%; top:3px; border:1px solid #cde8b744; border-radius:50%; background:radial-gradient(circle,#ddf3c39c,#a3d38b26 68%,transparent); box-shadow:0 0 7px #a5d48a22; animation:df-strip-float 11s ease-in-out infinite alternate; }
+.df-strip-particles i:nth-child(2) { left:38%;top:auto;bottom:3px;width:5px;height:5px;animation-delay:-4s;animation-duration:14s; }
+.df-strip-particles i:nth-child(3) { left:65%;animation-delay:-7s;animation-duration:13s; }
+.df-strip-particles i:nth-child(4) { left:89%;top:auto;bottom:3px;width:5px;height:5px;animation-delay:-2s;animation-duration:16s; }
+.df-banner-benefits::before { content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 280px 65px at 56% 50%,#cce7b512,transparent 80%); animation:df-soft-light 18s ease-in-out infinite alternate; }
+@media(min-width:768px){
+ .df-banner-particles{transform:translate(var(--atmosphere-x,0px),var(--atmosphere-y,0px));transition:transform 1s cubic-bezier(.22,1,.36,1)}
+ .df-banner-particle-zone::before{content:"";position:absolute;inset:-15px;pointer-events:none;background:radial-gradient(ellipse at 40% 50%,#afdb8e12,transparent 72%);animation:df-soft-light 20s ease-in-out infinite alternate}
+ .df-banner-particle-bottom::before{animation-delay:-10s}
+}
+@keyframes df-strip-float{from{transform:translate(-7px,-1px);opacity:.45}to{transform:translate(9px,1px);opacity:.8}}
+@keyframes df-soft-light{from{transform:translateX(-8px);opacity:.35}to{transform:translateX(10px);opacity:.7}}
+@media(prefers-reduced-motion:reduce){.df-strip-particles i,.df-banner-benefits::before,.df-banner-particle-zone::before{animation:none}.df-strip-particles,.df-banner-particles{transform:none;transition:none}}

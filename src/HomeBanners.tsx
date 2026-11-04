@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { BadgeCheck, ChevronLeft, ChevronRight, CreditCard, Headphones, Leaf, Pause, Play, ShieldCheck, Truck } from "lucide-react";
 import { asset, products, type Product } from "./catalog";
 import "./banners.css";
@@ -40,6 +40,17 @@ const benefits = [
   { icon: BadgeCheck, text: "7 dias de garantia" },
 ];
 
+function moveAtmosphere(event: PointerEvent<HTMLElement>) {
+  if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const element = event.currentTarget, rect = element.getBoundingClientRect();
+  element.style.setProperty("--atmosphere-x", ((event.clientX-rect.left)/rect.width-.5)*6 + "px");
+  element.style.setProperty("--atmosphere-y", ((event.clientY-rect.top)/rect.height-.5)*6 + "px");
+}
+function resetAtmosphere(event: PointerEvent<HTMLElement>) {
+  event.currentTarget.style.setProperty("--atmosphere-x", "0px");
+  event.currentTarget.style.setProperty("--atmosphere-y", "0px");
+}
+
 function BenefitsStrip() {
   const strip = useRef<HTMLDivElement>(null);
   const cycle = useRef<HTMLDivElement>(null);
@@ -62,7 +73,8 @@ function BenefitsStrip() {
     return () => observer.disconnect();
   }, []);
 
-  return <div ref={strip} className="df-banner-benefits" aria-label="Benefícios da compra">
+  return <div ref={strip} className="df-banner-benefits" aria-label="Benefícios da compra" onPointerMove={moveAtmosphere} onPointerLeave={resetAtmosphere}>
+    <div className="df-strip-particles" aria-hidden="true"><i/><i/><i/><i/></div>
     <div className="df-benefits-track" style={{ "--benefits-duration": `${layout.cycleWidth ? layout.cycleWidth * layout.copies / 37 : 36}s`, "--benefits-viewport": layout.viewportWidth ? `${layout.viewportWidth}px` : undefined } as CSSProperties}>
       {[0, 1].map(copy => <div className="df-benefits-group" key={copy} aria-hidden={copy === 1}>
         {Array.from({ length: layout.copies }, (_, index) => <div className="df-benefits-cycle" key={index} ref={copy === 0 && index === 0 ? cycle : undefined} aria-hidden={copy === 1 || index > 0}>
@@ -132,7 +144,7 @@ export function HomeBanners({ open, onVisibilityChange, onExpert }: {
     <button type="button" aria-label="Próximo banner" onClick={() => move(1)}><ChevronRight size={18} /></button>
     <button type="button" aria-label={paused ? "Reproduzir banners" : "Pausar banners"} aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? <Play size={16} /> : <Pause size={16} />}</button>
   </>;
-  return <section ref={root} className="df-banners" aria-label="Destaques DalFlore" aria-roledescription="carrossel"
+  return <section ref={root} className="df-banners" aria-label="Destaques DalFlore" aria-roledescription="carrossel" onPointerMove={moveAtmosphere} onPointerLeave={resetAtmosphere}
     onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}
     onFocusCapture={() => setInteracting(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false); }}
     onKeyDown={event => { if (event.key === "ArrowRight" || event.key === "ArrowLeft") { event.preventDefault(); move(event.key === "ArrowRight" ? 1 : -1); } }}>
