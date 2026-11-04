@@ -1,4 +1,5 @@
 export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+export const sacUrl = asset("sac/");
 export const support = "https://wa.me/5551997264646";
 export const whatsapp = (message: string) =>
   `${support}?text=${encodeURIComponent(message)}`;

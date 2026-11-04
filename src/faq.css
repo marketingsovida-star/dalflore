@@ -11,6 +11,8 @@
 .faq-item[data-open="true"] .faq-toggle { rotate:45deg; background:#205b36; border-color:#205b36; color:#f5faf2; }
 .faq-answer { transition:grid-template-rows .6s cubic-bezier(.22,1,.36,1),opacity .6s cubic-bezier(.22,1,.36,1); }
 .faq-answer p { margin:0; padding:0 66px 20px 23px; color:#405641; font:16px/1.6 Arial,sans-serif; }
+.faq-answer a { color:#17452f; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+.faq-answer a:hover { color:#205b36; }
 .faq-question:focus-visible { outline:2px solid #205b36; outline-offset:-5px; border-radius:22px; }
 .faq-contact { width:fit-content; max-width:100%; display:flex; align-items:center; justify-content:center; gap:9px; margin:26px auto 0; padding:12px 20px; min-height:48px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--card-science-surface) padding-box,var(--card-science-border) border-box; color:#f5faf2; font:500 14px/1.5 "Open Sans",Arial,sans-serif; text-align:center; text-decoration:none; box-shadow:inset 0 1px 0 #cde7b926; transition:box-shadow .5s,transform .5s; }
 .faq-contact > svg { flex-shrink:0; }

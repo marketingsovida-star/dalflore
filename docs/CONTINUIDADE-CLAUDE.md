@@ -114,7 +114,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 
 - Visual da Duet adaptado a verdes claros e bordas de 24 px/2 px. Coluna de até 832 px, botão de pergunta com 60 px mínimos, “+” circular que gira para “×”, transição de 600 ms.
 - Primeira resposta aberta inicialmente; uma resposta aberta por vez. Clique novamente fecha. Manter estados ARIA e `inert` coerentes.
-- São CINCO perguntas. Removidas: contato com a marca, combinar fórmulas e todos terem probióticos.
+- São SEIS perguntas; a última, “Posso devolver o produto se não gostar?”, tem links sublinhados para o SAC e para a Política de reembolso. Ainda removidas: Removidas: contato com a marca, combinar fórmulas e todos terem probióticos.
 - Pergunta inicial: “Os produtos DALFLORE precisam de receita médica?” Resposta exata fornecida pelo usuário: “Não. Nossos produtos são suplementos alimentares e não necessitam de receita médica. No entanto, recomendamos sempre consultar um profissional de saúde antes de iniciar qualquer suplementação, especialmente gestantes, lactantes e pessoas em tratamento médico.”
 - “Em quanto tempo posso perceber alguma mudança?” recebeu o texto do usuário: “Os resultados variam de acordo com cada organismo e o produto utilizado. Em geral, melhorias iniciais podem ser percebidas entre 15 a 30 dias de uso contínuo. Para resultados mais consistentes e duradouros, recomendamos o uso por 3 a 6 meses.” Esse texto veio do usuário; não confundir esses prazos com instruções comprovadas pelos PDFs.
 - “Como devo consumir e guardar os produtos?” lista os seis produtos. Dose verificada por leitura textual E visual dos seis rótulos: GUTcare, Immune e Slim Balance — ingerir 1 cápsula uma vez ao dia; Concentra+, Cycle e Hair & Skin — ingerir 2 cápsulas uma vez ao dia. A conservação de todos é igual: ao abrigo da luz, calor e umidade, reunida no final da lista para não repetir seis vezes.
@@ -127,6 +127,14 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - Base com fio fino: à esquerda “© 2026 DalFlore. Todos os direitos reservados.”; ao centro “Desenvolvido por Thiago Rocha · Produzido por Sóvida” (mesmos links do Instagram da Duet); à direita Privacidade (abre o modal), Política de reembolso e Termos de uso.
 - Luz suave que pulsa atrás da logo e no topo, e oito partículas no material da seção da Aline, sempre ao lado da logo, sem passar pela frase ou pela base.
 - Sem colunas de navegação, contatos ou aviso educativo: retirados a pedido.
+
+### SAC (/sac)
+
+- Página própria: `sac/index.html` + `src/sac-main.tsx` + `src/SacPage.tsx` + `src/sac.css`. Estrutura copiada da Duet, no fundo da ciência com um único card científico.
+- O site não tem backend: enviar o formulário abre o WhatsApp de `support` (`src/catalog.ts`) com os dados na mensagem, e a pessoa confirma o envio. Anexos não vão pelo link; a página orienta enviá-los na conversa.
+- Botões de contato (ícone do cabeçalho e “Fale com a nossa equipe”) usam `sacUrl`. Compra pelo WhatsApp (carrinho e Hair & Skin) continua direta.
+- Rodapé e texto de privacidade são compartilhados em `src/SiteFooter.tsx`. O carrinho do SAC abre a home em `#carrinho`.
+- Build em duas passagens (`vite build` e `vite build --mode sac`) de propósito: um build único de duas páginas muda a ordem do CSS da home.
 
 ## Arquivos importantes e ordem dos estilos
 

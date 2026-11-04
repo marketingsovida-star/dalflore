@@ -35,6 +35,7 @@ import {
   checkoutUrl,
   price,
   products,
+  sacUrl,
   whatsapp,
   type Product,
   type Quantity,
@@ -44,6 +45,7 @@ import { Overlay } from "./Overlay";
 import { MicrobiotaWhy } from "./MicrobiotaWhy";
 import { ScienceJourney } from "./ScienceJourney";
 import { HomeBanners } from "./HomeBanners";
+import { PrivacyPanel, SiteFooter } from "./SiteFooter";
 import { useSmoothMotion } from "./useSmoothMotion";
 
 type CartItem = { id: string; quantity: Quantity; count: number };
@@ -52,6 +54,7 @@ type ModalState =
   | { kind: "cart" | "privacy" }
   | null;
 const getProductHash = (): ModalState => {
+  if (window.location.hash === "#carrinho") return { kind: "cart" };
   const id = window.location.hash.replace("#produto/", "");
   return window.location.hash.startsWith("#produto/") &&
     products.some((p) => p.id === id)
@@ -424,6 +427,22 @@ const faqs: [string, ReactNode][] = [
     "Como funcionam pagamento e frete?",
     "Você pode pagar com Pix ou cartão, com parcelamento em até 12x. O valor final, as condições de pagamento e o prazo de entrega são confirmados no checkout. Frete grátis em pedidos a partir de R$ 150. O Hair & Skin tem valor e disponibilidade consultados pelo atendimento.",
   ],
+  [
+    "Posso devolver o produto se não gostar?",
+    <p>
+      Sim. Você tem até 7 dias após o recebimento para solicitar a devolução e
+      reembolso abrindo um chamado no <a href={sacUrl}>SAC</a>, no caso de
+      dúvidas consulte nossa{" "}
+      <a
+        href="https://dalflore.com.br/politica-de-reembolso"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Política de reembolso
+      </a>
+      .
+    </p>,
+  ],
 ];
 
 function FAQ() {
@@ -468,9 +487,7 @@ function FAQ() {
         </div>
 <a
           className="faq-contact"
-          href={whatsapp("Olá! Estou no site da DalFlore e tenho uma dúvida.")}
-          target="_blank"
-          rel="noreferrer"
+          href={sacUrl}
         >
           <Headphones size={17} />
           Ainda tem dúvidas? Fale com a nossa equipe
@@ -838,7 +855,10 @@ export default function App() {
   }, []);
   const close = () => {
     setModal(null);
-    if (window.location.hash.startsWith("#produto/"))
+    if (
+      window.location.hash.startsWith("#produto/") ||
+      window.location.hash === "#carrinho"
+    )
       window.history.replaceState(
         null,
         "",
@@ -904,11 +924,7 @@ export default function App() {
             <a
               className="icon-button support-icon"
               aria-label="Falar com o atendimento"
-              href={whatsapp(
-                "Olá! Estou no site da DalFlore e tenho uma dúvida.",
-              )}
-              target="_blank"
-              rel="noreferrer"
+              href={sacUrl}
             >
               <Headphones size={24} />
             </a>
@@ -963,71 +979,11 @@ export default function App() {
         <FAQ />
 
       </main>
-      <footer className="site-footer">
-        <span className="site-footer-atmosphere" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/><i/></span>
-        <div className="wrap site-footer-inner">
-          <div className="site-footer-brand">
-            <a href="#" aria-label="DalFlore, início">
-              <img
-                src={asset("brand/logo-white.png")}
-                alt=""
-                width="1171"
-                height="1093"
-                loading="lazy"
-              />
-            </a>
-            <p>Ciência para florescer de dentro para fora.</p>
-          </div>
-          <div className="site-footer-bottom">
-            <p>
-              © {new Date().getFullYear()} DalFlore. Todos os direitos
-              reservados.
-            </p>
-            <p className="site-footer-credits">
-              <span>
-                Desenvolvido por{" "}
-                <a
-                  href="https://www.instagram.com/thiagorocha.oficial"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Thiago Rocha
-                </a>
-              </span>{" "}
-              ·{" "}
-              <span>
-                Produzido por{" "}
-                <a
-                  href="https://www.instagram.com/sovida.life/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Sóvida
-                </a>
-              </span>
-            </p>
-            <nav aria-label="Políticas da loja">
-              <button onClick={() => setModal({ kind: "privacy" })}>
-                Privacidade
-              </button>
-              <a
-                href="https://dalflore.com.br/politica-de-reembolso"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Política de reembolso
-              </a>
-              <a
-                href="https://dalflore.com.br/politica-de-privacidade#termos-de-uso"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Termos de uso
-              </a>
-            </nav>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter
+        home="#"
+        logo={asset("brand/logo-white.png")}
+        onPrivacy={() => setModal({ kind: "privacy" })}
+      />
       {modal && (
         <Overlay
           key={modal.kind === "product" ? modal.id : modal.kind}
@@ -1049,33 +1005,7 @@ export default function App() {
           ) : modal.kind === "cart" ? (
             <Cart items={cart} setItems={setCart} close={close} />
           ) : (
-            <div className="privacy-panel">
-              <h2>Suas escolhas, com transparência.</h2>
-              <p>
-                Este site guarda os itens do carrinho somente no navegador, para
-                que suas escolhas permaneçam ao voltar. Você pode limpar esses
-                dados nas configurações do seu navegador.
-              </p>
-              <p>
-                Este site não utiliza formulários de cadastro ou ferramentas de
-                publicidade. Ao abrir WhatsApp, Instagram, checkout ou links
-                científicos, você acessa serviços externos, sujeitos às próprias
-                políticas de privacidade.
-              </p>
-              <p>
-                O pedido só é enviado ao atendimento quando você abre o WhatsApp
-                e confirma o envio da mensagem. Os pagamentos são realizados no
-                ambiente do provedor de checkout.
-              </p>
-              <a
-                className="text-link"
-                href="https://dalflore.com.br/politica-de-privacidade"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Consulte a política da loja atual <ArrowUpRight size={15} />
-              </a>
-            </div>
+            <PrivacyPanel />
           )}
         </Overlay>
       )}
