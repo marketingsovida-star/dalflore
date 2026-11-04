@@ -163,3 +163,8 @@
  .df-banner-actions,.df-banner-controls,.df-banner-dots{justify-content:center}
  .df-benefits-group span{min-width:0;width:auto;padding-inline:14px}
 }
+
+/* Longer messages grow past the even columns instead of running into the next one. */
+@media(min-width:768px){
+ .df-benefits-group span{width:auto;min-width:max(240px,calc(var(--benefits-viewport,100vw) / var(--benefits-visible)))}
+}

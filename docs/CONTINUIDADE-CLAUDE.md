@@ -56,12 +56,12 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - Textos à esquerda, títulos padronizados em duas linhas, descrição em até três linhas explicando composição e função do produto.
 - Botões escuros com material/bordas científicos. Controle compacto: setas, três pontos com ativo alongado, pausa. Sem números grandes ou muitas molduras.
 - Logo branca no banner. Partículas e luz ficam em áreas livres, sem cobrir os textos ou mudar as fotos.
-- Faixa infinita sem lacunas. Benefícios: ingredientes selecionados, até 12x, frete grátis a partir de R$150, compra segura, atendimento pelo WhatsApp, 7 dias de garantia. Aproximadamente cinco mensagens visíveis no desktop; movimento foi levemente acelerado a pedido.
+- Faixa infinita sem lacunas. Benefícios: ingredientes selecionados, até 12x, frete grátis na compra de 3 ou mais unidades, compra segura, atendimento pelo WhatsApp, 7 dias de garantia. Aproximadamente cinco mensagens visíveis no desktop; movimento foi levemente acelerado a pedido.
 - Cabeçalho oculto enquanto banner ou ciência estão visíveis. Não mudar essa lógica sem pedido.
 
 ### Cabeçalho
 
-- Faixa superior: FRETE GRÁTIS NA COMPRA DE 3 OU 6 UNIDADES.
+- Faixa superior: FRETE GRÁTIS NA COMPRA DE 3 OU MAIS UNIDADES.
 - Marca central com apenas o símbolo branco, sem a palavra DalFlore. Arquivo `public/brand/symbol-white.svg` derivado da marca original.
 - Esquerda: PRODUTOS, CIÊNCIA, DÚVIDAS; direita: carrinho e atendimento. Menu no celular.
 - Altura compacta, sem diminuir os alvos de clique. Efeito de luz verde discreto, sem aumentar o cabeçalho.

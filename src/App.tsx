@@ -850,7 +850,7 @@ export default function App() {
         Ir para o conteúdo
       </a>
       <header className={`site-header df-floating-header${headerVisible ? " is-visible" : ""}`} inert={!headerVisible} aria-hidden={!headerVisible}>
-        <div className="header-shipping">FRETE GRÁTIS NA COMPRA DE 3 OU 6 UNIDADES</div>
+        <div className="header-shipping">FRETE GRÁTIS NA COMPRA DE 3 OU MAIS UNIDADES</div>
         <div className="header-inner wrap">
           <a href="#" className="brand" aria-label="DalFlore, início">
             <img

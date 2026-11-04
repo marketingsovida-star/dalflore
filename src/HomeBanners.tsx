@@ -34,7 +34,7 @@ const banners: { name: string; image: string; title: string; description: string
 const benefits = [
   { icon: Leaf, text: "Ingredientes selecionados" },
   { icon: CreditCard, text: "Até 12x no cartão" },
-  { icon: Truck, text: "Frete grátis a partir de R$ 150" },
+  { icon: Truck, text: "Frete grátis na compra de 3 ou mais unidades" },
   { icon: ShieldCheck, text: "Compra segura" },
   { icon: Headphones, text: "Atendimento pelo WhatsApp" },
   { icon: BadgeCheck, text: "7 dias de garantia" },
