@@ -563,15 +563,15 @@ function ProductDetail({
         <button className="detail-composition" onClick={() => setLabelOpen(true)}>
           <FileText size={20} /> Ver composição e modo de uso
         </button>
+        <button className="detail-research" onClick={() => setStudiesOpen(true)}>
+          <BookOpen size={24} aria-hidden="true" />
+          <span>
+            <strong>Embasamento Científico</strong>
+            <small>Veja os estudos sobre os ativos desta fórmula</small>
+          </span>
+          <ChevronRight size={22} aria-hidden="true" />
+        </button>
       </section>
-      <button className="detail-research" onClick={() => setStudiesOpen(true)}>
-        <BookOpen size={24} aria-hidden="true" />
-        <span>
-          <strong>Embasamento Científico</strong>
-          <small>Veja os estudos sobre os ativos desta fórmula</small>
-        </span>
-        <ChevronRight size={22} aria-hidden="true" />
-      </button>
       {studiesOpen && (
         <Overlay
           type="research"
