@@ -130,7 +130,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 
 ### SAC (/sac)
 
-- Página própria: `sac/index.html` + `src/sac-main.tsx` + `src/SacPage.tsx` + `src/sac.css`. Estrutura copiada da Duet, no fundo da ciência com um único card científico.
+- Página própria: `sac/index.html` + `src/sac-main.tsx` + `src/SacPage.tsx` + `src/sac.css`. Estrutura copiada da Duet, no fundo claro do catálogo com um único card no material dos cards de produto, compacto, sem partículas na seção.
 - O site não tem backend: enviar o formulário abre o WhatsApp de `support` (`src/catalog.ts`) com os dados na mensagem, e a pessoa confirma o envio. Anexos não vão pelo link; a página orienta enviá-los na conversa.
 - Botões de contato (ícone do cabeçalho e “Fale com a nossa equipe”) usam `sacUrl`. Compra pelo WhatsApp (carrinho e Hair & Skin) continua direta.
 - Rodapé e texto de privacidade são compartilhados em `src/SiteFooter.tsx`. O carrinho do SAC abre a home em `#carrinho`.

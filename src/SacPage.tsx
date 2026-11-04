@@ -122,7 +122,7 @@ function SacForm() {
       <Field label="Descrição" required>
         <textarea
           name="descricao"
-          rows={6}
+          rows={4}
           maxLength={1500}
           required
           placeholder="Conte o que aconteceu com o máximo de detalhes."
@@ -265,7 +265,6 @@ export function SacPage() {
         )}
       </header>
       <main id="conteudo" className="sac-page">
-        <span className="df-expert-atmosphere" aria-hidden="true"><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/></span>
         <div className="sac-inner">
           <header className="sac-hero">
             <p>Atendimento ao cliente</p>
