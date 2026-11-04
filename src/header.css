@@ -26,3 +26,10 @@
 .site-header .header-shipping { min-height:26px; display:flex; justify-content:center; align-items:center; text-align:center; padding:4px 16px; background:#386c48; color:#fff; font:600 11px/1.5 "Open Sans",Arial,sans-serif; letter-spacing:.16em; }
 @media(max-width:760px) and (min-width:641px){.site-header .desktop-nav{gap:16px;font-size:13px}}
 @media(max-width:640px){.site-header .header-shipping{font-size:9px;letter-spacing:.09em;min-height:25px;padding-inline:12px}}
+
+/* Phone layout: cart on the left, menu on the right, symbol in the centre. */
+@media(max-width:640px){
+ .site-header .header-actions{display:contents}
+ .site-header .header-actions > .cart-icon{grid-column:1;grid-row:1;justify-self:start}
+ .site-header .header-actions > .mobile-trigger{grid-column:3;grid-row:1;justify-self:end}
+}

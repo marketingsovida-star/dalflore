@@ -91,3 +91,11 @@
 @media(prefers-reduced-motion:reduce){.sx-illustration-scene{transform:scale(1.2)!important}.sx-art .sx-illustration-scene > svg,.sx-art .sx-organ-drawing{transform:none!important}}
 
 @media(prefers-reduced-motion:reduce){.sj-cell-hover.is-highlighted{transform:none}}
+
+/* Phone layout: both illustrations side by side above the six topics. */
+@media(max-width:760px){
+ .sx-maps{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%;max-width:350px;margin-inline:auto}
+ .sx-maps > .sx-map:last-child{grid-column:2;grid-row:1}
+ .sx-topics{grid-column:1 / -1;grid-row:2;max-width:none}
+ .sx-art{--art-height:144px;max-width:none}
+}

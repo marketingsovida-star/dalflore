@@ -141,6 +141,10 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - Os links de pesquisa do site antigo não são confiáveis: vários PMIDs levam a artigos sem relação. Os de `studies` foram conferidos no PubMed e tratam de ativos do rótulo. Conferir qualquer novo estudo antes de incluir.
 - Textos escritos a partir do site antigo, mas só com ativos do rótulo: lá há itens que não estão nos rótulos atuais, como L-glutamina, gengibre e Exsynutriment.
 
+### Celular
+
+- Faixa com textos próximos (largura natural), elementos do banner centralizados, as duas ilustrações da ciência lado a lado acima dos seis temas e a sacola do cabeçalho à esquerda, com o menu à direita. Regras só em `max-width` no fim de `banners.css`, `science.css` e `header.css`.
+
 ## Arquivos importantes e ordem dos estilos
 
 - `src/App.tsx`: composição, catálogo/modal/carrinho, Expert e FAQ.
