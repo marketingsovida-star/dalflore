@@ -131,7 +131,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 ### Contato
 
 - Sem página de SAC. O usuário pediu para retirá-la; o código pronto está no commit `3c629ba`, caso volte.
-- Botão flutuante de WhatsApp no canto inferior direito, círculo no material científico, acima da linha legal do rodapé. No celular some ao chegar nessa linha, para não cobrir os textos.
+- Botão flutuante de WhatsApp no canto inferior direito, círculo no material científico, 64 px a 20 px do canto (56 px a 16 px no celular). Até 1400 px de largura some ao chegar na linha legal do rodapé, para não cobrir os textos.
 - Botão flutuante, ícone do cabeçalho, “Fale com a nossa equipe” e o link SAC do FAQ usam `contactUrl` (`src/catalog.ts`), com a mensagem “Olá! Estou com dúvidas com relação a DalFlore.”. Compra pelo WhatsApp (carrinho e Hair & Skin) mantém a própria mensagem.
 
 ## Arquivos importantes e ordem dos estilos
