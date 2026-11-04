@@ -139,7 +139,7 @@ export function HomeBanners({ open, onVisibilityChange, onExpert }: {
   const controls = <>
     <button type="button" aria-label="Banner anterior" onClick={() => move(-1)}><ChevronLeft size={18} /></button>
     <div className="df-banner-dots" role="group" aria-label="Escolher banner">
-      {banners.map((banner, index) => <button type="button" key={banner.title} aria-label={`Mostrar banner ${index + 1}: ${banner.name}`} title={banner.name} aria-pressed={index === active} onClick={() => setActive(index)}><span aria-hidden="true">{"0" + (index + 1)}</span></button>)}
+      {banners.map((banner, index) => <button type="button" key={banner.title} aria-label={`Mostrar banner ${index + 1}: ${banner.name}`} title={banner.name} aria-pressed={index === active} onClick={() => setActive(index)}><span aria-hidden="true"/></button>)}
     </div>
     <button type="button" aria-label="Próximo banner" onClick={() => move(1)}><ChevronRight size={18} /></button>
     <button type="button" aria-label={paused ? "Reproduzir banners" : "Pausar banners"} aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? <Play size={16} /> : <Pause size={16} />}</button>
