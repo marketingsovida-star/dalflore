@@ -1,10 +1,11 @@
 import { Fragment, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { BadgeCheck, ChevronLeft, ChevronRight, CreditCard, Headphones, Leaf, Pause, Play, ShieldCheck, Truck } from "lucide-react";
+import { ArrowRight, BadgeCheck, ChevronLeft, ChevronRight, CreditCard, FlaskConical, Headphones, Leaf, Pause, Play, ShieldCheck, Truck } from "lucide-react";
 import { asset, products, type Product } from "./catalog";
 import "./banners.css";
 
 const banners = [
   {
+    name: "GUTcare",
     image: "banners/banner-1.webp",
     title: "Cuidar começa\npor dentro.",
     description: "GUTcare combina 4 cepas probióticas e o prebiótico FOS para cuidar da microbiota e apoiar a saúde intestinal.",
@@ -12,6 +13,7 @@ const banners = [
     actions: [{ id: "gutcare", label: "Conhecer GUTcare" }],
   },
   {
+    name: "Slim Balance",
     image: "banners/slim-balance-banner.webp",
     title: "Seu ritmo.\nSeu equilíbrio.",
     description: "Slim Balance: 4 cepas probióticas, com L. gasseri BNR17, para complementar o controle do peso.",
@@ -19,6 +21,7 @@ const banners = [
     actions: [{ id: "slim-balance", label: "Conhecer Slim Balance" }],
   },
   {
+    name: "Hair & Skin e Immune",
     image: "banners/banner-2.webp",
     title: "Sua beleza.\nSeu cuidado.",
     description: "Hair & Skin: biotina e zinco para pele e cabelos. Immune: probióticos e beta-glucanas para suas defesas.",
@@ -91,10 +94,11 @@ export function HomeBanners({ open, onVisibilityChange }: {
   const controls = <>
     <button type="button" aria-label="Banner anterior" onClick={() => move(-1)}><ChevronLeft size={18} /></button>
     <div className="df-banner-dots" role="group" aria-label="Escolher banner">
-      {banners.map((banner, index) => <button type="button" key={banner.title} aria-label={`Mostrar banner ${index + 1}`} aria-pressed={index === active} onClick={() => setActive(index)}><span /></button>)}
+      {banners.map((banner, index) => <button type="button" key={banner.title} aria-label={`Mostrar banner ${index + 1}: ${banner.name}`} title={banner.name} aria-pressed={index === active} onClick={() => setActive(index)}><span aria-hidden="true">{"0" + (index + 1)}</span></button>)}
     </div>
     <button type="button" aria-label="Próximo banner" onClick={() => move(1)}><ChevronRight size={18} /></button>
     <button type="button" aria-label={paused ? "Reproduzir banners" : "Pausar banners"} aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? <Play size={16} /> : <Pause size={16} />}</button>
+    <a className="df-banner-science" href="#ciencia" aria-label="Explore a ciência do seu cuidado" title="Explore a ciência do seu cuidado"><FlaskConical size={16} aria-hidden="true"/><span className="df-science-wide">Explore a ciência</span><span className="df-science-short">Ciência</span></a>
   </>;
   return <section ref={root} className="df-banners" aria-label="Destaques DalFlore" aria-roledescription="carrossel"
     onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}
@@ -113,12 +117,12 @@ export function HomeBanners({ open, onVisibilityChange }: {
     </div>
     <div className="df-banner-copy">
       <div className="df-banner-copy-inner">
-        <img className="df-banner-logo" src={asset("brand/logo-white.png")} alt="DalFlore" width={160} height={67} />
+        <div className="df-banner-brand"><img className="df-banner-logo" src={asset("brand/logo-white.png")} alt="DalFlore" width={160} height={67} /><span className="df-banner-signature"><FlaskConical size={19} aria-hidden="true"/><span>Ciência para<br/>florescer.</span></span></div>
         <div className="df-banner-messages" aria-live={paused || interacting ? "polite" : "off"} aria-atomic="true">
           {banners.map((banner, index) => <div key={banner.title} className={`df-banner-message${active === index ? " is-active" : ""}`} aria-hidden={active !== index} inert={active !== index}>
             {index === 0 ? <h1>{banner.title}</h1> : <h2>{banner.title}</h2>}
             <p>{banner.description}</p>
-            <div className={`df-banner-actions${banner.actions.length > 1 ? " df-banner-actions-pair" : ""}`}>{banner.actions.map(action => <button type="button" className="df-banner-cta" key={action.id} onClick={() => open(products.find(product => product.id === action.id)!)}>{action.label}</button>)}</div>
+            <div className={`df-banner-actions${banner.actions.length > 1 ? " df-banner-actions-pair" : ""}`}>{banner.actions.map(action => <button type="button" className="df-banner-cta" key={action.id} onClick={() => open(products.find(product => product.id === action.id)!)}><span>{action.label}</span><ArrowRight size={16} aria-hidden="true"/></button>)}</div>
           </div>)}
         </div>
         <div className="df-banner-controls df-banner-controls-desktop">{controls}</div>
