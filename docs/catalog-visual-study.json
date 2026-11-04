@@ -1,12 +1,13 @@
 {
-  "direction": "Uma superfície verde escura contínua para cada fórmula, no material visual das ilustrações, sem dividir o fundo do mockup.",
+  "direction": "Superfície verde mais clara e luminosa, com compra e quantidade em verde escuro no mesmo acabamento dos banners científicos.",
   "palette": {
     "section": "#ffffff",
-    "deep": "#173f2a",
-    "surface": "#1b4f30",
-    "light": "#245936",
+    "deep": "#285d39",
+    "surface": "#30683f",
+    "light": "#3c784c",
     "accent": "#cde7b9",
-    "text": "#f5faf2"
+    "text": "#f5faf2",
+    "buttons": "#1b4f30"
   },
   "type": {
     "headings": "Open Sans",
@@ -25,10 +26,11 @@
     "Sem novos filtros, categorias ou navegação horizontal."
   ],
   "verification": {
-    "desktop1100": "Três colunas, seis cards de 684,25 px, raio de 24 px, descrições em três linhas.",
+    "desktop1100": "Três colunas, seis cards de 666,25 px, raio de 24 px nos cards e botões; margem antes da divisória reduzida para 4 px.",
     "tablet768": "Duas colunas e ausência de transbordamento.",
     "mobile320": "Uma coluna, seis descrições com altura e scroll de 65 px, sem transbordamento.",
-    "commerce": "GUTcare com três frascos: R$ 362,43, R$ 120,81 por frasco, frete grátis; item adicionado ao carrinho e removido depois da conferência. Modal do Immune abre normalmente.",
-    "radius": "Raio calculado de 24 px nos cards científicos, de microbiota, catálogo, FAQ e imagem de detalhes."
+    "commerce": "Kit de seis GUTcare adicionado ao carrinho com subtotal R$ 623,52 e depois removido. Botão do carrinho escuro com raio 24 px. Sem mudanças nos preços ou destinos de compra.",
+    "radius": "Raio calculado de 24 px nos cards científicos, de microbiota, catálogo, FAQ e imagem de detalhes.",
+    "comparison": "Somente para seis frascos: preço do kit ao lado do preço unitário × 6 riscado. GUTcare: R$ 623,52 / R$ 779,40 avulsos. Mesma comparação conferida na janela de produto; ausente na opção de três. Sem quebra da linha em 320 px."
   }
 }

@@ -108,11 +108,15 @@ function QuantityPicker({
           onClick={() => onChange(q)}
         >
           {q} {q === 1 ? "frasco" : "frascos"}
-          {q === 6 && name !== "Hair & Skin" && <span>melhor valor</span>}
         </button>
       ))}
     </div>
   );
+}
+function SixUnitComparison({ product, quantity }: { product: Product; quantity: Quantity }) {
+  if (quantity !== 6 || product.basePrice === null) return null;
+  const separateTotal = product.basePrice * 6;
+  return <del className="unit-comparison" aria-label={"Preço de seis frascos avulsos: " + brl(separateTotal)} title="Total de seis frascos comprados separadamente">{brl(separateTotal)}</del>;
 }
 function ProductCard({
   product: p,
@@ -159,7 +163,7 @@ function ProductCard({
         <div className="product-price">
           {total !== null ? (
             <>
-              <div>{brl(total)}</div>
+              <div className="product-price-line"><span>{brl(total)}</span><SixUnitComparison product={p} quantity={quantity}/></div>
               <span>
                 à vista ·{" "}
                 {quantity > 1
@@ -522,7 +526,7 @@ function ProductDetail({
           <h3>{p.emphasis}</h3>
           <p>{p.description}</p>
           <div className="detail-price">
-            {total === null ? "Valor sob consulta" : brl(total)}
+            <div className="detail-price-line"><span>{total === null ? "Valor sob consulta" : brl(total)}</span>{total !== null && <SixUnitComparison product={p} quantity={q}/>}</div>
             <small>
               {total === null
                 ? "Fale com o atendimento"
