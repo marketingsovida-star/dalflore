@@ -266,12 +266,8 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
               aria-label="Sobre a DalFlore e a fundadora"
             >
               {[
-                {
-                  id: "marca",
-                  label: "A história da marca",
-                  icon: BookOpen,
-                },
                 { id: "aline", label: "Aline Dalmazo", icon: UserRound },
+                { id: "marca", label: "A história da marca", icon: BookOpen },
               ].map(({ id, label, icon: Icon }) => (
                 <button
                   key={id}
@@ -309,12 +305,9 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
                 <p>
                   A DalFlore nasceu para transformar a forma como cuidamos da
                   saúde. Unimos inovação científica, ingredientes puros e uma
-                  visão humana do bem-estar.
+                  visão humana do bem-estar. Nosso propósito é ajudar você a florescer de dentro para fora, com informação clara sobre o que cada fórmula reúne e qual é a sua proposta.
                 </p>
-                <details className="df-read-more" key={tab}>
-                  <summary>
-                    Leia a história da DalFlore <Plus size={16} />
-                  </summary>
+
                   <p>
                     A inspiração vem da microbiota, o nosso “jardim interno”.
                     Assim como um jardim, ela precisa de cuidado, nutrição e
@@ -323,7 +316,7 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
                   <p>
                     Foi dessa visão que Aline Dalmazo criou uma marca de
                     probióticos, prebióticos e nutracêuticos: um encontro entre
-                    conhecimento, natureza e cuidado com pessoas reais.
+                    conhecimento, natureza e cuidado com pessoas reais. Cada fórmula tem uma composição e um propósito próprios, para que o cuidado faça sentido dentro de uma rotina e com orientação individualizada.
                   </p>
                   <p>
                     <strong>
@@ -331,9 +324,9 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
                       Simplicidade que funciona.
                     </strong>
                   </p>
-                </details>
+
                 <div className="df-signoff">
-                  Porque quando sua flora floresce,
+                  Porque quando sua flora floresce,{" "}
                   <br />
                   <em>você floresce.</em>
                 </div>
@@ -355,10 +348,7 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
                   , dedicada ao estudo da microbiota intestinal e da nutrição de
                   precisão.
                 </p>
-                <details className="df-read-more" key={tab}>
-                  <summary>
-                    Conheça a trajetória da Aline <Plus size={16} />
-                  </summary>
+
                   <p>
                     Sua trajetória reúne pesquisa, prática clínica e
                     acompanhamento de pacientes. A ciência orienta a forma como
@@ -367,16 +357,16 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
                   <p>
                     Para Aline, aproximar a ciência da vida cotidiana significa
                     oferecer informação com clareza, considerar a
-                    individualidade e ouvir a história de cada pessoa.
+                    individualidade e ouvir a história de cada pessoa. É esse olhar que ajuda a transformar conceitos sobre intestino, alimentação e bem-estar em conversas compreensíveis, conectadas à rotina de quem busca cuidado.
                   </p>
                   <p>
                     Foi da união entre essa trajetória acadêmica e a experiência
                     clínica que nasceu a DalFlore, com o propósito de levar esse
                     olhar para além do consultório.
                   </p>
-                </details>
+
                 <div className="df-signoff">
-                  Ciência na escolha.
+                  Ciência na escolha.{" "}
                   <br />
                   <em>Cuidado em cada conversa.</em>
                 </div>
@@ -831,7 +821,7 @@ export default function App() {
   const [modal, setModal] = useState<ModalState>(getProductHash);
   const [mobile, setMobile] = useState(false);
   const [bannerCleared, setBannerCleared] = useState(false);
-  const [expertTab, setExpertTab] = useState("marca");
+  const [expertTab, setExpertTab] = useState("aline");
   const [scienceVisible, setScienceVisible] = useState(false);
   const headerVisible = bannerCleared && !scienceVisible;
   useEffect(() => {

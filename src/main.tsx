@@ -8,6 +8,7 @@ import "./microbiota-why.css";
 import "./cards.css";
 import "./header.css";
 import "./catalog.css";
+import "./expert.css";
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
