@@ -17,16 +17,16 @@
 .overlay-particles i:nth-child(9){top:60%;width:4px;height:4px;animation:overlay-edge-travel 5.2s linear -2s infinite}
 .overlay-particles i:nth-child(10){left:auto;right:8px;top:50%;width:4px;height:4px;animation:overlay-edge-travel 4.8s linear -4s infinite}
 .modal-scroll { flex:1; min-height:0; overflow-y:auto; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:#accf9b80 transparent; }
-.modal-header { position:relative; flex:none; overflow:hidden; padding:12px 22px; background:radial-gradient(ellipse 240px 90px at 50% 80%,#b7df9524,transparent 78%),radial-gradient(ellipse 380px 130px at 85% 0%,#78bc8f14,transparent 80%),var(--deep-surface); backdrop-filter:none; border-bottom:1px solid #cde7b933; box-shadow:inset 0 -1px 0 #cde7b912; }
+.modal-header { position:relative; flex:none; overflow:hidden; padding:10px 22px 4px; background:none; backdrop-filter:none; border-bottom:0; box-shadow:none; }
 .modal-header > span { position:relative; color:#f5faf2; font:600 15px/1.4 "Open Sans",Arial,sans-serif; }
 .modal-header > .icon-button { position:relative; flex-shrink:0; width:40px; height:40px; color:#fff; background:#ffffff08; border:2px solid #accf9b80; border-radius:var(--card-radius); transition:background .35s,border-color .35s,box-shadow .35s; }
 .modal-header > .icon-button:hover { background:#ffffff18; border-color:#dfefcc; box-shadow:0 0 12px #bee49f18; }
 .modal-particles { position:absolute; inset:0; pointer-events:none; }
-.modal-particles i { position:absolute; left:58%; top:18px; width:6px; height:6px; border:1px solid #d8edbc80; border-radius:50%; background:radial-gradient(circle at 35% 30%,#ecffd8,#b7d590 55%,#91b66c90); box-shadow:0 0 5px #d8edbc70,0 0 15px #bfdf9140; animation:expert-margin-float 7s ease-in-out infinite alternate; }
-.modal-particles i:nth-child(2){left:66%;top:38px;width:4px;height:4px;animation-duration:9s;animation-delay:-3s}
-.modal-particles i:nth-child(3){left:72%;top:16px;width:5px;height:5px;animation-duration:11s;animation-delay:-5s}
-.modal-particles i:nth-child(4){left:79%;top:40px;width:6px;height:6px;animation-duration:8s;animation-delay:-2s}
-.modal-particles i:nth-child(5){left:85%;top:20px;width:4px;height:4px;animation-duration:10s;animation-delay:-6s}
+.modal-particles i { position:absolute; left:58%; top:14px; width:6px; height:6px; border:1px solid #d8edbc80; border-radius:50%; background:radial-gradient(circle at 35% 30%,#ecffd8,#b7d590 55%,#91b66c90); box-shadow:0 0 5px #d8edbc70,0 0 15px #bfdf9140; animation:expert-margin-float 7s ease-in-out infinite alternate; }
+.modal-particles i:nth-child(2){left:66%;top:32px;width:4px;height:4px;animation-duration:9s;animation-delay:-3s}
+.modal-particles i:nth-child(3){left:72%;top:12px;width:5px;height:5px;animation-duration:11s;animation-delay:-5s}
+.modal-particles i:nth-child(4){left:79%;top:34px;width:6px;height:6px;animation-duration:8s;animation-delay:-2s}
+.modal-particles i:nth-child(5){left:85%;top:16px;width:4px;height:4px;animation-duration:10s;animation-delay:-6s}
 .overlay :is(button,a):focus-visible { outline:2px solid #e4f1d8; outline-offset:3px; }
 .overlay .text-link { color:#dce9d6; }
 .overlay .text-link:hover { color:#fff; }
@@ -38,10 +38,11 @@
 :is(.detail-intro > .button,.cart-bottom > .button,.empty-state > .button):hover { color:#fff; background:radial-gradient(ellipse 90% 140% at 50% -35%,#67965d,#326d42 58%,#245936) padding-box,var(--card-science-border) border-box; box-shadow:inset 0 1px 0 #e0f2c977,0 0 19px #c2df9b40; }
 
 /* Product details */
-.detail-content { padding:18px 26px 22px; }
-.detail-content { display:grid; gap:12px; }
-.detail-top { gap:20px; padding:8px 24px 8px 12px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--overlay-card) padding-box,var(--card-science-border) border-box; box-shadow:inset 0 1px 0 #cde7b926; }
-.detail-image { isolation:isolate; height:390px; background:none; }
+.overlay-product { max-height:94svh; }
+.detail-content { padding:6px 26px 18px; }
+.detail-content { display:grid; gap:10px; }
+.detail-top { gap:20px; padding:6px 24px 6px 12px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--overlay-card) padding-box,var(--card-science-border) border-box; box-shadow:inset 0 1px 0 #cde7b926; }
+.detail-image { isolation:isolate; height:372px; background:none; }
 .detail-image::before { content:""; position:absolute; inset:4px 10px; z-index:-1; background:radial-gradient(ellipse 54% 70% at 50% 48%,#b8db912e,transparent 78%); opacity:.7; animation:product-halo-breathe 8s ease-in-out infinite alternate; }
 .detail-image::after { content:""; position:absolute; z-index:-1; left:50%; bottom:12px; width:180px; height:13px; transform:translateX(-50%); border-radius:50%; background:#071d1270; filter:blur(8px); }
 .detail-image img { mix-blend-mode:normal; }
@@ -53,13 +54,21 @@
 .detail-intro > p:not(.eyebrow) { color:#e5f0df; font:16px/1.6 Arial,sans-serif; }
 .detail-price,.detail-price-line { color:#f5faf2; }
 .detail-price small { color:#d8e8d3; }
-.detail-how { padding:18px 24px 20px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--overlay-card) padding-box,var(--card-science-border) border-box; box-shadow:inset 0 1px 0 #cde7b926; }
-.detail-how h3 { margin:0 0 8px; color:#f5faf2; font:600 20px/1.3 "Open Sans",Arial,sans-serif; }
-.detail-how p { margin:0 0 8px; color:#e5f0df; font:16px/1.65 Arial,sans-serif; }
-.detail-composition { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:54px; margin-top:8px; padding:10px 20px; border:2px solid #dfefcc; border-radius:var(--card-radius); background:#cde7b9; color:#17452f; font:600 16px/1.4 "Open Sans",Arial,sans-serif; cursor:pointer; box-shadow:0 0 16px #cde7b940; transition:background .5s,box-shadow .5s,transform .5s; }
+.detail-intro h2 { margin:0; font-size:30px; }
+.detail-intro h3 { margin:2px 0 6px; }
+.detail-intro > p:not(.eyebrow) { margin:0 0 8px; line-height:1.5; }
+.detail-price { margin:0; }
+.detail-intro .quantities { margin:8px 0; }
+.detail-meta { margin-bottom:4px; }
+.detail-how { padding:14px 24px 16px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--overlay-card) padding-box,var(--card-science-border) border-box; box-shadow:inset 0 1px 0 #cde7b926; }
+.detail-how h3 { margin:0 0 4px; color:#f5faf2; font:600 20px/1.3 "Open Sans",Arial,sans-serif; }
+.detail-how p { margin:0 0 6px; color:#e5f0df; font:16px/1.55 Arial,sans-serif; }
+.detail-composition { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:50px; margin-top:6px; padding:8px 20px; border:2px solid #dfefcc; border-radius:var(--card-radius); background:#cde7b9; color:#17452f; font:600 16px/1.4 "Open Sans",Arial,sans-serif; cursor:pointer; box-shadow:0 0 16px #cde7b940; transition:background .5s,box-shadow .5s,transform .5s; }
 .detail-composition:hover { background:#e0f0ca; box-shadow:0 0 24px #cde7b966; transform:translateY(-2px); }
-.detail-research { display:flex; align-items:center; gap:14px; width:100%; padding:13px 22px; border:2px solid transparent; border-radius:var(--card-radius); background:var(--overlay-card) padding-box,var(--card-science-border) border-box; color:#f5faf2; text-align:left; cursor:pointer; box-shadow:inset 0 1px 0 #cde7b926; transition:box-shadow .5s; }
-.detail-research:hover { box-shadow:inset 0 1px 0 #cde7b926,0 0 18px #c2df9b33; }
+.detail-research { position:relative; isolation:isolate; overflow:hidden; display:flex; align-items:center; gap:14px; width:100%; padding:12px 22px; border:2px solid #dfefcc; border-radius:var(--card-radius); background:radial-gradient(ellipse 90% 140% at 50% -35%,#6fa266,#2f6a41 58%,#1f5233); color:#f5faf2; text-align:left; cursor:pointer; box-shadow:inset 0 1px 0 #e0f2c966,0 0 16px #cde7b94d; animation:research-glow 3.5s ease-in-out infinite alternate; }
+.detail-research::before { content:""; position:absolute; inset:3px; border:1px solid #d3ebc759; border-radius:calc(var(--card-radius) - 5px); pointer-events:none; }
+.detail-research::after { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(ellipse 70% 120% at 50% -15%,#e0f2bd66,transparent 78%); pointer-events:none; animation:footer-light 3.5s ease-in-out infinite alternate; }
+.detail-research:hover { background:radial-gradient(ellipse 90% 140% at 50% -35%,#7fb375,#37784b 58%,#245936); }
 .detail-research > svg:first-child { flex-shrink:0; color:#cde7b9; }
 .detail-research > svg:last-child { flex-shrink:0; color:#cde7b9; transition:transform .5s; }
 .detail-research:hover > svg:last-child { transform:translateX(3px); }
@@ -130,6 +139,7 @@
 .overlay-privacy .privacy-panel h2 { color:#f5faf2; font:600 27px/1.25 "Open Sans",Arial,sans-serif; letter-spacing:-.03em; }
 .overlay-privacy .privacy-panel > p { color:#e5f0df; font:16px/1.65 Arial,sans-serif; }
 
+@keyframes research-glow{from{box-shadow:inset 0 1px 0 #e0f2c966,0 0 10px #cde7b933}to{box-shadow:inset 0 1px 0 #e0f2c999,0 0 26px #cde7b980}}
 @keyframes overlay-edge-travel{0%{transform:translateY(0);opacity:0}15%,85%{opacity:.9}100%{transform:translateY(-170px);opacity:0}}
 @keyframes overlay-cart-in{from{transform:translateX(100%)}to{transform:none}}
 @keyframes overlay-cart-out{to{transform:translateX(100%)}}
@@ -141,8 +151,8 @@
  .overlay-label,.overlay-research{max-width:100%;width:100%}
 }
 @media(max-width:640px){
- .modal-header{padding:10px 16px}
- .detail-content{padding:18px 16px 22px}
+ .modal-header{padding:8px 16px 2px}
+ .detail-content{padding:6px 16px 18px}
  .detail-top{padding:8px 14px 16px}
  .detail-image{height:300px}
  .detail-image::after{bottom:8px;width:136px}
@@ -158,4 +168,4 @@
  .sx-explanation{padding:20px 18px}
 }
 @media(max-width:480px){.modal-particles{display:none}}
-@media(prefers-reduced-motion:reduce){.overlay::after,.modal-particles i,.overlay-particles i,.detail-image::before{animation:none!important}.overlay-cart[open],.overlay-cart[open].is-closing{animation:none}.cart-controls > button,.detail-composition,.detail-research > svg{transition:none}.detail-composition:hover,.detail-research:hover > svg:last-child{transform:none}}
+@media(prefers-reduced-motion:reduce){.overlay::after,.modal-particles i,.overlay-particles i,.detail-image::before,.detail-research,.detail-research::after{animation:none!important}.overlay-cart[open],.overlay-cart[open].is-closing{animation:none}.cart-controls > button,.detail-composition,.detail-research > svg{transition:none}.detail-composition:hover,.detail-research:hover > svg:last-child{transform:none}}
