@@ -425,7 +425,7 @@ const faqs: [string, ReactNode][] = [
   ],
   [
     "Como funcionam pagamento e frete?",
-    "Você pode pagar com Pix ou cartão, com parcelamento em até 12x. O valor final, as condições de pagamento e o prazo de entrega são confirmados no checkout. Frete grátis em pedidos a partir de R$ 150. O Hair & Skin tem valor e disponibilidade consultados pelo atendimento.",
+    "Você pode pagar com Pix ou cartão, com parcelamento em até 12x. Com frete grátis na compra de 3 unidades ou mais. Enviamos para todo o Brasil. O prazo é calculado pelo seu CEP e aparece no checkout antes de você finalizar o pedido. Ainda não fazemos entrega internacional.",
   ],
   [
     "Posso devolver o produto se não gostar?",
