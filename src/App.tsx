@@ -241,6 +241,7 @@ function Expert({ tab, setTab }: { tab: string; setTab: (value: string) => void 
     };
     const observer = new ResizeObserver(syncSpacing);
     observer.observe(science);
+    for (const child of science.children) observer.observe(child);
     observer.observe(panels);
     window.addEventListener("resize", syncSpacing);
     syncSpacing();
