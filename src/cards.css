@@ -1,6 +1,8 @@
 /* Shared surfaces: generous round corners and one green outline across the site. */
 :root {
   --card-radius:24px;
+  --card-science-surface:radial-gradient(ellipse at 50% 42%,#245936,#1b4f30 62%,#173f2a);
+  --card-science-border:linear-gradient(135deg,#c4e2b6a0,#accf9b66 38%,#426e4caa 65%,#ddf2ce91);
   --card-border-width:2px;
   --card-border-color:#accf9b80;
   --card-border-hover:#7d9b70;
@@ -40,3 +42,6 @@
   .overlay-cart{border-radius:0}
 }
 @media(max-width:359px){.mw-panel{padding-inline:15px}}
+
+/* Image cards in product details and cart share the same outer geometry. */
+.detail-image,.cart-item > img { border-radius:var(--card-radius); }

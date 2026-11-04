@@ -1,0 +1,39 @@
+/* The shop uses the same dark scientific material, with a clear light purchase action. */
+.df-catalog { padding-block:44px 48px; }
+.df-catalog .shop-heading { justify-content:center; text-align:center; }
+.df-catalog .shop-heading h2 { font-size:clamp(29px,3vw,38px); letter-spacing:-.035em; }
+.df-home .df-catalog .catalog-intro { margin:12px auto 28px; text-align:center; color:#485f4d; }
+.df-catalog .product-grid { gap:22px; }
+.df-catalog .product-card { position:relative; isolation:isolate; border:var(--card-border-width) solid transparent; border-radius:var(--card-radius); color:#f5faf2; background:var(--card-science-surface) padding-box,var(--card-science-border) border-box; box-shadow:0 8px 24px #123b2910; }
+.df-catalog .product-card::before { content:""; position:absolute; inset:5px; border:1px solid #d3ebc71f; border-radius:calc(var(--card-radius) - 6px); pointer-events:none; transition:border-color .55s; }
+.df-catalog .product-card:hover { border-color:transparent; box-shadow:0 10px 26px #123b2920; }
+.df-catalog .product-card:hover::before { border-color:#d3ebc740; }
+.df-catalog .product-card-top { padding:18px 20px 0; }
+.df-catalog .category { color:#d7e9c6; font-weight:500; }
+.df-catalog .category > svg { flex-shrink:0; width:30px; height:30px; padding:6px; border:1px solid #accf9b59; border-radius:50%; background:#cde7b90b; }
+.df-catalog .product-format { color:#c8dac4; font-size:11px; padding:4px 8px; border:1px solid #accf9b40; border-radius:var(--card-radius); background:#123b291f; flex-shrink:0; }
+.df-catalog .product-media::before { content:""; position:absolute; inset:4px 10px; z-index:-1; pointer-events:none; background:radial-gradient(ellipse 50% 68% at 50% 48%,#a4cc7c20,transparent 78%); opacity:.65; transition:opacity .6s; }
+.df-catalog .product-card:hover .product-media::before { opacity:1; }
+.df-catalog .product-media::after { background:#071d1270; width:132px; height:13px; }
+.df-catalog .product-media > img { height:310px; }
+.df-catalog .product-media:is(:hover,:focus-visible) > img { transform:translateY(-4px) scale(1.025); }
+.df-catalog .product-body { padding:0 20px 20px; }
+.df-catalog .product-body h3 button { color:#f5faf2; }
+.df-catalog .product-body h3 button > svg { width:23px; height:23px; padding:3px; color:#cde7b9; border:1px solid #accf9b59; border-radius:50%; transition:background .5s,color .5s,transform .5s; }
+.df-catalog .product-body h3 button:is(:hover,:focus-visible) > svg { background:#cde7b9;color:#17452f;transform:scale(1.06); }
+.df-catalog .product-summary { color:#d3e5d0; max-width:none; }
+.df-catalog .product-price { margin-top:10px; padding-top:12px; min-height:84px; border-top:1px solid #accf9b38; }
+.df-catalog .product-price > div { color:#f5faf2; }
+.df-catalog .product-price > span { color:#d3e5d0; }
+.df-catalog .product-price small { color:#c1d6bc; font-size:12px; line-height:1.5; }
+.df-catalog .quantities { border:1px solid #accf9b70; border-radius:var(--card-radius); background:#123b2959; padding:4px; gap:3px; margin:10px 0; }
+.df-catalog .quantities button { border-radius:calc(var(--card-radius) - 6px); min-height:40px; color:#e1edd7; transition:background .45s,color .45s; }
+.df-catalog .quantities button:hover { background:#cde7b91a; }
+.df-catalog .quantities button[aria-pressed="true"] { background:#cde7b9; color:#173f2a; box-shadow:inset 0 1px 0 #f4f9ee55; }
+.df-catalog .buy { min-height:48px; border:1px solid #e1efce; border-radius:var(--card-radius); background:#cde7b9; color:#173f2a; box-shadow:inset 0 1px 0 #f4f9ee66,0 0 16px #c2df9b10; transition:background .5s,box-shadow .5s,transform .5s; }
+.df-catalog .buy::after { transform:none; background:radial-gradient(ellipse 85% 100% at 50% -20%,#ffffff70,transparent 72%); opacity:.4; transition:opacity .5s; pointer-events:none; }
+.df-catalog .buy:hover { background:#deedce;box-shadow:0 0 20px #c2df9b26; }
+.df-catalog .buy:hover::after { transform:none;opacity:.75; }
+.df-catalog :is(button,a):focus-visible { outline:2px solid #d8edc5;outline-offset:3px; }
+@media(max-width:640px){.df-catalog{padding-block:32px}.df-catalog .shop-heading h2{font-size:29px}.df-catalog .product-grid{gap:20px}}
+@media(prefers-reduced-motion:reduce){.df-catalog *,.df-catalog *::before,.df-catalog *::after{transition:none!important}.df-catalog .product-media:is(:hover,:focus-visible) > img,.df-catalog .buy:hover{transform:none}}

@@ -1,0 +1,34 @@
+{
+  "direction": "Uma superfície verde escura contínua para cada fórmula, no material visual das ilustrações, sem dividir o fundo do mockup.",
+  "palette": {
+    "section": "#ffffff",
+    "deep": "#173f2a",
+    "surface": "#1b4f30",
+    "light": "#245936",
+    "accent": "#cde7b9",
+    "text": "#f5faf2"
+  },
+  "type": {
+    "headings": "Open Sans",
+    "reading": "Arial"
+  },
+  "layout": "Seis produtos sempre disponíveis: três colunas no desktop, duas no tablet e uma no celular.",
+  "geometry": {
+    "outerRadius": 24,
+    "outline": 2,
+    "innerRadius": 18
+  },
+  "principles": [
+    "Frascos brancos grandes e inteiros sobre fundo escuro.",
+    "Bordas graduais e luz suaves, iguais às molduras científicas.",
+    "Preço e ação de compra com hierarquia clara.",
+    "Sem novos filtros, categorias ou navegação horizontal."
+  ],
+  "verification": {
+    "desktop1100": "Três colunas, seis cards de 684,25 px, raio de 24 px, descrições em três linhas.",
+    "tablet768": "Duas colunas e ausência de transbordamento.",
+    "mobile320": "Uma coluna, seis descrições com altura e scroll de 65 px, sem transbordamento.",
+    "commerce": "GUTcare com três frascos: R$ 362,43, R$ 120,81 por frasco, frete grátis; item adicionado ao carrinho e removido depois da conferência. Modal do Immune abre normalmente.",
+    "radius": "Raio calculado de 24 px nos cards científicos, de microbiota, catálogo, FAQ e imagem de detalhes."
+  }
+}
