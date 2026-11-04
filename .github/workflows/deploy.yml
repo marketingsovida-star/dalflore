@@ -32,5 +32,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Cancelar publicação travada
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/deployments/4b7614e54155124459459c597e49e66266b4486f/cancel"
       - id: deployment
         uses: actions/deploy-pages@v4
