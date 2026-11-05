@@ -227,7 +227,7 @@ function ProductShelf({ open, add }: {
   add: (p: Product, q: Quantity) => void;
 }) {
   return <>
-    <p className="catalog-intro">Compare as seis fórmulas. Clique no frasco para conhecer os ativos e o modo de uso.</p>
+    <p className="catalog-intro">Conheça melhor a função, ativos e modo de uso de cada produto clicando no frasco</p>
     <div className="product-grid" role="region" aria-label="Todas as fórmulas DalFlore">
       {products.map(product => <ProductCard key={product.id} product={product} open={open} add={add} />)}
     </div>
