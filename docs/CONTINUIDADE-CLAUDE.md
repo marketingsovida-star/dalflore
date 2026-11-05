@@ -118,7 +118,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 
 - Visual da Duet adaptado a verdes claros e bordas de 24 px/2 px. Coluna de até 832 px, botão de pergunta com 60 px mínimos, “+” circular que gira para “×”, transição de 600 ms.
 - Primeira resposta aberta inicialmente; uma resposta aberta por vez. Clique novamente fecha. Manter estados ARIA e `inert` coerentes.
-- São SEIS perguntas; a última, “Posso devolver o produto se não gostar?”, tem links sublinhados para o SAC e para a Política de reembolso. Ainda removidas: Removidas: contato com a marca, combinar fórmulas e todos terem probióticos.
+- São SEIS perguntas; a última, “Posso devolver o produto se não gostar?”, tem links sublinhados: a mensagem de reembolso, que abre o WhatsApp com ela pronta (`refundMessage`), e a Política de reembolso (pop-up). Ainda removidas: Removidas: contato com a marca, combinar fórmulas e todos terem probióticos.
 - Pergunta inicial: “Os produtos DALFLORE precisam de receita médica?” Resposta exata fornecida pelo usuário: “Não. Nossos produtos são suplementos alimentares e não necessitam de receita médica. No entanto, recomendamos sempre consultar um profissional de saúde antes de iniciar qualquer suplementação, especialmente gestantes, lactantes e pessoas em tratamento médico.”
 - “Em quanto tempo posso perceber alguma mudança?” recebeu o texto do usuário: “Os resultados variam de acordo com cada organismo e o produto utilizado. Em geral, melhorias iniciais podem ser percebidas entre 15 a 30 dias de uso contínuo. Para resultados mais consistentes e duradouros, recomendamos o uso por 3 a 6 meses.” Esse texto veio do usuário; não confundir esses prazos com instruções comprovadas pelos PDFs.
 - “Como devo consumir e guardar os produtos?” lista os seis produtos. Dose verificada por leitura textual E visual dos seis rótulos: GUTcare, Immune e Slim Balance — ingerir 1 cápsula uma vez ao dia; Concentra+, Cycle e Hair & Skin — ingerir 2 cápsulas uma vez ao dia. A conservação de todos é igual: ao abrigo da luz, calor e umidade, reunida no final da lista para não repetir seis vezes.
@@ -136,7 +136,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 
 - Sem página de SAC. O usuário pediu para retirá-la; o código pronto está no commit `3c629ba`, caso volte.
 - Botão flutuante de WhatsApp no canto inferior direito, círculo no material científico, 64 px a 20 px do canto (56 px a 16 px no celular). Até 1400 px de largura some ao chegar na linha legal do rodapé, para não cobrir os textos.
-- Botão flutuante, ícone do cabeçalho, “Fale com a nossa equipe” e o link SAC do FAQ usam `contactUrl` (`src/catalog.ts`), com a mensagem “Olá! Estou com dúvidas com relação a DalFlore.”. Compra pelo WhatsApp (carrinho e Hair & Skin) mantém a própria mensagem.
+- Botão flutuante, ícone do cabeçalho, “Fale com a nossa equipe” usam `contactUrl` (`src/catalog.ts`), com a mensagem “Olá! Estou com dúvidas com relação a DalFlore.”. Compra pelo WhatsApp (carrinho e Hair & Skin) mantém a própria mensagem.
 
 ### Pop-ups
 

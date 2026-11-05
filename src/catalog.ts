@@ -5,6 +5,7 @@ export const whatsapp = (message: string) =>
 export const contactUrl = whatsapp(
   "Olá! Estou com dúvidas com relação a DalFlore.",
 );
+export const refundMessage = "Gostaria de solicitar a devolução e reembolso do meu pedido";
 export const brl = (value: number) =>
   value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 export type Quantity = 1 | 3 | 6;

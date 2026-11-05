@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { MessageCircle } from "lucide-react";
-import { contactUrl, whatsapp } from "./catalog";
+import { contactUrl, refundMessage, whatsapp } from "./catalog";
 
 const updatedAt = "05/11/2026";
 const phone = "(51) 99726-4646";
@@ -94,10 +94,10 @@ export const legalDocs: Record<string, { title: string; sections: [string, React
         <p>Para iniciar o processo de devolução e reembolso, envie uma mensagem pelo WhatsApp informando sua solicitação:</p>
         <ul>
           <li><strong>WhatsApp:</strong> {phone}</li>
-          <li><strong>Mensagem:</strong> "Gostaria de solicitar a devolução e reembolso do meu pedido"</li>
+          <li><strong>Mensagem:</strong> "{refundMessage}"</li>
         </ul>
         <div className="legal-action">
-          <a className="button" href={whatsapp("Gostaria de solicitar a devolução e reembolso do meu pedido")} target="_blank" rel="noreferrer">
+          <a className="button" href={whatsapp(refundMessage)} target="_blank" rel="noreferrer">
             <MessageCircle size={18} aria-hidden="true" />Solicitar Reembolso via WhatsApp
           </a>
         </div>

@@ -34,6 +34,7 @@ import {
   brl,
   checkoutUrl,
   contactUrl,
+  refundMessage,
   price,
   products,
   whatsapp,
@@ -435,9 +436,9 @@ const faqs: [string, ReactNode][] = [
     "Posso devolver o produto se não gostar?",
     <p>
       Sim. Você tem até 7 dias após o recebimento para solicitar a devolução e
-      reembolso abrindo um chamado no{" "}
-      <a href={contactUrl} target="_blank" rel="noreferrer">
-        SAC
+      reembolso enviando a mensagem{" "}
+      <a href={whatsapp(refundMessage)} target="_blank" rel="noreferrer">
+        "{refundMessage}" pelo nosso WhatsApp
       </a>
       , no caso de dúvidas consulte nossa{" "}
       <a href="#reembolso">Política de reembolso</a>
