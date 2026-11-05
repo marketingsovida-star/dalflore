@@ -13,6 +13,7 @@ export type Product = {
   id: string;
   name: string;
   category: string;
+  descriptor: string;
   summary: string;
   color: string;
   image: string;
@@ -36,6 +37,7 @@ export const products: Product[] = [
     id: "gutcare",
     name: "GUTcare",
     category: "Saúde intestinal",
+    descriptor: "Saúde Intestinal",
     summary:
       "Probióticos e FOS para apoiar a microbiota e o cuidado diário com a saúde intestinal.",
     color: "#6b9c58",
@@ -88,6 +90,7 @@ export const products: Product[] = [
     id: "concentra",
     name: "Concentra+",
     category: "Foco e cognição",
+    descriptor: "Foco e Cognição",
     summary:
       "Probióticos, colina e B6 para complementar o cuidado nutricional com foco e cognição.",
     color: "#b18637",
@@ -159,6 +162,7 @@ export const products: Product[] = [
     id: "immune",
     name: "Immune",
     category: "Saúde imunológica",
+    descriptor: "Saúde Imunológica",
     summary:
       "Probióticos e beta-glucanas para cuidar da microbiota e complementar suas defesas.",
     color: "#699dc0",
@@ -218,6 +222,7 @@ export const products: Product[] = [
     id: "slim-balance",
     name: "Slim Balance",
     category: "Equilíbrio metabólico",
+    descriptor: "Gerenciamento do Peso",
     summary:
       "Probióticos, com L. gasseri, para complementar o cuidado intestinal no controle do peso.",
     color: "#a47daf",
@@ -269,6 +274,7 @@ export const products: Product[] = [
     id: "cycle",
     name: "Cycle",
     category: "Cuidado feminino",
+    descriptor: "Equilíbrio Feminino",
     summary:
       "Probióticos, isoflavonas e magnésio para complementar o cuidado com a saúde feminina.",
     color: "#cd9290",
@@ -338,6 +344,7 @@ export const products: Product[] = [
     id: "hair-skin",
     name: "Hair & Skin",
     category: "Pele, cabelos e unhas",
+    descriptor: "Cabelo e Unhas",
     summary:
       "Silício, biotina e zinco para o cuidado nutricional com a pele, os cabelos e as unhas.",
     color: "#c09257",

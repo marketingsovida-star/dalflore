@@ -7,7 +7,6 @@ export const ingredients = [
     "text": "São substâncias que alimentam microrganismos benéficos do intestino, ajudando essa comunidade a exercer suas funções.",
     "benefits": "Podem favorecer a regularidade intestinal e a saúde digestiva. O efeito depende do tipo e da quantidade utilizada.",
     "source": "https://isappscience.org/wp-content/uploads/2019/04/Prebiotics_Infographic_rev1029.pdf",
-    "sourceLabel": "Veja os benefícios na ISAPP",
     "visualTitle": "Nutrir a microbiota é cuidar do intestino",
     "caption": "O alimento para os microrganismos ajuda a sustentar as funções dessa comunidade.",
     "product": "gutcare",
@@ -19,7 +18,6 @@ export const ingredients = [
     "text": "São microrganismos vivos que, consumidos em quantidades adequadas, oferecem benefícios à saúde.",
     "benefits": "Podem ajudar no conforto digestivo e nas defesas naturais. Os benefícios dependem da cepa, da dose e do uso estudado.",
     "source": "https://isappscience.org/resource/health-benefits-of-probiotics/",
-    "sourceLabel": "Veja os benefícios na ISAPP",
     "visualTitle": "Microrganismos com funções específicas",
     "caption": "Cada cepa tem características próprias: a escolha depende do benefício pesquisado.",
     "product": "immune",
@@ -31,7 +29,6 @@ export const ingredients = [
     "text": "São combinações de microrganismos vivos e substâncias que alimentam a microbiota, com benefício à saúde demonstrado para o conjunto.",
     "benefits": "Podem apoiar a saúde intestinal e a função imune. Os resultados dependem da combinação e das quantidades avaliadas em estudos.",
     "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7581511/",
-    "sourceLabel": "Leia o consenso científico",
     "visualTitle": "Microrganismos e alimento, juntos",
     "caption": "A proposta reúne os dois componentes; o benefício precisa ser avaliado na combinação.",
     "product": "concentra",
@@ -41,10 +38,10 @@ export const ingredients = [
 
 export const pathways = [
   {
-    "label": "Nervos",
-    "title": "Como os nervos participam?",
-    "text": "O nervo vago leva sinais entre intestino e cérebro e participa do controle da digestão.",
-    "benefits": "Essa via ajuda a coordenar a digestão e a resposta ao estresse. Sono, alimentação e rotina de cuidado participam desse equilíbrio.",
+    "label": "Conexões",
+    "title": "Como intestino e cérebro se conectam?",
+    "text": "Intestino e cérebro estão ligados por nervos, que funcionam como fios levando mensagens nos dois sentidos. O principal deles é o nervo vago.",
+    "benefits": "Essa ligação ajuda a coordenar a digestão e a resposta ao estresse. Sono, alimentação e rotina de cuidado participam desse equilíbrio.",
     "visualTitle": "Uma comunicação em duas direções",
     "caption": "O cérebro influencia o intestino, e os sinais do intestino também chegam ao cérebro.",
     "icon": Zap,

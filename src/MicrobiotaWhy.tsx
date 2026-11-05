@@ -3,7 +3,7 @@ import { ArrowUpRight, Check, ShieldCheck } from "lucide-react";
 const steps = [
   { title: "Nutrir a microbiota", text: "Fibras da alimentação nutrem microrganismos benéficos." },
   { title: "Barreira e defesas", text: "A microbiota interage com as defesas e a barreira intestinal." },
-  { title: "Intestino e cérebro", text: "Nervos e moléculas conectam digestão, saciedade e estresse." },
+  { title: "Intestino e cérebro", text: "Conexões entre os dois ligam digestão, saciedade e estresse." },
 ];
 const connections = [
   { title: "Digestão e conforto intestinal", text: "Ajuda a aproveitar componentes dos alimentos.", source: "https://nigms.nih.gov/biobeat/2024/03/what-is-the-microbiome" },
@@ -24,7 +24,7 @@ export function MicrobiotaWhy() {
           <ol className="mw-steps">{steps.map((step, index) => <li key={step.title}><span className="mw-step-number" aria-hidden="true">{"0"+(index+1)}</span><div><h4>{step.title}</h4><p>{step.text}</p></div></li>)}</ol>
         </article>
         <article className="mw-panel mw-connections">
-          <h3><span className="mw-shield"><ShieldCheck size={20}/></span>Além da digestão</h3>
+          <h3><span className="mw-shield"><ShieldCheck size={20}/></span>Clique e veja o que a ciência diz</h3>
           <ul>{connections.map(item => <li key={item.title}><a href={item.source} target="_blank" rel="noreferrer" aria-label={"Ver a pesquisa sobre "+item.title}><span className="mw-check"><Check size={16}/></span><div><h4>{item.title}</h4><p>{item.text}</p></div><ArrowUpRight className="mw-source-arrow" size={15}/></a></li>)}</ul>
         </article>
       </div>

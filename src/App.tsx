@@ -162,7 +162,7 @@ function ProductCard({
       </button>
       <div className="product-body">
         <h3>
-          <button onClick={() => open(p)}>{p.name}<Plus size={18} aria-hidden="true" /></button>
+          <button onClick={() => open(p)}><span>{p.name} <small>- {p.descriptor}</small></span><Plus size={18} aria-hidden="true" /></button>
         </h3>
         <p className="product-summary">{p.summary}</p>
         <div className="product-price">
@@ -528,7 +528,7 @@ function ProductDetail({
             <p className="eyebrow">DALFLORE / {p.category}</p>
             <span>{p.capsules} cápsulas</span>
           </div>
-          <h2>{p.name}</h2>
+          <h2>{p.name} <small>- {p.descriptor}</small></h2>
           <h3>{p.emphasis}</h3>
           <p>{p.description}</p>
           <div className="detail-price">
@@ -682,7 +682,7 @@ function Cart({
                   />
                   <div>
                     <p className="eyebrow">{p.category}</p>
-                    <h3>{p.name}</h3>
+                    <h3>{p.name} <small>- {p.descriptor}</small></h3>
                     <p>
                       {item.quantity}{" "}
                       {item.quantity === 1 ? "frasco" : "frascos"} por kit

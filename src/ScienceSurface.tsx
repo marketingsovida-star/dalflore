@@ -1,7 +1,7 @@
 import { type PointerEvent, type ReactNode } from "react";
 
 /** A quiet, shared frame with gentle pointer-driven depth. */
-export function ScienceSurface({ className, scene, children }: { className: string; scene: ReactNode; children: ReactNode }) {
+export function ScienceSurface({ className, label, onLabel, scene, children }: { className: string; label: string; onLabel: () => void; scene: ReactNode; children: ReactNode }) {
   const move = (event: PointerEvent<HTMLDivElement>) => {
     if (event.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const element = event.currentTarget;
@@ -17,5 +17,6 @@ export function ScienceSurface({ className, scene, children }: { className: stri
   return <div className={"sx-art " + className} onPointerEnter={move} onPointerMove={move} onPointerLeave={leave}>
     <div className="sx-illustration-scene">{scene}</div>
     <div className="sx-art-controls">{children}</div>
+    <button className="sx-art-label" aria-haspopup="dialog" onClick={onLabel}>{label}</button>
   </div>;
 }

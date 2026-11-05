@@ -12,7 +12,7 @@ const banners: { name: string; image: string; title: string; description: string
     title: "Cuidar começa\npor dentro.",
     description: "GUTcare combina 4 cepas probióticas e o prebiótico FOS para cuidar da microbiota e apoiar a saúde intestinal.",
     alt: "Aline com um frasco de GUTcare DalFlore em um ambiente iluminado e cercado de plantas",
-    actions: [{ id: "gutcare", label: "Conhecer GUTcare" }, { href: "#aline", label: "Conhecer a Aline" }],
+    actions: [{ id: "gutcare", label: "Conhecer GUTcare" }, { href: "#aline", label: "Quem está por trás da DalFlore" }],
   },
   {
     name: "Slim Balance",

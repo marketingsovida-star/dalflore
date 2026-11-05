@@ -10,19 +10,19 @@ import { ingredients, pathways } from "./scienceContent";
 const review = "https://pubmed.ncbi.nlm.nih.gov/31460832/";
 const topics = [
   ...ingredients.map((item, index) => ({ ...item, icon: [Sprout, Microscope, Blend][index], group: "Microbiota" })),
-  ...pathways.map(item => ({ ...item, source: review, sourceLabel: "Leia a revisão científica", group: "Intestino e cérebro" })),
+  ...pathways.map(item => ({ ...item, source: review, group: "Intestino e cérebro" })),
   {
     label: "Microbiota", title: "O que é a microbiota?",
     text: "A microbiota intestinal é o conjunto de microrganismos que vive no intestino. Ela participa do aproveitamento dos alimentos, da proteção da barreira intestinal e da comunicação com o sistema imune e o cérebro.",
     benefits: "Alimentação variada, sono e acompanhamento profissional fazem parte do cuidado com essa comunidade.",
-    source: review, sourceLabel: "Leia a revisão científica", group: "Microbiota", icon: IntestineIcon,
+    source: review, group: "Microbiota", icon: IntestineIcon,
     product: "gutcare", productText: ingredients[0].productText,
   },
   {
     label: "Intestino e cérebro", title: "Por que intestino e cérebro estão conectados?",
     text: "Os microrganismos do intestino produzem moléculas e interagem com nervos e células de defesa. Esses sinais participam da comunicação com o cérebro, ligada à digestão e à resposta ao estresse.",
     benefits: "Essa troca acontece nos dois sentidos: o cérebro também influencia o funcionamento do intestino.",
-    source: review, sourceLabel: "Leia a revisão científica", group: "Intestino e cérebro", icon: Brain,
+    source: review, group: "Intestino e cérebro", icon: Brain,
     product: "concentra", productText: pathways[0].productText,
   },
 ];
@@ -36,7 +36,7 @@ function Point({ topic, className, explore }: { topic: number; className: string
 }
 
 function AxisMap({ explore }: { explore: (index: number) => void }) {
-  return <ScienceSurface className="sx-axis" scene={<svg viewBox="55 10 390 390" fill="none" aria-hidden="true">
+  return <ScienceSurface className="sx-axis" label="Intestino e cérebro" onLabel={() => explore(7)} scene={<svg viewBox="55 10 390 390" fill="none" aria-hidden="true">
       <defs><radialGradient id="sx-molecule"><stop stopColor="#e0f6c7"/><stop offset="1" stopColor="#a3d38b" stopOpacity=".2"/></radialGradient></defs>
       <path d="M152 272C78 234 119 95 254 150M365 160C422 212 365 341 260 280" stroke="#99c781" strokeOpacity=".65" strokeWidth="1.8"/>
       <path className="sx-signal" d="M152 272C78 234 119 95 254 150" stroke="#e0f4c8" strokeWidth="3" strokeDasharray="5 220" strokeLinecap="round"/>
@@ -72,7 +72,7 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
       <header className="sx-heading"><h2 id="science-explorer-title">Explore a ciência do seu cuidado.</h2><p>Descubra como tudo se relaciona clicando nos símbolos para abrir as explicações.</p></header>
       <div className="sx-maps">
         <figure className="sx-map" aria-label="Explore prebióticos, probióticos e simbióticos">
-          <ScienceSurface className="sx-microbiota" scene={<MicrobiotaArt active={0} highlighted={highlightedMicrobe}/>}>
+          <ScienceSurface className="sx-microbiota" label="Microbiota" onLabel={() => explore(6)} scene={<MicrobiotaArt active={0} highlighted={highlightedMicrobe}/>}>
             {microbiotaCells.map(([x,y,angle,scale],index) => <button key={index} className="sx-microbe-target" aria-label={"Entender a microbiota: microrganismo " + (index + 1)} aria-haspopup="dialog" style={{left:((x-55)/390*100)+"%",top:((y-10)/390*100)+"%",width:(62/390*100)+"%",height:(104/390*100)+"%",transform:"translate(-50%,-50%) rotate("+angle+"deg) scale("+scale+")"}} onPointerEnter={() => setHighlightedMicrobe(index)} onPointerLeave={() => setHighlightedMicrobe(null)} onFocus={() => setHighlightedMicrobe(index)} onBlur={() => setHighlightedMicrobe(null)} onClick={() => explore(6)}/>)} 
           </ScienceSurface>
         </figure>
@@ -86,7 +86,7 @@ export function ScienceJourney({ open }: { open: (product: Product) => void }) {
       <div className="sx-explanation" key={item.label}>
         <div className="sx-explanation-symbol"><Icon/></div>
         <h2 aria-live="polite">{item.title}</h2><p>{item.text} {item.benefits}</p>
-        <a className="sx-research" href={item.source} target="_blank" rel="noreferrer">{item.sourceLabel}<ArrowUpRight size={14}/></a>
+        <a className="sx-research" href={item.source} target="_blank" rel="noreferrer">Leia o consenso científico<ArrowUpRight size={14}/></a>
         <aside className="sx-product"><span>Da ciência à sua rotina</span><p>{item.productText}</p><button onClick={openProduct}>Conhecer {products.find(product => product.id === item.product)!.name}<ArrowUpRight size={16}/></button></aside>
       </div>
       <nav className="sx-explanation-nav" aria-label="Explorar outros temas"><button onClick={() => setSelected(((selected ?? 0) + topics.length - 1) % topics.length)}><ArrowLeft size={16}/>Anterior</button><span>{(selected ?? 0) + 1} de {topics.length}</span><button onClick={() => setSelected(((selected ?? 0) + 1) % topics.length)}>Próximo<ArrowRight size={16}/></button></nav>

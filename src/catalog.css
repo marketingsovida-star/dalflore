@@ -63,3 +63,8 @@
 @keyframes purchase-light { from { opacity:.55; } to { opacity:.9; } }
 @media(prefers-reduced-motion:reduce){.df-catalog button.buy::after{animation:none}}
 .df-catalog .product-card { scroll-margin-top:100px; }
+
+.df-catalog .product-body h3 { font-size:22px; }
+.df-catalog .product-body h3 button small { font:500 13px/1.3 'Open Sans',Arial,sans-serif; letter-spacing:0; color:#cde7b9; white-space:nowrap; }
+/* A descriptor that wraps must not push the price rows out of line with the neighbouring cards. */
+.df-catalog .product-price { margin-top:auto; }

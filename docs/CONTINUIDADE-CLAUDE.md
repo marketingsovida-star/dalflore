@@ -53,7 +53,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - Três fotos fornecidas pelo usuário, nesta ordem: Aline com GUTcare; Slim Balance; Hair & Skin + Immune.
 - Preservar tamanho e enquadramento aprovados. Houve várias correções; o usuário rejeitou alterar o tamanho da seção para resolver enquadramento.
 - Botões “Conhecer” de produto rolam até o card do produto (`card-<id>`), sem abrir pop-up.
-- Todos têm dois botões: GUTcare + conhecer Aline; Slim Balance + conhecer ciência; Hair & Skin + Immune com igual destaque.
+- Todos têm dois botões: GUTcare + "Quem está por trás da DalFlore" (leva à seção da Aline); Slim Balance + conhecer ciência; Hair & Skin + Immune com igual destaque.
 - Textos à esquerda, títulos padronizados em duas linhas, descrição em até três linhas explicando composição e função do produto.
 - Botões escuros com material/bordas científicos. Controle compacto: setas, três pontos com ativo alongado, pausa. Sem números grandes ou muitas molduras.
 - Logo branca no banner. Partículas e luz ficam em áreas livres, sem cobrir os textos ou mudar as fotos.
@@ -72,6 +72,8 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - Título exato: “Explore a ciência do seu cuidado.”
 - Subtítulo: “Descubra como tudo se relaciona clicando nos símbolos para abrir as explicações.”
 - À esquerda, ilustração da microbiota; ao centro, seis cards em três colunas por duas linhas; à direita, intestino/cérebro.
+- As ilustrações têm o nome embaixo, dentro da moldura ("Microbiota" e "Intestino e cérebro"), como nos cards; o nome também abre a explicação.
+- O card de nervos se chama "Conexões". Todo link de fonte da ciência diz "Leia o consenso científico" (pedido da Aline). O painel de links se chama "Clique e veja o que a ciência diz".
 - Molduras das ilustrações são RETANGULARES de cantos arredondados, não círculos. Fundo escuro e contornos iguais aos cards.
 - Microbiota tem cinco microrganismos com hover/foco individual: ampliam, sobem um pouco e clareiam. Clique abre explicação geral da microbiota. Não sugerir que o formato identifica cepa.
 - Intestino e cérebro reconhecíveis, com conexões que não atravessam os símbolos. Manter símbolos afastados das bordas.
@@ -88,6 +90,7 @@ Copiar a lógica visual, não as cores, textos médicos ou identidade das outras
 - O painel separado verde atrás do mockup foi removido. Curvas/orbitas ao redor dos frascos foram testadas e RETIRADAS por poluição visual.
 - Restam duas partículas suaves por frasco e um halo discreto, sempre se movendo sem depender do mouse.
 - Textos alinhados à ESQUERDA. O usuário testou tudo centralizado e rejeitou. O “+” fica próximo ao nome do produto (gap de 8 px).
+- Nome + `descriptor` ao lado (card, pop-up e carrinho), com a frase do rótulo do frasco: "Concentra+ - Foco e Cognição". Hair & Skin é "Cabelo e Unhas" por pedido da Aline (o frasco diz outra coisa). Slim Balance usa "Gerenciamento do Peso": o mockup tem o erro "Gereciamento".
 - Descrições de três linhas, com ingredientes + para que serve. Não inventar ativos a partir do nome.
 - Compra e quantidade: material verde escuro e raio de 24 px. Botão Adicionar ao carrinho tem iluminação superior e brilho discreto, variando lentamente.
 - Quantidades 1, 3 e 6. Kits de três/seis mostram o total de unidades avulsas riscado ao lado do preço do kit. Não voltar com “melhor valor”.

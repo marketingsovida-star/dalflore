@@ -154,3 +154,6 @@
  .sx-explanation{padding:20px 18px}
 }
 @media(prefers-reduced-motion:reduce){.detail-image::before,.detail-research,.detail-research::after{animation:none!important}.overlay-cart[open],.overlay-cart[open].is-closing{animation:none}.cart-controls > button,.detail-composition,:is(.detail-composition,.detail-research) > svg{transition:none}:is(.detail-composition,.detail-research):hover > svg:last-child{transform:none}}
+
+.detail-intro h2 small { font:500 17px/1.3 "Open Sans",Arial,sans-serif; letter-spacing:0; color:#cde7b9; white-space:nowrap; }
+.cart-item h3 small { font:500 13px/1.3 "Open Sans",Arial,sans-serif; color:#cde7b9; white-space:nowrap; }
