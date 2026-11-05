@@ -808,12 +808,6 @@ footer {
   color: #285e37;
   max-width: 370px;
 }
-.overlay-privacy {
-  width: 650px;
-}
-.privacy-panel {
-  padding: 28px 32px;
-}
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -836,18 +830,6 @@ footer {
 .empty-state > .button {
   margin-top: 25px;
   min-width: 220px;
-}
-.privacy-panel h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-.privacy-panel > p {
-  font-size: 17px;
-  color: var(--muted);
-  margin-top: 16px;
-}
-.privacy-panel > .text-link {
-  margin-top: 25px;
 }
 .overlay-cart {
   margin: 0 0 0 auto;
@@ -1482,15 +1464,6 @@ footer {
   }
   .usage small {
     font-size: 14px;
-  }
-  .privacy-panel {
-    padding: 24px 20px;
-  }
-  .privacy-panel h2 {
-    font-size: 26px;
-  }
-  .privacy-panel > p {
-    font-size: 16px;
   }
   .cart-panel {
     padding: 8px 20px 22px;

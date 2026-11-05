@@ -1,13 +1,9 @@
-import { ArrowUpRight } from "lucide-react";
-
 export function SiteFooter({
   home,
   logo,
-  onPrivacy,
 }: {
   home: string;
   logo: string;
-  onPrivacy: () => void;
 }) {
   return (
     <footer className="site-footer">
@@ -46,56 +42,12 @@ export function SiteFooter({
             </span>
           </p>
           <nav aria-label="Políticas da loja">
-            <button onClick={onPrivacy}>Privacidade</button>
-            <a
-              href="https://dalflore.com.br/politica-de-reembolso"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Política de reembolso
-            </a>
-            <a
-              href="https://dalflore.com.br/politica-de-privacidade#termos-de-uso"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Termos de uso
-            </a>
+            <a href="#privacidade">Privacidade</a>
+            <a href="#reembolso">Política de reembolso</a>
+            <a href="#termos">Termos de uso</a>
           </nav>
         </div>
       </div>
     </footer>
-  );
-}
-
-export function PrivacyPanel() {
-  return (
-    <div className="privacy-panel">
-      <h2>Suas escolhas, com transparência.</h2>
-      <p>
-        Este site guarda os itens do carrinho somente no navegador, para que
-        suas escolhas permaneçam ao voltar. Você pode limpar esses dados nas
-        configurações do seu navegador.
-      </p>
-      <p>
-        Este site não utiliza formulários de cadastro ou ferramentas de
-        publicidade. Ao abrir WhatsApp, Instagram, checkout ou links
-        científicos, você acessa serviços externos, sujeitos às próprias
-        políticas de privacidade.
-      </p>
-      <p>
-        O pedido só é enviado ao atendimento quando você abre o WhatsApp e
-        confirma o envio da mensagem. Os pagamentos são realizados no ambiente
-        do provedor de checkout.
-      </p>
-      <a
-        className="text-link"
-        href="https://dalflore.com.br/politica-de-privacidade"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Consulte a política da loja atual <ArrowUpRight size={15} />
-      </a>
-    </div>
   );
 }

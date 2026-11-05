@@ -45,15 +45,19 @@ import { Overlay } from "./Overlay";
 import { MicrobiotaWhy } from "./MicrobiotaWhy";
 import { ScienceJourney } from "./ScienceJourney";
 import { HomeBanners } from "./HomeBanners";
-import { PrivacyPanel, SiteFooter } from "./SiteFooter";
+import { LegalPanel, legalDocs } from "./LegalDocs";
+import { SiteFooter } from "./SiteFooter";
 import { useSmoothMotion } from "./useSmoothMotion";
 
 type CartItem = { id: string; quantity: Quantity; count: number };
 type ModalState =
   | { kind: "product"; id: string }
-  | { kind: "cart" | "privacy" }
+  | { kind: "legal"; doc: string }
+  | { kind: "cart" }
   | null;
-const getProductHash = (): ModalState => {
+const getHashModal = (): ModalState => {
+  const doc = window.location.hash.slice(1);
+  if (Object.hasOwn(legalDocs, doc)) return { kind: "legal", doc };
   const id = window.location.hash.replace("#produto/", "");
   return window.location.hash.startsWith("#produto/") &&
     products.some((p) => p.id === id)
@@ -436,13 +440,7 @@ const faqs: [string, ReactNode][] = [
         SAC
       </a>
       , no caso de dúvidas consulte nossa{" "}
-      <a
-        href="https://dalflore.com.br/politica-de-reembolso"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Política de reembolso
-      </a>
+      <a href="#reembolso">Política de reembolso</a>
       .
     </p>,
   ],
@@ -775,7 +773,7 @@ function Cart({
 }
 export default function App() {
   useSmoothMotion();
-  const [modal, setModal] = useState<ModalState>(getProductHash);
+  const [modal, setModal] = useState<ModalState>(getHashModal);
   const [mobile, setMobile] = useState(false);
   const [bannerCleared, setBannerCleared] = useState(false);
   const [expertTab, setExpertTab] = useState("aline");
@@ -806,12 +804,14 @@ export default function App() {
     }
   }, [cart]);
   useEffect(() => {
-    const fn = () => setModal(getProductHash());
+    const fn = () => setModal(getHashModal());
     window.addEventListener("hashchange", fn);
     return () => window.removeEventListener("hashchange", fn);
   }, []);
   const close = () => {
     setModal(null);
+    if (Object.hasOwn(legalDocs, window.location.hash.slice(1)))
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
     if (window.location.hash.startsWith("#produto/"))
       window.history.replaceState(
         null,
@@ -938,7 +938,6 @@ export default function App() {
       <SiteFooter
         home="#"
         logo={asset("brand/logo-white.png")}
-        onPrivacy={() => setModal({ kind: "privacy" })}
       />
       <a
         className={`whatsapp-float${legalVisible ? " is-over-legal" : ""}`}
@@ -953,7 +952,7 @@ export default function App() {
       </a>
       {modal && (
         <Overlay
-          key={modal.kind === "product" ? modal.id : modal.kind}
+          key={modal.kind === "product" ? modal.id : modal.kind === "legal" ? modal.doc : modal.kind}
           type={modal.kind}
           close={close}
           title={
@@ -961,7 +960,7 @@ export default function App() {
               ? `Conheça a fórmula / ${products.find((p) => p.id === modal.id)!.name}`
               : modal.kind === "cart"
                 ? "Seu carrinho"
-                : "Privacidade e navegação"
+                : "Políticas da loja"
           }
         >
           {modal.kind === "product" ? (
@@ -972,7 +971,7 @@ export default function App() {
           ) : modal.kind === "cart" ? (
             <Cart items={cart} setItems={setCart} close={close} />
           ) : (
-            <PrivacyPanel />
+            <LegalPanel doc={modal.doc} />
           )}
         </Overlay>
       )}
