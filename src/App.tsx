@@ -436,9 +436,9 @@ const faqs: [string, ReactNode][] = [
     "Posso devolver o produto se não gostar?",
     <p>
       Sim. Você tem até 7 dias após o recebimento para solicitar a devolução e
-      reembolso enviando a mensagem{" "}
+      reembolso enviando a mensagem "{refundMessage}" pelo nosso{" "}
       <a href={whatsapp(refundMessage)} target="_blank" rel="noreferrer">
-        "{refundMessage}" pelo nosso WhatsApp
+        WhatsApp
       </a>
       , no caso de dúvidas consulte nossa{" "}
       <a href="#reembolso">Política de reembolso</a>
